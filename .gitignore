@@ -1,0 +1,7 @@
+# GitHub Token - 不要提交到仓库
+.github_token
+
+# 其他忽略项
+*.log
+.DS_Store
+node_modules/
