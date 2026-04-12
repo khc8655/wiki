@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-368",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "主会场设置",
+  "path": "主会场设置",
+  "level": 2,
+  "line_start": 966,
+  "char_count": 53,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "通过会控操作，可以对与会者进行主会场设置，H323/SIP终端可以观看被设置为主会场终端的声音和视频画面。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

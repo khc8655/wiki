@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-375",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "通话媒体质量检测",
+  "path": "通话媒体质量检测",
+  "level": 2,
+  "line_start": 994,
+  "char_count": 94,
+  "tags": [
+    "architecture"
+  ],
+  "body": "通过web管理平台对当前进行通话的音视频进行实时检测，包括H323/SIP声音数据、视频数据、内容分享数据、数据丢包、数据抖动、协商能力、使用带宽等信息。\n\n* + 1. **技术参数**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

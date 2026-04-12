@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-153",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "主持人可对未入会者快速发起呼叫，若接通，则邀请成功，该人已入会；若失败，则显示失败原因，可重新呼。",
+  "path": "主持人可对未入会者快速发起呼叫，若接通，则邀请成功，该人已入会；若失败，则显示失败原因，可重新呼。",
+  "level": 2,
+  "line_start": 447,
+  "char_count": 48,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + 1. **会议全局控制**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

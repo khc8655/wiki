@@ -1,0 +1,18 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-414",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "会议纪要：在视频会议中，基于语音识别技术，记录会议中的语音，生成文档，作为会议纪要备份。用户可以在会后通过会议管理平台获取。",
+  "path": "会议纪要：在视频会议中，基于语音识别技术，记录会议中的语音，生成文档，作为会议纪要备份。用户可以在会后通过会议管理平台获取。",
+  "level": 2,
+  "line_start": 1058,
+  "char_count": 0,
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

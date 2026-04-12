@@ -1,0 +1,26 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-100",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "企业的管理员通过登录企业管理平台，可以创建预约会议、创建会议模板；查看其他成员创建的预约会议和会议模板。",
+  "path": "企业的管理员通过登录企业管理平台，可以创建预约会议、创建会议模板；查看其他成员创建的预约会议和会议模板。",
+  "level": 2,
+  "line_start": 224,
+  "char_count": 0,
+  "tags": [
+    "architecture",
+    "meeting-control",
+    "security"
+  ],
+  "body": "",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 1
+}

@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-370",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "对称RTP",
+  "path": "对称RTP",
+  "level": 2,
+  "line_start": 974,
+  "char_count": 74,
+  "tags": [],
+  "body": "智能识别呼入H323/SIP设备的网络拓扑，自动启用对称RTP功能进行防火墙、NAT穿越，保证音视频码流能够传送到NAT内部的H323/SIP设备。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

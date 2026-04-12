@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-292",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "媒体直播和录制模块架构",
+  "path": "媒体直播和录制模块架构",
+  "level": 2,
+  "line_start": 793,
+  "char_count": 85,
+  "tags": [
+    "architecture"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + 1. **媒体直播和录制架构描述**\n\n录制模块主要包括录制管理服务器（RM）和录制服务器（RS）。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

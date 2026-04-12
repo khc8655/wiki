@@ -1,0 +1,20 @@
+{
+  "id": "05-llm-wiki-reference-sec-004",
+  "doc_file": "05-llm-wiki-reference.md",
+  "title": "Wiki: LLM-maintained markdown pages that accumulate synthesized knowledge.",
+  "path": "LLM Wiki Reference > Wiki: LLM-maintained markdown pages that accumulate synthesized knowledge.",
+  "level": 2,
+  "line_start": 12,
+  "char_count": 0,
+  "tags": [],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [
+    "05-llm-wiki-reference-sec-001",
+    "05-llm-wiki-reference-sec-002",
+    "05-llm-wiki-reference-sec-003",
+    "05-llm-wiki-reference-sec-005"
+  ],
+  "source_weight": 1
+}

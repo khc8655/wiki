@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-285",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "终端接入线路动态选择算法",
+  "path": "终端接入线路动态选择算法",
+  "level": 2,
+  "line_start": 781,
+  "char_count": 84,
+  "tags": [
+    "architecture"
+  ],
+  "body": "根据终端所属单位，可提供专有NMS的接入。根据终端所在物理位置，可提供就近接入。根据NMS负载情况，可提供终端的负载均衡接入。\n\n* + 1. **媒体交换技术参数**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

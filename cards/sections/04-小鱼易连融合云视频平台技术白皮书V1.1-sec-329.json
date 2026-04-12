@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-329",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "存储系统对于云视频平台而言，直接使用云计算的对象存储服务。",
+  "path": "存储系统对于云视频平台而言，直接使用云计算的对象存储服务。",
+  "level": 2,
+  "line_start": 857,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

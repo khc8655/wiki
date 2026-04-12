@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-135",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "PC客户端也可以通过直接主持会议，在会议中通过邀请成员的方式将会议召开起来，这样的情况下客户端不加入会议只主持会议。",
+  "path": "PC客户端也可以通过直接主持会议，在会议中通过邀请成员的方式将会议召开起来，这样的情况下客户端不加入会议只主持会议。",
+  "level": 2,
+  "line_start": 315,
+  "char_count": 50,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* 1. **预约会议支持立即开始**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

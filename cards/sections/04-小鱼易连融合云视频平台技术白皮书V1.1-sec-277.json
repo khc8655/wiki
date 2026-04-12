@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-277",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "音频自动增益控制算法（AGC）",
+  "path": "音频自动增益控制算法（AGC）",
+  "level": 2,
+  "line_start": 747,
+  "char_count": 49,
+  "tags": [],
+  "body": "承载在终端设备上，自动调整终端发送侧的增益。可适应较大的音频输入动态范围，有效实现远场/近场拾音。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

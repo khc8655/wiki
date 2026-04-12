@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-166",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "BA：接收并分发Akka消息给不同的信令服务器，并返回信令服务器的回复。",
+  "path": "BA：接收并分发Akka消息给不同的信令服务器，并返回信令服务器的回复。",
+  "level": 2,
+  "line_start": 531,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

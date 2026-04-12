@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-110",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "meeting服务： 会控服务，主要提供会议的实时调度和控制等相关的功能。",
+  "path": "meeting服务： 会控服务，主要提供会议的实时调度和控制等相关的功能。",
+  "level": 2,
+  "line_start": 433,
+  "char_count": 0,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

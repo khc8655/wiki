@@ -1,0 +1,9 @@
+{
+  "applies_to_scenario": 574,
+  "deploys_with": 6,
+  "external_device": 6,
+  "fits_scenario": 35,
+  "has_capability": 52,
+  "has_component": 41,
+  "uses_dataflow": 16
+}

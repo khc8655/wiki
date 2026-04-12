@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-162",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "强制静音状态下，分会场无法自己解除静音，只有主持人能在会控界面上对终端进行解除静音。",
+  "path": "强制静音状态下，分会场无法自己解除静音，只有主持人能在会控界面上对终端进行解除静音。",
+  "level": 2,
+  "line_start": 471,
+  "char_count": 0,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

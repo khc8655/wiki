@@ -1,0 +1,162 @@
+{
+  "AE2060": [
+    {
+      "component": "扬声器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-138"
+    },
+    {
+      "component": "摄像机",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-138"
+    },
+    {
+      "component": "编解码器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-138"
+    },
+    {
+      "component": "触控屏",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-138"
+    },
+    {
+      "component": "麦克风",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-138"
+    }
+  ],
+  "AE330": [
+    {
+      "component": "扬声器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-128"
+    },
+    {
+      "component": "摄像机",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-128"
+    },
+    {
+      "component": "编解码器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-128"
+    },
+    {
+      "component": "触控屏",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-128"
+    },
+    {
+      "component": "麦克风",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-128"
+    }
+  ],
+  "AE700": [
+    {
+      "component": "摄像机",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-108"
+    },
+    {
+      "component": "无线传屏器",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-108"
+    },
+    {
+      "component": "终端主机",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-108"
+    },
+    {
+      "component": "麦克风",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-108"
+    }
+  ],
+  "TP650": [
+    {
+      "component": "OPS电脑模块",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "壁挂支架",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "摄像机",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "无线传屏器",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "移动支架",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "触控笔",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "麦克风",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-162"
+    },
+    {
+      "component": "扬声器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-161"
+    }
+  ],
+  "TP860": [
+    {
+      "component": "OPS电脑模块",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "壁挂支架",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "摄像机",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "无线传屏器",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "移动支架",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "触控笔",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "麦克风",
+      "confidence": 93.0,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-166"
+    },
+    {
+      "component": "扬声器",
+      "confidence": 72.2,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-165"
+    }
+  ]
+}

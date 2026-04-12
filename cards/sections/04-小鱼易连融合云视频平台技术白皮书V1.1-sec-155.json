@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-155",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Management：管理所有从终端、浏览器、其他server以及业务系统平台发送过来的请求。",
+  "path": "Management：管理所有从终端、浏览器、其他server以及业务系统平台发送过来的请求。",
+  "level": 2,
+  "line_start": 520,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

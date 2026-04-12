@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-171",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "主持人可以在会控界面停止任何人开启的录制，终端只能停止自己开始的录制。",
+  "path": "主持人可以在会控界面停止任何人开启的录制，终端只能停止自己开始的录制。",
+  "level": 2,
+  "line_start": 490,
+  "char_count": 48,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + - 1. **锁定会议**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

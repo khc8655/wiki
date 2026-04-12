@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-328",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "媒体存储和点播模块架构",
+  "path": "媒体存储和点播模块架构",
+  "level": 2,
+  "line_start": 849,
+  "char_count": 100,
+  "tags": [
+    "architecture"
+  ],
+  "body": "![Picture 2](data:image/png;base64...)\n\n* + 1. **媒体存储和点播架构描述**\n\n媒体存储和点播系统主要包括VOD服务、VOD管理、VOD分享和对象存储。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

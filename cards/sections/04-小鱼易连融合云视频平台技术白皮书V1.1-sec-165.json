@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-165",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Akka：直播与信令交互过程中，使用Akka消息进行开始直播、结束直播以及通知推流地址更改的事件。",
+  "path": "Akka：直播与信令交互过程中，使用Akka消息进行开始直播、结束直播以及通知推流地址更改的事件。",
+  "level": 2,
+  "line_start": 530,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

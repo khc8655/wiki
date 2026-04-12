@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-084",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Scheduler service定时服务。预约会议自动入会，会议开始前15分钟提醒等服务。",
+  "path": "Scheduler service定时服务。预约会议自动入会，会议开始前15分钟提醒等服务。",
+  "level": 2,
+  "line_start": 386,
+  "char_count": 115,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "* + 1. **智能检测（巡检）服务子模块**\n\n会议中的终端智能检测，用于会议主持人对与会中终端发起无人值守的检测，获得终端在会的相关状态信息；检测内容包括终端的网络状态、终端的摄像头采集状态、终端的扬声器和麦克风采集的状态。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

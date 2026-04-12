@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-202",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "主持人点击结束会议，则当前所有参会者被强制断开呼叫，离开会议；会议结束",
+  "path": "主持人点击结束会议，则当前所有参会者被强制断开呼叫，离开会议；会议结束",
+  "level": 2,
+  "line_start": 565,
+  "char_count": 0,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

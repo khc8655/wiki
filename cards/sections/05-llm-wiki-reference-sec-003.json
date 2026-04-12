@@ -1,0 +1,20 @@
+{
+  "id": "05-llm-wiki-reference-sec-003",
+  "doc_file": "05-llm-wiki-reference.md",
+  "title": "Raw sources: immutable source documents.",
+  "path": "LLM Wiki Reference > Raw sources: immutable source documents.",
+  "level": 2,
+  "line_start": 11,
+  "char_count": 0,
+  "tags": [],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [
+    "05-llm-wiki-reference-sec-001",
+    "05-llm-wiki-reference-sec-002",
+    "05-llm-wiki-reference-sec-004",
+    "05-llm-wiki-reference-sec-005"
+  ],
+  "source_weight": 1
+}

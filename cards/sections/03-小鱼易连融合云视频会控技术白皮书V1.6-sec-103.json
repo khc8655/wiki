@@ -1,0 +1,27 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-103",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "三、手机App入口",
+  "path": "用户管理中，企业的管理员可以为部分用户分配分级管理员角色；并通过角色权限配置限制分级管理员能访问的菜单和能够使用的会议调度功能。 > 三、手机App入口",
+  "level": 3,
+  "line_start": 230,
+  "char_count": 0,
+  "tags": [
+    "meeting-control",
+    "security"
+  ],
+  "body": "",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [
+    "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-102"
+  ],
+  "source_weight": 1
+}

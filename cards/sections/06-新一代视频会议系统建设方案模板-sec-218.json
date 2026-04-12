@@ -1,0 +1,27 @@
+{
+  "id": "06-新一代视频会议系统建设方案模板-sec-218",
+  "doc_file": "06-新一代视频会议系统建设方案模板.bin",
+  "title": "轻量化集成：Schema跳转",
+  "path": "与第三方业务系统对接 > 与第三方APP集成小鱼音视频能力 > 轻量化集成：Schema跳转",
+  "level": 3,
+  "line_start": 2045,
+  "char_count": 354,
+  "tags": [
+    "architecture"
+  ],
+  "body": "手机可同时安装第三方业务App和小鱼易连App。在第三方业务App通过点击链接方式自动跳转唤醒小鱼易连App。可将以下链接集成到统一门户平台App中的某一页面按钮中：\n\n<a href=\"xylink://joinMeeting?number=9005698043&displayName=zhangxp=\n\n&autoAudioMute=false&autoVideoMute=true&contentOnlyMode=true&quitWhenCallFinish=true\">schema加入会议</a>\n\n集成效果：当点击此链接时自动跳转小鱼易连App加入会议，自动呼叫9005698043会议号，显示的入会名称为zhangxp、自动关闭摄像头。此集成方式开发工作量极小，但用户须提前安装两个客户端。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [
+    "06-新一代视频会议系统建设方案模板-sec-215",
+    "06-新一代视频会议系统建设方案模板-sec-216",
+    "06-新一代视频会议系统建设方案模板-sec-217",
+    "06-新一代视频会议系统建设方案模板-sec-219",
+    "06-新一代视频会议系统建设方案模板-sec-220",
+    "06-新一代视频会议系统建设方案模板-sec-221",
+    "06-新一代视频会议系统建设方案模板-sec-222",
+    "06-新一代视频会议系统建设方案模板-sec-223",
+    "06-新一代视频会议系统建设方案模板-sec-224"
+  ],
+  "source_weight": 3
+}

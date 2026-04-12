@@ -1,0 +1,25 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-113",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "动态扩容服务子模块总体架构描述",
+  "path": "动态扩容服务子模块总体架构描述",
+  "level": 2,
+  "line_start": 443,
+  "char_count": 0,
+  "tags": [
+    "architecture",
+    "stability"
+  ],
+  "body": "",
+  "related_topics": [
+    "stability"
+  ],
+  "aliases": [
+    "可靠性保障",
+    "稳定保障",
+    "高可用",
+    "高可靠"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

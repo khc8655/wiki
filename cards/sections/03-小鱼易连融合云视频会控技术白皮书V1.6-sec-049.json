@@ -1,0 +1,24 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-049",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "为了方便不同层级的管理员的各种分级会议的调度，同一个终端可以加入到多个目录树中。",
+  "path": "为了方便不同层级的管理员的各种分级会议的调度，同一个终端可以加入到多个目录树中。",
+  "level": 2,
+  "line_start": 112,
+  "char_count": 51,
+  "tags": [
+    "security"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* 1. **分级管理员权限可见管理**",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 1
+}

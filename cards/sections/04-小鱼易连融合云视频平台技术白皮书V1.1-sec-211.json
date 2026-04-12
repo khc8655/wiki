@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-211",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "分发控制：信令内部消息的分组分发模块，保证内部信令交互能够正确路由到正确的会议所在的信令服务器。",
+  "path": "分发控制：信令内部消息的分组分发模块，保证内部信令交互能够正确路由到正确的会议所在的信令服务器。",
+  "level": 2,
+  "line_start": 605,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

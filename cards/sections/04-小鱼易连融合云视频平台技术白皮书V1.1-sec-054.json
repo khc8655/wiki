@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-054",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "预约会议随机云会议室：以90+10位随机数字组成，具有有效期设定，过了有效期自动删除。",
+  "path": "预约会议随机云会议室：以90+10位随机数字组成，具有有效期设定，过了有效期自动删除。",
+  "level": 2,
+  "line_start": 280,
+  "char_count": 229,
+  "tags": [
+    "architecture"
+  ],
+  "body": "信令在呼叫云会议室时，USS会直接查这个表判断有没有这个会议室，同时判断这个会议室是否在有效期内。\n\n* + - 1. **日志服务子模块**\n\n客户端上传Log到LogServer，LogServer将Log存储到本地磁盘和云端存储，LogServer生成Redmine记录提供给客户成功部门等进行问题追踪，同时生成Kafka信息记录到大数据平台。在默认的情况下，LogServer支持40M大小Log文件上传，无状态可横向扩展，Log文件可保存12个月。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

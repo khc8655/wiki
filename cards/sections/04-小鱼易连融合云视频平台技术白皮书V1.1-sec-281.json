@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-281",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "重传算法",
+  "path": "重传算法",
+  "level": 2,
+  "line_start": 763,
+  "char_count": 57,
+  "tags": [],
+  "body": "承载在终端设备以及NMS服务器上。低延时场景，根据网络丢包情况动态请求重传包，低冗余度即可获得较好的网络补偿效果。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

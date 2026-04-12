@@ -1,0 +1,25 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-067",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "登录、呼叫、媒体包括：登录与呼叫的信令传输，音视频码流的传输。",
+  "path": "登录、呼叫、媒体包括：登录与呼叫的信令传输，音视频码流的传输。",
+  "level": 2,
+  "line_start": 314,
+  "char_count": 0,
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "body": "",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

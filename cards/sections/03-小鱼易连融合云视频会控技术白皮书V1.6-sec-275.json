@@ -1,0 +1,18 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-275",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "会控对终端发起自动化智能检测（会议中的巡检）之后，将智能检测数据记录到历史会议中，通过管理平台可以实现智能检测的历史数据导出；导出会下载Excel格式的文件。",
+  "path": "会控对终端发起自动化智能检测（会议中的巡检）之后，将智能检测数据记录到历史会议中，通过管理平台可以实现智能检测的历史数据导出；导出会下载Excel格式的文件。",
+  "level": 2,
+  "line_start": 793,
+  "char_count": 29,
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

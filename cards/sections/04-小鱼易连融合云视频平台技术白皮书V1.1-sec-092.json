@@ -1,0 +1,26 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-092",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Scheduler Server：定时删除过期巡检任务。",
+  "path": "Scheduler Server：定时删除过期巡检任务。",
+  "level": 2,
+  "line_start": 401,
+  "char_count": 104,
+  "tags": [
+    "architecture",
+    "meeting-control",
+    "security"
+  ],
+  "body": "* + 1. **管理平台服务子模块**\n\n管理平台服务子模块提供企业管理员的企业服务平台入口，可以帮助管理员完成：用户管理、设备管理、通讯录管理，组织架构管理，权限管理，会议管理，直播管理，账号管理等功能。",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

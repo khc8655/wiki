@@ -1,0 +1,24 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-046",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Access服务子模块和终端的交互原理",
+  "path": "Access服务子模块和终端的交互原理",
+  "level": 2,
+  "line_start": 237,
+  "char_count": 167,
+  "tags": [
+    "security"
+  ],
+  "body": "使用WSS协议提供双向通信，以及通信安全。终端开机后，登陆pivotor服务器并成功获取securityKey后，使用securityKey和Access 建立WSS连接，建立WSS连接后，使用心跳维持连接。\n\n* + - 1. **Pivotor 服务子模块**\n\nPivotor 服务子模块负责设备、用户的功能属性等配置信息管理。",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-053",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "群组云会议室：以777+随机数字组成，管理平台添加群组时调用pivotor API生成。",
+  "path": "群组云会议室：以777+随机数字组成，管理平台添加群组时调用pivotor API生成。",
+  "level": 2,
+  "line_start": 279,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-365",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "多画面合成",
+  "path": "多画面合成",
+  "level": 2,
+  "line_start": 954,
+  "char_count": 84,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "默认支持语音激励模式和对称分屏模式，默认对称分配模式支持1+1，1+2，2x2，2+3，3+3，3+4，4+4，3x3分配；通过会控操作，最大可以支持4x4 16分屏。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

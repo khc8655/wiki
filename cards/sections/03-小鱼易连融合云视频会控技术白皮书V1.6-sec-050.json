@@ -1,0 +1,24 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-050",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "通过通讯录的设置，可以指定每个通讯录的目录子树被分级管理员可见的权限。",
+  "path": "通过通讯录的设置，可以指定每个通讯录的目录子树被分级管理员可见的权限。",
+  "level": 2,
+  "line_start": 118,
+  "char_count": 0,
+  "tags": [
+    "security"
+  ],
+  "body": "",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 1
+}

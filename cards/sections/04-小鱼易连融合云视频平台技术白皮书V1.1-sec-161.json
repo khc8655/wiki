@@ -1,0 +1,24 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-161",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Redis：用于不同server同步一个直播的所有缓存信息，用于多活。",
+  "path": "Redis：用于不同server同步一个直播的所有缓存信息，用于多活。",
+  "level": 2,
+  "line_start": 526,
+  "char_count": 0,
+  "tags": [
+    "stability"
+  ],
+  "body": "",
+  "related_topics": [
+    "stability"
+  ],
+  "aliases": [
+    "可靠性保障",
+    "稳定保障",
+    "高可用",
+    "高可靠"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

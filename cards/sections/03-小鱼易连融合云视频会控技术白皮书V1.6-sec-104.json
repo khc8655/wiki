@@ -1,0 +1,25 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-104",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "用户（包括管理员）可以登录手机App，进行会议预约、加入会议、主持会议。",
+  "path": "用户（包括管理员）可以登录手机App，进行会议预约、加入会议、主持会议。",
+  "level": 2,
+  "line_start": 232,
+  "char_count": 0,
+  "tags": [
+    "meeting-control",
+    "security"
+  ],
+  "body": "",
+  "related_topics": [
+    "security"
+  ],
+  "aliases": [
+    "信息安全",
+    "安全保障",
+    "安全措施",
+    "安全机制"
+  ],
+  "sibling_sections": [],
+  "source_weight": 1
+}

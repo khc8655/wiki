@@ -1,0 +1,18 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-191",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "会控管理模块架构",
+  "path": "会控管理模块架构",
+  "level": 2,
+  "line_start": 574,
+  "char_count": 50,
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + 1. **会控管理架构描述**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

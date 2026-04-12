@@ -1,0 +1,15 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-242",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "轮询顺序默认按照终端的名称进行排序。",
+  "path": "轮询顺序默认按照终端的名称进行排序。",
+  "level": 2,
+  "line_start": 679,
+  "char_count": 50,
+  "tags": [],
+  "body": "![](data:image/png;base64...)\n\n* + - 1. **指定列表轮询**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

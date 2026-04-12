@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-278",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "音频降噪算法（NS）",
+  "path": "音频降噪算法（NS）",
+  "level": 2,
+  "line_start": 751,
+  "char_count": 45,
+  "tags": [],
+  "body": "承载在终端设备上，动态评估环境噪音并自动抑制。可有效的抑制噪音，同时保持较高的语音保真度。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

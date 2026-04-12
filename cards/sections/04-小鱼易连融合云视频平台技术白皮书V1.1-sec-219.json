@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-219",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "融合服务管理：对融合服务器的管理，包括H323/SIP融合通信模块，PSTN网关融合通信模块，监控平台融合通信模块。",
+  "path": "融合服务管理：对融合服务器的管理，包括H323/SIP融合通信模块，PSTN网关融合通信模块，监控平台融合通信模块。",
+  "level": 2,
+  "line_start": 613,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

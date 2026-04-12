@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-331",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "VOD服务从存储系统中获取指定的MP4文件，对文件进行解密、切片成流的格式供点播。云平台上的应用，可以直接访问平台上的VOD服务，从而访问存放在对象存储中的MP4文件。",
+  "path": "VOD服务从存储系统中获取指定的MP4文件，对文件进行解密、切片成流的格式供点播。云平台上的应用，可以直接访问平台上的VOD服务，从而访问存放在对象存储中的MP4文件。",
+  "level": 2,
+  "line_start": 860,
+  "char_count": 297,
+  "tags": [
+    "architecture"
+  ],
+  "body": "5. VOD管理负责录制文件管理与点播服务。将录制服务器的录制信息元数据保存到数据库中，记录相关录制文件的详细信息（包括文件格式、时间、存储路径等）；为客户端提供VOD文件及文件夹管理功能，点播，分享，下载，删除等功能。VOD管理包括三个子服务：vodmanager，vodbroker，vodfilemanager。vodmanager VOD系统的核心服务，它是VOD服务的入口，是部署在公有云上：接收recordingserver传来的vodmetadata信息，创建vod的媒体记录；终端调用它的接口进入vod文件夹，获取vod的记录列表，从而进行vod的播放/下载/分享/删除等操作。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

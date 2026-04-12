@@ -1,0 +1,19 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-182",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Meeting Control： 会控管理，负责会议中的邀请通话、mute、unmute、会议模版等会议相关功能的管理。",
+  "path": "Meeting Control： 会控管理，负责会议中的邀请通话、mute、unmute、会议模版等会议相关功能的管理。",
+  "level": 2,
+  "line_start": 557,
+  "char_count": 0,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [
+    "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-019"
+  ],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-264",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "展现层",
+  "path": "展现层",
+  "level": 2,
+  "line_start": 685,
+  "char_count": 85,
+  "tags": [
+    "architecture"
+  ],
+  "body": "展现层主要负责最后的音视频展现。在不同的平台会有不同的展现方式，包括窗口个数，视频质量等有所不同。除了媒体业务外，展现层还是会承载不同的业务功能，例如通讯录，会议预约等。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

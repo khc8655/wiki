@@ -1,0 +1,44 @@
+{
+  "AE700": [
+    {
+      "device": "功放",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "拼接大屏",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "电视机",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "触控一体机",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "话筒",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "音响",
+      "confidence": 70.4,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-109"
+    },
+    {
+      "device": "投影仪",
+      "confidence": 59.8,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-106"
+    },
+    {
+      "device": "矩阵",
+      "confidence": 59.8,
+      "card_id": "06-新一代视频会议系统建设方案模板-sec-106"
+    }
+  ]
+}

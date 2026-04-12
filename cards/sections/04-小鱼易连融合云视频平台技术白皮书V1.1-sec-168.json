@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-168",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "Statistical：数据统计模块，接收Kafka消息并且统计，用于单位管理平台展示实时的观众信息。",
+  "path": "Statistical：数据统计模块，接收Kafka消息并且统计，用于单位管理平台展示实时的观众信息。",
+  "level": 2,
+  "line_start": 533,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

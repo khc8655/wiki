@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-373",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "服务器CPU和内存负载检测",
+  "path": "服务器CPU和内存负载检测",
+  "level": 2,
+  "line_start": 986,
+  "char_count": 33,
+  "tags": [
+    "architecture"
+  ],
+  "body": "通过web管理平台对当前服务器/虚拟机的CPU、内存进行实时检测。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

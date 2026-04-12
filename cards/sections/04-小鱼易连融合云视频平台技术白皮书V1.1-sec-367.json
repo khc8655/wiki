@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-367",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "点名功能",
+  "path": "点名功能",
+  "level": 2,
+  "line_start": 962,
+  "char_count": 51,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "通过会控操作，可以对与会者进行点名操作，H323/SIP终端可以观看每一路被点名终端的声音和视频画面。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

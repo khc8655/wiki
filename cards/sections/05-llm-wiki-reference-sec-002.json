@@ -1,0 +1,20 @@
+{
+  "id": "05-llm-wiki-reference-sec-002",
+  "doc_file": "05-llm-wiki-reference.md",
+  "title": "Summary",
+  "path": "LLM Wiki Reference > Summary",
+  "level": 2,
+  "line_start": 7,
+  "char_count": 70,
+  "tags": [],
+  "body": "This reference proposes a three-layer personal knowledge base pattern:",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [
+    "05-llm-wiki-reference-sec-001",
+    "05-llm-wiki-reference-sec-003",
+    "05-llm-wiki-reference-sec-004",
+    "05-llm-wiki-reference-sec-005"
+  ],
+  "source_weight": 1
+}

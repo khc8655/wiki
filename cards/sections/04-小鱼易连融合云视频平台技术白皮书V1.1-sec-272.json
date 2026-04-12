@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-272",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "会话控制模块",
+  "path": "会话控制模块",
+  "level": 2,
+  "line_start": 725,
+  "char_count": 72,
+  "tags": [],
+  "body": "每一个会议或者通话对应一个会话， 此模块负责会话的管理，以及会话状态的更新。维护会议使用的NMS信息，终端的信息，以及终端和NMS的关联信息等。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

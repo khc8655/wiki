@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-353",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "模块架构",
+  "path": "模块架构",
+  "level": 2,
+  "line_start": 921,
+  "char_count": 153,
+  "tags": [
+    "architecture"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + 1. **信令流和媒体流图**\n\n![](data:image/png;base64...)\n\n* + 1. **架构描述**\n\nH323/SIP融合模块包含融合服务器管理平台（GWM）和融合服务器集群（GW）。融合服务器管理平台包括：",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

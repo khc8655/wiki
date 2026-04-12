@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-341",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "大数据监控运维模块架构",
+  "path": "大数据监控运维模块架构",
+  "level": 2,
+  "line_start": 879,
+  "char_count": 96,
+  "tags": [
+    "architecture"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + 1. **大数据监控运维架构描述**\n\n大数据运维监控服务总体架构分为数据采集、数据预处理、数据计算和分析、数据应用四层。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

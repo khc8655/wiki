@@ -1,0 +1,25 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-111",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "SDK服务： 提供sdk服务，包括会议平台相关的基本的对外的接口接入功能。",
+  "path": "SDK服务： 提供sdk服务，包括会议平台相关的基本的对外的接口接入功能。",
+  "level": 2,
+  "line_start": 434,
+  "char_count": 86,
+  "tags": [
+    "architecture",
+    "stability"
+  ],
+  "body": "* + 1. **动态扩容服务子模块**\n\n动态扩容服务子模块（ESS）设计为一个根据各个服务负载情况动态扩容和缩容的服务。设计可以针对不同的服务设置缩容和扩容策略、参数。",
+  "related_topics": [
+    "stability"
+  ],
+  "aliases": [
+    "可靠性保障",
+    "稳定保障",
+    "高可用",
+    "高可靠"
+  ],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-197",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "BaExecutor、MsgExecutor：分别提供了给信令发送消息和给终端发送消息的能力。",
+  "path": "BaExecutor、MsgExecutor：分别提供了给信令发送消息和给终端发送消息的能力。",
+  "level": 2,
+  "line_start": 585,
+  "char_count": 0,
+  "tags": [
+    "architecture"
+  ],
+  "body": "",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

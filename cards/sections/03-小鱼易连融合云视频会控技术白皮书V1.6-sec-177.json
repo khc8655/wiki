@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-177",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "主持人点击页面上方“更多”，出现下拉菜单。点击下拉菜单中的“排序”。",
+  "path": "主持人点击页面上方“更多”，出现下拉菜单。点击下拉菜单中的“排序”。",
+  "level": 2,
+  "line_start": 506,
+  "char_count": 26,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "会控界面的排序窗口有两种选择，按名称排序和默认排序。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

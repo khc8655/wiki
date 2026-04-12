@@ -1,0 +1,15 @@
+{
+  "id": "04-小鱼易连融合云视频平台技术白皮书V1.1-sec-369",
+  "doc_file": "04-小鱼易连融合云视频平台技术白皮书V1.1.bin",
+  "title": "智能Content",
+  "path": "智能Content",
+  "level": 2,
+  "line_start": 970,
+  "char_count": 66,
+  "tags": [],
+  "body": "智能识别呼入H323/SIP设备的网络拓扑，根据不同规则采用双流分享或人物+内容合成分享的方式将内容分享发送至H323/SIP设备。",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

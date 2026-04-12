@@ -1,0 +1,17 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-165",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "主持人对发言端进行静音操作，即对该终端结束发言；结束发言之后，这个分会场恢复强制静音状态。",
+  "path": "主持人对发言端进行静音操作，即对该终端结束发言；结束发言之后，这个分会场恢复强制静音状态。",
+  "level": 2,
+  "line_start": 474,
+  "char_count": 50,
+  "tags": [
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)\n\n* + - 1. **全体解除静音**",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}

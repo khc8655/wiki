@@ -1,0 +1,18 @@
+{
+  "id": "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-281",
+  "doc_file": "03-小鱼易连融合云视频会控技术白皮书V1.6.bin",
+  "title": "会控发起签到后，将签到数据记录到历史会议中，通过管理平台可以实现签到的历史数据导出；导出会下载Excel格式的文件。",
+  "path": "会控发起签到后，将签到数据记录到历史会议中，通过管理平台可以实现签到的历史数据导出；导出会下载Excel格式的文件。",
+  "level": 2,
+  "line_start": 808,
+  "char_count": 29,
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "body": "![](data:image/png;base64...)",
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 1
+}
