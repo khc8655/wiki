@@ -12,7 +12,7 @@
 
 ## 架构概览
 
-本知识库采用**四层分层架构**：
+本知识库采用**四层分层架构**，详细说明见 [docs/architecture.md](docs/architecture.md)：
 
 ```
 Layer 4: Wiki 合成层 (Synthesized Knowledge)
