@@ -30,3 +30,22 @@ Route a user query to the best matching topic or subtopic before reading section
 - `routes.v1.json` adds AI and product-specific routes for faster recall.
 - Prefer V1 routes before falling back to the legacy generic routes.
 - Pair route hits with `index_store/*.v1.json` to avoid whole-library rescans.
+
+## V2 default query path
+
+Current recommended default query entry:
+
+```bash
+node scripts/query_default.js --brief 跨云互通
+```
+
+Behavior:
+- prefer V2 semantic plan when `parseQuery()` can identify an intent
+- fall back to V2 generic path when no explicit intent exists
+- return `match_percent`, `bucket`, and summary counts
+
+Core reusable entry:
+
+```js
+runQuery(query, { topK, minScore, includeExcluded })
+```

@@ -69,6 +69,16 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ## 更新日志
 
+### v1.6 (2026-04-13)
+
+**V2 默认查询入口与自动优化骨架**
+
+- 新增: `scripts/query_v2_core.js`，抽出可复用查询核心
+- 新增: `scripts/query_default.js`，作为默认查询入口，优先走 V2
+- 新增: `scripts/auto_refine_v2.py`，生成自动优化建议报告
+- 新增: `updates/retrieval_feedback/README.md`，定义检索反馈事件目录与格式
+- 更新: `index_store/USAGE.md` 与 `docs/retrieval-v2-design.md`
+
 ### v1.5 (2026-04-13)
 
 **V2 检索设计与脚手架**
