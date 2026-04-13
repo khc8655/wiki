@@ -116,12 +116,21 @@
     "semantic_keywords": [
       "总体情况"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧",
+      "开放兼容"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -179,11 +188,21 @@
     "semantic_keywords": [
       "平台先进性"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧",
+      "软件定义架构"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -11643,6 +11662,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],
@@ -12898,12 +12918,20 @@
       "行业背景总结",
       "项目背景"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-001",
       "06-新一代视频会议系统建设方案模板-sec-002",
@@ -13596,6 +13624,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],
@@ -13818,11 +13847,20 @@
       "建设方案",
       "技术路线选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14119,6 +14157,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],
@@ -14169,13 +14208,20 @@
       "建设方案",
       "软硬一体化交付方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14329,6 +14375,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -14363,6 +14410,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -14396,6 +14444,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -14430,6 +14479,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -14463,6 +14513,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -14497,6 +14548,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -15024,11 +15076,20 @@
       "终端简介",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -15052,12 +15113,20 @@
       "系列",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -15164,11 +15233,20 @@
       "终端简介",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -15192,11 +15270,20 @@
       "系列",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -15303,11 +15390,20 @@
       "终端简介",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -16108,6 +16204,7 @@
       "混合云部署"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "融合会管",
       "跨云互通"
     ],
@@ -16692,12 +16789,20 @@
       "终端简介",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -17614,12 +17719,21 @@
       "融合功能",
       "融合现有视频系统"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "avc-svc-dual-engine"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "MCU级联",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-168",
       "06-新一代视频会议系统建设方案模板-sec-169",
@@ -17638,9 +17752,20 @@
       "对接",
       "系统功能设计"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "avc-svc-dual-engine"
+    ],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-168",
       "06-新一代视频会议系统建设方案模板-sec-169",
@@ -18061,10 +18186,15 @@
       "视频会议系统对接"
     ],
     "intent_tags": [
+      "avc-svc-dual-engine",
       "cross-cloud-interconnect"
     ],
     "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
       "MCU级联",
+      "SVC柔性编码",
+      "兼容利旧",
       "新旧系统对接",
       "统一调度",
       "跨云互通"
@@ -18072,6 +18202,7 @@
     "negative_concepts": [
       "多运营商接入",
       "混合云部署",
+      "跨云互通",
       "跨域安全",
       "跨网安全"
     ],
@@ -18093,9 +18224,20 @@
       "与第三方业务系统对接",
       "对接华为系列"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "avc-svc-dual-engine"
+    ],
+    "concept_tags": [
+      "AVC+SVC双引擎",
+      "AVC兼容互通",
+      "SVC柔性编码",
+      "兼容利旧"
+    ],
+    "negative_concepts": [
+      "混合云部署",
+      "跨云互通",
+      "跨网安全"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-215",
       "06-新一代视频会议系统建设方案模板-sec-216",
@@ -18142,9 +18284,11 @@
       "MCU级联",
       "新旧系统对接",
       "统一调度",
+      "融合会管",
       "跨云互通"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "多运营商接入",
       "混合云部署",
       "跨域安全",
@@ -18198,6 +18342,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],
@@ -18614,6 +18759,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],
@@ -19163,6 +19309,7 @@
       "跨网安全"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通"
     ],

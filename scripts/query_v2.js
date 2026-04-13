@@ -17,20 +17,35 @@ function parseQuery(query) {
     return {
       intent: 'cross-cloud-interconnect',
       mustConcepts: ['跨云互通', '新旧系统对接'],
+      preferConcepts: ['融合会管', 'MCU级联', '统一调度'],
       excludeConcepts: ['混合云部署', '跨网安全', '跨域安全'],
+      expectedTitleTerms: ['华为', 'MCU', '互通', '会管'],
+    };
+  }
+  if (q.includes('avc+svc') || q.includes('svc+avc') || q.includes('双引擎')) {
+    return {
+      intent: 'avc-svc-dual-engine',
+      mustConcepts: ['AVC+SVC双引擎'],
+      preferConcepts: ['兼容利旧', 'SVC柔性编码', 'AVC兼容互通'],
+      excludeConcepts: ['跨云互通', '混合云部署', '跨网安全'],
+      expectedTitleTerms: ['AVC+SVC', '双引擎', '双协议', '架构'],
     };
   }
   if (q.includes('混合云') || q.includes('专有云')) {
     return {
       intent: 'hybrid-deployment',
       mustConcepts: ['混合云部署'],
+      preferConcepts: ['媒体本地处理', '专有云'],
       excludeConcepts: ['跨云互通'],
+      expectedTitleTerms: ['专有云', '混合云', '部署'],
     };
   }
   return {
     intent: null,
     mustConcepts: [],
+    preferConcepts: [],
     excludeConcepts: [],
+    expectedTitleTerms: [],
   };
 }
 
@@ -40,21 +55,33 @@ function readCard(id) {
 
 function scoreCard(queryPlan, id) {
   const m = meta[id] || {};
-  let score = 40;
+  const card = readCard(id);
+  let score = 35;
   const reasons = [];
+  const titleBlob = `${card.title || ''} ${card.path || ''}`;
 
   if (queryPlan.intent && (m.intent_tags || []).includes(queryPlan.intent)) {
-    score += 30;
+    score += 28;
     reasons.push('intent命中');
   }
-  const conceptHits = queryPlan.mustConcepts.filter(c => (m.concept_tags || []).includes(c));
-  if (conceptHits.length) {
-    score += conceptHits.length * 15;
-    reasons.push(`concept命中:${conceptHits.join('、')}`);
+  const mustHits = queryPlan.mustConcepts.filter(c => (m.concept_tags || []).includes(c));
+  if (mustHits.length) {
+    score += mustHits.length * 18;
+    reasons.push(`must命中:${mustHits.join('、')}`);
   }
-  const negativeHits = queryPlan.excludeConcepts.filter(c => (m.negative_concepts || []).includes(c) || (m.concept_tags || []).includes(c));
+  const preferHits = (queryPlan.preferConcepts || []).filter(c => (m.concept_tags || []).includes(c));
+  if (preferHits.length) {
+    score += preferHits.length * 8;
+    reasons.push(`prefer命中:${preferHits.join('、')}`);
+  }
+  const titleHits = (queryPlan.expectedTitleTerms || []).filter(t => titleBlob.includes(t));
+  if (titleHits.length) {
+    score += titleHits.length * 6;
+    reasons.push(`标题命中:${titleHits.join('、')}`);
+  }
+  const negativeHits = queryPlan.excludeConcepts.filter(c => (m.negative_concepts || []).includes(c));
   if (negativeHits.length) {
-    score -= negativeHits.length * 20;
+    score -= negativeHits.length * 10;
     reasons.push(`negative命中:${negativeHits.join('、')}`);
   }
   if ((m.quality_score || 0) > 0.85) {
@@ -80,6 +107,11 @@ function main() {
     intentIndex[plan.intent].forEach(id => ids.add(id));
   }
   plan.mustConcepts.forEach(c => (conceptIndex[c] || []).forEach(id => ids.add(id)));
+  if (plan.intent && intentIndex[plan.intent]) {
+    ids.clear();
+    intentIndex[plan.intent].forEach(id => ids.add(id));
+  }
+
   const results = [...ids].map(id => {
     const card = readCard(id);
     const scored = scoreCard(plan, id);

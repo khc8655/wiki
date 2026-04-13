@@ -16,22 +16,65 @@ RULES = [
     {
         "intent": "cross-cloud-interconnect",
         "must_any": ["跨云", "融合会管", "原MCU", "云视频MCU"],
+        "must_not": ["混合云", "跨网", "跨域", "网闸", "光闸", "多运营商"],
         "concepts": ["跨云互通", "新旧系统对接", "MCU级联", "统一调度"],
         "negative": ["混合云部署", "跨网安全", "跨域安全", "多运营商接入"],
     },
     {
+        "intent": "avc-svc-dual-engine",
+        "must_any": ["AVC+SVC", "SVC+AVC", "双引擎架构", "双协议引擎", "AVC和SVC双引擎", "AVC和SVC混合组网"],
+        "must_not": ["跨云", "融合会管", "网闸", "光闸"],
+        "concepts": ["AVC+SVC双引擎", "兼容利旧", "SVC柔性编码", "AVC兼容互通"],
+        "negative": ["跨云互通", "混合云部署", "跨网安全"],
+    },
+    {
         "intent": "hybrid-deployment",
         "must_any": ["混合云", "本地部署", "专有云部署", "媒体数据可全部在客户内部网络中完成"],
+        "must_not": ["跨云互通", "融合会管"],
         "concepts": ["混合云部署", "媒体本地处理", "专有云"],
-        "negative": ["跨云互通", "融合会管"],
+        "negative": ["跨云互通", "融合会管", "AVC+SVC双引擎"],
     },
     {
         "intent": "cross-network-security",
         "must_any": ["跨网", "跨域", "网闸", "光闸", "防火墙"],
+        "must_not": ["跨云互通", "双引擎架构"],
         "concepts": ["跨网安全", "跨域安全", "安全互通"],
-        "negative": ["跨云互通", "混合云部署"],
+        "negative": ["跨云互通", "混合云部署", "AVC+SVC双引擎"],
     },
 ]
+
+MANUAL_OVERRIDES = {
+    "06-新一代视频会议系统建设方案模板-sec-224": {
+        "intent_tags": ["cross-cloud-interconnect"],
+        "concept_tags": ["跨云互通", "新旧系统对接", "MCU级联", "统一调度", "融合会管"],
+        "negative_concepts": ["混合云部署", "跨网安全", "跨域安全", "多运营商接入", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-221": {
+        "intent_tags": ["cross-cloud-interconnect", "avc-svc-dual-engine"],
+        "concept_tags": ["跨云互通", "新旧系统对接", "MCU级联", "统一调度", "AVC+SVC双引擎", "兼容利旧", "AVC兼容互通"],
+        "negative_concepts": ["混合云部署", "跨网安全", "跨域安全", "多运营商接入"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-055": {
+        "intent_tags": ["avc-svc-dual-engine"],
+        "concept_tags": ["AVC+SVC双引擎", "兼容利旧", "SVC柔性编码", "AVC兼容互通"],
+        "negative_concepts": ["跨云互通", "混合云部署", "跨网安全"]
+    },
+    "02-小鱼易连安全稳定白皮书V1-20240829-sec-002": {
+        "intent_tags": ["avc-svc-dual-engine"],
+        "concept_tags": ["AVC+SVC双引擎", "开放兼容", "兼容利旧"],
+        "negative_concepts": ["跨云互通", "混合云部署"]
+    },
+    "02-小鱼易连安全稳定白皮书V1-20240829-sec-006": {
+        "intent_tags": ["avc-svc-dual-engine"],
+        "concept_tags": ["AVC+SVC双引擎", "SVC柔性编码", "软件定义架构"],
+        "negative_concepts": ["跨云互通", "跨网安全"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-201": {
+        "intent_tags": ["avc-svc-dual-engine"],
+        "concept_tags": ["AVC+SVC双引擎", "兼容利旧", "AVC兼容互通", "MCU级联"],
+        "negative_concepts": ["混合云部署", "跨网安全"]
+    }
+}
 
 
 def tokenize(text: str):
@@ -68,6 +111,8 @@ def infer(card):
 
     for rule in RULES:
         if any(term in joined for term in rule["must_any"]):
+            if any(term in joined for term in rule.get("must_not", [])):
+                continue
             intent_tags.append(rule["intent"])
             concept_tags.extend(rule["concepts"])
             negative_concepts.extend(rule["negative"])
@@ -79,6 +124,11 @@ def infer(card):
             concept_tags.append("架构")
         if "终端" in joined:
             concept_tags.append("终端")
+
+    override = MANUAL_OVERRIDES.get(card["id"], {})
+    intent_tags.extend(override.get("intent_tags", []))
+    concept_tags.extend(override.get("concept_tags", []))
+    negative_concepts.extend(override.get("negative_concepts", []))
 
     related_cards = card.get("sibling_sections", [])[:5]
     quality_score = 0.9 if card.get("char_count", 0) >= 120 else 0.7
