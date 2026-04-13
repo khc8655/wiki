@@ -56,7 +56,8 @@ function main() {
     lines.push(`intent: ${payload.plan.intent || 'none'}`);
     lines.push(`summary: strong=${payload.summary.strong_hits}, weak=${payload.summary.weak_hits}, excluded=${payload.summary.excluded_hits}`);
     payload.results.forEach((r, i) => {
-      lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${r.title}`);
+      const similar = (r.similar_sources || []).length ? ` (相似来源:${(r.similar_sources || []).length})` : '';
+      lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${r.title}${similar}`);
     });
     console.log(lines.join('\n'));
     return;

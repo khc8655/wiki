@@ -10,6 +10,19 @@ const intentIndex = load('index_store/intent_index.v2.json');
 const conceptIndex = load('index_store/concept_index.v2.json');
 const cardsDir = path.join(ROOT, 'cards', 'sections');
 
+const DOC_ROLE_PRIORITY = {
+  '16-': 1,
+  '02-': 2,
+  '06-': 3,
+  '03-': 4,
+  '04-': 5,
+  '09-': 6,
+  '10-': 6,
+  '07-': 7,
+  '08-': 7,
+  '17-': 7,
+};
+
 function parseQuery(query) {
   const q = query.toLowerCase();
   if (q.includes('跨云')) {
@@ -126,6 +139,66 @@ function scoreCard(queryPlan, id) {
   return { score, reasons, bucket };
 }
 
+function getDocRolePriority(cardId) {
+  const key = `${cardId.split('-')[0]}-`;
+  return DOC_ROLE_PRIORITY[key] || 99;
+}
+
+function normalizeText(s) {
+  return (s || '')
+    .replace(/!\[]\([^)]*\)/g, ' ')
+    .replace(/[\*#>`]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function inferEvidenceCluster(card) {
+  const text = `${card.title || ''} ${card.path || ''} ${card.body || ''}`;
+  if (/传输安全|端到端加密|消息通道加密|媒体通道加密|秘钥|密钥|tls|ssl/i.test(text)) return 'security-transport';
+  if (/存储安全|录制过程安全|录像存储安全|录制内容安全|账号密码存储|sha-512/i.test(text)) return 'security-storage';
+  if (/鉴权|访问控制|黑名单|securitykey|签名|登录密码|短信验证码/i.test(text)) return 'security-access-control';
+  if (/立体式安全|架构级安全保障|基础架构安全|自主可控|iaas|专有云|vpc/i.test(text)) return 'security-architecture';
+  if (/会议前机制|会议中机制|会议后机制|会议应用安全/i.test(text)) return 'security-meeting-control';
+  return 'generic';
+}
+
+function dedupeEvidence(results, queryPlan) {
+  if (queryPlan.intent !== 'security-assurance') return results;
+  const groups = new Map();
+
+  for (const result of results) {
+    const card = readCard(result.card_id);
+    const cluster = inferEvidenceCluster(card);
+    const item = {
+      ...result,
+      body: card.body,
+      cluster,
+      doc_role_priority: getDocRolePriority(result.card_id),
+      evidence_fingerprint: normalizeText(card.body).slice(0, 180),
+    };
+    if (!groups.has(cluster)) groups.set(cluster, []);
+    groups.get(cluster).push(item);
+  }
+
+  const deduped = [];
+  for (const [cluster, items] of groups.entries()) {
+    items.sort((a, b) => {
+      if (b.match_percent !== a.match_percent) return b.match_percent - a.match_percent;
+      if (a.doc_role_priority !== b.doc_role_priority) return a.doc_role_priority - b.doc_role_priority;
+      return (b.body || '').length - (a.body || '').length;
+    });
+    const primary = items[0];
+    primary.similar_sources = items.slice(1).map(x => ({
+      card_id: x.card_id,
+      title: x.title,
+      match_percent: x.match_percent,
+    }));
+    deduped.push(primary);
+  }
+
+  return deduped.sort((a, b) => b.match_percent - a.match_percent);
+}
+
 function runQuery(query, options = {}) {
   const topK = Number.isInteger(options.topK) ? options.topK : 10;
   const minScore = typeof options.minScore === 'number' ? options.minScore : 20;
@@ -159,7 +232,7 @@ function runQuery(query, options = {}) {
     results = results.filter(item => item.match_percent >= minScore);
   }
 
-  results = results.sort((a, b) => b.match_percent - a.match_percent).slice(0, topK);
+  results = dedupeEvidence(results.sort((a, b) => b.match_percent - a.match_percent), plan).slice(0, topK);
 
   const summary = {
     candidate_count: results.length,
