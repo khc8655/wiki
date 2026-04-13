@@ -69,6 +69,15 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ## 更新日志
 
+### v1.5 (2026-04-13)
+
+**V2 检索设计与脚手架**
+
+- 新增: `docs/retrieval-v2-design.md`，明确“重入库、轻查询、持续自优化”的 V2 方案
+- 新增: `scripts/build_v2_semantic_metadata.py`，生成 V2 语义元数据与 intent/concept/negative 索引
+- 新增: `scripts/query_v2.js`，提供 V2 查询原型，支持轻量 query 理解 + 快速精排
+- 补充: V2 card schema、自动优化与 lint 思路
+
 ### v1.4 (2026-04-12)
 
 **初始版本发布**
