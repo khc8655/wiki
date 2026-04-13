@@ -10,3 +10,9 @@
 - Imported source 06 into `raw/`.
 - Created source summary page for the solution template.
 - Updated index to reflect the expanded source set and current topic pages.
+
+## [2026-04-13] ingest | sources 07-17
+- Imported 11 additional source documents into `raw/`.
+- Generated section cards and document indexes for iteration, architecture, stability, security, and product-line materials.
+- Added new topic pages for private cloud iteration and technology route comparison.
+- Added source summary page for the newly imported batch.
