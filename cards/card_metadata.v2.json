@@ -141,12 +141,22 @@
     "semantic_keywords": [
       "全方位稳定架构"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -157,11 +167,22 @@
     "semantic_keywords": [
       "平台稳定性"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -3298,11 +3319,21 @@
       "并对终端的录像进行合成并生成录像文件后加密存储",
       "录制服务是以第三方的视角加入会议进行请流"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -5544,9 +5575,21 @@
     "semantic_keywords": [
       "小鱼易连融合云视频平台技术白皮书"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "security-assurance"
+    ],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -5667,12 +5710,28 @@
       "电话",
       "的接入"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "security-assurance",
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "多活热备",
+      "存储安全",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "立体式安全",
+      "端到端加密",
+      "网络适应性",
+      "鉴权与访问控制",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -5711,12 +5770,21 @@
     "semantic_keywords": [
       "业务管理模块总体架构"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -6109,9 +6177,21 @@
     "semantic_keywords": [
       "负载均衡子模块工作的路由策略描述"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "security-assurance"
+    ],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -6122,11 +6202,21 @@
     "semantic_keywords": [
       "Login"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -8174,9 +8264,22 @@
       "用于不同",
       "用于多活"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9001,11 +9104,22 @@
       "包括终端和融合服务器的消息能正确路由到对应的信令服务器",
       "异地多活的信令代理模块"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9114,9 +9228,22 @@
       "实现业务自动水平扩展和负载分担",
       "能够动态进行资源调度和资源控制"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9456,12 +9583,22 @@
       "数据库查询失败",
       "终端异常状态"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9472,11 +9609,22 @@
     "semantic_keywords": [
       "信令多活后台服务架构如下图所示"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9487,11 +9635,22 @@
     "semantic_keywords": [
       "信令多活服务架构描述"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -9805,9 +9964,22 @@
       "路由管理",
       "选择优先级"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -10029,11 +10201,22 @@
     "semantic_keywords": [
       "媒体处理模块"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -10166,11 +10349,22 @@
     "semantic_keywords": [
       "动态带宽调整"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -10394,9 +10588,22 @@
       "负责录制服务的信令交互和录制服务器",
       "负载均衡"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -10417,11 +10624,21 @@
       "指示要求向终端请求音视频码流",
       "获取参会终端列表"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.9,
     "version": "v2"
@@ -10575,9 +10792,21 @@
       "实时加密",
       "支持录制文件"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "security-assurance"
+    ],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -10713,11 +10942,21 @@
       "在云视频平台上实现特定组织制定的专有录制服务",
       "支持录制服务器的识别码设置"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -10732,9 +10971,21 @@
       "流式加密",
       "转码生成的码流数据加密过程只在内存中完成"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "security-assurance"
+    ],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -10793,9 +11044,22 @@
       "录制管理服务器",
       "监测到之后会将录制业务自动迁移到其他正常的录制服务器"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -11440,9 +11704,22 @@
     "semantic_keywords": [
       "多活服务数据同步"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -11690,11 +11967,21 @@
     "semantic_keywords": [
       "呼叫黑白名单"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -12430,9 +12717,22 @@
       "如果有服务器发生故障",
       "并相互备份提升服务的稳定性"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [],
     "quality_score": 0.7,
     "version": "v2"
@@ -12637,11 +12937,21 @@
       "政策背景",
       "项目背景"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-001",
       "06-新一代视频会议系统建设方案模板-sec-003",
@@ -12730,9 +13040,22 @@
       "行业背景",
       "项目背景"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-001",
       "06-新一代视频会议系统建设方案模板-sec-002",
@@ -12821,9 +13144,22 @@
       "行业背景",
       "项目背景"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-001",
       "06-新一代视频会议系统建设方案模板-sec-002",
@@ -13039,11 +13375,22 @@
       "设备超期服役",
       "项目背景"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-001",
       "06-新一代视频会议系统建设方案模板-sec-002",
@@ -13282,9 +13629,22 @@
       "系统性能需求分析",
       "需求分析"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-023",
       "06-新一代视频会议系统建设方案模板-sec-024",
@@ -13303,12 +13663,21 @@
       "系统性能需求分析",
       "需求分析"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-023",
       "06-新一代视频会议系统建设方案模板-sec-024",
@@ -13530,11 +13899,21 @@
       "建设内容",
       "建设目标"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-032",
       "06-新一代视频会议系统建设方案模板-sec-033",
@@ -13592,11 +13971,21 @@
       "建设依据",
       "建设方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -13645,11 +14034,22 @@
       "建设原则",
       "建设方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -13691,11 +14091,21 @@
       "建设原则",
       "建设方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -13714,12 +14124,22 @@
       "建设原则",
       "建设方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -13803,11 +14223,22 @@
       "建设方案",
       "网络适应性原则"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -13879,12 +14310,21 @@
       "技术路线选型",
       "本地化高可信部署"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14181,13 +14621,22 @@
       "视讯管理平台",
       "软硬一体化交付方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14209,15 +14658,29 @@
       "软硬一体化交付方案"
     ],
     "intent_tags": [
-      "avc-svc-dual-engine"
+      "avc-svc-dual-engine",
+      "security-assurance",
+      "stability-reliability"
     ],
     "concept_tags": [
       "AVC+SVC双引擎",
       "AVC兼容互通",
       "SVC柔性编码",
-      "兼容利旧"
+      "传输安全",
+      "兼容利旧",
+      "多活热备",
+      "存储安全",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "立体式安全",
+      "端到端加密",
+      "网络适应性",
+      "鉴权与访问控制",
+      "高可用"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通",
       "跨网安全"
@@ -14242,12 +14705,21 @@
       "录播服务器",
       "软硬一体化交付方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14290,13 +14762,22 @@
       "建设方案",
       "软件交付方案"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14402,15 +14883,23 @@
       "建设方案"
     ],
     "intent_tags": [
-      "hybrid-deployment"
+      "hybrid-deployment",
+      "stability-reliability"
     ],
     "concept_tags": [
       "专有云",
+      "多活热备",
       "媒体本地处理",
-      "混合云部署"
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "混合云部署",
+      "网络适应性",
+      "高可用"
     ],
     "negative_concepts": [
       "AVC+SVC双引擎",
+      "混合云部署",
       "融合会管",
       "跨云互通"
     ],
@@ -14436,15 +14925,22 @@
       "录播服务模块"
     ],
     "intent_tags": [
-      "hybrid-deployment"
+      "hybrid-deployment",
+      "security-assurance"
     ],
     "concept_tags": [
       "专有云",
+      "传输安全",
       "媒体本地处理",
-      "混合云部署"
+      "存储安全",
+      "混合云部署",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
     ],
     "negative_concepts": [
       "AVC+SVC双引擎",
+      "混合云部署",
       "融合会管",
       "跨云互通"
     ],
@@ -14649,11 +15145,22 @@
       "建设方案",
       "私有云部署"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14675,11 +15182,21 @@
       "录播服务模块",
       "私有云部署"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -14905,11 +15422,22 @@
       "系列",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -15391,15 +15919,23 @@
       "终端选型"
     ],
     "intent_tags": [
-      "avc-svc-dual-engine"
+      "avc-svc-dual-engine",
+      "stability-reliability"
     ],
     "concept_tags": [
       "AVC+SVC双引擎",
       "AVC兼容互通",
       "SVC柔性编码",
-      "兼容利旧"
+      "兼容利旧",
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
     ],
     "negative_concepts": [
+      "AVC+SVC双引擎",
       "混合云部署",
       "跨云互通",
       "跨网安全"
@@ -16338,12 +16874,21 @@
       "系列",
       "终端选型"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-042",
       "06-新一代视频会议系统建设方案模板-sec-043",
@@ -17545,11 +18090,21 @@
       "系统功能设计",
       "视频录制点播"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-168",
       "06-新一代视频会议系统建设方案模板-sec-169",
@@ -18310,12 +18865,21 @@
     "semantic_keywords": [
       "安全性设计"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-226",
       "06-新一代视频会议系统建设方案模板-sec-227",
@@ -18334,10 +18898,12 @@
       "安全性设计"
     ],
     "intent_tags": [
-      "cross-network-security"
+      "cross-network-security",
+      "security-assurance"
     ],
     "concept_tags": [
       "安全互通",
+      "立体式安全",
       "跨域安全",
       "跨网安全"
     ],
@@ -18363,13 +18929,23 @@
       "安全性设计",
       "网络传输安全"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构",
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "TLS鉴权",
+      "一会一密",
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-225",
       "06-新一代视频会议系统建设方案模板-sec-226",
@@ -18387,11 +18963,23 @@
       "安全性设计",
       "数据存储安全"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "录制加密",
+      "用户数据安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-225",
       "06-新一代视频会议系统建设方案模板-sec-226",
@@ -18501,12 +19089,23 @@
       "安全性设计",
       "鉴权与访问控制"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "终端"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "SSL加密通信",
+      "传输安全",
+      "存储安全",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制",
+      "黑名单"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-225",
       "06-新一代视频会议系统建设方案模板-sec-226",
@@ -18524,9 +19123,22 @@
       "可靠性设计",
       "软件平台"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-235",
       "06-新一代视频会议系统建设方案模板-sec-236",
@@ -18543,9 +19155,22 @@
       "可靠性设计",
       "软件平台"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-234",
       "06-新一代视频会议系统建设方案模板-sec-236",
@@ -18563,12 +19188,23 @@
       "资源池热备",
       "软件平台"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构",
-      "终端"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "MCU资源池热备",
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-234",
       "06-新一代视频会议系统建设方案模板-sec-235",
@@ -18585,11 +19221,23 @@
       "服务多活",
       "软件平台"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "服务多活",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-234",
       "06-新一代视频会议系统建设方案模板-sec-235",
@@ -18623,11 +19271,22 @@
       "嵌入式专用硬件",
       "硬件"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-238",
       "06-新一代视频会议系统建设方案模板-sec-240"
@@ -18713,9 +19372,22 @@
     "semantic_keywords": [
       "网络适应性设计"
     ],
-    "intent_tags": [],
-    "concept_tags": [],
-    "negative_concepts": [],
+    "intent_tags": [
+      "stability-reliability"
+    ],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-245",
       "06-新一代视频会议系统建设方案模板-sec-246"
@@ -18730,11 +19402,23 @@
       "网络适应性设计",
       "网络适应能力"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "SVC柔性编码",
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-244",
       "06-新一代视频会议系统建设方案模板-sec-246"
@@ -18751,12 +19435,19 @@
       "网络适应性设计"
     ],
     "intent_tags": [
-      "cross-network-security"
+      "cross-network-security",
+      "stability-reliability"
     ],
     "concept_tags": [
+      "多活热备",
       "安全互通",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
       "跨域安全",
-      "跨网安全"
+      "跨网安全",
+      "高可用"
     ],
     "negative_concepts": [
       "AVC+SVC双引擎",
@@ -19235,11 +19926,23 @@
       "优势总结",
       "运营级稳定可靠"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "架构"
+    "intent_tags": [
+      "stability-reliability"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "多活热备",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
+      "自动迁移",
+      "高可用"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-268",
       "06-新一代视频会议系统建设方案模板-sec-270",
@@ -19257,12 +19960,22 @@
       "优势总结",
       "架构级安全保障"
     ],
-    "intent_tags": [],
-    "concept_tags": [
-      "安全",
-      "架构"
+    "intent_tags": [
+      "security-assurance"
     ],
-    "negative_concepts": [],
+    "concept_tags": [
+      "传输安全",
+      "存储安全",
+      "架构级安全保障",
+      "立体式安全",
+      "端到端加密",
+      "鉴权与访问控制"
+    ],
+    "negative_concepts": [
+      "AVC+SVC双引擎",
+      "混合云部署",
+      "跨云互通"
+    ],
     "related_cards": [
       "06-新一代视频会议系统建设方案模板-sec-268",
       "06-新一代视频会议系统建设方案模板-sec-269",
@@ -19301,12 +20014,19 @@
       "超强网络适应性"
     ],
     "intent_tags": [
-      "cross-network-security"
+      "cross-network-security",
+      "stability-reliability"
     ],
     "concept_tags": [
+      "多活热备",
       "安全互通",
+      "容灾可靠性",
+      "平台稳定性",
+      "抗丢包",
+      "网络适应性",
       "跨域安全",
-      "跨网安全"
+      "跨网安全",
+      "高可用"
     ],
     "negative_concepts": [
       "AVC+SVC双引擎",

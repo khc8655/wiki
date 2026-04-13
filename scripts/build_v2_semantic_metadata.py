@@ -41,6 +41,20 @@ RULES = [
         "concepts": ["跨网安全", "跨域安全", "安全互通"],
         "negative": ["跨云互通", "混合云部署", "AVC+SVC双引擎"],
     },
+    {
+        "intent": "security-assurance",
+        "must_any": ["安全保障", "加密", "鉴权", "黑名单", "访问控制", "存储安全", "传输安全", "一会一密"],
+        "must_not": ["跨云互通", "AVC+SVC"],
+        "concepts": ["立体式安全", "传输安全", "存储安全", "鉴权与访问控制", "端到端加密"],
+        "negative": ["跨云互通", "AVC+SVC双引擎", "混合云部署"],
+    },
+    {
+        "intent": "stability-reliability",
+        "must_any": ["稳定性", "多活", "热备", "容灾", "抗丢包", "网络适应性", "高可用", "自动迁移"],
+        "must_not": ["跨云互通", "AVC+SVC"],
+        "concepts": ["平台稳定性", "多活热备", "容灾可靠性", "网络适应性", "抗丢包", "高可用"],
+        "negative": ["跨云互通", "AVC+SVC双引擎", "混合云部署"],
+    },
 ]
 
 MANUAL_OVERRIDES = {
@@ -73,6 +87,56 @@ MANUAL_OVERRIDES = {
         "intent_tags": ["avc-svc-dual-engine"],
         "concept_tags": ["AVC+SVC双引擎", "兼容利旧", "AVC兼容互通", "MCU级联"],
         "negative_concepts": ["混合云部署", "跨网安全"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-226": {
+        "intent_tags": ["cross-network-security", "security-assurance"],
+        "concept_tags": ["跨网安全", "跨域安全", "安全互通", "立体式安全"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-227": {
+        "intent_tags": ["security-assurance"],
+        "concept_tags": ["传输安全", "端到端加密", "一会一密", "TLS鉴权"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-228": {
+        "intent_tags": ["security-assurance"],
+        "concept_tags": ["存储安全", "录制加密", "用户数据安全"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-233": {
+        "intent_tags": ["security-assurance"],
+        "concept_tags": ["鉴权与访问控制", "黑名单", "SSL加密通信"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-270": {
+        "intent_tags": ["security-assurance"],
+        "concept_tags": ["立体式安全", "端到端加密", "架构级安全保障"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "02-小鱼易连安全稳定白皮书V1-20240829-sec-004": {
+        "intent_tags": ["stability-reliability"],
+        "concept_tags": ["平台稳定性", "多活热备", "容灾可靠性", "网络适应性", "抗丢包", "高可用"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-236": {
+        "intent_tags": ["stability-reliability"],
+        "concept_tags": ["多活热备", "MCU资源池热备", "高可用"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-237": {
+        "intent_tags": ["stability-reliability"],
+        "concept_tags": ["多活热备", "服务多活", "高可用"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-245": {
+        "intent_tags": ["stability-reliability"],
+        "concept_tags": ["网络适应性", "抗丢包", "SVC柔性编码"],
+        "negative_concepts": ["跨云互通"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-269": {
+        "intent_tags": ["stability-reliability"],
+        "concept_tags": ["高可用", "多活热备", "自动迁移"],
+        "negative_concepts": ["跨云互通", "AVC+SVC双引擎"]
     }
 }
 
