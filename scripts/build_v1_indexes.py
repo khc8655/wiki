@@ -14,6 +14,31 @@ META_PATH = ROOT / "cards" / "card_metadata.v1.json"
 TOKEN_RE = re.compile(r"[A-Za-z0-9\-\+\.]+|[\u4e00-\u9fff]{2,}")
 
 CARD_OVERRIDES = {
+    "06-新一代视频会议系统建设方案模板-sec-224": {
+        "card_type": "scenario",
+        "aliases": ["跨云互通", "跨云视频会议系统", "跨云会管", "融合会管系统"],
+        "keywords": ["跨云", "互通", "原MCU", "云视频MCU", "混合级联", "统一调度", "会议控制", "华为系统互通"],
+        "entity_tags": ["跨云互通", "融合会管", "第三方互通"],
+        "capability_tags": ["跨云互通", "统一调度", "混合级联"],
+        "scenario_tags": ["跨云互通", "存量系统对接"],
+        "intent_tags": ["cross-cloud-interconnect"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-076": {
+        "card_type": "architecture",
+        "aliases": ["混合云部署", "专有云部署"],
+        "keywords": ["混合云", "本地部署", "内网终端", "媒体本地处理"],
+        "entity_tags": ["混合部署"],
+        "scenario_tags": ["混合云部署"],
+        "intent_tags": ["hybrid-deployment"]
+    },
+    "06-新一代视频会议系统建设方案模板-sec-226": {
+        "card_type": "architecture",
+        "aliases": ["跨域安全部署", "跨网安全部署"],
+        "keywords": ["跨域", "跨网", "网闸", "光闸", "安全互通", "防火墙"],
+        "entity_tags": ["跨网安全", "安全架构"],
+        "scenario_tags": ["跨网安全"],
+        "intent_tags": ["cross-network-security"]
+    },
     "06-新一代视频会议系统建设方案模板-sec-089": {
         "card_type": "overview",
         "aliases": ["AI服务", "人工智能服务", "AI应用", "AI场景"],
@@ -114,6 +139,16 @@ CARD_OVERRIDES = {
 }
 
 ROUTES_V1 = {
+    "cross-cloud-interconnect": {
+        "intent_aliases": ["跨云互通", "跨云会议互通", "跨云视频互通", "跨云视频会议系统", "跨云会管", "跨云级联", "融合会管系统"],
+        "subtopics": ["cross-cloud-interconnect"],
+        "priority": 1,
+        "required_terms_any": ["跨云", "融合会管", "原mcu", "云视频mcu"],
+        "negative_terms": ["混合云", "专有云", "私有云", "跨网", "跨域", "网闸", "光闸", "多运营商"],
+        "preferred_intent_tags": ["cross-cloud-interconnect"],
+        "excluded_intent_tags": ["hybrid-deployment", "cross-network-security"],
+        "high_priority_cards": ["06-新一代视频会议系统建设方案模板-sec-224"]
+    },
     "ai": {
         "intent_aliases": ["AI", "人工智能", "AI应用", "AI场景", "智能能力", "智能会议"],
         "subtopics": ["ai-overview", "ai-face-recognition", "ai-caption-minutes", "ai-inspection", "ai-interaction", "ai-digital-human"],
@@ -211,6 +246,7 @@ def infer_metadata(card):
     product_models = list(override.get("product_models", []))
     capability_tags = list(override.get("capability_tags", []))
     scenario_tags = list(override.get("scenario_tags", []))
+    intent_tags = list(override.get("intent_tags", []))
 
     model_matches = re.findall(r"\b(?:AE|ME|GE|NE|TP|CMS|AMS|NP)\d+(?:-[A-Z])?\b", " ".join([title, path, body]))
     product_models = merge_unique(product_models, model_matches)
@@ -239,6 +275,7 @@ def infer_metadata(card):
         "product_models": product_models,
         "capability_tags": capability_tags,
         "scenario_tags": scenario_tags,
+        "intent_tags": intent_tags,
         "card_type": card_type,
         "quality_tier": quality_tier,
     }
@@ -257,6 +294,7 @@ def main():
     topic_index = defaultdict(list)
     scenario_index = defaultdict(list)
     card_type_index = defaultdict(list)
+    intent_index = defaultdict(list)
 
     for card in cards:
         meta = infer_metadata(card)
@@ -272,6 +310,8 @@ def main():
             topic_index[topic.lower()].append(card["id"])
         for scenario in meta["scenario_tags"]:
             scenario_index[scenario.lower()].append(card["id"])
+        for intent in meta["intent_tags"]:
+            intent_index[intent.lower()].append(card["id"])
         card_type_index[meta["card_type"]].append(card["id"])
 
     def normalize_index(src):
@@ -285,6 +325,7 @@ def main():
     (INDEX_DIR / "topic_index.v1.json").write_text(json.dumps(normalize_index(topic_index), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (INDEX_DIR / "scenario_index.v1.json").write_text(json.dumps(normalize_index(scenario_index), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (INDEX_DIR / "card_type_index.v1.json").write_text(json.dumps(normalize_index(card_type_index), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (INDEX_DIR / "intent_index.v1.json").write_text(json.dumps(normalize_index(intent_index), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     routes_path = QUERY_DIR / "routes.v1.json"
     routes_path.write_text(json.dumps(ROUTES_V1, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -295,6 +336,9 @@ def main():
     ae700_topic = """# AE700 Retrieval Topic (V1)\n\n## Coverage\n- AE700 产品简介\n- AE700 产品特点\n- AE700 产品组成\n- AE700 系统连接\n\n## High-priority cards\n- 06-新一代视频会议系统建设方案模板-sec-105\n- 06-新一代视频会议系统建设方案模板-sec-106\n- 06-新一代视频会议系统建设方案模板-sec-107\n- 06-新一代视频会议系统建设方案模板-sec-108\n- 06-新一代视频会议系统建设方案模板-sec-109\n\n## Retrieval advice\n1. 对型号类问题优先查 `product_index.v1.json`。\n2. “包含哪些组件/配置清单/组件”优先命中 sec-108。\n3. “怎么连接/连线方式”优先命中 sec-109。\n"""
     (TOPICS_DIR / "product-ae700-v1.md").write_text(ae700_topic, encoding="utf-8")
 
+    cross_cloud_topic = """# Cross-cloud Interconnect Retrieval Topic (V1)\n\n## Coverage\n- 跨云视频会议系统互通\n- 原 MCU 与云视频 MCU 融合会管\n- 新旧系统统一调度与会议控制\n\n## High-priority cards\n- 06-新一代视频会议系统建设方案模板-sec-224\n\n## Exclude unless user explicitly asks\n- 06-新一代视频会议系统建设方案模板-sec-076 （混合云部署）\n- 06-新一代视频会议系统建设方案模板-sec-226 （跨网/跨域安全）\n\n## Retrieval advice\n1. 查询包含“跨云”时，先命中 `routes.v1.json` 中的 `cross-cloud-interconnect`。\n2. 优先读取 `intent_index.v1.json` 中的 `cross-cloud-interconnect` 候选。\n3. 若候选仅命中“混合云 / 跨网 / 跨域”而不含“跨云 / 融合会管 / 原MCU / 云视频MCU”，应降权或排除。\n4. 回答时展示每条候选的匹配度，并区分“强命中 / 弱相关 / 排除项”。\n"""
+    (TOPICS_DIR / "cross-cloud-interconnect-v1.md").write_text(cross_cloud_topic, encoding="utf-8")
+
     print("V1 indexes built:")
     for name in [
         META_PATH,
@@ -304,9 +348,11 @@ def main():
         INDEX_DIR / "topic_index.v1.json",
         INDEX_DIR / "scenario_index.v1.json",
         INDEX_DIR / "card_type_index.v1.json",
+        INDEX_DIR / "intent_index.v1.json",
         routes_path,
         TOPICS_DIR / "ai-retrieval-v1.md",
         TOPICS_DIR / "product-ae700-v1.md",
+        TOPICS_DIR / "cross-cloud-interconnect-v1.md",
     ]:
         print(name.relative_to(ROOT))
 

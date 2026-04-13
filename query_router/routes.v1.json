@@ -1,4 +1,45 @@
 {
+  "cross-cloud-interconnect": {
+    "intent_aliases": [
+      "跨云互通",
+      "跨云会议互通",
+      "跨云视频互通",
+      "跨云视频会议系统",
+      "跨云会管",
+      "跨云级联",
+      "融合会管系统"
+    ],
+    "subtopics": [
+      "cross-cloud-interconnect"
+    ],
+    "priority": 1,
+    "required_terms_any": [
+      "跨云",
+      "融合会管",
+      "原mcu",
+      "云视频mcu"
+    ],
+    "negative_terms": [
+      "混合云",
+      "专有云",
+      "私有云",
+      "跨网",
+      "跨域",
+      "网闸",
+      "光闸",
+      "多运营商"
+    ],
+    "preferred_intent_tags": [
+      "cross-cloud-interconnect"
+    ],
+    "excluded_intent_tags": [
+      "hybrid-deployment",
+      "cross-network-security"
+    ],
+    "high_priority_cards": [
+      "06-新一代视频会议系统建设方案模板-sec-224"
+    ]
+  },
   "ai": {
     "intent_aliases": [
       "AI",
