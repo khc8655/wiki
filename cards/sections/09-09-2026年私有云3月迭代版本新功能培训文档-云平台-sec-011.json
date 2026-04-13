@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-011",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "说明：",
+  "level": 2,
+  "path": "研发同步内容 > 579375 【基础设施架构】【研发自驱】【交付关注】服务升级包通过manager及xyupgrade工具升级支持版本回退 > 说明：",
+  "line_start": 68,
+  "char_count": 55,
+  "body": "/mnt/xylink/upgrade/files/XXXXXX/rollback升级包目录，包含回滚备份文件",
+  "tags": [
+    "architecture"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

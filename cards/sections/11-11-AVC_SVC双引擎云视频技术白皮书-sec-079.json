@@ -1,0 +1,17 @@
+{
+  "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-079",
+  "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
+  "title": "云视频能力开放",
+  "level": 1,
+  "path": "**AVC+SVC双引擎云视频技术白皮书** > 云视频能力开放",
+  "line_start": 735,
+  "char_count": 240,
+  "body": "![](data:image/png;base64...)\n\n整个云视频平台完全基于标准云计算Iaas基础设施进行部署，基于标准Paas组件构建VCPaas(Video Communication Platform as a Service)音视频能力平台。能力平台采用集群化部署，支持超大规模扩展及高可靠运行，为Saas应用系统提供统一的音视频通信能力。\n\n音视频能力平台提供了统一的基础服务功能封装，整体能力输出分为三大类：原生应用、API/SDK能力输出、标准通信协议接入。",
+  "tags": [
+    "architecture"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

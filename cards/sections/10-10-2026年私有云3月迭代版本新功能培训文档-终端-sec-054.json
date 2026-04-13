@@ -1,0 +1,17 @@
+{
+  "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-054",
+  "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
+  "title": "NP30-BYOM的设备在PC上显示外设名称：",
+  "level": 2,
+  "path": "硬件平台 > 硬件终端 > NP30-BYOM的设备在PC上显示外设名称：",
+  "line_start": 507,
+  "char_count": 526,
+  "body": "* 麦克风：名称-麦克风，型号显示-XYLink Wireless Audio\n* 摄像头：XYLink Wireless Camera\n* 扬声器：名称-扬声器，型号显示-XYLink Wireless Audio\n* 显示器：显示在PC的屏幕信息，通话外内容共享为多屏同步显示\n\n终端作为PC的显示器的逻辑及响应\n\n| **功能设置** | **界面响应** | **会议响应** |\n| --- | --- | --- |\n| NP30-BYOM模式开启 | HDMI out（所有已接入的屏幕）  按下NP30投屏按键，同通话外NP30传屏相关页面，多屏均显示内容共享 | 开启BYOM模式，终端视频会议优先。   * PC在调用终端作为BYOM外设时，小鱼终端有会议呼入以终端的会议为第一优先级。   PC上外设可以选到终端作为外设，实际选定设备后无流   * 会议终端退会再入会，PC端开会音视频恢复正常。 |\n| NP30-BYOM模式关闭 | HDMI out（所有已接入的屏幕）  点按下NP30投屏按键，同通话外NP30传屏相关页面，多屏均显示内容共享 | 关闭BYOM模式  PC上外设可以选到终端作为外设，实际选定设备后无流 |",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

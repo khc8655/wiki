@@ -1,0 +1,18 @@
+{
+  "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-089",
+  "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
+  "title": "视频编解码技术",
+  "level": 2,
+  "path": "**AVC+SVC双引擎云视频技术白皮书** > 云视频建设关键技术 > 视频编解码技术",
+  "line_start": 839,
+  "char_count": 196,
+  "body": "云视频整体采用自适应可扩展视频编码技术（即SVC柔性编码技术），让每个视频会议的参与方都可以根据自己的网络带宽、设备性能、屏幕分辨率获得适合自己的视频流。比如，移动终端或者低性能的电脑依然可以收到高清终端设备发出的视频图像，低带宽的用户依然可以收到高带宽条件下终端设备发出的视频流，进行自适应解码，获得当前状态下的最佳画面效果。\n\n![](data:image/jpeg;base64...)",
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

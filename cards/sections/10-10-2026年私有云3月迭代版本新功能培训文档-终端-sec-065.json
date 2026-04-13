@@ -1,0 +1,15 @@
+{
+  "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-065",
+  "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
+  "title": "**【功能背景】**",
+  "level": 2,
+  "path": "硬件平台 > 硬件终端 > **【功能背景】**",
+  "line_start": 624,
+  "char_count": 174,
+  "body": "根据实际使用需求，终端本地Web管理界面本期实现定时重启功能。\n\n本期涉及终端（SVC/AVC）：\n\n* AE800系列：AE800\n* AE700系列：AE700\n* TP860-S系列：TP860-S\n* GE300系列：GE300\n* GE600系列：GE600\n* AE330系列：AE330-B/AE330\n* XE800系列：XE800",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

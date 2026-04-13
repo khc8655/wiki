@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-141",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "**【功能说明】**",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > **【功能说明】**",
+  "line_start": 1416,
+  "char_count": 411,
+  "body": "用于获取小鱼服务器及云平台核心服务的CPU、内存、磁盘、网络等资源使用情况，关键会议室（终端）音视频质量，展示在融合会管的数据可视化大盘。\n\n* 分页查询所有服务器状态接口\n\n[开发者中心\\_音视频SDK\\_运维管理\\_分页查询所有服务器状态 - 小鱼易连](https://openapi.xylink.com/common/meeting/doc/get_ops_server_status_page?platform=server\" \\o \"https://openapi.xylink.com/common/meeting/doc/get_ops_server_status_page?platform=server)\n\n接口说明：获取平台所有服务器的运行状态信息，包括云平台虚拟机、MCU物理机、CRS录播物理机三类服务器的名称、序列号、IP地址、在线状态等关键信息。\n\n**默认接口请求频率限制：20次/秒**",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

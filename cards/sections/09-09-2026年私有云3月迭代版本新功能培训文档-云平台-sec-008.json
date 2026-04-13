@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-008",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "587816 【研发自驱】【AMS1000】优化main-proxy和webrtc-proxy代理方式为使用proxyIp",
+  "level": 1,
+  "path": "研发同步内容 > 587816 【研发自驱】【AMS1000】优化main-proxy和webrtc-proxy代理方式为使用proxyIp",
+  "line_start": 43,
+  "char_count": 556,
+  "body": "[https://nones.xylink.com/project/#/team/AQzvsooq/task/REv3oDxU7MTHGvHn](https://nones.xylink.com/project/%22%20%5Cl%20%22/team/AQzvsooq/task/REv3oDxU7MTHGvHn)\n\n**有AMS对接，且有绑定终端IP与SiteCode的项目关注：**\n\n版本组合及对应要求：\n\n* 旧AMS版本（20260327迭代前）+新分区云（20260327迭代）\n* AMS代理接入默认策略：沿用终端 IP\n* 绑定 SiteCode 方式：需通过终端 IP绑定\n* 新AMS版本（20260327迭代）+新分区云（20260327迭代）\n* AMS代理接入默认策略：已改为AMS 代理 IP\n* 绑定SiteCode方式：需用就近接入的AMS IP绑定\n* 新 AMS版本（20260327迭代）+旧分区云（20260327迭代前）\n* AMS代理接入默认策略：已改为AMS 代理 IP\n* 绑定SiteCode方式：需用就近接入的 AMS IP绑定\n* 额外操作：必须同步修改openresty-main接入策略为使用proxy ip接入策略，才能满足使用proxy ip接入",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

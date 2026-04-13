@@ -1,0 +1,19 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-015",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "会议应用安全",
+  "level": 2,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 会议应用安全",
+  "line_start": 128,
+  "char_count": 0,
+  "body": "",
+  "tags": [
+    "architecture",
+    "meeting-control",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

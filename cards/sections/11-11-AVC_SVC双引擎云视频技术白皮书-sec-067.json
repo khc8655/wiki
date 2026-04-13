@@ -1,0 +1,17 @@
+{
+  "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-067",
+  "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
+  "title": "SVC MCU引擎架构",
+  "level": 3,
+  "path": "**AVC+SVC双引擎云视频技术白皮书** > 云视频AVC&SVC双引擎视频技术 > AVC&SVC编码丢包对比示意 > SVC MCU引擎架构",
+  "line_start": 534,
+  "char_count": 127,
+  "body": "SVC提供了一种适应性更强的视频图像压缩和交换传输方式，中央处理器MCU无需对视频码流进行解码、处理和重新编码，接入终端设备根据自身的观看需求、解码能力和网络条件自适应选择适宜的视频图像码流。\n\n![](data:image/png;base64...)",
+  "tags": [
+    "architecture"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

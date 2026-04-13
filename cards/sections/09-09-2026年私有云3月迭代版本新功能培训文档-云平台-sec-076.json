@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-076",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "Console会管平台、PC客户端、指挥调度客户端，meetingkit",
+  "level": 2,
+  "path": "研发同步内容 > 云平台功能 > Console会管平台、PC客户端、指挥调度客户端，meetingkit",
+  "line_start": 826,
+  "char_count": 50,
+  "body": "* 涉及查看参会终端能力的入口：\n\n多画面本会广播、轮询本会广播、会议多画面、会议轮询、会议多屏管理",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

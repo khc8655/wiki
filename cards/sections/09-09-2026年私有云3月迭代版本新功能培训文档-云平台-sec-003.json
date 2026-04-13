@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-003",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "服务缩减",
+  "level": 2,
+  "path": "研发同步内容 > 研发同步内容 > 服务缩减",
+  "line_start": 15,
+  "char_count": 776,
+  "body": "升级260327迭代后，5.2/5.6存在以下服务变更：\n\n| **服务名称** | **增加/删除** | **说明** | **影响范围** | **关联需求** | **备注** |\n| --- | --- | --- | --- | --- | --- |\n| private-iauth | 删除 | 其能力合并到basic-xyauth服务 | 5.2/5.6 | #583372 【研发自驱】【基础设施架构】微服务种类合并  [https://nones.xylink.com/project/#/team/AQzvsooq/task/7t9N5o9UWFV8wQM5](https://nones.xylink.com/project/%22%20%5Cl%20%22/team/AQzvsooq/task/7t9N5o9UWFV8wQM5) | 可手动启用iauth和pivotor，但需要重新配置路由。 |\n| private-pivotor | 删除 | 其能力合并到basic-management服务 |\n| private-dispatcher | 删除 | 其能力合并到private-charge服务 | 5.2/5.6 | #537032 【研发自驱】【服务缩减】charge-dispatcher 和charge 合并  [https://nones.xylink.com/project/#/team/AQzvsooq/task/Y8JAYpxVM2mc9JKa](https://nones.xylink.com/project/%22%20%5Cl%20%22/team/AQzvsooq/task/Y8JAYpxVM2mc9JKa) | 可手动启用charge-dispatcher，但需要重新配置路由。 |",
+  "tags": [
+    "architecture"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

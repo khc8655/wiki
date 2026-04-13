@@ -1,0 +1,15 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-009",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "4) 更改网卡配置模式和 IP",
+  "level": 2,
+  "path": "文档密级：内部 > 4) 更改网卡配置模式和 IP",
+  "line_start": 66,
+  "char_count": 48,
+  "body": "5) PC 断开电口， MCU800 光口须重新插拔，使用新 IP 远程访问 web 页面成功；",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-005",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "运维相关",
+  "level": 2,
+  "path": "研发同步内容 > 研发同步内容 > 运维相关",
+  "line_start": 31,
+  "char_count": 441,
+  "body": "服务巡检能力提升，对于statis相关服务增加数据库巡检\n\n| **服务名称** | **巡检内容** | **关联需求** | **备注** |\n| --- | --- | --- | --- |\n| private-statis-meeting private-statis-monitor private-statis-quality | kafka  redis  hbase  数据库 | #581532 case已完成---【研发自驱】statis-\\*服务巡检增加对数据库的检查  [https://nones.xylink.com/project/#/team/AQzvsooq/task/YP3p4gaMOn3MTUJp](https://nones.xylink.com/project/%22%20%5Cl%20%22/team/AQzvsooq/task/YP3p4gaMOn3MTUJp) | ![](data:image/png;base64...) |",
+  "tags": [
+    "stability"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

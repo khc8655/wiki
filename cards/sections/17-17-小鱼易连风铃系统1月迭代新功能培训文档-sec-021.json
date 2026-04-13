@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-021",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "nmst 服务默认启用，在**服务状态**页面支持按单个子服务禁用；",
+  "level": 2,
+  "path": "文档密级：内部 > nmst 服务默认启用，在**服务状态**页面支持按单个子服务禁用；",
+  "line_start": 168,
+  "char_count": 69,
+  "body": "**1.6 【风铃 MCU】内置穿越服务**\n\n本期风铃 MCU 支持终端就近接入，通过 MCU 的穿越服务，终端可代理注册到风铃会管上。",
+  "tags": [
+    "overview"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,15 @@
+{
+  "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-083",
+  "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
+  "title": "**【功能说明】**",
+  "level": 2,
+  "path": "硬件平台 > 硬件终端 > **【功能说明】**",
+  "line_start": 792,
+  "char_count": 155,
+  "body": "* TP10适配GE600\n\n本期TP10适配GE600终端，可通过MBI端口直连，或局域网配对GE600，支持双模操作，功能体验与AE800一致。\n\n![](data:image/png;base64...)\n\n* TP10配对体验优化\n\n适配终端：AE700、AE800、XE800、XE700、GE600",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

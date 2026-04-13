@@ -1,0 +1,15 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-014",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l 功能开关配置",
+  "level": 2,
+  "path": "文档密级：内部 > l 功能开关配置",
+  "line_start": 106,
+  "char_count": 80,
+  "body": "通过 IBMC 进入后台，对 ASA 节点，使用sqlite3 命令，打开 web 界面配置媒体能力选项。配置成功后，web 页面显示 H.263 协议配置项。",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

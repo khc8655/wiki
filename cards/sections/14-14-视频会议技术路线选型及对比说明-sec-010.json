@@ -1,0 +1,19 @@
+{
+  "id": "14-14-视频会议技术路线选型及对比说明-sec-010",
+  "doc_file": "14-视频会议技术路线选型及对比说明.md",
+  "title": "可靠性更高",
+  "level": 2,
+  "path": "**视频会议技术路线选型及对比说明** > 小鱼易连SVC+AVC双引擎云视频优势 > 可靠性更高",
+  "line_start": 76,
+  "char_count": 109,
+  "body": "传统视频会议可靠性保障机制弱，双机等可靠性方案造价高。云视频基于分布式云计算集群架构，构建多级自动化MCU集群，核心自建高可靠。同时，虚拟化平台提供底层硬件的高可靠支持，包括多活热备、在线迁移、快速重建等全面保障机制。",
+  "tags": [
+    "architecture",
+    "meeting-control",
+    "stability"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

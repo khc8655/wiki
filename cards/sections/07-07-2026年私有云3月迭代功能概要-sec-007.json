@@ -1,0 +1,17 @@
+{
+  "id": "07-07-2026年私有云3月迭代功能概要-sec-007",
+  "doc_file": "07-2026年私有云3月迭代功能概要.md",
+  "title": "License多容量和有效期配置",
+  "level": 3,
+  "path": "私有云3月迭代新功能概要（2026-3） > 私有云3月迭代新功能概要（2026-3） > 会管/会控 > License多容量和有效期配置",
+  "line_start": 36,
+  "char_count": 100,
+  "body": "为满足客户临时扩容、试用新功能的灵活授权需求，POPS平台可精细化生成License，容量授权支持多段分生效/失效时间配置，API/SDK按需设有效期，并优化SSL证书和License展示。\n\n---",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

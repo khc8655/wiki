@@ -1,0 +1,18 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-010",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "密钥安全机制",
+  "level": 3,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 网络传输安全 > 密钥安全机制",
+  "line_start": 110,
+  "char_count": 36,
+  "body": "加密密钥为每个会话实时动态协商、随机生成，不静态存储以避免被盗取的风险。",
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

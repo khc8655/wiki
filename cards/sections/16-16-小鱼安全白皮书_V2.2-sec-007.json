@@ -1,0 +1,18 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-007",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "端到端加密视频通信",
+  "level": 3,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 网络传输安全 > 端到端加密视频通信",
+  "line_start": 96,
+  "char_count": 124,
+  "body": "![](data:image/png;base64...)\n\n小鱼易连支持端到端的加密视频通信，实现登陆鉴权、信令交互、管理消息均支持在TLS虚拟加密通道传输，视频、音频和双流媒体信息支持AES256或SM2/3/4国密加密传输，实现端到端的安全。",
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

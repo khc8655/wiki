@@ -1,0 +1,19 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-008",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "消息通道加密",
+  "level": 3,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 网络传输安全 > 消息通道加密",
+  "line_start": 102,
+  "char_count": 85,
+  "body": "终端在进行登录平台实现登录鉴权的过程后，进入登录状态可以进行市视频通信的呼叫，会议过程中涉及会议管理消息类的应用，小鱼易连均支持这些类的信息以TLS方式在加密通道中实现。",
+  "tags": [
+    "architecture",
+    "meeting-control",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

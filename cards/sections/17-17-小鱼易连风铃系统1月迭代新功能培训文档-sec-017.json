@@ -1,0 +1,15 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-017",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l H.323/SIP 服务启停开关入口",
+  "level": 2,
+  "path": "文档密级：内部 > l H.323/SIP 服务启停开关入口",
+  "line_start": 126,
+  "char_count": 407,
+  "body": "。本地管理页面，选择菜单**【系统配置→ H.323 配置】**，页面新增开关**启用**\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **功能开关** | **控制服务启停** | **业务影响** | |\n| 启用 H.323 服务  （默认开启） | h323-sig、  h323-media | •  • | 落在当前 MCU 的 H.323 和 SIP 呼叫中断，且无法建立 H.323 和 SIP 新通话； SVC 呼叫不影响； |\n| 启用 SIP 服务（默认关闭） | sip-server | •  • | 落在当前 MCU 的 SIP 呼叫中断，且无法建立 SIP 新通话；  SVC 呼叫不影响； |\n\n![](data:image/png;base64...)支持启停 h323-sig、h323-media、sip-server、nmst 服务",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

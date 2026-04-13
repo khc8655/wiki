@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-059",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "Console会管平台、PC客户端、指挥调度客户端，meetingkit；",
+  "level": 2,
+  "path": "研发同步内容 > 云平台功能 > Console会管平台、PC客户端、指挥调度客户端，meetingkit；",
+  "line_start": 580,
+  "char_count": 86,
+  "body": "* 会议类型：\n\n普通会议、级联会议\n\n* 支持的终端型号：\n\nSVC硬终端：XE800、XE700、AE800、AE802、GE600、AE700、AE600、GE300",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

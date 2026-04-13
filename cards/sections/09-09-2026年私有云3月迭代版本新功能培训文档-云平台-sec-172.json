@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-172",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "**【功能说明】**",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > **【功能说明】**",
+  "line_start": 1790,
+  "char_count": 94,
+  "body": "本期，鸿蒙移动端SDK、Meetingkit支持应用悬浮窗，会议窗口会以小窗形式悬浮在屏幕上，互不干扰，提升多任务处理效率。\n\n![](data:image/jpeg;base64...)",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

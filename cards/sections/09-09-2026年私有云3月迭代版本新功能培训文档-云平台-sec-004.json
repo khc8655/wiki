@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-004",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "安全相关",
+  "level": 2,
+  "path": "研发同步内容 > 研发同步内容 > 安全相关",
+  "line_start": 25,
+  "char_count": 491,
+  "body": "| **服务名称** | **外链** | **说明** | **改动内容** | **关联需求** |\n| --- | --- | --- | --- | --- |\n| private-nightingale-categraf  private-nightingale-categraf-new  private-nightingale-categraf-x86  private-nightingale-categraf-arm | ⁠n9e.io  3.33.251.168、⁠15.197.225.128 | 客户防火墙，对外规则无限制的情况，会产生外链请求 | 去除夜莺服务对外访问 | #590364 【安全】【研发自驱】去除夜莺服务对外访问  [https://nones.xylink.com/project/#/team/AQzvsooq/task/GF586SrVWBkfdN1C](https://nones.xylink.com/project/%22%20%5Cl%20%22/team/AQzvsooq/task/GF586SrVWBkfdN1C) |",
+  "tags": [
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

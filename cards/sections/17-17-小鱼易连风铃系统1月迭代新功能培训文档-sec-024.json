@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-024",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l 风铃 MCU 的 web 页面支持监控穿越服务状态",
+  "level": 2,
+  "path": "文档密级：内部 > l 风铃 MCU 的 web 页面支持监控穿越服务状态",
+  "line_start": 211,
+  "char_count": 78,
+  "body": "在 web 页面，选择菜单**【系统状态→实时监控→服务状态】**，支持实时显示穿越服务状态。\n\n![](data:image/png;base64...)",
+  "tags": [
+    "overview"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,18 @@
+{
+  "id": "14-14-视频会议技术路线选型及对比说明-sec-013",
+  "doc_file": "14-视频会议技术路线选型及对比说明.md",
+  "title": "系统开放程度高",
+  "level": 2,
+  "path": "**视频会议技术路线选型及对比说明** > 小鱼易连SVC+AVC双引擎云视频优势 > 系统开放程度高",
+  "line_start": 88,
+  "char_count": 73,
+  "body": "不同于传统视频会议系统专用设备的封闭性。云视频平台开放度高，提供完整的API和SDK接口，支持在业务流程嵌入视频应用，可以应用于政务各项创新场景。",
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

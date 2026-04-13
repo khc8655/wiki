@@ -1,0 +1,18 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-048",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l opeadmin 支持录制文件管理和 AI 管理。",
+  "level": 2,
+  "path": "文档密级：内部 > l opeadmin 支持录制文件管理和 AI 管理。",
+  "line_start": 575,
+  "char_count": 428,
+  "body": "opeadmin 登录风铃 Console 会管平台，新增两个以及菜单：**录制管理**和 **AI 管理**。\n\n• 录制管理\n\n平台配置录制服务后，可见录制管理菜单，包括会议记录和共享文件夹。管理员可查看虚拟会议室的录制文件和终端智能记会文件，支持播放、分享、重命名、下载、删除等操作；也可查看共享文件夹内容。\n\n![](data:image/png;base64...)\n\n• AI 管理\n\n授权后，高级模式下，opeadmin 显示 **AI 管理**一级菜单，用于绑定转写\n\n/ 及绑定智能纪要终端。操作流程与私有云一致。\n\n对于终端智能记会功能，本期只支持绑定 PE3000 终端。\n\n![](data:image/jpeg;base64...)\n\n• 会议室属性调整\n\n如平台配置了 AI 功能授权，高级模式下，绑定了转写、智能纪要的会议室，属性页面内增加自动转写与自动纪要配置\n\n![](data:image/jpeg;base64...)",
+  "tags": [
+    "meeting-control",
+    "overview"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

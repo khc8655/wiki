@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-159",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "入参说明（Query 参数）",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 入参说明（Query 参数）",
+  "line_start": 1594,
+  "char_count": 619,
+  "body": "| **参数** | **类型** | **参数位置** | **是否必须** | **默认值** | **说明** |\n| --- | --- | --- | --- | --- | --- |\n| enterpriseId | String | Query | 是 | 无 | 企业ID，通过[管理平台-云视讯API](https://openapi.xylink.com/common/meeting/doc/ready_work?platform=server\" \\l \"h7a42537-szZtNskC\" \\t \"_self)获得 |\n| pageIndex | int | Query | 否 | 0 | 页码，默认为0 |\n| pageSize | int | Query | 否 | 20 | 每页大小，默认为20，最大不能超过100 |\n| startTime | Long | Query | 否 | 今天 00:00 | 时间戳，最大查询 7 天 |\n| endTime | Long | Query | 否 | 当前时间 | 时间戳 |\n| alarmLevel | String | Query | 否 | 无 | 告警级别。 1：紧急，2：重要，3：一般，4：提示。一级是严重告警 |\n| alarmStatus | String | Query | 否 | 无 | 状态。已触发: on。已恢复：off |",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-152",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1532,
+  "char_count": 289,
+  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| serviceId | 服务 Id |\n| serviceName | 服务名称 |\n| type | 服务类型CORE/Business/MEDIA/DATABASE |\n| status | 状态 |\n| version | 版本号 |\n| launchTime | 启动时间 |\n| cpuUsagePercent | cpu使用率（%）,开始时间到结束时间之间的某些时间点的取值，最大 100 |\n| memoryUsage | 占用内存（MB），,开始时间到结束时间之间的某些时间点的取值 |",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

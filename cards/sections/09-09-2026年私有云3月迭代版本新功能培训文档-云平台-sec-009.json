@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-009",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "服务升级包通过manager及xyupgrade工具升级支持版本回退",
+  "level": 3,
+  "path": "研发同步内容 > 587816 【研发自驱】【AMS1000】优化main-proxy和webrtc-proxy代理方式为使用proxyIp > 服务升级包通过manager及xyupgrade工具升级支持版本回退",
+  "line_start": 62,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

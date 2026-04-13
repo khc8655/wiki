@@ -1,0 +1,18 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-013",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "账号密码存储",
+  "level": 3,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 数据存储安全 > 账号密码存储",
+  "line_start": 120,
+  "char_count": 62,
+  "body": "用户账户信息在数据库中存储的数据是SHA-512散列哈希值，并才有加盐处理，服务器后台无法查看密码，确保用户信息及密码安全。",
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

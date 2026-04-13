@@ -1,0 +1,18 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-011",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "国密双引擎加密",
+  "level": 3,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 网络传输安全 > 国密双引擎加密",
+  "line_start": 114,
+  "char_count": 42,
+  "body": "通信过程中媒体都采用AES256位加密传输，同时支持国密算法对音视频媒体流进行加密。",
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

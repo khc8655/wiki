@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-033",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l",
+  "level": 2,
+  "path": "文档密级：内部 > l",
+  "line_start": 411,
+  "char_count": 185,
+  "body": "交付手动修改 mc 策略文件\n\n支持设置某两个 site 支持的跨 site 级联会议最大个数，当跨 site 级联会议达到上限时，新发起跨 site 级联会议失败\n\n支持设置两个 site 的最大级联带宽，如果只是跨 site 级联带宽达到上限（级联会议个数未达到上限），可以新发起跨 site 级联会议，新发起的会议，所有跨本 site 级联的远端画面均显示视频暂停",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -17003,5 +17003,9229 @@
     "intent_tags": [],
     "card_type": "capability",
     "quality_tier": "high"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "硬件平台",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "ams1000",
+      "支持分级分权",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "会管",
+      "会控",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "自定义企业登录密码策略",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "会管",
+      "会控"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "布局管控专题",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "会管",
+      "会控"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "license",
+      "多容量和有效期配置",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "会管",
+      "会控"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "双模双活终端支持",
+      "byom-np30",
+      "v2.0",
+      "方案",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "软终端功能增强",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "07-07-2026年私有云3月迭代功能概要-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "新功能完整清单",
+      "私有云",
+      "月迭代新功能概要",
+      "2026-3"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "TP860-S",
+      "TP650-S"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "08-08-2026年私有云3月迭代功能概要文档-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "08-08-2026年私有云3月迭代功能概要文档-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "ams1000",
+      "支持分级分权",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "08-08-2026年私有云3月迭代功能概要文档-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "license",
+      "多容量和有效期配置",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "服务缩减",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "安全相关",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "运维相关",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "部署",
+      "升级相关",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "ams1000",
+      "研发同步内容",
+      "部署",
+      "升级相关"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "587816",
+      "研发自驱",
+      "ams1000",
+      "优化",
+      "main-proxy",
+      "webrtc-proxy",
+      "代理方式为使用",
+      "proxyip",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "服务升级包通过",
+      "manager",
+      "xyupgrade",
+      "工具升级支持版本回退",
+      "研发同步内容",
+      "587816",
+      "研发自驱",
+      "ams1000",
+      "优化",
+      "main-proxy",
+      "webrtc-proxy",
+      "代理方式为使用"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "579375",
+      "基础设施架构",
+      "研发自驱",
+      "交付关注",
+      "服务升级包通过",
+      "manager",
+      "xyupgrade",
+      "工具升级支持版本回退",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "研发同步内容",
+      "579375",
+      "基础设施架构",
+      "研发自驱",
+      "交付关注",
+      "服务升级包通过",
+      "manager",
+      "xyupgrade",
+      "工具升级支持版本回退"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "xyupgrade",
+      "之前版本无",
+      "rollback",
+      "目录",
+      "研发同步内容",
+      "579375",
+      "基础设施架构",
+      "研发自驱",
+      "交付关注",
+      "服务升级包通过",
+      "manager"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "2606",
+      "迭代",
+      "规划回退能力界面化",
+      "研发同步内容",
+      "579375",
+      "基础设施架构",
+      "研发自驱",
+      "交付关注",
+      "服务升级包通过",
+      "manager",
+      "xyupgrade",
+      "工具升级支持版本回退"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-014": {
+    "aliases": [],
+    "keywords": [
+      "云平台功能",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-015": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-016": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台在私有云",
+      "月迭代中",
+      "有以下功能新增",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-017": {
+    "aliases": [],
+    "keywords": [
+      "当前会议",
+      "历史会议支持呼叫服务器拓扑",
+      "研发同步内容",
+      "云平台功能",
+      "console",
+      "会管平台在私有云",
+      "月迭代中",
+      "有以下功能新增"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-018": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-019": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-020": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-021": {
+    "aliases": [],
+    "keywords": [
+      "自定义登录密码策略",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-022": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-023": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-024": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-025": {
+    "aliases": [],
+    "keywords": [
+      "6-32",
+      "位内任意设置范围值",
+      "整数值",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-026": {
+    "aliases": [],
+    "keywords": [
+      "支持账密",
+      "短信验证码登录",
+      "研发同步内容",
+      "云平台功能",
+      "6-32",
+      "位内任意设置范围值",
+      "整数值"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-027": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-028": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-029": {
+    "aliases": [],
+    "keywords": [
+      "会议号自定义功能默认全量放开",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-030": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-031": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-032": {
+    "aliases": [],
+    "keywords": [
+      "告警中心功能增强",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-033": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-034": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-035": {
+    "aliases": [],
+    "keywords": [
+      "历史会议优化",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-036": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-037": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-038": {
+    "aliases": [],
+    "keywords": [
+      "历史会议支持导出未入会列表",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-039": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-040": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-041": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-042": {
+    "aliases": [],
+    "keywords": [
+      "功能合入",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-043": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-044": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-045": {
+    "aliases": [],
+    "keywords": [
+      "会控",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-046": {
+    "aliases": [],
+    "keywords": [
+      "布局管控专题",
+      "研发同步内容",
+      "云平台功能",
+      "会控"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-047": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-048": {
+    "aliases": [],
+    "keywords": [
+      "多画面",
+      "轮询支持指定",
+      "as",
+      "local",
+      "主会场",
+      "远端重复成员",
+      "研发同步内容",
+      "云平台功能",
+      "适用环境"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-049": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-050": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "AE330",
+      "TP860-S",
+      "TP650"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-051": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-052": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "共享画面布局",
+      "窗口常显设置项",
+      "本地视频",
+      "主会场",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE90"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-053": {
+    "aliases": [],
+    "keywords": [
+      "支持画中画和远真布局",
+      "研发同步内容",
+      "云平台功能",
+      "svc",
+      "共享画面布局",
+      "窗口常显设置项",
+      "本地视频",
+      "主会场"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-054": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-055": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE802",
+      "GE600",
+      "AE700",
+      "AE600",
+      "GE300",
+      "AE1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-056": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-057": {
+    "aliases": [],
+    "keywords": [
+      "轮询支持自动填充",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-058": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-059": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE802",
+      "GE600",
+      "AE700",
+      "AE600",
+      "GE300"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-060": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-061": {
+    "aliases": [],
+    "keywords": [
+      "终端多屏管理功能增强",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-062": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-063": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-064": {
+    "aliases": [],
+    "keywords": [
+      "ae800",
+      "ae700",
+      "xe800",
+      "xe700",
+      "ge300",
+      "ge600",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "GE300",
+      "GE600"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-065": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-066": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-067": {
+    "aliases": [],
+    "keywords": [
+      "会议级多屏管理",
+      "研发同步内容",
+      "云平台功能",
+      "说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-068": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-069": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE802",
+      "GE600",
+      "AE700",
+      "GE300",
+      "AE330"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-070": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-071": {
+    "aliases": [],
+    "keywords": [
+      "点名和发言模式布局配置化",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-072": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE802",
+      "GE600",
+      "AE700",
+      "AE600",
+      "GE300",
+      "AE330"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-073": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-074": {
+    "aliases": [],
+    "keywords": [
+      "查看参会终端能力增强",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-075": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-076": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-077": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-078": {
+    "aliases": [],
+    "keywords": [
+      "会控显示终端观看对象信息",
+      "二期",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-079": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-080": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "AE1000",
+      "AE330",
+      "TP860-S",
+      "TP650"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-081": {
+    "aliases": [],
+    "keywords": [
+      "winqt",
+      "信创",
+      "qt",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-082": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-083": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-084": {
+    "aliases": [],
+    "keywords": [
+      "323",
+      "多屏终端",
+      "按单屏终端处理",
+      "会将多个屏幕请流信息合并进行显示",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-085": {
+    "aliases": [],
+    "keywords": [
+      "权限设置增加主会场",
+      "主持人",
+      "研发同步内容",
+      "云平台功能",
+      "323",
+      "多屏终端",
+      "按单屏终端处理",
+      "会将多个屏幕请流信息合并进行显示"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-086": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-087": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-088": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-089": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-090": {
+    "aliases": [],
+    "keywords": [
+      "邀请通话选人组件支持成员状态显示",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-091": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-092": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "meetingkit",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-093": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "仅统一号码注册的终端支持",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-094": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-095": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-096": {
+    "aliases": [],
+    "keywords": [
+      "会控列表支持自定义备注信息",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-097": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-098": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台",
+      "pc",
+      "客户端",
+      "指挥调度客户端",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-099": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-100": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-101": {
+    "aliases": [],
+    "keywords": [
+      "录播",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-102": {
+    "aliases": [],
+    "keywords": [
+      "录制文件观看权限对接统一身份认证",
+      "研发同步内容",
+      "云平台功能",
+      "录播"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-103": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-104": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-105": {
+    "aliases": [],
+    "keywords": [
+      "录制自动分享",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-106": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-107": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-108": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-109": {
+    "aliases": [],
+    "keywords": [
+      "组网部署",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-110": {
+    "aliases": [],
+    "keywords": [
+      "自定义数据库备份文件保存时间",
+      "研发同步内容",
+      "云平台功能",
+      "组网部署"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-111": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-112": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-113": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-114": {
+    "aliases": [],
+    "keywords": [
+      "license",
+      "多容量和有效期配置",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-115": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-116": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-117": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-118": {
+    "aliases": [],
+    "keywords": [
+      "api",
+      "sdk",
+      "若启用",
+      "必须配置生效",
+      "失效时间",
+      "若关闭",
+      "隐藏时间配置",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-119": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "导入注册码",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-120": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "导入成功后",
+      "页面展示当前所有",
+      "license",
+      "授权的模块",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-121": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-122": {
+    "aliases": [],
+    "keywords": [
+      "4k",
+      "未授权容量时",
+      "隐藏",
+      "终端模块的",
+      "设置",
+      "按钮",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-123": {
+    "aliases": [],
+    "keywords": [
+      "opsadmin",
+      "仅可见自己导出的记录",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-124": {
+    "aliases": [],
+    "keywords": [
+      "站点管理",
+      "研发同步内容",
+      "云平台功能",
+      "opsadmin",
+      "仅可见自己导出的记录"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-125": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-126": {
+    "aliases": [],
+    "keywords": [
+      "5.2",
+      "所有环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-127": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-128": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "开启企业开关",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-129": {
+    "aliases": [],
+    "keywords": [
+      "运维管理优化",
+      "研发同步内容",
+      "云平台功能",
+      "1.",
+      "开启企业开关"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-130": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-131": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-132": {
+    "aliases": [],
+    "keywords": [
+      "数据库配置优化",
+      "研发同步内容",
+      "云平台功能",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-133": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-134": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "云平台功能"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-135": {
+    "aliases": [],
+    "keywords": [
+      "开发者中心",
+      "研发同步内容"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-136": {
+    "aliases": [],
+    "keywords": [
+      "服务端",
+      "api",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-137": {
+    "aliases": [],
+    "keywords": [
+      "融合会管系统运维监控能力集成接口",
+      "研发同步内容",
+      "开发者中心",
+      "服务端",
+      "api"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-138": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-139": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-140": {
+    "aliases": [],
+    "keywords": [
+      "状态查询类接口",
+      "研发同步内容",
+      "开发者中心",
+      "适用环境"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-141": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-142": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-143": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-144": {
+    "aliases": [],
+    "keywords": [
+      "接口说明",
+      "查询单个服务器的状态详情",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-145": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-146": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-147": {
+    "aliases": [],
+    "keywords": [
+      "接口说明",
+      "获取平台所有服务的运行状态信息",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-148": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "query",
+      "参数",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-149": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-150": {
+    "aliases": [],
+    "keywords": [
+      "接口说明",
+      "获取单个服务的运行状态信息",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-151": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-152": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-153": {
+    "aliases": [],
+    "keywords": [
+      "告警类接口",
+      "研发同步内容",
+      "开发者中心",
+      "返回参数说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-154": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-155": {
+    "aliases": [],
+    "keywords": [
+      "接口说明",
+      "系统告警查询接口用于从监控系统查询告警信息",
+      "支持分页查询和多维度过滤",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-156": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "query",
+      "参数",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-157": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-158": {
+    "aliases": [],
+    "keywords": [
+      "接口说明",
+      "会议告警信息查询接口用于获取会议的告警列表",
+      "支持分页查询和多维度过滤",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-159": {
+    "aliases": [],
+    "keywords": [
+      "入参说明",
+      "query",
+      "参数",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-160": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-161": {
+    "aliases": [],
+    "keywords": [
+      "云服务端获取实时语音转写结果接口",
+      "研发同步内容",
+      "开发者中心",
+      "返回参数说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-162": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-163": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-164": {
+    "aliases": [],
+    "keywords": [
+      "功能合入",
+      "研发同步内容",
+      "开发者中心",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-165": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-166": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-167": {
+    "aliases": [],
+    "keywords": [
+      "请求参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-168": {
+    "aliases": [],
+    "keywords": [
+      "返回参数说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-169": {
+    "aliases": [],
+    "keywords": [
+      "客户端",
+      "sdk",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-170": {
+    "aliases": [],
+    "keywords": [
+      "鸿蒙移动端",
+      "sdk",
+      "支持应用悬浮窗",
+      "研发同步内容",
+      "开发者中心",
+      "客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-171": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-172": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-173": {
+    "aliases": [],
+    "keywords": [
+      "websdk",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-174": {
+    "aliases": [],
+    "keywords": [
+      "websdk",
+      "在私有云",
+      "月迭代中",
+      "有以下功能更新",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-175": {
+    "aliases": [],
+    "keywords": [
+      "支持配置高带宽模式",
+      "研发同步内容",
+      "开发者中心",
+      "websdk",
+      "在私有云",
+      "月迭代中",
+      "有以下功能更新"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-176": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-177": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-178": {
+    "aliases": [],
+    "keywords": [
+      "支持最高请",
+      "64",
+      "路画面",
+      "研发同步内容",
+      "开发者中心",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-179": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-180": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "研发同步内容",
+      "开发者中心"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "cms",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "cms",
+      "在私有云",
+      "月迭代中",
+      "有以下功能新增",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "cms1000",
+      "基础架构整改",
+      "硬件平台",
+      "cms",
+      "在私有云",
+      "月迭代中",
+      "有以下功能新增"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "cms1000",
+      "鲲鹏",
+      "920+",
+      "统信",
+      "+oceanbase",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "cms1000",
+      "支持监控融合",
+      "外接服务器",
+      "硬件平台",
+      "功能说明"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "cms1000",
+      "鲲鹏",
+      "920+",
+      "统信",
+      "+oceanbase",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "部署方案",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000",
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-014": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "语音转写",
+      "人脸识别",
+      "不需要单独数据库",
+      "使用",
+      "cms",
+      "上的",
+      "ob",
+      "数据库即可",
+      "硬件平台"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-015": {
+    "aliases": [],
+    "keywords": [
+      "ams",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-016": {
+    "aliases": [],
+    "keywords": [
+      "ams",
+      "在私有云",
+      "月迭代中",
+      "有以下功能新增",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-017": {
+    "aliases": [],
+    "keywords": [
+      "ams1000",
+      "支持分级分权",
+      "硬件平台",
+      "ams",
+      "在私有云",
+      "月迭代中",
+      "有以下功能新增"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-018": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-019": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-020": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-021": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-022": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "TP860-S",
+      "TP650-S"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-023": {
+    "aliases": [],
+    "keywords": [
+      "ae800",
+      "xe800",
+      "ge600",
+      "系列",
+      "svc",
+      "模式支持共享画面拉伸",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-024": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "GE300",
+      "GE600"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-025": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-026": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-027": {
+    "aliases": [],
+    "keywords": [
+      "ge300",
+      "系列",
+      "倍数字变焦产品化",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-028": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-029": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-030": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-031": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-032": {
+    "aliases": [],
+    "keywords": [
+      "ae700",
+      "系列",
+      "支持串口绑定",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-033": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-034": {
+    "aliases": [],
+    "keywords": [
+      "ae700",
+      "系列",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE700"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-035": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-036": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-037": {
+    "aliases": [],
+    "keywords": [
+      "双模双活",
+      "web",
+      "音频设置功能优化",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-038": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "GE300",
+      "GE600",
+      "AE330",
+      "AE330-B"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-039": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-040": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-041": {
+    "aliases": [],
+    "keywords": [
+      "双模双活",
+      "配置文件导入",
+      "导出产品化",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-042": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "GE300",
+      "GE600",
+      "AE330-B",
+      "AE330",
+      "TP860-S",
+      "TP650",
+      "TP650-S"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-043": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-044": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-045": {
+    "aliases": [],
+    "keywords": [
+      "双模双活",
+      "byom-np30v2",
+      "方案",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-046": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "TP860",
+      "TP860-S",
+      "TP650",
+      "TP650-S",
+      "GE300",
+      "GE600",
+      "AE330",
+      "AE330-B"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-047": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-048": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-049": {
+    "aliases": [],
+    "keywords": [
+      "byom",
+      "功能配置入口",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-050": {
+    "aliases": [],
+    "keywords": [
+      "web",
+      "管理界面",
+      "应用终端",
+      "-byom",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-051": {
+    "aliases": [],
+    "keywords": [
+      "byom-np30v2",
+      "驱动安装说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-052": {
+    "aliases": [],
+    "keywords": [
+      "np30-byom",
+      "驱动安装",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-053": {
+    "aliases": [],
+    "keywords": [
+      "功能配置说明",
+      "终端侧",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-054": {
+    "aliases": [],
+    "keywords": [
+      "np30-byom",
+      "的设备在",
+      "pc",
+      "上显示外设名称",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-055": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "svc",
+      "模式会控轮询列表数量上限扩展",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-056": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "TP860",
+      "TP860-S",
+      "TP650",
+      "TP650-S",
+      "GE300",
+      "GE600",
+      "AE330-B",
+      "AE330",
+      "AE650",
+      "AE600"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-057": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-058": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-059": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "维持现状",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-060": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "web",
+      "休眠",
+      "唤醒终端",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-061": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "GE300",
+      "GE600",
+      "AE330-B",
+      "AE330",
+      "TP860-S",
+      "TP650",
+      "TP650-S"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-062": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-063": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "TP10"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-064": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "web",
+      "设置定时重启",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-065": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE800",
+      "AE700",
+      "TP860",
+      "TP860-S",
+      "GE300",
+      "GE600",
+      "AE330-B",
+      "AE330"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-066": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-067": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP30"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-068": {
+    "aliases": [],
+    "keywords": [
+      "ae330",
+      "系列",
+      "支持内置摄像头",
+      "eptz",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-069": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-070": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE330"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-071": {
+    "aliases": [],
+    "keywords": [
+      "ae330",
+      "系列终端不上报",
+      "fecc",
+      "即不支持远端遥控本地摄像功能",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-072": {
+    "aliases": [],
+    "keywords": [
+      "tp860-s",
+      "tp650-s",
+      "支持字幕",
+      "文字转写",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "TP860-S",
+      "TP650-S"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-073": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-074": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-075": {
+    "aliases": [],
+    "keywords": [
+      "tp860-s",
+      "tp650-s",
+      "系列",
+      "支持智能记会",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "TP860-S",
+      "TP650"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-076": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "CMS1000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-077": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "TP650-S",
+      "TP650-C",
+      "TP860-S",
+      "TP860-C"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-078": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "绑定平台资源",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "TP650"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-079": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "终端显示智能记会入口",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-080": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "执行智能记会操作",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-081": {
+    "aliases": [],
+    "keywords": [
+      "其他功能优化",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-082": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-083": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "AE700",
+      "AE800",
+      "GE600"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-084": {
+    "aliases": [],
+    "keywords": [
+      "tp10",
+      "与终端配对后",
+      "直连终端或局域网配对",
+      "硬件平台",
+      "硬件终端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-085": {
+    "aliases": [],
+    "keywords": [
+      "软件客户端",
+      "硬件平台"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-086": {
+    "aliases": [],
+    "keywords": [
+      "winqt",
+      "支持白板",
+      "v3.0",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-087": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-088": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-089": {
+    "aliases": [],
+    "keywords": [
+      "桌面端",
+      "显示质量监测信息",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-090": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-091": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-092": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-093": {
+    "aliases": [],
+    "keywords": [
+      "信创端",
+      "信创客户端适配",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-094": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-095": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-096": {
+    "aliases": [],
+    "keywords": [
+      "软终端",
+      "高级音视频配置优化",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-097": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-098": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-099": {
+    "aliases": [],
+    "keywords": [
+      "软终端",
+      "支持深色模式",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-100": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-101": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-102": {
+    "aliases": [],
+    "keywords": [
+      "win7",
+      "信创不支持跟随系统选项",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-103": {
+    "aliases": [],
+    "keywords": [
+      "软终端",
+      "下载页面根据移动客户端类型自动定位",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-104": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-105": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-106": {
+    "aliases": [],
+    "keywords": [
+      "软终端",
+      "用户体验优化",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-107": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-108": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "软件客户端"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-109": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "智能应用",
+      "硬件平台"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-110": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "批量配置",
+      "asr",
+      "资源位",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-111": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-112": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-113": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "配置会议室的实时转写操作权限",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-114": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-115": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-116": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "根据发言人",
+      "主题",
+      "章节切换纪要模板",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-117": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-118": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-119": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "转写与纪要的编辑",
+      "保存",
+      "导出格式定制",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-120": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-121": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-122": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "移动端支持实时转写",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-123": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-124": {
+    "aliases": [],
+    "keywords": [
+      "android",
+      "ios",
+      "鸿蒙支持会后查看实时转写文本",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-125": {
+    "aliases": [],
+    "keywords": [
+      "android",
+      "支持会中查看实时转写",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-126": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-127": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-128": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "会后离线算法重新生成声纹",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-129": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-130": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-131": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-132": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "开启声纹识别企业开关",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-133": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "开启会议室声纹识别开关",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-134": {
+    "aliases": [],
+    "keywords": [
+      "说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-135": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "离线识别不同发言人",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-136": {
+    "aliases": [],
+    "keywords": [
+      "功能背景",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-137": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-138": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-139": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "自定义转写和纪要敏感词",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-140": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-141": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-142": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "实时转写断句分段显示优化",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-143": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-144": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-145": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "用户体验优化",
+      "硬件平台",
+      "智能应用"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-146": {
+    "aliases": [],
+    "keywords": [
+      "适用环境",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-147": {
+    "aliases": [],
+    "keywords": [
+      "功能说明",
+      "硬件平台",
+      "ai",
+      "智能应用"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "视频应用背景",
+      "toc109757208",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "1.1",
+      "顺应技术发展趋势",
+      "toc109757209",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "1.3",
+      "传统视频会议技术瓶颈凸显",
+      "toc109757211",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "1.4",
+      "svc",
+      "柔性编解码技术发展成熟",
+      "toc109757212",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "1.5",
+      "云视频需求日趋强烈",
+      "toc109757213",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "云视频概述",
+      "toc109757214",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "2.1",
+      "云视频的概念",
+      "toc109757215",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "2.2",
+      "视频通信的起源及发展历程",
+      "toc109757216",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "2.3",
+      "云视频的特点及优势",
+      "toc109757217",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "2.3.1",
+      "云视频技术特点",
+      "toc109757218",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "2.3.2",
+      "云视频技术优势",
+      "10",
+      "toc109757219",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "11",
+      "toc109757220",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-014": {
+    "aliases": [],
+    "keywords": [
+      "3.1",
+      "云视频参考框架",
+      "11",
+      "toc109757221",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-015": {
+    "aliases": [],
+    "keywords": [
+      "3.2",
+      "媒体处理引擎架构",
+      "13",
+      "toc109757222",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-016": {
+    "aliases": [],
+    "keywords": [
+      "3.2.1",
+      "avc",
+      "mcu",
+      "引擎",
+      "13",
+      "toc109757223",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-017": {
+    "aliases": [],
+    "keywords": [
+      "3.2.2",
+      "svc",
+      "mcu",
+      "引擎",
+      "24",
+      "toc109757224",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-018": {
+    "aliases": [],
+    "keywords": [
+      "云视频能力开放",
+      "37",
+      "toc109757226",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-019": {
+    "aliases": [],
+    "keywords": [
+      "4.1",
+      "原生应用及开放能力",
+      "37",
+      "toc109757227",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-020": {
+    "aliases": [],
+    "keywords": [
+      "4.1.1",
+      "管理平台",
+      "37",
+      "toc109757228",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-021": {
+    "aliases": [],
+    "keywords": [
+      "4.1.2",
+      "硬件终端",
+      "38",
+      "toc109757229",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-022": {
+    "aliases": [],
+    "keywords": [
+      "4.1.3",
+      "软件终端",
+      "38",
+      "toc109757230",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-023": {
+    "aliases": [],
+    "keywords": [
+      "4.2",
+      "标准协议应用能力",
+      "39",
+      "toc109757231",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-024": {
+    "aliases": [],
+    "keywords": [
+      "4.3",
+      "api",
+      "sdk",
+      "应用能力",
+      "40",
+      "toc109757232",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-025": {
+    "aliases": [],
+    "keywords": [
+      "云视频建设关键技术",
+      "41",
+      "toc109757233",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-026": {
+    "aliases": [],
+    "keywords": [
+      "5.1",
+      "云计算基础架构",
+      "41",
+      "toc109757234",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-027": {
+    "aliases": [],
+    "keywords": [
+      "5.2",
+      "虚拟化和微服务化",
+      "42",
+      "toc109757235",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-028": {
+    "aliases": [],
+    "keywords": [
+      "5.3",
+      "视频编解码技术",
+      "42",
+      "toc109757236",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-029": {
+    "aliases": [],
+    "keywords": [
+      "5.4",
+      "边缘计算及智能路由转发",
+      "43",
+      "toc109757237",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-030": {
+    "aliases": [],
+    "keywords": [
+      "5.5",
+      "网络适应性技术",
+      "44",
+      "toc109757238",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-031": {
+    "aliases": [],
+    "keywords": [
+      "5.6",
+      "网络穿越技术",
+      "44",
+      "toc109757239",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-032": {
+    "aliases": [],
+    "keywords": [
+      "5.7",
+      "弹性和高可用",
+      "45",
+      "toc109757240",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-033": {
+    "aliases": [],
+    "keywords": [
+      "5.8",
+      "系统安全性",
+      "46",
+      "toc109757241",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-034": {
+    "aliases": [],
+    "keywords": [
+      "5.9",
+      "信创适配性",
+      "46",
+      "toc109757242",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-035": {
+    "aliases": [],
+    "keywords": [
+      "5.10",
+      "多视频融合技术",
+      "46",
+      "toc109757243",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-036": {
+    "aliases": [],
+    "keywords": [
+      "5.11",
+      "多设备接入",
+      "全场景覆盖",
+      "46",
+      "toc109757244",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-037": {
+    "aliases": [],
+    "keywords": [
+      "视频应用背景",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-038": {
+    "aliases": [],
+    "keywords": [
+      "顺应技术发展趋势",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "视频应用背景"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-039": {
+    "aliases": [],
+    "keywords": [
+      "视频移动化",
+      "业务化",
+      "规模化成为刚需",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "视频应用背景"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-040": {
+    "aliases": [],
+    "keywords": [
+      "传统视频会议技术瓶颈凸显",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "视频应用背景"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-041": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "柔性编解码技术发展成熟",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "视频应用背景"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-042": {
+    "aliases": [],
+    "keywords": [
+      "云视频需求日趋强烈",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "视频应用背景"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-043": {
+    "aliases": [],
+    "keywords": [
+      "云视频概述",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-044": {
+    "aliases": [],
+    "keywords": [
+      "云视频的概念",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频概述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-045": {
+    "aliases": [],
+    "keywords": [
+      "视频通信的起源及发展历程",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频概述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-046": {
+    "aliases": [],
+    "keywords": [
+      "云视频的特点及优势",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频概述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-047": {
+    "aliases": [],
+    "keywords": [
+      "云视频技术特点",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频概述",
+      "云视频的特点及优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-048": {
+    "aliases": [],
+    "keywords": [
+      "云视频技术优势",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频概述",
+      "云视频的特点及优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-049": {
+    "aliases": [],
+    "keywords": [
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-050": {
+    "aliases": [],
+    "keywords": [
+      "云视频参考框架",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-051": {
+    "aliases": [],
+    "keywords": [
+      "媒体处理引擎架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-052": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "mcu",
+      "引擎",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术",
+      "媒体处理引擎架构"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-053": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "编码技术概述",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术",
+      "媒体处理引擎架构"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-054": {
+    "aliases": [],
+    "keywords": [
+      "h.264",
+      "avc",
+      "编解码过程",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-055": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "编码内部数据依赖示意图",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-056": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "mcu",
+      "引擎架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术",
+      "编码内部数据依赖示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-057": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "mcu",
+      "全编全解示意图",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-058": {
+    "aliases": [],
+    "keywords": [
+      "处理架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-059": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "视频通信处理",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-060": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "视频文件处理",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-061": {
+    "aliases": [],
+    "keywords": [
+      "功能描述",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-062": {
+    "aliases": [],
+    "keywords": [
+      "技术参数",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-063": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "mcu",
+      "引擎",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-064": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "编码技术概述",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "mcu",
+      "全编全解示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-065": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "视频编码技术",
+      "诞生与实践",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-066": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "svc",
+      "编码丢包对比示意",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-067": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "mcu",
+      "引擎架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "编码丢包对比示意"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-068": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "mcu",
+      "智能路由",
+      "终端边缘计算示意图",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-069": {
+    "aliases": [],
+    "keywords": [
+      "处理架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "mcu",
+      "智能路由",
+      "终端边缘计算示意图"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-070": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "mcu",
+      "架构示意",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-071": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "终端节点",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "mcu",
+      "架构示意"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-072": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "媒体交换服务器",
+      "nms",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "mcu",
+      "架构示意"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-073": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "媒体控制服务器",
+      "nmc",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "mcu",
+      "架构示意"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-074": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "媒体核心算法",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "双引擎视频技术",
+      "mcu",
+      "架构示意"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-075": {
+    "aliases": [],
+    "keywords": [
+      "nms",
+      "节点间路由状况动态探测",
+      "路由权重动态调整",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-076": {
+    "aliases": [],
+    "keywords": [
+      "功能描述",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "nms",
+      "节点间路由状况动态探测",
+      "路由权重动态调整"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-077": {
+    "aliases": [],
+    "keywords": [
+      "技术参数",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎视频技术",
+      "nms",
+      "节点间路由状况动态探测",
+      "路由权重动态调整"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-078": {
+    "aliases": [],
+    "keywords": [
+      "云视频",
+      "avc",
+      "svc",
+      "双引擎架构优势总结",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "双引擎视频技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-079": {
+    "aliases": [],
+    "keywords": [
+      "云视频能力开放",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-080": {
+    "aliases": [],
+    "keywords": [
+      "原生应用及开放能力",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-081": {
+    "aliases": [],
+    "keywords": [
+      "管理平台",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放",
+      "原生应用及开放能力"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-082": {
+    "aliases": [],
+    "keywords": [
+      "硬件终端",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放",
+      "原生应用及开放能力"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-083": {
+    "aliases": [],
+    "keywords": [
+      "软件终端",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放",
+      "原生应用及开放能力"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-084": {
+    "aliases": [],
+    "keywords": [
+      "标准协议应用能力",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-085": {
+    "aliases": [],
+    "keywords": [
+      "api",
+      "sdk",
+      "应用能力",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频能力开放"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-086": {
+    "aliases": [],
+    "keywords": [
+      "云视频建设关键技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-087": {
+    "aliases": [],
+    "keywords": [
+      "云计算基础架构",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-088": {
+    "aliases": [],
+    "keywords": [
+      "虚拟化和微服务化",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-089": {
+    "aliases": [],
+    "keywords": [
+      "视频编解码技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-090": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "柔性编码示意图",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-091": {
+    "aliases": [],
+    "keywords": [
+      "边缘计算及智能路由转发",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-092": {
+    "aliases": [],
+    "keywords": [
+      "网络适应性技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-093": {
+    "aliases": [],
+    "keywords": [
+      "网络穿越技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-094": {
+    "aliases": [],
+    "keywords": [
+      "弹性和高可用",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-095": {
+    "aliases": [],
+    "keywords": [
+      "系统安全性",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-096": {
+    "aliases": [],
+    "keywords": [
+      "信创适配性",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-097": {
+    "aliases": [],
+    "keywords": [
+      "多视频融合技术",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "11-11-AVC_SVC双引擎云视频技术白皮书-sec-098": {
+    "aliases": [],
+    "keywords": [
+      "多设备接入",
+      "全场景覆盖",
+      "avc+svc",
+      "双引擎云视频技术白皮书",
+      "云视频建设关键技术"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "12-12-软件定义架构与专用硬件架构的发展与区别-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "视频会议",
+      "mcu",
+      "架构发展简介",
+      "软件定义和专用硬件"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "视频会议的技术发展简述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "视频会议的发展历程",
+      "视频会议的技术发展简述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "传统视频会议的特点及应用",
+      "视频会议的技术发展简述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "新一代视频会议的特点及应用",
+      "视频会议的技术发展简述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "结论",
+      "视频会议的技术发展简述"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "13-13-视频会议的技术发展简述V8-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "2.",
+      "视频终端",
+      "在视频会议应用中",
+      "负责图像的采集",
+      "编解码工作的专业硬件设备",
+      "视频会议的技术发展简述",
+      "结论"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "视频会议技术路线选型及对比说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "视频会议行业典型技术路线和代表厂商",
+      "视频会议技术路线选型及对比说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "传统",
+      "avc",
+      "硬件视频会议",
+      "视频会议技术路线选型及对比说明",
+      "视频会议行业典型技术路线和代表厂商"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "互联网软件视频会议",
+      "视频会议技术路线选型及对比说明",
+      "视频会议行业典型技术路线和代表厂商"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "新一代高安全云视频会议",
+      "视频会议技术路线选型及对比说明",
+      "视频会议行业典型技术路线和代表厂商"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "主要厂商主要技术对比一览",
+      "视频会议技术路线选型及对比说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势",
+      "视频会议技术路线选型及对比说明"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "兼顾先进性与兼容性",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "高效支持大规模视频应用",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "可靠性更高",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "应用效果更好",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "应用场景更丰富",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "scenario",
+    "quality_tier": "medium"
+  },
+  "14-14-视频会议技术路线选型及对比说明-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "系统开放程度高",
+      "视频会议技术路线选型及对比说明",
+      "小鱼易连",
+      "svc+avc",
+      "双引擎云视频优势"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "15-15-视频会议抗丢包算法的简介-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "视频会议抗丢包算法的简介"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "小鱼易连安全架构方案"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "背景简介",
+      "小鱼易连安全架构方案"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "立体式安全框架",
+      "小鱼易连安全架构方案"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "基础架构安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "平台自主可控",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "基础架构安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "网络传输安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "端到端加密视频通信",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "网络传输安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "消息通道加密",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "网络传输安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "媒体通道加密",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "网络传输安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "密钥安全机制",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "网络传输安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "国密双引擎加密",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "网络传输安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "数据存储安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "账号密码存储",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "数据存储安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-014": {
+    "aliases": [],
+    "keywords": [
+      "录制文件存储",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "数据存储安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-015": {
+    "aliases": [],
+    "keywords": [
+      "会议应用安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-016": {
+    "aliases": [],
+    "keywords": [
+      "会议前机制",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "会议应用安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-017": {
+    "aliases": [],
+    "keywords": [
+      "会议中机制",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "会议应用安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-018": {
+    "aliases": [],
+    "keywords": [
+      "会议后机制",
+      "小鱼易连安全架构方案",
+      "立体式安全框架",
+      "会议应用安全"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-019": {
+    "aliases": [],
+    "keywords": [
+      "账号和运行安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-020": {
+    "aliases": [],
+    "keywords": [
+      "安全认证资质",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-021": {
+    "aliases": [],
+    "keywords": [
+      "强密码登录规则",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-022": {
+    "aliases": [],
+    "keywords": [
+      "用户数据隐私安全",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "high"
+  },
+  "16-16-小鱼安全白皮书_V2.2-sec-023": {
+    "aliases": [],
+    "keywords": [
+      "自主可控方案",
+      "小鱼易连安全架构方案",
+      "立体式安全框架"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "architecture",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-001": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-002": {
+    "aliases": [],
+    "keywords": [
+      "2026",
+      "年风铃系统",
+      "月版本",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-003": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-004": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-005": {
+    "aliases": [],
+    "keywords": [
+      "初次部署光口配置流程",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-006": {
+    "aliases": [],
+    "keywords": [
+      "光纤连接",
+      "mcu800",
+      "光口",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-007": {
+    "aliases": [],
+    "keywords": [
+      "pc",
+      "电脑连接",
+      "mcu800",
+      "电口",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-008": {
+    "aliases": [],
+    "keywords": [
+      "使用缺省",
+      "ip",
+      "访问",
+      "web",
+      "页面",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-009": {
+    "aliases": [],
+    "keywords": [
+      "更改网卡配置模式和",
+      "ip",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-010": {
+    "aliases": [],
+    "keywords": [
+      "新增网卡配置",
+      "电口模式",
+      "光口模式",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-011": {
+    "aliases": [],
+    "keywords": [
+      "单选",
+      "电口",
+      "bond0",
+      "默认",
+      "光口",
+      "bond1",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-012": {
+    "aliases": [],
+    "keywords": [
+      "svc",
+      "转发",
+      "600",
+      "4k",
+      "1200",
+      "1080p30",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-013": {
+    "aliases": [],
+    "keywords": [
+      "avc",
+      "全编解",
+      "32",
+      "1080p30",
+      "64",
+      "720p",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-014": {
+    "aliases": [],
+    "keywords": [
+      "功能开关配置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-015": {
+    "aliases": [],
+    "keywords": [
+      "配置",
+      "h.263",
+      "协议选项",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-016": {
+    "aliases": [],
+    "keywords": [
+      "功能限制",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-017": {
+    "aliases": [],
+    "keywords": [
+      "h.323",
+      "sip",
+      "服务启停开关入口",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-018": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-019": {
+    "aliases": [],
+    "keywords": [
+      "2026",
+      "年风铃系统",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-020": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-021": {
+    "aliases": [],
+    "keywords": [
+      "nmst",
+      "服务默认启用",
+      "服务状态",
+      "页面支持按单个子服务禁用",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-022": {
+    "aliases": [],
+    "keywords": [
+      "风铃",
+      "mcu",
+      "web",
+      "页面",
+      "系统配置",
+      "菜单新增",
+      "穿越配置",
+      "子菜单",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-023": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-024": {
+    "aliases": [],
+    "keywords": [
+      "风铃",
+      "mcu",
+      "web",
+      "页面支持监控穿越服务状态",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-025": {
+    "aliases": [],
+    "keywords": [
+      "风铃",
+      "mcu",
+      "web",
+      "页面",
+      "支持查看穿越服务操作日志和告警",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-026": {
+    "aliases": [],
+    "keywords": [
+      "默认值配置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-027": {
+    "aliases": [],
+    "keywords": [
+      "文案优化",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-028": {
+    "aliases": [],
+    "keywords": [
+      "预约人视角",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-029": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-030": {
+    "aliases": [],
+    "keywords": [
+      "循环轮询模式",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-031": {
+    "aliases": [],
+    "keywords": [
+      "终端自动填充",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-032": {
+    "aliases": [],
+    "keywords": [
+      "mc",
+      "配置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-033": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-034": {
+    "aliases": [],
+    "keywords": [
+      "console",
+      "会管平台配置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-035": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-036": {
+    "aliases": [],
+    "keywords": [
+      "2026",
+      "年风铃系统",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-037": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-038": {
+    "aliases": [],
+    "keywords": [
+      "0-3",
+      "数值越小会议优先级越高",
+      "高优先级会议会抢占低优先级会议的带宽",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP5000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-039": {
+    "aliases": [],
+    "keywords": [
+      "mcu800",
+      "硬件后台使用本期适配硬件服务组合",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-040": {
+    "aliases": [],
+    "keywords": [
+      "ai",
+      "服务器本地",
+      "web",
+      "页面",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-041": {
+    "aliases": [],
+    "keywords": [
+      "风铃",
+      "console",
+      "会管平台",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-042": {
+    "aliases": [],
+    "keywords": [
+      "配置",
+      "ai",
+      "服务器的可见性开关",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-043": {
+    "aliases": [],
+    "keywords": [
+      "sysadmin",
+      "支持管理",
+      "ai",
+      "服务器",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-044": {
+    "aliases": [],
+    "keywords": [
+      "secadmin",
+      "授权",
+      "ai",
+      "服务器",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-045": {
+    "aliases": [],
+    "keywords": [
+      "pops",
+      "充值",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-046": {
+    "aliases": [],
+    "keywords": [
+      "sysadmin",
+      "查看授权信息",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-047": {
+    "aliases": [],
+    "keywords": [
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-048": {
+    "aliases": [],
+    "keywords": [
+      "opeadmin",
+      "支持录制文件管理和",
+      "ai",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [
+      "AI"
+    ],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-049": {
+    "aliases": [],
+    "keywords": [
+      "普通用户",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-050": {
+    "aliases": [],
+    "keywords": [
+      "secadmin",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-051": {
+    "aliases": [],
+    "keywords": [
+      "会控侧响应",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [
+      "NP5000"
+    ],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-052": {
+    "aliases": [],
+    "keywords": [
+      "opsadmin",
+      "新增电视墙配置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-053": {
+    "aliases": [],
+    "keywords": [
+      "sysadmin",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-054": {
+    "aliases": [],
+    "keywords": [
+      "secadmin",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-055": {
+    "aliases": [],
+    "keywords": [
+      "一体化云台终端",
+      "pe6000",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "medium"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-056": {
+    "aliases": [],
+    "keywords": [
+      "旗舰分体终端",
+      "pe8800",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-057": {
+    "aliases": [],
+    "keywords": [
+      "1.",
+      "增加",
+      "pad",
+      "非预约呼叫模式",
+      "企业开关",
+      "仅对高级模式生效",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-058": {
+    "aliases": [],
+    "keywords": [
+      "可通过通讯录发起点对点呼叫",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-059": {
+    "aliases": [],
+    "keywords": [
+      "可通过通讯录查看个人会议室",
+      "本人可加入本人的个人会议室或他人的个人会议室",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "placeholder",
+    "quality_tier": "placeholder"
+  },
+  "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-060": {
+    "aliases": [],
+    "keywords": [
+      "支持个人会议室设置",
+      "如取消入会密码",
+      "修改个人会议室名称等常用设置",
+      "文档密级",
+      "内部"
+    ],
+    "entity_tags": [],
+    "product_models": [],
+    "capability_tags": [],
+    "scenario_tags": [
+      "会议室"
+    ],
+    "intent_tags": [],
+    "card_type": "capability",
+    "quality_tier": "high"
   }
 }

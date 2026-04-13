@@ -1,0 +1,18 @@
+{
+  "id": "16-16-小鱼安全白皮书_V2.2-sec-023",
+  "doc_file": "16-小鱼安全白皮书_V2.2.md",
+  "title": "自主可控方案",
+  "level": 2,
+  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 自主可控方案",
+  "line_start": 189,
+  "char_count": 83,
+  "body": "小鱼易连支持国产芯片服务器、国产操作系统、国产数据库、国产中间件、国密算法等，提供更全面的系统安全方案。\n\n![](data:image/png;base64...)",
+  "tags": [
+    "architecture",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-098",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "Console会管平台、PC客户端、指挥调度客户端",
+  "level": 2,
+  "path": "研发同步内容 > 云平台功能 > Console会管平台、PC客户端、指挥调度客户端",
+  "line_start": 1052,
+  "char_count": 45,
+  "body": "* 涉及会控列表：\n\n已入会列表、未静音列表、已关注列表、未入会列表、等候室列表、禁听列表",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

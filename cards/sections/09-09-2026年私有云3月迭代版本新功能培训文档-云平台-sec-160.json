@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-160",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1606,
+  "char_count": 505,
+  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| ruleName | 规则名称 |\n| alarmLevel | 告警级别（1：紧急，2：重要，3：一般，4：提示 |\n| alarmType | 告警类型：resource\\_alarm(资源告警),meeting\\_quality(会议质量),device\\_quality(终端质量),event\\_alarm(事件告警),device\\_performance(设备质量) |\n| alarmSource | 告警来源 |\n| └name | 来源名称 |\n| └value | 来源值 |\n| alarmRule | 告警规则 |\n| └duration | 持续时长，单位秒 |\n| └percent | 终端占会议室比例 |\n| └frequency | 抑制时间，单位秒 |\n| alarmStatus | 告警状态（\"on\"触发，\"off\"恢复） |\n| firstAlarmTimestamp | 首次触发时间（Unix毫秒时间戳） |\n| alarmTimestamp | 最近触发时间（Unix毫秒时间戳） |",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-047",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l",
+  "level": 2,
+  "path": "文档密级：内部 > l",
+  "line_start": 565,
+  "char_count": 217,
+  "body": "sysadmin 登录风铃 Console 会管平台，选择菜单**【系统配置→系统授权】**，项目信息区域显示所授权的 AI 相关功能和授权数量。\n\n仅高级模式下，显示授权的语音转写、智能纪要、终端智能记会功能及对应的授权数；在标准模式下，即使 License 授权了 AI 相关功能，也不会展示相关方数。\n\n![](data:image/jpeg;base64...)![](data:image/png;base64...)\n\n冷",
+  "tags": [
+    "overview"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

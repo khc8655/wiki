@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-050",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "l secadmin",
+  "level": 2,
+  "path": "文档密级：内部 > l secadmin",
+  "line_start": 619,
+  "char_count": 66,
+  "body": "secadmin 登录风铃 console 会管平台，选择菜单**【系统服务→平台日志】**，增加对录制、转写、纪要、记会相关日志。",
+  "tags": [
+    "overview"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}
