@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-184",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1437,
+  "char_count": 494,
+  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| name | 服务器名称 |\n| serialNumber | 服务器序列号 |\n| deviceType | 设备类型 |\n| uniqueId | 服务器唯一标识ID |\n| internalIp | 内网IP地址 |\n| internalIpV6 | 内网IPV6地址 |\n| externalIp | 外网IP地址 |\n| externalIpV6 | 外网IPV6地址 |\n| status | 服务器状态 |\n| cpuUsagePercent | 当前 cpu使用率(%) |\n| memoryUsage | 当前内存占用(M) |\n| memoryUsagePercent | 当前内存使用率（%） |\n\n* 查询单个服务器的状态详情接口\n\n[开发者中心\\_音视频SDK\\_运维管理\\_查询单个服务器的状态详情 - 小鱼易连](https://openapi.xylink.com/common/meeting/doc/get_ops_server_status?platform=server)",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

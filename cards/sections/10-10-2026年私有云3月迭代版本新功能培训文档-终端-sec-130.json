@@ -1,13 +1,15 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-130",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "**【适用环境】**",
+  "title": "AVC场景，维持现状。",
   "level": 2,
-  "path": "硬件平台 > AI智能应用 > **【适用环境】**",
-  "line_start": 1259,
-  "char_count": 10,
-  "body": "私有云5.2所有环境",
-  "tags": [],
+  "path": "硬件平台 > 硬件终端 > AVC场景，维持现状。",
+  "line_start": 555,
+  "char_count": 128,
+  "body": "![](data:image/png;base64...)\n\n涉及轮询场景包括：\n\n* 指定list轮询\n* 自动轮询-通用轮询\n* 自动轮询-轮询跳过不在线或关闭摄像头成员\n* 轮询广播\n* 单会议、多会议并行\n* 预约会议：轮询模板\n* 会议级别的轮询",
+  "tags": [
+    "meeting-control"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

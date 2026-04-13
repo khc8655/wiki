@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-058",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "**【功能说明】**",
+  "title": "CMS1000（鲲鹏920+统信+oceanbase）",
   "level": 2,
-  "path": "硬件平台 > 硬件终端 > **【功能说明】**",
-  "line_start": 549,
-  "char_count": 83,
-  "body": "企业开关配置入口：**Manager→开发者→云视讯管理平台功能管理**\n\n开关说明：**会控轮询数量扩展**（默认关闭），开关开启后，会控轮询数量支持最大选300。",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "硬件平台 > 硬件终端 > CMS1000（鲲鹏920+统信+oceanbase）",
+  "line_start": 280,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

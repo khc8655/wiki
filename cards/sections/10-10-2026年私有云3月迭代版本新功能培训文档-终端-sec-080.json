@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-080",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "1. 执行智能记会操作。",
+  "title": "CMS1000（鲲鹏920+统信+oceanbase）",
   "level": 2,
-  "path": "硬件平台 > 硬件终端 > 1. 执行智能记会操作。",
-  "line_start": 764,
-  "char_count": 243,
-  "body": "* 终端侧\n\n点击**开始记录**按钮开始记录，实质是将硬件终端呼叫到后台绑定的终端企业云会议室里进行录制。\n\n智能记会过程中，终端显示会议记录标识，支持暂停或结束记录会议。\n\n![](data:image/png;base64...)\n\n![](data:image/png;base64...)\n\n* 终端Web页面\n\nWeb管理页面不支持发起智能记会，当终端进入智能记会后，Web进入会议状态。界面展示智能记会中状态。\n\n![](data:image/png;base64...)",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "硬件平台 > 硬件终端 > CMS1000（鲲鹏920+统信+oceanbase）",
+  "line_start": 357,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

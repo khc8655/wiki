@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-132",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "1. 开启声纹识别企业开关",
+  "title": "【是否可控标】",
   "level": 2,
-  "path": "硬件平台 > AI智能应用 > 1. 开启声纹识别企业开关",
-  "line_start": 1271,
-  "char_count": 123,
-  "body": "企业开关配置入口：**Manager→开发者→云会议室功能管理**\n\n开关说明：**声纹识别**（默认关闭），开关开启后，客户端的录制设置页面显示**硬终端会场区分不同发言人**开关。\n\n![](data:image/png;base64...)",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "硬件平台 > 硬件终端 > 【是否可控标】",
+  "line_start": 571,
+  "char_count": 1,
+  "body": "否",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

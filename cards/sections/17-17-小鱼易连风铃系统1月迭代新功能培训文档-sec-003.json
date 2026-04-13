@@ -1,15 +1,13 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-003",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l",
+  "title": "【XY-MCU800】AVC 编解码性能重定义",
   "level": 2,
-  "path": "文档密级：内部 > l",
-  "line_start": 40,
-  "char_count": 86,
-  "body": "用户部署新版本或新工厂包，平台默认密码均统一为 Xy@system0；\n\n用户从现有旧版本升级到新版本，或从新版本回退到旧版本，不影响用户现有密码继续使用；\n\n密码强制修改",
-  "tags": [
-    "security"
-  ],
+  "path": "文档密级：内部 > 【XY-MCU800】AVC 编解码性能重定义",
+  "line_start": 26,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

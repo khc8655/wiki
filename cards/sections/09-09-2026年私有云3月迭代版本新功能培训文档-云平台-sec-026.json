@@ -1,13 +1,15 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-026",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "支持账密+短信验证码登录",
-  "level": 3,
-  "path": "研发同步内容 > 云平台功能 > 6-32位内任意设置范围值、整数值。 > 支持账密+短信验证码登录",
-  "line_start": 187,
-  "char_count": 14,
-  "body": "**【是否可控标】**\n\n否",
-  "tags": [],
+  "title": "AVC呼叫，展示DMCU、ASA、AMA、NMST、IVR拓扑及相关数据。",
+  "level": 2,
+  "path": "研发同步内容 > 云平台功能 > AVC呼叫，展示DMCU、ASA、AMA、NMST、IVR拓扑及相关数据。",
+  "line_start": 134,
+  "char_count": 223,
+  "body": "* 如果是MCU、ASA、AMA、NMST、IVR：展示对应名称\n\n点击MCU弹框显示该MCU的基本信息，包括MCU名称、内网IP、外网IP、所属站点、所属区域、所属网络、连接参会者。\n\n![](data:image/png;base64...)\n\n* 节点：\n\n落到各MCU的节点，包含参会者、录制代理终端，AI代理终端，跨云代理终端、监会终端等。\n\n点击节点中的参会者，支持跳转至该参会者的质量详情页面；点击节点中的其他代理终端，不支持跳转。",
+  "tags": [
+    "meeting-control"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

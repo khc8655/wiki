@@ -1,14 +1,14 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-004",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l",
+  "title": "【风铃 MCU】支持 H.263 编解 content",
   "level": 2,
-  "path": "文档密级：内部 > l",
-  "line_start": 48,
-  "char_count": 182,
-  "body": "首次缺省 IP 访问生态服务器本地 web 页面时，输入默认密码后，强制修改密码；修改密码成功后，才能重新登陆 web，进入首页。\n\n![](data:image/png;base64...)\n\n**1.2 【XY-MCU800】支持光口**\n\n客户平台部署环境，只能提供光纤做网络连接；项目上已推荐采用光交换机应对，但效果较差。本期 MCU800 支持光口交付。",
+  "path": "文档密级：内部 > 【风铃 MCU】支持 H.263 编解 content",
+  "line_start": 28,
+  "char_count": 0,
+  "body": "",
   "tags": [
-    "security"
+    "overview"
   ],
   "related_topics": [],
   "aliases": [],

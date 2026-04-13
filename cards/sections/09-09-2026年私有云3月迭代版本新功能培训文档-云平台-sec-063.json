@@ -1,12 +1,12 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-063",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "Console会管平台、PC客户端、指挥调度客户端，meetingkit；",
-  "level": 2,
-  "path": "研发同步内容 > 云平台功能 > Console会管平台、PC客户端、指挥调度客户端，meetingkit；",
-  "line_start": 629,
-  "char_count": 45,
-  "body": "* 会议类型：\n\n仅普通会议、级联会议（本会支持、跨会不支持设置）\n\n* 支持的终端型号：",
+  "title": "布局管控专题",
+  "level": 3,
+  "path": "研发同步内容 > 云平台功能 > 会控 > 布局管控专题",
+  "line_start": 437,
+  "char_count": 0,
+  "body": "",
   "tags": [
     "meeting-control"
   ],

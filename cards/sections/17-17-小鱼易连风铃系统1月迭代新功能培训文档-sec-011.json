@@ -1,13 +1,15 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-011",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l ：单选，电口/bond0（默认）、光口/bond1；",
+  "title": "【风铃 MCU】 AVC 和 nmst 服务支持单独启停",
   "level": 2,
-  "path": "文档密级：内部 > l ：单选，电口/bond0（默认）、光口/bond1；",
-  "line_start": 72,
-  "char_count": 329,
-  "body": "• 网口配置页面\n\n选择菜单**【系统配置→网络配置→网口配置】**：\n\n![](data:image/png;base64...)\n\n• **资源状态**页面\n\n选择菜单**【系统状态→资源状态】**，**网络带宽**页面展示当前的网络带宽数据；\n\n如当前是 bond0 ，则展示 bond0 的网络带宽；如当前是 bond1 ，则展示 bond1的网络带宽；若当前展示的时间段，存在网卡配置切换，则切换前后数据流一并展示。\n\n![](data:image/jpeg;base64...)![](data:image/png;base64...)\n\n**1.3 【XY-MCU800】 AVC 编解码性能重定义**\n\n编解码性能:（以下性能为9或9 关系）",
-  "tags": [],
+  "path": "文档密级：内部 > 【风铃 MCU】 AVC 和 nmst 服务支持单独启停",
+  "line_start": 122,
+  "char_count": 76,
+  "body": "客户无 H.323/SIP 终端接入场景，但目前风铃 MCU 上 H.323 服务无法停用，仍然对外暴露端口、占用资源。特别风铃场景，存在端口扫描风险。",
+  "tags": [
+    "overview"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

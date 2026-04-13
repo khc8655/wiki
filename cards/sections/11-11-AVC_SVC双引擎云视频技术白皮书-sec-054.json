@@ -1,12 +1,12 @@
 {
   "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-054",
   "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
-  "title": "H.264/AVC 编解码过程：",
+  "title": "H.264/AVC 编解码过程",
   "level": 2,
-  "path": "**AVC+SVC双引擎云视频技术白皮书** > 云视频AVC&SVC双引擎视频技术 > H.264/AVC 编解码过程：",
+  "path": "AVC+SVC双引擎云视频技术白皮书 > 云视频AVC&SVC双引擎视频技术 > H.264/AVC 编解码过程",
   "line_start": 276,
-  "char_count": 701,
-  "body": "![](data:image/jpeg;base64...)\n\n如图，H.264/AVC 分 encoder 和 decoder 两个部分，我们把他统一叫做 codec，其工作流程如下：\n\n* 输入视频信号经过预测(Prediction)得到像素数据的残差值(residual))。预测分帧内预测和帧间预测。\n* 对预测生成的残差值进行变换和量化。变换主要是把信号从时域变换到频域，生成一个变换系数(transform coffient)。量化是对变换后的样本缩小其值得范围，用更少的 bit 来表示样本值。量化器(quantizer) 有标量(scalar)和矢量(vector)之分。\n* 对量化后的样本数据，运动矢量，参数信息进行编码得到 NALU（Network Abstract Layer Unit），进行网络传输。\n* 解码器收到 NALU 后做相对编码器相反的工作，最后就可以重建图像。\n\n**AVC视频编码算法框架包括：**\n\n* 分块处理：对16x16宏块，进行数据处理\n* 帧内预测：通过周边数据预测当前数据\n* 帧间预测：通过前后帧数据，预测当前帧数据\n* 变换和量化：对频域数据进行量化，传输低频数据\n* 熵编码：利用统计特性，减小数据量\n* 环路滤波：去除块效应，提升视频质量\n\n**AVC视频编码技术特点：**\n\n* 视频压缩，大幅度降低数据量\n* 一次编码，一路码流，单分辨率，单帧率，固定质量\n\n![](data:image/png;base64...)\n\n典型AVC编码数据参考\n\n* 码流内部数据强依赖\n\n![](data:image/png;base64...)",
+  "char_count": 401,
+  "body": "![](data:image/jpeg;base64...)\n\n如图，H.264/AVC 分 encoder 和 decoder 两个部分，我们把他统一叫做 codec，其工作流程如下：\n\n* 输入视频信号经过预测(Prediction)得到像素数据的残差值(residual))。预测分帧内预测和帧间预测。\n* 对预测生成的残差值进行变换和量化。变换主要是把信号从时域变换到频域，生成一个变换系数(transform coffient)。量化是对变换后的样本缩小其值得范围，用更少的 bit 来表示样本值。量化器(quantizer) 有标量(scalar)和矢量(vector)之分。\n* 对量化后的样本数据，运动矢量，参数信息进行编码得到 NALU（Network Abstract Layer Unit），进行网络传输。\n* 解码器收到 NALU 后做相对编码器相反的工作，最后就可以重建图像。",
   "tags": [
     "architecture"
   ],

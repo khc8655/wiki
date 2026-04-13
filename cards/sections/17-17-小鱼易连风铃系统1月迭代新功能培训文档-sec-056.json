@@ -1,16 +1,13 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-056",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l 旗舰分体终端：PE8800",
+  "title": "sysadmin",
   "level": 2,
-  "path": "文档密级：内部 > l 旗舰分体终端：PE8800",
-  "line_start": 675,
-  "char_count": 273,
-  "body": "![](data:image/png;base64...)\n\n**3.6 会管服务器适配统信操作系统**\n\n本期实现会管服务支持统信操作系统部署。\n\n本期适配组合：ARM+UOS（V20 1070a-4.19）\n\n冷\n\n**4 软件终端**\n\n——产品经理：赵海奇\n\n在 2026 年 1 月迭代版本中，风铃软终端有以下功能新增：\n\n• Pad 支持通讯录点对点呼叫、个人会议室和会控\n\n**4.1 Pad 支持通讯录点对点呼叫、个人会议室和会控**\n\n根据项目实际使用情况，需使用移动 app 接入功能。\n\n本期风铃 pad 支持以下几个功能：",
-  "tags": [
-    "meeting-control",
-    "overview"
-  ],
+  "path": "文档密级：内部 > sysadmin",
+  "line_start": 655,
+  "char_count": 124,
+  "body": "当 opsadmin 配置开启**启用电视墙**开关，sysadmin 登录会管平台后，选择菜单**【通讯录→设备管理】**，可见**电视墙**页签，支持添加、删除、修改电视墙等操作。\n\n![](data:image/jpeg;base64...)",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

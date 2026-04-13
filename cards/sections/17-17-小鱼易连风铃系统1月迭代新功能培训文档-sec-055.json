@@ -1,13 +1,15 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-055",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l 一体化云台终端： PE6000",
+  "title": "opsadmin 新增电视墙配置",
   "level": 2,
-  "path": "文档密级：内部 > l 一体化云台终端： PE6000",
-  "line_start": 671,
-  "char_count": 30,
-  "body": "![](data:image/png;base64...)冷",
-  "tags": [],
+  "path": "文档密级：内部 > opsadmin 新增电视墙配置",
+  "line_start": 649,
+  "char_count": 128,
+  "body": "opsadmin 登录风铃会管平台后，选择高级模式，选择菜单**【设置→系统设置→电视墙】**，根据需要开启或关闭**启用电视墙**开关（默认关闭），可管控风铃会管平台是否显示电视墙相关页面。\n\n![](data:image/jpeg;base64...)",
+  "tags": [
+    "overview"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

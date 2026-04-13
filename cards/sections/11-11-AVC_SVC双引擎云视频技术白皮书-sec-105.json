@@ -1,0 +1,18 @@
+{
+  "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-105",
+  "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
+  "title": "H.323/SIP协议",
+  "level": 2,
+  "path": "AVC+SVC双引擎云视频技术白皮书 > 云视频能力开放 > H.323/SIP协议",
+  "line_start": 785,
+  "char_count": 352,
+  "body": "音视频能力平台原生支持H.323/SIP协议，支持与传统视频会议终端、平台对接融合：\n\n* 支持协议：H323协议族（H225、H245、H224、H281、H.239、H.239+等）、SIP RFC3261、BFCP\n* 支持视频算法：H.264 SVC 、H.264 HP、H.264 noninter、H.264 Base、H.263+、H.263\n* 支持音频算法：OPUS、G.722.1.C 48k、G.722.1.C 32k、G.722.1.C 24k、G.722、G.711U、G.711A\n* 支持分辨率：1080P，720P，360P，180P，4CIF，VGA，XGA等\n* 支持帧率：30帧，15帧，7.5帧\n* 支持多画面合成\n* 采用虚拟化平台集群化部署，支持大规模横向扩展",
+  "tags": [
+    "architecture",
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

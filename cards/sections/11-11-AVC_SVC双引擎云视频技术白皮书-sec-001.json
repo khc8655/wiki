@@ -1,12 +1,12 @@
 {
   "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-001",
   "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
-  "title": "**AVC+SVC双引擎云视频技术白皮书**",
-  "level": 1,
-  "path": "**AVC+SVC双引擎云视频技术白皮书**",
-  "line_start": 1,
-  "char_count": 26,
-  "body": "**AVC+SVC双引擎云视频技术白皮书**\n\n目录",
+  "title": "AVC+SVC双引擎云视频技术白皮书",
+  "level": 2,
+  "path": "AVC+SVC双引擎云视频技术白皮书 > AVC+SVC双引擎云视频技术白皮书",
+  "line_start": 2,
+  "char_count": 2,
+  "body": "目录",
   "tags": [
     "architecture"
   ],

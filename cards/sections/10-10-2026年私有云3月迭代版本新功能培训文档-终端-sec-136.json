@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-136",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "**【功能背景】**",
+  "title": "GE300系列：GE300",
   "level": 2,
-  "path": "硬件平台 > AI智能应用 > **【功能背景】**",
-  "line_start": 1322,
-  "char_count": 62,
-  "body": "在用户实际使用场景下，需要在同一场会议中识别多个发言人\n\n涉及客户端：客户端：winQT/信创、Android、iOS、鸿蒙",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "硬件平台 > 硬件终端 > GE300系列：GE300",
+  "line_start": 583,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

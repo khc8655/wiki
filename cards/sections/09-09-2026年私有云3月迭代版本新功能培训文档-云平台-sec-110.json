@@ -1,13 +1,15 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-110",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "自定义数据库备份文件保存时间",
-  "level": 3,
-  "path": "研发同步内容 > 云平台功能 > 组网部署 > 自定义数据库备份文件保存时间",
-  "line_start": 1174,
-  "char_count": 0,
-  "body": "",
-  "tags": [],
+  "title": "【功能说明】",
+  "level": 2,
+  "path": "研发同步内容 > 云平台功能 > 【功能说明】",
+  "line_start": 881,
+  "char_count": 633,
+  "body": "* 单屏终端：按“people；content”格式显示观看对象\n* People只有1个画面时显示具体名称，多个画面时显示多画面，鼠标悬停到多画面上，显示具体观看的多画面成员名称\n\n![](data:image/png;base64...)\n\n![](data:image/png;base64...)\n\n* 多屏终端：按“HDMI1:people；content HDMI2：people；content HDMI3:people；content ”格式显示观看对象。鼠标悬停时显示每个屏幕的具体观看内容详情。\n\n![](data:image/png;base64...)\n\n* 云镜终端：按：”左屏：people；content中屏：people；content右屏：people；content抬头屏：content”格式显示观看对象。鼠标悬停时显示每个屏的具体观看内容详情。\n\n![](data:image/png;base64...)\n\n* 鼠标悬停时，观看对象内容变化会实时刷新。例如轮询场景，可以保持悬停观察终端的轮询画面变化\n\n注意：\n\n鼠标悬停时的多画面数量显示：如果当前终端显示的是会控设置的多画面/轮询，则这里的多画面数量就是会控布局指定的画面数量，此时的数量与终端实际显示了几个人无关（例如设置4画面，有1个画面未指定成员，则详情显示4画面，但只显示了3个人的名称）。终端未显示会控指定的布局的情况下，画面数量和终端实际显示的画面数量一致。",
+  "tags": [
+    "meeting-control"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

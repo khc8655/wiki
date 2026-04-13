@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-198",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1570,
+  "char_count": 473,
+  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| ruleName | 规则标题 |\n| alarmLevel | 告警级别（S1/S2/S3） |\n| alarmStatus | 事件状态（已触发/已恢复） |\n| LastEvalTime | 告警发生时间（Unix毫秒时间戳） |\n| triggerValue | 触发时的指标值 |\n| frequency | 执行频率 |\n| duration | 持续时长（告警需持续多长时间才触发） |\n| source | 告警来源 |\n| eventId | 事件ID |\n| tags | 事件标签 |\n| firstTriggerTime | 首次触发时间（Unix毫秒时间戳） |\n\n* 会议告警查询接口\n\n[开发者中心\\_音视频SDK\\_运维管理\\_会议告警查询 - 小鱼易连](https://openapi.xylink.com/common/meeting/doc/get_ops_meeting_alert_query?platform=server)",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

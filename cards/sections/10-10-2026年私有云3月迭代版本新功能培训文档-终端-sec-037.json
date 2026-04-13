@@ -1,13 +1,15 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-037",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "【双模双活】Web音频设置功能优化",
+  "title": "【硬件终端】SVC模式会控轮询列表数量上限扩展",
   "level": 2,
-  "path": "硬件平台 > 硬件终端 > 【双模双活】Web音频设置功能优化",
-  "line_start": 334,
-  "char_count": 14,
-  "body": "**【是否可控标】**\n\n否",
-  "tags": [],
+  "path": "硬件平台 > 硬件终端 > 【硬件终端】SVC模式会控轮询列表数量上限扩展",
+  "line_start": 220,
+  "char_count": 0,
+  "body": "",
+  "tags": [
+    "meeting-control"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

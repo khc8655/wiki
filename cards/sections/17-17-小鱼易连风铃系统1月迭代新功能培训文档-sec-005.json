@@ -1,13 +1,15 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-005",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l 初次部署光口配置流程",
+  "title": "【风铃 MCU】AVC 和 nmst 服务支持单独启停",
   "level": 2,
-  "path": "文档密级：内部 > l 初次部署光口配置流程",
-  "line_start": 58,
+  "path": "文档密级：内部 > 【风铃 MCU】AVC 和 nmst 服务支持单独启停",
+  "line_start": 30,
   "char_count": 0,
   "body": "",
-  "tags": [],
+  "tags": [
+    "overview"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

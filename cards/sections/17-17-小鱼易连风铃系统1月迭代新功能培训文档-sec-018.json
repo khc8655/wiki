@@ -1,13 +1,14 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-018",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l",
+  "title": "Console 会管",
   "level": 2,
-  "path": "文档密级：内部 > l",
-  "line_start": 138,
-  "char_count": 179,
-  "body": "操作入口：**【系统状态→服务状态】**\n\n• h323-sig、h323-media 服务\n\n**启用 H.323 服务**开关默认开启，即 h323-sig、h323-media 默认开启；支持在**服**\n\n![](data:image/png;base64...)![](data:image/png;base64...)\n\n月迭代版本新功能培训文档",
+  "path": "文档密级：内部 > Console 会管",
+  "line_start": 225,
+  "char_count": 123,
+  "body": "——产品经理：吴旋\n\n在 2026 年 1 月迭代版本中，风铃 Console 会管平台有以下功能新增：\n\n• 高级模式下预约会议支持配置会议开始自动呼叫终端\n\n• 预约会议日程的结束时间优化\n\n• 预约会议列表展示优化\n\n• 麦克风调节交互优化",
   "tags": [
+    "meeting-control",
     "overview"
   ],
   "related_topics": [],

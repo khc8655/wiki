@@ -1,0 +1,15 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-190",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1502,
+  "char_count": 352,
+  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| serviceId | 服务 Id |\n| serviceName | 服务名称 |\n| displayName | 中文名称 |\n| type | 服务类型 |\n| status | 状态 |\n| version | 版本号 |\n| cpuUsagePercent | cpu使用率（%） |\n| memoryUsage | 占用内存（MB） |\n\n* 查询单个服务详情接口\n\n[开发者中心\\_音视频SDK\\_运维管理\\_查询单个服务详情 - 小鱼易连](https://openapi.xylink.com/common/meeting/doc/get_ops_service_status?platform=server)",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

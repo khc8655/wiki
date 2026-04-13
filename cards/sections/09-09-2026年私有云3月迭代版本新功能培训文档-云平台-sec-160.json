@@ -1,15 +1,13 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-160",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "返回参数说明",
+  "title": "opsadmin：仅可见自己导出的记录。",
   "level": 2,
-  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
-  "line_start": 1606,
-  "char_count": 505,
-  "body": "| **参数名称** | **说明** |\n| --- | --- |\n| ruleName | 规则名称 |\n| alarmLevel | 告警级别（1：紧急，2：重要，3：一般，4：提示 |\n| alarmType | 告警类型：resource\\_alarm(资源告警),meeting\\_quality(会议质量),device\\_quality(终端质量),event\\_alarm(事件告警),device\\_performance(设备质量) |\n| alarmSource | 告警来源 |\n| └name | 来源名称 |\n| └value | 来源值 |\n| alarmRule | 告警规则 |\n| └duration | 持续时长，单位秒 |\n| └percent | 终端占会议室比例 |\n| └frequency | 抑制时间，单位秒 |\n| alarmStatus | 告警状态（\"on\"触发，\"off\"恢复） |\n| firstAlarmTimestamp | 首次触发时间（Unix毫秒时间戳） |\n| alarmTimestamp | 最近触发时间（Unix毫秒时间戳） |",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "研发同步内容 > 云平台功能 > opsadmin：仅可见自己导出的记录。",
+  "line_start": 1280,
+  "char_count": 314,
+  "body": "超管/全局管理员：可见所有记录。\n\n分级管理员：仅可见管辖范围内人员导出的记录\n\n![](data:image/png;base64...)\n\nmanager平台产品注册页仅保留指纹码查看和导入license功能，不可查看license授权详情\n\n* 兼容性\n\n历史项目升级20260327迭代后\n\n* 无需替换新20260327的license。1226迭代以前迭代生成的license可以导入20260327迭代并覆盖\n* 升级后注册用户数有效期为永久\n* 在pops上输入历史项目指纹码，选择20260327迭代后，原配置自动迁移到新设计的页面，AI模块取原来语音转写、智能纪要、终端智能纪会、AI助手4个配置值中的最大值",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

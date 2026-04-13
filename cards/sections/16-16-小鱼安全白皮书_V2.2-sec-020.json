@@ -1,14 +1,15 @@
 {
   "id": "16-16-小鱼安全白皮书_V2.2-sec-020",
   "doc_file": "16-小鱼安全白皮书_V2.2.md",
-  "title": "安全认证资质",
-  "level": 2,
-  "path": "**小鱼易连安全架构方案** > 立体式安全框架 > 安全认证资质",
-  "line_start": 166,
-  "char_count": 136,
-  "body": "小鱼易连通过公安部三级等保资质评测，同时具备ISO27001信息安全体系认证证书。\n\n![图示, 文本, 信件  描述已自动生成](data:image/png;base64...)![文本  中度可信度描述已自动生成](data:image/png;base64...)",
+  "title": "会议后机制",
+  "level": 3,
+  "path": "小鱼易连安全架构方案 > 立体式安全框架 > 会议应用安全 > 会议后机制",
+  "line_start": 146,
+  "char_count": 110,
+  "body": "对于会后的录制内容，提供录制视频分享范围、分享有效期、录制视频水印设置等机制，对会后的资料进行控制。\n\n![](data:image/png;base64...)![](data:image/png;base64...)",
   "tags": [
     "architecture",
+    "meeting-control",
     "security"
   ],
   "related_topics": [],

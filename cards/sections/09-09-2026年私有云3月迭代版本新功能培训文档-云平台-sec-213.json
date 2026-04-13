@@ -1,0 +1,17 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-213",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "返回参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 返回参数说明",
+  "line_start": 1755,
+  "char_count": 350,
+  "body": "| **参数** | **说明** |\n| --- | --- |\n| page | 当前页 |\n| pageTotal | 总页数 |\n| rowsTotal | 总条数 |\n| rows | 当前页的条数 |\n| meetingName | 会议名称 |\n| meetingNumber | 会议所属云会议室号 |\n| meetingId | 当前会议id |\n| startTime | 入会时间，Unix时间戳（毫秒数） |\n| timeEnd | 离会时间，Unix时间戳（毫秒数） |\n| duration | 参会时长 |\n| displayName | 参会方名称 |\n| callNumber | 参会者号码，如果是pc或者app，那就表示手机号。如果是小鱼终端，那就是终端号码 |",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

@@ -1,0 +1,17 @@
+{
+  "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-118",
+  "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
+  "title": "信创适配性",
+  "level": 2,
+  "path": "AVC+SVC双引擎云视频技术白皮书 > 云视频建设关键技术 > 信创适配性",
+  "line_start": 889,
+  "char_count": 103,
+  "body": "2020年以来，“新基建”大幕开启，在进行创新建设的同时，强调“自主可控”。云视频系统可以部署在信创的服务器、操作系统及数据库，提供云视频服务；在信创桌面PC 及国产化操作系统上，部署安装云视频客户端程序。",
+  "tags": [
+    "architecture"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

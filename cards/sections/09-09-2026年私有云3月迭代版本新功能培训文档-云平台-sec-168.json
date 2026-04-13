@@ -1,14 +1,14 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-168",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "**返回参数说明**",
+  "title": "opsadmin账号的显示和功能限制",
   "level": 2,
-  "path": "研发同步内容 > 开发者中心 > **返回参数说明**",
-  "line_start": 1755,
-  "char_count": 350,
-  "body": "| **参数** | **说明** |\n| --- | --- |\n| page | 当前页 |\n| pageTotal | 总页数 |\n| rowsTotal | 总条数 |\n| rows | 当前页的条数 |\n| meetingName | 会议名称 |\n| meetingNumber | 会议所属云会议室号 |\n| meetingId | 当前会议id |\n| startTime | 入会时间，Unix时间戳（毫秒数） |\n| timeEnd | 离会时间，Unix时间戳（毫秒数） |\n| duration | 参会时长 |\n| displayName | 参会方名称 |\n| callNumber | 参会者号码，如果是pc或者app，那就表示手机号。如果是小鱼终端，那就是终端号码 |",
+  "path": "研发同步内容 > 云平台功能 > opsadmin账号的显示和功能限制",
+  "line_start": 1335,
+  "char_count": 482,
+  "body": "* 所有页面和组件都隐藏opsadmin账号，包括但不限于：通讯录、选人组件、Console业务管理日志。\n* opsadmin账号不可登录客户端（不支持呼叫）、点播H5等，只能登录管理平台ops地址。\n* 菜单的显示/隐藏\n\n运维管理页面的菜单支持根据不同条件显示或隐藏对应菜单：\n\n* 支持平台类型：5.2架构、5.6架构、5.6三方云、xms、cms\n* 服务是否部署：例如调用链、夜莺、oceanbase数据库监控\n* 动态错误码\n\n支持服务端动态错误码的可视化配置。格式校验如下：\n\n* 客户端错误码文件：只能上传5M以内的json格式文件\n* 服务端动态错误码：支持配置客户端登录时的错误提示语。输入框最长输入100字符，不可为空。\n\n![](data:image/png;base64...)\n\n* 主备配置入口\n\n将原Manager平台头像中的系统信息设置，迁移至新路径（**【Manager→基础业务→Haproxy配置】**），主备菜单常显，不再根据是否开启主备模式进行显示/隐藏。\n\n![](data:image/png;base64...)",
   "tags": [
-    "meeting-control"
+    "architecture"
   ],
   "related_topics": [],
   "aliases": [],

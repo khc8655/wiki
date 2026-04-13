@@ -1,13 +1,15 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-121",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "说明：",
+  "title": "Console会管平台、PC客户端、指挥调度客户端，meetingkit",
   "level": 2,
-  "path": "研发同步内容 > 云平台功能 > 说明：",
-  "line_start": 1262,
-  "char_count": 108,
-  "body": "跨云配置改变需重启服务生效，其他配置都可以自动实时响应，无需任何操作\n\n![](data:image/png;base64...)\n\n* 4K终端序列号管理\n\n支持在4K终端卡片设置终端序列号、导出以添加的序列号列表",
-  "tags": [],
+  "path": "研发同步内容 > 云平台功能 > Console会管平台、PC客户端、指挥调度客户端，meetingkit",
+  "line_start": 1013,
+  "char_count": 59,
+  "body": "* 会议类型：\n\n仅普通会议支持、级联会议（仅本云通讯录支持显示状态，跨云通讯录不显示状态）。\n\n* 支持的终端型号：",
+  "tags": [
+    "meeting-control"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-077",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "**【功能说明】**",
+  "title": "GE600系列：GE600",
   "level": 2,
-  "path": "硬件平台 > 硬件终端 > **【功能说明】**",
-  "line_start": 750,
-  "char_count": 99,
-  "body": "目前，主流硬件终端均支持智能记会功能。本期，针对TP大屏终端进行功能补齐，支持智能记会功能，且支持显示转写和会议纪要。\n\n涉及终端型号：TP650-S/TP650-C/TP860-S/TP860-C",
-  "tags": [
-    "meeting-control"
-  ],
+  "path": "硬件平台 > 硬件终端 > GE600系列：GE600",
+  "line_start": 350,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

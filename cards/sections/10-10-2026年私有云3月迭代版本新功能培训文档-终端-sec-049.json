@@ -1,15 +1,13 @@
 {
   "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-049",
   "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
-  "title": "BYOM功能配置入口：",
+  "title": "GE600系列：GE600",
   "level": 2,
-  "path": "硬件平台 > 硬件终端 > BYOM功能配置入口：",
-  "line_start": 478,
-  "char_count": 62,
-  "body": "终端界面-设置-高级设置（默认密码000000）-BYOM功能\n\n![](data:image/png;base64...)",
-  "tags": [
-    "security"
-  ],
+  "path": "硬件平台 > 硬件终端 > GE600系列：GE600",
+  "line_start": 243,
+  "char_count": 0,
+  "body": "",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

@@ -1,14 +1,16 @@
 {
   "id": "11-11-AVC_SVC双引擎云视频技术白皮书-sec-064",
   "doc_file": "11-AVC_SVC双引擎云视频技术白皮书.md",
-  "title": "SVC编码技术概述",
+  "title": "AVC视频通信处理",
   "level": 3,
-  "path": "**AVC+SVC双引擎云视频技术白皮书** > 云视频AVC&SVC双引擎视频技术 > AVC MCU全编全解示意图 > SVC编码技术概述",
-  "line_start": 468,
-  "char_count": 147,
-  "body": "SVC（Scalable Video Coding）作为AVC标准的一个扩展,最初由JVT在2004年开始制定，并于2007年7月获得ITU批准，SVC是AVC标准的附录G。2013年起逐步商用，2018年后得到大规模成熟应用验证。\n\n![](data:image/png;base64...)",
+  "path": "AVC+SVC双引擎云视频技术白皮书 > 云视频AVC&SVC双引擎视频技术 > AVC MCU全编全解示意图 > AVC视频通信处理",
+  "line_start": 361,
+  "char_count": 467,
+  "body": "![](data:image/png;base64...)\n\n云视频平台提供了高可靠、可弹性伸缩的AVC编解码引擎，管理服务实现信令接入、多活数据同步、AVC引擎业务资源分配等，AVC引擎完成媒体编解码协商互通、通话状态控制等。\n\n利用AVC引擎，将AVC视频会议终端/MCU、视频监控接入：\n\n![](data:image/png;base64...)\n\nAVC编解码引擎具备向下兼容能力，支持H.264 BP/HP、H.263等AVC视频编解码，G.711、G.722音频编解码。通过AVC 编解码引擎的H.323/SIP/RTP协议栈与传统视频系统兼容互通，支持视频会议终端或MCU接入，充分利旧接入已建视频会议系统。通过GB/T28181协议融合接入视频监控系统，实现视频监控摄像头列表获取、实时调阅前端摄像头RTSP视频流。实现传统视频会议、视频监控系统融合调度。\n\n![](data:image/png;base64...) ![](data:image/png;base64...)\n\n兼容传统视频会议 融合调度视频监控",
   "tags": [
-    "architecture"
+    "architecture",
+    "meeting-control",
+    "stability"
   ],
   "related_topics": [],
   "aliases": [],

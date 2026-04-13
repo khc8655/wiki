@@ -1,13 +1,15 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-015",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "Console会管平台",
+  "title": "xyupgrade之前版本无rollback目录",
   "level": 2,
-  "path": "研发同步内容 > 云平台功能 > Console会管平台",
-  "line_start": 78,
-  "char_count": 9,
-  "body": "——产品经理：吴旋",
-  "tags": [],
+  "path": "研发同步内容 > 【基础设施架构】【研发自驱】【交付关注】服务升级包通过manager及xyupgrade工具升级支持版本回退 > xyupgrade之前版本无rollback目录",
+  "line_start": 72,
+  "char_count": 0,
+  "body": "",
+  "tags": [
+    "architecture"
+  ],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

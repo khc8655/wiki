@@ -1,0 +1,18 @@
+{
+  "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-212",
+  "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
+  "title": "请求参数说明",
+  "level": 2,
+  "path": "研发同步内容 > 开发者中心 > 请求参数说明",
+  "line_start": 1684,
+  "char_count": 1411,
+  "body": "| **参数** | **参数类型** | **参数位置** | **必须** | **默认值** | **说明** |\n| --- | --- | --- | --- | --- | --- |\n| version | String | Path | 是 | 无 | v1 |\n| enterpriseId | String | Query | 是 | 无 | 企业ID，通过[管理平台-云视讯API](https://openapi.xylink.com/common/meeting/doc/ready_work?platform=server\" \\l \"h7a42537-szZtNskC)获得 |\n| signature | String | Query | 签名鉴权 1.0（旧）：是  签名鉴权2.0：否 | 无 | API签名，参见[签名规则](https://openapi.xylink.com/common/meeting/doc/signsecret?platform=server) |\n| timeBegin | long | Query | 是 | 无 | 检索结果列表的开始时间，最早时间，当前时间前18个月 |\n| timeEnd | long | Query | 是 | 无 | 检索结果列表的结束时间（不能大于当前时间），最长检索时长不能大于12个月 |\n| pageIndex | int | Query | 否 | 0 | 页码 |\n| pageSize | int | Query | 否 | 20 | 每页数量，最大 100 |\n| externalUserId | String | Query | 是 | 无 | 三方用户 Id，最大长度 128 |\n\n返回结果示例**：**\n\n**成功时返回结果数据，失败时返回[小鱼RESTAPI错误码](https://openapi.xylink.com/common/meeting/api/server_local_error_code?platform=server)**\n\n{\n\n\"page\": 0,\n\n\"pageTotal\": 0,\n\n\"rowsTotal\": 0,\n\n\"rows\": 10,\n\n\"list\": [\n\n{\n\n\"meetingName\": \"小刚的云会议室\",\n\n\"meetingNumber\": \"9125678\",\n\n\"meetingId\": \"1151224385708\",\n\n\"timeBegin\": 1554971772514,\n\n\"timeEnd\": 1554971915151,\n\n\"duration\": 142637,\n\n\"displayName\": \"112233\"\n\n\"callNumber\": \"11334343443\"\n\n},\n\n{\n\n\"meetingName\": \"小刚的云会议室\",\n\n\"meetingNumber\": \"9125678\",\n\n\"meetingId\": \"1151224385714\",\n\n\"timeBegin\": 1554972342184,\n\n\"timeEnd\": 1554972613517,\n\n\"duration\": 271333,\n\n\"displayName\": \"112233\"\n\n\"callNumber\": \"11334343443\"\n\n}]\n\n}",
+  "tags": [
+    "meeting-control",
+    "security"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

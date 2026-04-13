@@ -1,15 +1,13 @@
 {
   "id": "09-09-2026年私有云3月迭代版本新功能培训文档-云平台-sec-011",
   "doc_file": "09-2026年私有云3月迭代版本新功能培训文档-云平台.md",
-  "title": "说明：",
+  "title": "AMS代理接入默认策略：已改为AMS 代理 IP",
   "level": 2,
-  "path": "研发同步内容 > 579375 【基础设施架构】【研发自驱】【交付关注】服务升级包通过manager及xyupgrade工具升级支持版本回退 > 说明：",
-  "line_start": 68,
-  "char_count": 55,
-  "body": "/mnt/xylink/upgrade/files/XXXXXX/rollback升级包目录，包含回滚备份文件",
-  "tags": [
-    "architecture"
-  ],
+  "path": "研发同步内容 > 【研发自驱】【AMS1000】优化main-proxy和webrtc-proxy代理方式为使用proxyIp > AMS代理接入默认策略：已改为AMS 代理 IP",
+  "line_start": 58,
+  "char_count": 95,
+  "body": "* 绑定SiteCode方式：需用就近接入的 AMS IP绑定\n* 额外操作：必须同步修改openresty-main接入策略为使用proxy ip接入策略，才能满足使用proxy ip接入",
+  "tags": [],
   "related_topics": [],
   "aliases": [],
   "sibling_sections": [],

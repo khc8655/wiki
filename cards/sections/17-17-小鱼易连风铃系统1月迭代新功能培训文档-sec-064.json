@@ -1,0 +1,17 @@
+{
+  "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-064",
+  "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
+  "title": "5 服务端 API**",
+  "level": 2,
+  "path": "文档密级：内部 > 5 服务端 API**",
+  "line_start": 723,
+  "char_count": 66,
+  "body": "——产品经理：赵飞\n\n在 2026 年 1 月迭代版本中，服务端 API以下功能新增：\n\n• 预约会议 API 支持配置内容共享权限",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

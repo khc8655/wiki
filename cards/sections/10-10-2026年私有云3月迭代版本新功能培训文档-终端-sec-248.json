@@ -1,0 +1,15 @@
+{
+  "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-248",
+  "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
+  "title": "txt保存为markdown格式",
+  "level": 2,
+  "path": "硬件平台 > AI智能应用 > txt保存为markdown格式",
+  "line_start": 1195,
+  "char_count": 278,
+  "body": "![](data:image/png;base64...)\n\n* 定制转写与纪要的word导出样式\n\n如需将转写和纪要导出为word时，文档的自定义样式可由企业管理员提前通过console会管平台上进行设置。\n\n在Console会管平台，选择菜单**【AI管理→转写与纪要→设置】**，新增**Word导出样式配置**项，最多可提前添加10个样式模板，设置文档样式，包含字体、字号、行间距、段落等内容，后续根据需要选用对应样式模板。\n\n![](data:image/png;base64...)\n\n![](data:image/png;base64...)",
+  "tags": [],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}

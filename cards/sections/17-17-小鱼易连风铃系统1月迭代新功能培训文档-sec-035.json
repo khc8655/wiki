@@ -1,15 +1,15 @@
 {
   "id": "17-17-小鱼易连风铃系统1月迭代新功能培训文档-sec-035",
   "doc_file": "17-小鱼易连风铃系统1月迭代新功能培训文档.md",
-  "title": "l",
+  "title": "AI 服务器本地 web 页面",
   "level": 2,
-  "path": "文档密级：内部 > l",
-  "line_start": 421,
-  "char_count": 258,
-  "body": "支持对企业云会议室和 SDK 类型会议室配置以下开关：\n\n• 跨 site 会议限制：\n\n是（默认值）： 受跨 site 会议个数限，当跨 site 级联会议达到上限时，新发起跨site 级联会议失败\n\n否：不受跨 site 会议个数限制，随时可以召开会议\n\n• 跨 site 视频优先级：\n\n无（默认值）： 普通会议室，优先级最低，当有其他高优先级会议抢占带宽，视频\n\n![](data:image/png;base64...)![](data:image/png;base64...)\n\n月迭代版本新功能培训文档",
+  "path": "文档密级：内部 > AI 服务器本地 web 页面",
+  "line_start": 485,
+  "char_count": 959,
+  "body": "本期新增 AI 服务器 Web 管理页面，支持以下功能模块。\n\n![](data:image/png;base64...)\n\n![](data:image/png;base64...)\n\n|  |  |  |\n| --- | --- | --- |\n| **模块** | **子模块** | **模块说明** |\n| 登录 |  | 默认账号密码为： sysadmin/Xy@system0首次登录强制修改密码。 |\n| 系统状态 | 实时监控 | 监控系统数据 |\n| 资源状态 | 显示网络接收和发送速率、硬件服务器主机的 CPU 和内存的使用率，支持过滤不同的时间段的资源状态 |\n| 服务状态 | 显示 AI相关服务的实时状态：  aigateway 、 aigateway-offline-transcription 、 aicontroller 、 aibusiness 、 aiagent 、 matrixapp 、 matrixupload、 matrixalg、xysdpclient、 manager、 frontend\\_vms、 deploy、openresty |\n| 系统配置 | 基础配置 | 配置穿越服务的基础信息和时间同步模式。 |\n\n|  |  |  |\n| --- | --- | --- |\n| **模块** | **子模块** | **模块说明** |\n|  | 网络配置 | 配置 AI服务器的网络信息，包括网口配置、 DNS 配置、路由配置、安全网络配置。 |\n| 系统运维 | 操作日志 | 查看所有用户对 AI服务信息的全部查看和操作记录，包括 Web 管理界面的操作日志，以及管理员通过 Console会管平台对 AI服务的查看和相关操作。 |\n| 运行日志 | 支持查看和下载 AI相关服务的运行日志。 |\n| 告警日志 | 实时上报终端相关的告警信息。 |\n| 配置文件 、 重启、升级、关于、账号管理 | 支持配置文件和导入，执行设备重启、升级，更改管理页  面登录密码。 |\n\nl 风铃 Console 会管平台\n\n1) 配置 AI服务器的可见性开关。\n\n鉴于 AI服务器不是所有项目交付均部署，可根据需要控制该配置项在风铃Console 会管平台的可见性。",
   "tags": [
-    "meeting-control",
-    "overview"
+    "overview",
+    "security"
   ],
   "related_topics": [],
   "aliases": [],

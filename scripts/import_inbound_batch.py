@@ -78,10 +78,23 @@ def normalize_text(text: str) -> str:
     return '\n'.join(cleaned).strip() + '\n'
 
 
+def clean_heading_text(s: str) -> str:
+    s = s.strip()
+    s = s.replace('**', '').replace('__', '')
+    s = re.sub(r'^[#\-*•]+\s*', '', s)
+    s = re.sub(r'^[lI|]\s+', '', s)
+    s = re.sub(r'^\d+[\)\.、]\s*', '', s)
+    s = re.sub(r'^\d+\s+', '', s)
+    return s.strip(' ：:|')
+
+
 def infer_title(text: str, fallback: str) -> str:
     for line in text.splitlines():
-        s = line.strip().lstrip('#').strip()
-        if s and not s.startswith('|') and len(s) <= 80:
+        raw = line.strip().lstrip('#').strip()
+        if not raw or raw.startswith('|') or raw.startswith('![](') or raw.startswith('---') or re.fullmatch(r'[\-|\s]+', raw):
+            continue
+        s = clean_heading_text(raw)
+        if s and '--- | ---' not in s and len(s) <= 80 and len(s) > 2:
             return s
     return fallback
 
@@ -93,16 +106,20 @@ def is_heading(line: str) -> tuple[int, str] | None:
     if s.startswith('#'):
         m = re.match(r'^(#+)\s*(.+)$', s)
         if m:
-            return min(len(m.group(1)), 3), m.group(2).strip()
-    if s.startswith('##'):
-        return 2, s.lstrip('#').strip()
-    if s.startswith('|') or s.startswith('![](') or s.startswith('---'):
+            heading = clean_heading_text(m.group(2))
+            if heading and not re.fullmatch(r'[0-9A-Za-zlI|]{1,2}', heading):
+                return min(len(m.group(1)), 3), heading
+            return None
+    if s.startswith('|') or s.startswith('![](') or s.startswith('---') or re.fullmatch(r'[\-|\s]+', s):
         return None
-    if len(s) <= 40 and not re.search(r'[。；：,.]{2,}', s):
-        if any(ch in s for ch in ['功能说明', '适用环境', '功能背景', '说明', '部署方案', '安全相关', '运维相关', '部署&升级相关']):
-            return 2, s
-        if re.match(r'^[一二三四五六七八九十0-9A-Za-z【\[]', s):
-            return 2, s
+    heading = clean_heading_text(s)
+    if not heading or re.fullmatch(r'[0-9A-Za-zlI|]{1,2}', heading) or re.fullmatch(r'[\-|\s]+', heading):
+        return None
+    if len(heading) <= 40 and not re.search(r'[。；：,.]{2,}', heading):
+        if any(ch in heading for ch in ['功能说明', '适用环境', '功能背景', '说明', '部署方案', '安全相关', '运维相关', '部署&升级相关']):
+            return 2, heading
+        if re.match(r'^[一二三四五六七八九十0-9A-Za-z【\[]', heading):
+            return 2, heading
     return None
 
 

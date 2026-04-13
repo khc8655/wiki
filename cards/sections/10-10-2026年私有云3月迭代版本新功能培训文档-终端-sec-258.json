@@ -1,0 +1,17 @@
+{
+  "id": "10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-258",
+  "doc_file": "10-2026年私有云3月迭代版本新功能培训文档-终端.md",
+  "title": "【功能背景】",
+  "level": 2,
+  "path": "硬件平台 > AI智能应用 > 【功能背景】",
+  "line_start": 1253,
+  "char_count": 110,
+  "body": "在用户实际使用场景下，需要在同一场会议中识别多个发言人，以实现在后台上传声纹后，可以精准识别发言人。基于此需求，本期实现会后离线算法支持重新生成声纹。\n\n涉及客户端：客户端：winQT/信创、Android、iOS、鸿蒙",
+  "tags": [
+    "meeting-control"
+  ],
+  "related_topics": [],
+  "aliases": [],
+  "sibling_sections": [],
+  "source_weight": 2
+}
