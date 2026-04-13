@@ -153,13 +153,24 @@ function normalizeText(s) {
 }
 
 function inferEvidenceCluster(card) {
-  const text = `${card.title || ''} ${card.path || ''} ${card.body || ''}`;
-  if (/传输安全|端到端加密|消息通道加密|媒体通道加密|秘钥|密钥|tls|ssl/i.test(text)) return 'security-transport';
-  if (/存储安全|录制过程安全|录像存储安全|录制内容安全|账号密码存储|sha-512/i.test(text)) return 'security-storage';
-  if (/鉴权|访问控制|黑名单|securitykey|签名|登录密码|短信验证码/i.test(text)) return 'security-access-control';
-  if (/立体式安全|架构级安全保障|基础架构安全|自主可控|iaas|专有云|vpc/i.test(text)) return 'security-architecture';
-  if (/会议前机制|会议中机制|会议后机制|会议应用安全/i.test(text)) return 'security-meeting-control';
+  const title = `${card.title || ''} ${card.path || ''}`;
+  const body = `${card.body || ''}`;
+  if (/会议前机制|会议中机制|会议后机制|会议应用安全/i.test(title + body)) return 'security-meeting-control';
+  if (/鉴权|访问控制|黑名单|securitykey|签名|登录密码|短信验证码|双因子/i.test(title + body)) return 'security-access-control';
+  if (/存储安全|录制过程安全|录像存储安全|录制内容安全|账号密码存储|sha-512|加盐/i.test(title + body)) return 'security-storage';
+  if (/传输安全|端到端加密|消息通道加密|媒体通道加密|秘钥|密钥|tls|ssl|sm2|sm3|sm4/i.test(title + body)) return 'security-transport';
+  if (/立体式安全|架构级安全保障|基础架构安全|自主可控|iaas|专有云|vpc|背景简介/i.test(title + body)) return 'security-architecture';
   return 'generic';
+}
+
+function isValidSimilarSource(primary, candidate, cluster) {
+  if (candidate.card_id === primary.card_id) return false;
+  if (candidate.match_percent < 90) return false;
+  if (candidate.bucket !== '强命中') return false;
+  if ((candidate.body || '').length < 40) return false;
+  const sameCluster = inferEvidenceCluster(candidate) === cluster;
+  if (!sameCluster) return false;
+  return true;
 }
 
 function dedupeEvidence(results, queryPlan) {
@@ -188,11 +199,14 @@ function dedupeEvidence(results, queryPlan) {
       return (b.body || '').length - (a.body || '').length;
     });
     const primary = items[0];
-    primary.similar_sources = items.slice(1).map(x => ({
-      card_id: x.card_id,
-      title: x.title,
-      match_percent: x.match_percent,
-    }));
+    primary.similar_sources = items
+      .filter(x => isValidSimilarSource(primary, x, cluster))
+      .slice(0, 5)
+      .map(x => ({
+        card_id: x.card_id,
+        title: x.title,
+        match_percent: x.match_percent,
+      }));
     deduped.push(primary);
   }
 
