@@ -46,15 +46,30 @@ This index is title-first and section-first. It is meant to replace slow full-do
 
 For ambiguous queries like `跨云互通`, prefer the route-specific lane first instead of broad text matching.
 
-Example:
+### V1
 
 ```bash
 node scripts/retrieve_v1.js 跨云互通
 ```
 
-This returns:
-- selected route
+### V2
+
+```bash
+python3 scripts/build_v2_semantic_metadata.py
+node scripts/query_v2.js --brief 跨云互通
+node scripts/query_v2.js --json --top 5 AVC+SVC双引擎
+```
+
+V2 returns:
+- parsed intent plan
 - top candidates
 - `match_percent`
 - `强命中 / 弱相关 / 排除项`
-- a simple precision summary
+- summary counts
+
+CLI options:
+- `--brief` 输出紧凑摘要
+- `--json` 输出结构化 JSON
+- `--top N` 控制返回条数
+- `--min-score N` 控制最低分
+- `--include-excluded` 保留排除项结果

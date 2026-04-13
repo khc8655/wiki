@@ -191,6 +191,19 @@ V2 查询强调“先理解，再快速召回”。
 - `match_percent`
 - `强命中 / 弱相关 / 排除项`
 - `reasons`
+- `summary`
+
+建议将查询能力封装为可复用接口，而不是只保留一次性脚本。当前建议暴露统一方法：
+
+```js
+runQuery(query, { topK, minScore, includeExcluded })
+```
+
+便于后续接入：
+- CLI
+- agent 内部调用
+- HTTP 服务
+- 批量评测脚本
 
 ### Step 5. 返回原文
 
