@@ -6,7 +6,7 @@
 
 ## 版本信息
 
-**当前版本**: v1.4
+**当前版本**: v1.6
 
 ---
 
@@ -121,6 +121,10 @@ Layer 1: Raw 原始资料层 (Source of Truth)
    ```bash
    ./push_to_github.sh "v1.x: 更新说明"
    ```
+   或
+   ```bash
+   git add . && git commit -m "v1.x: 更新说明" && git push origin main
+   ```
 
 ### 版本号规则
 
@@ -152,8 +156,23 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 ### 查询知识
 
 1. **按主题浏览**: 查看 `topics/` 目录下的主题页
-2. **精确检索**: 通过 `cards/manifest.json` 查找卡片
-3. **阅读原文**: 查看 `raw/` 目录下的原始文档
+2. **默认查询入口**: 使用 `node scripts/query_default.js --brief <query>`
+3. **V2 精确检索**: 使用 `node scripts/query_v2.js --json <query>`
+4. **阅读原文**: 查看 `raw/` 目录下的原始文档
+
+### 检索与优化常用命令
+
+```bash
+python3 scripts/build_v2_semantic_metadata.py
+node scripts/query_default.js --brief 跨云互通
+node scripts/query_v2.js --json --top 5 AVC+SVC双引擎
+python3 scripts/auto_refine_v2.py
+```
+
+### 自动优化反馈
+
+- 检索反馈事件目录: `updates/retrieval_feedback/`
+- 自动建议报告: `updates/retrieval_feedback/auto_refine_report.v2.json`
 
 ### 本地启动
 

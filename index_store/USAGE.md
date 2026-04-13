@@ -56,8 +56,9 @@ node scripts/retrieve_v1.js 跨云互通
 
 ```bash
 python3 scripts/build_v2_semantic_metadata.py
-node scripts/query_v2.js --brief 跨云互通
+node scripts/query_default.js --brief 跨云互通
 node scripts/query_v2.js --json --top 5 AVC+SVC双引擎
+python3 scripts/auto_refine_v2.py
 ```
 
 V2 returns:
@@ -68,8 +69,13 @@ V2 returns:
 - summary counts
 
 CLI options:
-- `--brief` 输出紧凑摘要
-- `--json` 输出结构化 JSON
+- `query_default.js --brief` 作为默认入口输出紧凑摘要
+- `query_v2.js --json` 输出结构化 JSON
 - `--top N` 控制返回条数
 - `--min-score N` 控制最低分
 - `--include-excluded` 保留排除项结果
+
+Feedback loop:
+- 写入 `updates/retrieval_feedback/*.json`
+- 运行 `python3 scripts/auto_refine_v2.py`
+- 查看 `auto_refine_report.v2.json` 建议下一轮精修

@@ -205,6 +205,12 @@ runQuery(query, { topK, minScore, includeExcluded })
 - HTTP 服务
 - 批量评测脚本
 
+当前建议默认入口：
+
+```bash
+node scripts/query_default.js --brief <query>
+```
+
 ### Step 5. 返回原文
 
 默认返回强命中原文；只有在用户要求时再综合总结。
@@ -237,6 +243,18 @@ runQuery(query, { topK, minScore, includeExcluded })
 - 补 intent tag
 - 补 negative concept
 - 生成 retrieval note / topic hint
+
+当前已提供自动优化骨架：
+
+```bash
+python3 scripts/auto_refine_v2.py
+```
+
+输入目录：
+- `updates/retrieval_feedback/*.json`
+
+输出报告：
+- `updates/retrieval_feedback/auto_refine_report.v2.json`
 
 ---
 
