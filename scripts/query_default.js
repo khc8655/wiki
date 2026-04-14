@@ -38,6 +38,22 @@ function parseArgs(argv) {
   return opts;
 }
 
+// 记录待审核的冷查询（未命中路由但用户满意的）
+function logColdQuery(query, results, satisfied) {
+  const logDir = path.join(__dirname, '..', 'feedback');
+  const logFile = path.join(logDir, 'cold_query_feedback.jsonl');
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+  }
+  const entry = {
+    timestamp: new Date().toISOString(),
+    query: query,
+    results: results.slice(0, 5).map(r => ({ card_id: r.card_id, title: r.title, match_percent: r.match_percent })),
+    user_satisfied: satisfied,
+  };
+  fs.appendFileSync(logFile, JSON.stringify(entry) + '\n');
+}
+
 function main() {
   const opts = parseArgs(process.argv.slice(2));
   if (!opts.query) {
@@ -46,6 +62,7 @@ function main() {
   }
 
   const plan = parseQuery(opts.query);
+  const isColdQuery = !plan.intent;
   const useV2 = Boolean(plan.intent);
   const payload = runQuery(opts.query, { topK: opts.topK, minScore: 20, includeExcluded: false });
 
@@ -97,6 +114,16 @@ function main() {
       const similar = (r.similar_sources || []).length ? ` (相似来源:${(r.similar_sources || []).length})` : '';
       lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${label}${similar}`);
     });
+    
+    // 冷查询反馈提示
+    if (isColdQuery && payload.results.length > 0) {
+      lines.push('');
+      lines.push('=== 冷查询反馈 ===');
+      lines.push('未命中特定路由规则，以上是基于语义召回的最佳结果。');
+      lines.push('如果答案满意，请回复"满意"，系统将学习此路由。');
+      lines.push('如果不满意，请回复"不满意"，系统将记录为负样本。');
+    }
+    
     console.log(lines.join('\n'));
     return;
   }

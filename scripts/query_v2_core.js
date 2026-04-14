@@ -47,6 +47,23 @@ function parseQuery(query) {
       highPriorityCards: ['06-新一代视频会议系统建设方案模板-sec-055', '06-新一代视频会议系统建设方案模板-sec-201', '02-小鱼易连安全稳定白皮书V1-20240829-sec-002', '02-小鱼易连安全稳定白皮书V1-20240829-sec-006'],
     };
   }
+  // SVC vs AVC 对比/差异查询
+  if ((q.includes('svc') && q.includes('avc')) && (q.includes('差异') || q.includes('对比') || q.includes('区别') || q.includes('vs') || q.includes('优势'))) {
+    return {
+      intent: 'svc-avc-comparison',
+      mustConcepts: [],
+      preferConcepts: ['AVC+SVC双引擎', 'SVC柔性编码', 'AVC兼容互通'],
+      excludeConcepts: [],
+      expectedTitleTerms: ['SVC', 'AVC', '对比', '架构', '优势', '差异'],
+      highPriorityCards: [
+        '11-11-AVC_SVC双引擎云视频技术白皮书-sec-082', // SVC与AVC架构对比优势
+        '11-11-AVC_SVC双引擎云视频技术白皮书-sec-098', // 云视频AVC&SVC双引擎架构优势总结
+        '11-11-AVC_SVC双引擎云视频技术白皮书-sec-081', // 一次编码，延迟低
+        '14-14-视频会议技术路线选型及对比说明-sec-006', // 主要厂商主要技术对比一览
+        '12-12-软件定义架构与专用硬件架构的发展与区别-sec-001', // 软件定义架构对比
+      ],
+    };
+  }
   if (q.includes('avc') && (q.includes('终端') || q.includes('接入') || q.includes('呼叫') || q.includes('级联') || q.includes('对接'))) {
     return {
       intent: 'avc-terminal-access',
@@ -541,7 +558,25 @@ function runQuery(query, options = {}) {
     plan.highPriorityCards.forEach(id => ids.add(id));
   }
   
-  // 4. Last resort: already covered by highPriorityCards above
+  // 4. Cold query fallback: if still no candidates, search by query keywords in title/body
+  if (ids.size === 0) {
+    const queryTerms = query.toLowerCase().split(/\s+/).filter(t => t.length >= 2);
+    const maxColdQueryCards = 50; // Limit to avoid performance issues
+    let found = 0;
+    
+    for (const [cardId, cardMeta] of Object.entries(meta)) {
+      if (found >= maxColdQueryCards) break;
+      
+      const titleText = (cardMeta.title_summary || '').toLowerCase();
+      const semanticText = (cardMeta.semantic_summary || '').toLowerCase();
+      
+      // Check if any query term appears in title or semantic summary
+      if (queryTerms.some(term => titleText.includes(term) || semanticText.includes(term))) {
+        ids.add(cardId);
+        found++;
+      }
+    }
+  }
 
   let results = [...ids].map(id => {
     const card = readCard(id);
