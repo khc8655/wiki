@@ -217,18 +217,94 @@ node scripts/query_default.js --brief <query>
 
 ---
 
-## 6. 自动优化机制
+## 6. 层级索引与反向召回（V2.1 新增）
 
-### 6.1 文档更新驱动
+为提升查询准确率和召回完整章节，新增两类预编译索引：
+
+### 6.1 Path Siblings Index（路径兄弟索引）
+
+**文件**: `index_store/path_siblings_index.v2.json`
+
+**作用**: O(1) 查找同一父路径下的所有兄弟卡片
+
+**示例**:
+```json
+{
+  "硬件平台 > 硬件终端": [
+    "10-...-sec-030",
+    "10-...-sec-031",
+    ...
+  ]
+}
+```
+
+**使用场景**:
+- 查询命中某张卡片后，自动召回同章节的其他卡片
+- 确保操作步骤、功能说明等连续内容完整返回
+
+### 6.2 Model Path Index（硬件型号反向索引）
+
+**文件**: `index_store/model_path_index.v2.json`
+
+**作用**: 硬件型号 → 父路径映射，实现反向召回
+
+**示例**:
+```json
+{
+  "XE800": ["硬件平台 > 硬件终端"],
+  "AE700": ["硬件平台 > 硬件终端"],
+  "NP30V2": ["硬件平台 > 硬件终端"]
+}
+```
+
+**使用场景**:
+- 查询"XE800"时，通过型号反向找到"硬件终端"章节
+- 无需关键词匹配，直接定位相关文档
+
+### 6.3 查询流程更新
+
+```
+查询"XE800" → 匹配型号XE800
+                ↓
+         查 model_path_index
+                ↓
+         得到 "硬件平台 > 硬件终端"
+                ↓
+         查 path_siblings_index
+                ↓
+         秒级召回148张相关卡片
+                ↓
+         按匹配度排序返回
+```
+
+**优势**:
+- 准确率: 通过型号精确锁定相关章节
+- 召回率: 自动召回同章节兄弟卡片
+- 速度: O(1) 索引查找，无需遍历991张卡片
+
+---
+
+## 7. 自动优化机制
+
+### 7.1 文档更新驱动
 
 当 raw 文档更新时：
 
 1. 定位受影响 cards
 2. 增量重建这些 cards 的语义字段
-3. 增量更新索引和关系图
+3. 增量更新索引和关系图（包括 path_siblings_index 和 model_path_index）
 4. 标记可能过时的 topic/wiki 页面
 
-### 6.2 使用反馈驱动
+**索引重建命令**:
+```bash
+# 重建路径兄弟索引
+node scripts/build_path_index.js
+
+# 重建硬件型号反向索引
+node scripts/build_model_index.js
+```
+
+### 7.2 使用反馈驱动
 
 根据真实 query 自动优化：
 
@@ -258,7 +334,7 @@ python3 scripts/auto_refine_v2.py
 
 ---
 
-## 7. Lint / Health Check
+## 8. Lint / Health Check
 
 建议周期性执行：
 
@@ -267,10 +343,11 @@ python3 scripts/auto_refine_v2.py
 3. 检查高频 query 是否缺少专用 route
 4. 检查 confusable pairs 是否缺少 excludes
 5. 检查旧结论是否被新文档覆盖
+6. **检查 path_siblings_index 和 model_path_index 是否需要重建**（新文档入库后）
 
 ---
 
-## 8. 与 llm-wiki 思路的对应关系
+## 9. 与 llm-wiki 思路的对应关系
 
 V2 借鉴的关键点：
 
@@ -278,10 +355,11 @@ V2 借鉴的关键点：
 2. 新文档进入时要更新已有知识，不只是新增
 3. 高价值问答可以反向沉淀进 wiki
 4. 需要 lint / health-check 机制维持知识库质量
+5. **通过层级索引实现跨卡片的章节级召回**（V2.1新增）
 
 ---
 
-## 9. 推荐实施顺序
+## 10. 推荐实施顺序
 
 ### Phase 1
 - 增加 `title_summary`
@@ -293,6 +371,8 @@ V2 借鉴的关键点：
 - 建 `intent_index.v2.json`
 - 建 `concept_index.v2.json`
 - 建 `negative_index.v2.json`
+- 建 `path_siblings_index.v2.json`（V2.1 新增）
+- 建 `model_path_index.v2.json`（V2.1 新增）
 - 查询接入轻量 query parser
 
 ### Phase 3
@@ -302,11 +382,12 @@ V2 借鉴的关键点：
 
 ---
 
-## 10. 成功标准
+## 11. 成功标准
 
 V2 成功的标志不是“字段更多”，而是：
 
 1. 高频 query precision 明显提升
-2. 查询响应时间不因复杂度大幅增加
+2. 查询响应时间不因复杂度大幅增加（V2.1: O(1) 层级索引查询）
 3. 新文档加入后，相关主题自动变准
 4. 用户指出错误后，系统能在后续查询中自动变好
+5. **硬件型号查询能精确召回相关章节**（V2.1 新增）
