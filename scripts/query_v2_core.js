@@ -8,6 +8,8 @@ const load = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const meta = load('cards/card_metadata.v2.json');
 const intentIndex = load('index_store/intent_index.v2.json');
 const conceptIndex = load('index_store/concept_index.v2.json');
+const pathSiblingsIndex = load('index_store/path_siblings_index.v2.json');
+const modelPathIndex = load('index_store/model_path_index.v2.json');
 const cardsDir = path.join(ROOT, 'cards', 'sections');
 
 const DOC_ROLE_PRIORITY = {
@@ -45,6 +47,61 @@ function parseQuery(query) {
       highPriorityCards: ['06-新一代视频会议系统建设方案模板-sec-055', '06-新一代视频会议系统建设方案模板-sec-201', '02-小鱼易连安全稳定白皮书V1-20240829-sec-002', '02-小鱼易连安全稳定白皮书V1-20240829-sec-006'],
     };
   }
+  if (q.includes('avc') && (q.includes('终端') || q.includes('接入') || q.includes('呼叫') || q.includes('级联') || q.includes('对接'))) {
+    return {
+      intent: 'avc-terminal-access',
+      mustConcepts: ['AVC兼容互通'],
+      preferConcepts: ['SVC柔性编码', 'MCU级联', '终端直接接入', 'H.323', 'SIP', 'GK'],
+      excludeConcepts: ['跨云互通', '混合云部署'],
+      expectedTitleTerms: ['AVC', '终端', 'MCU', '接入', '级联', '对接', '呼叫', 'H.323', 'SIP'],
+      highPriorityCards: ['06-新一代视频会议系统建设方案模板-sec-221', '06-新一代视频会议系统建设方案模板-sec-201', '06-新一代视频会议系统建设方案模板-sec-224', '14-视频会议技术路线选型及对比说明-sec-005'],
+    };
+  }
+  // 优先检测硬件型号，走反向索引召回（放在byom检测之前）
+  const modelMatch = q.match(/\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?|tp\d{3}-[a-z]|me\d{2}[a-z]?|nc\d{2}|np\d{2}v?2?)\b/i);
+  if (modelMatch) {
+    const model = modelMatch[1].toUpperCase();
+    const parentPaths = modelPathIndex[model] || [];
+    if (parentPaths.length > 0) {
+      // 通过路径索引获取该型号下的所有卡片
+      const allCards = [];
+      for (const p of parentPaths) {
+        const siblings = pathSiblingsIndex[p] || [];
+        allCards.push(...siblings);
+      }
+      return {
+        intent: 'hardware-model',
+        mustConcepts: [],
+        preferConcepts: ['终端'],
+        excludeConcepts: [],
+        expectedTitleTerms: [model, '终端', '硬件'],
+        highPriorityCards: [...new Set(allCards)],  // 去重
+        model: model,
+        parentPaths: parentPaths,
+      };
+    }
+  }
+  
+  if (q.includes('byom') || q.includes('ae700') || q.includes('ae800') || q.includes('np30') || q.includes('xe800')) {
+    return {
+      intent: 'hardware-byom',
+      mustConcepts: [],
+      preferConcepts: ['终端'],
+      excludeConcepts: [],
+      expectedTitleTerms: ['BYOM', 'NP30', 'AE700', 'AE800', '双模双活', '终端'],
+      // 按章节顺序排列：大章节标题 -> 功能背景 -> 功能说明 -> 配置入口 -> Web界面 -> 驱动安装 -> 配置说明
+      highPriorityCards: [
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-095', // 【双模双活】支持BYOM-NP30v2方案
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-097', // 【功能背景】含XE800列表
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-108', // 【功能说明】
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-109', // BYOM功能配置入口
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-110', // Web管理界面
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-111', // 驱动安装说明
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-112', // NP30-BYOM驱动安装
+        '10-10-2026年私有云3月迭代版本新功能培训文档-终端-sec-113', // 功能配置说明
+      ],
+    };
+  }
   if (q.includes('安全')) {
     return {
       intent: 'security-assurance',
@@ -75,6 +132,7 @@ function parseQuery(query) {
       highPriorityCards: ['06-新一代视频会议系统建设方案模板-sec-076'],
     };
   }
+  
   return {
     intent: null,
     mustConcepts: [],
@@ -298,7 +356,103 @@ function dedupeByDocTitle(results) {
   });
 }
 
+// 章节关联：根据 path 前缀识别同一章节下的连续卡片
+function groupByChapter(results) {
+  const groups = new Map();
+  for (const r of results) {
+    // 提取章节路径（去掉最后一级）
+    const path = r.path || '';
+    const chapterKey = path.split(' > ').slice(0, -1).join(' > ') || path;
+    if (!groups.has(chapterKey)) groups.set(chapterKey, []);
+    groups.get(chapterKey).push(r);
+  }
+  return groups;
+}
+
+// 增强关联：如果章节内任意卡片强命中，提升同章节其他卡片匹配度
+function enhanceByChapterRelation(results, minBoost = 10) {
+  const chapterGroups = groupByChapter(results);
+  const enhanced = [...results];
+  
+  for (const [chapter, items] of chapterGroups) {
+    const hasStrongHit = items.some(i => i.match_percent >= 85);
+    if (hasStrongHit) {
+      // 提升同章节其他卡片的匹配度
+      for (const item of items) {
+        if (item.match_percent < 85) {
+          item.match_percent = Math.min(99, item.match_percent + minBoost);
+          item.bucket = item.match_percent >= 85 ? '强命中' : (item.match_percent >= 45 ? '弱相关' : '排除项');
+          item.reasons = [...(item.reasons || []), '章节关联提升'];
+        }
+      }
+    }
+  }
+  return enhanced.sort((a, b) => b.match_percent - a.match_percent);
+}
+
+// 使用预建索引快速获取兄弟卡片（O(1)）
+function getSiblingsByPath(cardId) {
+  const card = readCard(cardId);
+  if (!card) return [];
+  
+  // 使用卡片的 path 字段
+  const fullPath = card.path || '';
+  if (!fullPath) return [];
+  
+  const levels = fullPath.split(' > ').map(s => s.trim()).filter(Boolean);
+  
+  // 从最深层级向上查找兄弟
+  for (let i = levels.length - 1; i >= 0; i--) {
+    const parentPath = levels.slice(0, i + 1).join(' > ');
+    if (pathSiblingsIndex[parentPath]) {
+      return pathSiblingsIndex[parentPath].filter(id => id !== cardId);
+    }
+  }
+  return [];
+}
+
+// 使用索引增强：命中卡片后，自动召回同父目录下的兄弟卡片
+function enhanceByPathIndex(results, minBoost = 10) {
+  const enhanced = [...results];
+  const siblingIds = new Set();
+  
+  // 收集所有命中卡片的兄弟
+  for (const r of results) {
+    if (r.match_percent >= 70) {  // 只对质量较高的结果召回兄弟
+      const siblings = getSiblingsByPath(r.card_id);
+      siblings.forEach(id => siblingIds.add(id));
+    }
+  }
+  
+  // 加载兄弟卡片（如果不在结果中）
+  for (const siblingId of siblingIds) {
+    if (!results.some(r => r.card_id === siblingId)) {
+      try {
+        const card = readCard(siblingId);
+        const scored = scoreCard({ mustConcepts: [], preferConcepts: [], excludeConcepts: [], expectedTitleTerms: [], highPriorityCards: [] }, siblingId);
+        enhanced.push({
+          card_id: siblingId,
+          title: card.title,
+          path: card.path,
+          doc_file: card.doc_file,
+          body: card.body,
+          match_percent: Math.min(75, scored.score),  // 兄弟卡片默认75分
+          bucket: '弱相关',
+          reasons: ['章节兄弟卡片'],
+        });
+      } catch (e) {
+        // 忽略不存在的卡片
+      }
+    }
+  }
+  
+  return enhanced.sort((a, b) => b.match_percent - a.match_percent);
+}
+
 function dedupeEvidence(results, queryPlan) {
+  // 先使用预建索引做章节关联增强
+  results = enhanceByPathIndex(results);
+  
   if (queryPlan.intent === 'cross-cloud-interconnect') {
     const enriched = results.map(result => {
       const card = readCard(result.card_id);
@@ -373,14 +527,21 @@ function runQuery(query, options = {}) {
 
   const plan = parseQuery(query);
   const ids = new Set();
+  
+  // 1. Try intent index first
   if (plan.intent && intentIndex[plan.intent]) {
     intentIndex[plan.intent].forEach(id => ids.add(id));
   }
+  
+  // 2. Add must concept matches
   plan.mustConcepts.forEach(c => (conceptIndex[c] || []).forEach(id => ids.add(id)));
-  if (plan.intent && intentIndex[plan.intent]) {
-    ids.clear();
-    intentIndex[plan.intent].forEach(id => ids.add(id));
+  
+  // 3. Fallback: if no candidates from intent/must, use highPriorityCards
+  if (ids.size === 0 && plan.highPriorityCards && plan.highPriorityCards.length > 0) {
+    plan.highPriorityCards.forEach(id => ids.add(id));
   }
+  
+  // 4. Last resort: already covered by highPriorityCards above
 
   let results = [...ids].map(id => {
     const card = readCard(id);
@@ -389,6 +550,8 @@ function runQuery(query, options = {}) {
       card_id: id,
       title: card.title,
       path: card.path,
+      doc_file: card.doc_file,
+      body: card.body,
       match_percent: scored.score,
       bucket: scored.bucket,
       reasons: scored.reasons,
