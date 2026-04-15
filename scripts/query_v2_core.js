@@ -10,6 +10,7 @@ const intentIndex = load('index_store/intent_index.v2.json');
 const conceptIndex = load('index_store/concept_index.v2.json');
 const pathSiblingsIndex = load('index_store/path_siblings_index.v2.json');
 const modelPathIndex = load('index_store/model_path_index.v2.json');
+const productIndex = load('index_store/product_index.v1.json');
 const cardsDir = path.join(ROOT, 'cards', 'sections');
 
 const DOC_ROLE_PRIORITY = {
@@ -74,13 +75,34 @@ function parseQuery(query) {
       highPriorityCards: ['06-新一代视频会议系统建设方案模板-sec-221', '06-新一代视频会议系统建设方案模板-sec-201', '06-新一代视频会议系统建设方案模板-sec-224', '14-视频会议技术路线选型及对比说明-sec-005'],
     };
   }
-  // 优先检测硬件型号，走反向索引召回（放在byom检测之前）
+  // 优先检测硬件型号。纯产品查询优先走 product_index，功能/迭代查询再走型号反向索引。
   const modelMatch = q.match(/\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?|tp\d{3}-[a-z]|me\d{2}[a-z]?|nc\d{2}|np\d{2}v?2?)\b/i);
   if (modelMatch) {
     const model = modelMatch[1].toUpperCase();
+    const featureTerms = ['迭代', '新功能', '升级', '支持', '配置', '入口', 'web', '串口', 'byom', '驱动', '安装'];
+    const productTerms = ['介绍', '简介', '产品', '特点', '组成', '配置清单', '连线', '连接', '是什么'];
+    const isFeatureQuery = featureTerms.some(term => q.includes(term));
+    const isProductQuery = !isFeatureQuery || productTerms.some(term => q.includes(term));
+    const productCards = productIndex[model] || [];
+
+    if (isProductQuery && productCards.length > 0) {
+      const primaryProductCards = productCards.filter(id => String(id).startsWith('06-'));
+      return {
+        intent: 'product-model',
+        mustConcepts: [],
+        preferConcepts: ['终端'],
+        excludeConcepts: [],
+        expectedTitleTerms: [model, '终端', '简介', '产品特点', '产品组成', '系统连接'],
+        highPriorityCards: [...new Set(primaryProductCards.length ? primaryProductCards : productCards)],
+        model,
+        preferredDocPrefixes: ['06-'],
+        dePreferredDocPrefixes: ['09-', '10-'],
+        retrievalEntry: `product_index:${model}`,
+      };
+    }
+
     const parentPaths = modelPathIndex[model] || [];
     if (parentPaths.length > 0) {
-      // 通过路径索引获取该型号下的所有卡片
       const allCards = [];
       for (const p of parentPaths) {
         const siblings = pathSiblingsIndex[p] || [];
@@ -92,14 +114,14 @@ function parseQuery(query) {
         preferConcepts: ['终端'],
         excludeConcepts: [],
         expectedTitleTerms: [model, '终端', '硬件'],
-        highPriorityCards: [...new Set(allCards)],  // 去重
+        highPriorityCards: [...new Set(allCards)],
         model: model,
         parentPaths: parentPaths,
       };
     }
   }
   
-  if (q.includes('byom') || q.includes('ae700') || q.includes('ae800') || q.includes('np30') || q.includes('xe800')) {
+  if (q.includes('byom') || q.includes('ae800') || q.includes('np30') || q.includes('xe800')) {
     return {
       intent: 'hardware-byom',
       mustConcepts: [],
@@ -201,6 +223,14 @@ function scoreCard(queryPlan, id) {
   if (negativeHits.length) {
     score -= negativeHits.length * 10;
     reasons.push(`排除概念命中:${negativeHits.join('、')}`);
+  }
+  if ((queryPlan.preferredDocPrefixes || []).some(prefix => id.startsWith(prefix))) {
+    score += 18;
+    reasons.push('优先文档命中');
+  }
+  if ((queryPlan.dePreferredDocPrefixes || []).some(prefix => id.startsWith(prefix))) {
+    score -= 12;
+    reasons.push('次级文档降权');
   }
   if ((m.quality_score || 0) > 0.85) {
     score += 5;
