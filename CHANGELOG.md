@@ -9,6 +9,7 @@
 - 新增 `index_store/FTS5_USAGE.md`，说明 FTS5 的定位与使用方法
 - `index_store/fts5_cards.db` 作为本地生成产物，加入 `.gitignore`
 - 完成最小实验，确认 FTS5 可在当前环境中直接运行
+- 补充产品/功能型查询的轻量规则优先级，改善 `AE700 产品介绍` 与 `AE700 支持串口绑定` 的区分召回
 
 ---
 
