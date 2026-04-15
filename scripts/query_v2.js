@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { runQuery } = require('./query_v2_core');
+const { logQuery } = require('./query_logger');
 
 function printUsage() {
   console.error('Usage: node scripts/query_v2.js [--json] [--brief] [--top N] [--min-score N] [--include-excluded] <query>');
@@ -73,6 +74,13 @@ function main() {
     minScore: opts.minScore,
     includeExcluded: opts.includeExcluded,
   });
+
+  // 记录查询日志（静默，不影响输出）
+  try {
+    logQuery(payload, { flags: opts });
+  } catch (e) {
+    // 日志失败不应影响主流程
+  }
 
   if (opts.brief) {
     console.log(toBrief(payload));

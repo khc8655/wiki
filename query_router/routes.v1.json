@@ -148,5 +148,99 @@
       "product-ae700"
     ],
     "priority": 2
+  },
+  "meeting-control": {
+    "intent_aliases": [
+      "会控",
+      "会议控制",
+      "主持会议",
+      "会控入口",
+      "SVC",
+      "AVC",
+      "svc对比avc",
+      "会议模式",
+      "对话模式",
+      "授课模式",
+      "督导模式"
+    ],
+    "subtopics": [
+      "meeting-control"
+    ],
+    "priority": 1,
+    "required_terms_any": [
+      "会控",
+      "会议控制",
+      "主持会议",
+      "SVC",
+      "AVC",
+      "主会场",
+      "多画面",
+      "会议模式"
+    ],
+    "negative_terms": [
+      "会管",
+      "会议管理",
+      "企业管理平台",
+      "通讯录"
+    ],
+    "preferred_intent_tags": [
+      "meeting-control"
+    ],
+    "excluded_intent_tags": [
+      "meeting-management"
+    ],
+    "high_priority_cards": [
+      "06-新一代视频会议系统建设方案模板-sec-105",
+      "06-新一代视频会议系统建设方案模板-sec-106",
+      "06-新一代视频会议系统建设方案模板-sec-107",
+      "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-140",
+      "03-小鱼易连融合云视频会控技术白皮书V1.6-sec-141"
+    ]
+  },
+  "stability": {
+    "intent_aliases": [
+      "稳定性",
+      "高可用",
+      "高可靠",
+      "容灾",
+      "多活",
+      "热备",
+      "抗丢包",
+      "弱网",
+      "网络适应性",
+      "扩容"
+    ],
+    "subtopics": [
+      "stability-architecture",
+      "stability-network",
+      "stability-operations"
+    ],
+    "priority": 1,
+    "required_terms_any": [
+      "稳定",
+      "高可用",
+      "容灾",
+      "多活",
+      "热备",
+      "抗丢包",
+      "弱网",
+      "扩容"
+    ],
+    "negative_terms": [
+      "安全",
+      "加密"
+    ],
+    "preferred_intent_tags": [
+      "stability"
+    ],
+    "excluded_intent_tags": [
+      "security"
+    ],
+    "high_priority_cards": [
+      "02-小鱼易连安全稳定白皮书V1-20240829-sec-004",
+      "06-新一代视频会议系统建设方案模板-sec-269",
+      "06-新一代视频会议系统建设方案模板-sec-234",
+      "06-新一代视频会议系统建设方案模板-sec-010"
+    ]
   }
 }
