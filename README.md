@@ -6,7 +6,7 @@
 
 ## 版本信息
 
-**当前版本**: v1.8
+**当前版本**: v1.9
 
 ---
 
@@ -80,6 +80,15 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 ---
 
 ## 更新日志
+
+### v1.9 (2026-04-15)
+
+**SQLite FTS5 本地检索底座**
+
+- 新增: `scripts/build_fts5_index.py` 本地索引构建脚本
+- 新增: `scripts/query_fts5.py` 本地全文查询脚本
+- 新增: `index_store/FTS5_USAGE.md` 使用说明
+- 更新: `.gitignore` 忽略本地生成的 `index_store/fts5_cards.db`
 
 ### v1.8 (2026-04-15)
 

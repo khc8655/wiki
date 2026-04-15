@@ -1,5 +1,17 @@
 # Changelog
 
+## V2.4 - 2026-04-15
+
+### SQLite FTS5 本地检索底座
+
+- 新增 `scripts/build_fts5_index.py`，从 cards 和 metadata 构建本地 SQLite FTS5 索引
+- 新增 `scripts/query_fts5.py`，提供本地全文检索入口
+- 新增 `index_store/FTS5_USAGE.md`，说明 FTS5 的定位与使用方法
+- `index_store/fts5_cards.db` 作为本地生成产物，加入 `.gitignore`
+- 完成最小实验，确认 FTS5 可在当前环境中直接运行
+
+---
+
 ## V2.3 - 2026-04-15
 
 ### 查询流程固化
