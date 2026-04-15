@@ -23,13 +23,45 @@ When a new source is added:
 
 ## Query workflow
 
-When answering a question:
+When answering a question, always use the same fixed retrieval chain. Do not skip steps just because you already know the answer.
 
-1. First understand the user's query at the level of title meaning and paragraph meaning.
-2. Read `wiki/heading-index.md` and relevant source pages to identify the likely matching sections.
-3. Prefer exact original content from the source-aligned pages.
-4. Return the matched original content in full, without summarizing, unless the user explicitly asks for summary or extraction.
-5. If the user asks for synthesis later, treat the retrieved original content as the source material for a second-pass summary.
+### Mandatory fixed workflow
+
+1. **Query understanding**
+   - Normalize the user's query into: object / intent / required constraints / optional preferences / exclusions.
+   - Decide whether the user wants **raw evidence**, **brief extraction**, or **final synthesis**.
+
+2. **Route selection**
+   - Product or model queries: first check product/model indexes or topic hints.
+   - Capability / architecture / scenario queries: first check topic pages and retrieval indexes.
+   - Unknown / mixed queries: start from `node scripts/query_default.js --brief <query>`.
+
+3. **Structured recall**
+   - Use the selected index / topic / route to retrieve candidate cards.
+   - Record which topic, route, index, or hint produced the candidates.
+   - If one card is clearly in a section, expand to sibling cards when needed for completeness.
+
+4. **Evidence readback**
+   - Read the top matching section cards or source-aligned pages.
+   - Prefer exact original content and preserve the source boundary.
+   - Do not answer from memory when the evidence can be read directly.
+
+5. **Answer generation**
+   - Default output should explicitly show: **query understanding → recall basis → evidence → answer**.
+   - If the user asked to “find / query / locate”, return the matched original content first.
+   - If the user asked for “介绍 / 总结 / 话术 / 对比”, synthesize only after evidence is confirmed.
+
+6. **No shortcut rule**
+   - Do not jump directly from a filename hit or a remembered section to a final answer.
+   - Do not hide the retrieval basis.
+   - All future queries follow this same chain unless the user explicitly asks for a faster informal answer.
+
+### Output expectations
+
+- Always mention the retrieval entry you used, for example: topic page, model index, default query script, or specific card path.
+- Always separate **retrieved evidence** from **your synthesis**.
+- For retrieval tasks, precision is more important than fluency.
+- For synthesis tasks, evidence still comes first.
 
 ## Lint workflow
 

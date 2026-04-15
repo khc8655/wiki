@@ -177,10 +177,24 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ### 查询知识
 
-1. **按主题浏览**: 查看 `topics/` 目录下的主题页
-2. **默认查询入口**: 使用 `node scripts/query_default.js --brief <query>`
-3. **V2 精确检索**: 使用 `node scripts/query_v2.js --json <query>`
-4. **阅读原文**: 查看 `raw/` 目录下的原始文档
+所有查询统一遵循同一条固定链路，不再按问题类型临时发挥：
+
+1. **先做 Query 理解**: 明确对象、意图、约束、排除项，以及用户要原文、摘录还是综合结论
+2. **再选检索入口**:
+   - 型号 / 产品类问题 → 先查产品或型号索引、topic hint
+   - 能力 / 架构 / 场景类问题 → 先查 topic 和 V2 索引
+   - 不明确的问题 → 先走 `node scripts/query_default.js --brief <query>`
+3. **做结构化召回**: 记录命中的 topic / route / index / cards，必要时补召回同路径 sibling cards
+4. **回读原文证据**: 以 `cards/sections/*.json` 或 source-aligned page 为准，不凭记忆直接作答
+5. **最后再输出**:
+   - 查找类问题 → 先给命中原文
+   - 介绍 / 总结 / 话术类问题 → 在证据基础上再综合
+
+常用入口：
+- **按主题浏览**: 查看 `topics/` 目录下的主题页
+- **默认查询入口**: 使用 `node scripts/query_default.js --brief <query>`
+- **V2 精确检索**: 使用 `node scripts/query_v2.js --json <query>`
+- **阅读原文**: 查看 `raw/` 目录下的原始文档
 
 ### 检索与优化常用命令
 
