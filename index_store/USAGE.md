@@ -15,6 +15,7 @@ This is the fast retrieval layer for `wiki_test`.
 - `scenario_index.v1.json`: 场景标签 -> card ids 的倒排索引
 - `card_type_index.v1.json`: card_type -> card ids 的倒排索引
 - `README.md`: human-readable section catalog
+- `FTS5_USAGE.md`: SQLite FTS5 本地全文召回说明
 
 ## Retrieval strategy
 
@@ -57,6 +58,7 @@ node scripts/retrieve_v1.js 跨云互通
 ```bash
 python3 scripts/build_v2_semantic_metadata.py
 node scripts/query_default.js --brief 跨云互通
+python3 scripts/query_fts5.py "跨云互通" --brief
 node scripts/query_v2.js --json --top 5 AVC+SVC双引擎
 python3 scripts/auto_refine_v2.py
 ```
@@ -68,9 +70,15 @@ V2 returns:
 - `强命中 / 弱相关 / 排除项`
 - summary counts
 
+FTS5 role:
+- 负责宽松全文硬召回，适合模糊关键词、多词组合、别名不稳定的查询
+- 不替代 topic / route / metadata 精排
+- 命中后仍需回读 cards 或 source page 做最终确认
+
 CLI options:
 - `query_default.js --brief` 作为默认入口输出紧凑摘要
 - `query_v2.js --json` 输出结构化 JSON
+- `query_fts5.py --brief` 输出本地全文召回摘要
 - `--top N` 控制返回条数
 - `--min-score N` 控制最低分
 - `--include-excluded` 保留排除项结果

@@ -35,10 +35,12 @@ When answering a question, always use the same fixed retrieval chain. Do not ski
    - Product or model queries: first check product/model indexes or topic hints.
    - Capability / architecture / scenario queries: first check topic pages and retrieval indexes.
    - Unknown / mixed queries: start from `node scripts/query_default.js --brief <query>`.
+   - Broad keyword / wording-uncertain / multi-term queries: allow `python3 scripts/query_fts5.py "<query>" --brief` as a hard-recall entry, then still return to structured verification.
 
 3. **Structured recall**
-   - Use the selected index / topic / route to retrieve candidate cards.
+   - Use the selected index / topic / route / FTS5 entry to retrieve candidate cards.
    - Record which topic, route, index, or hint produced the candidates.
+   - Treat FTS5 as a hard-recall layer, not final evidence ranking.
    - If one card is clearly in a section, expand to sibling cards when needed for completeness.
 
 4. **Evidence readback**
@@ -58,7 +60,7 @@ When answering a question, always use the same fixed retrieval chain. Do not ski
 
 ### Output expectations
 
-- Always mention the retrieval entry you used, for example: topic page, model index, default query script, or specific card path.
+- Always mention the retrieval entry you used, for example: topic page, model index, default query script, FTS5 recall, or specific card path.
 - Always separate **retrieved evidence** from **your synthesis**.
 - For retrieval tasks, precision is more important than fluency.
 - For synthesis tasks, evidence still comes first.
