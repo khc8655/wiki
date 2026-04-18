@@ -6,7 +6,7 @@
 
 ## 版本信息
 
-**当前版本**: v1.9
+**当前版本**: v2.0-beta
 
 ---
 
@@ -80,6 +80,16 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 ---
 
 ## 更新日志
+
+### v2.0-beta (2026-04-18)
+
+**方案 A: QMD 风格集合检索实验层**
+
+- 新增: `qmd_bridge/collections.json`，把 `cards / topics / wiki / raw(md)` 映射成 collections
+- 新增: `qmd_bridge/README.md`，记录实验层定位与使用方式
+- 新增: `scripts/build_qmd_bridge_index.py`，构建跨层 SQLite FTS5 集合索引
+- 新增: `scripts/query_qmd_bridge.py`，提供 collection-aware 检索入口
+- 新增: `index_store/qmd_bridge.db` 作为实验索引输出路径（本地生成）
 
 ### v1.9 (2026-04-15)
 
@@ -215,14 +225,17 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 - **默认查询入口**: 使用 `node scripts/query_default.js --brief <query>`
 - **FTS5 宽召回入口**: 使用 `python3 scripts/query_fts5.py "<query>" --brief`
 - **V2 精确检索**: 使用 `node scripts/query_v2.js --json <query>`
+- **QMD 风格集合检索**: 使用 `python3 scripts/query_qmd_bridge.py "<query>" --brief`
 - **阅读原文**: 查看 `raw/` 目录下的原始文档
 
 ### 检索与优化常用命令
 
 ```bash
 python3 scripts/build_v2_semantic_metadata.py
+python3 scripts/build_qmd_bridge_index.py
 node scripts/query_default.js --brief 跨云互通
 python3 scripts/query_fts5.py "跨云互通" --brief
+python3 scripts/query_qmd_bridge.py "跨云互通" --brief
 node scripts/query_v2.js --json --top 5 AVC+SVC双引擎
 python3 scripts/auto_refine_v2.py
 ```

@@ -1,0 +1,25 @@
+{
+  "collections": {
+    "cards": {
+      "context": "结构化 section cards，适合作为主证据层与细粒度召回层"
+    },
+    "topics": {
+      "context": "主题聚合页，适合作为主题入口与跨文档导航层",
+      "include": [
+        "topics/*.md"
+      ]
+    },
+    "wiki": {
+      "context": "Wiki 合成层，适合作为导航与已沉淀结论层",
+      "include": [
+        "wiki/*.md"
+      ]
+    },
+    "raw": {
+      "context": "原始 Markdown 资料，适合作为补充召回与版本文档入口",
+      "include": [
+        "raw/*.md"
+      ]
+    }
+  }
+}

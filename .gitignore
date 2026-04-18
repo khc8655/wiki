@@ -5,5 +5,8 @@
 *.log
 .DS_Store
 node_modules/
+__pycache__/
+scripts/__pycache__/
 updates/retrieval_feedback/query_log.jsonl
 index_store/fts5_cards.db
+index_store/qmd_bridge.db
