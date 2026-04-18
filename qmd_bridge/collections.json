@@ -1,22 +1,26 @@
 {
   "collections": {
-    "cards": {
-      "context": "结构化 section cards，适合作为主证据层与细粒度召回层"
+    "solution_cards": {
+      "context": "方案文档的细粒度 section cards，适合方案写作与证据级召回",
+      "doc_type": "solution"
     },
-    "topics": {
-      "context": "主题聚合页，适合作为主题入口与跨文档导航层",
+    "solution_topics": {
+      "context": "方案文档的主题聚合页，适合作为主题入口与跨文档导航层",
+      "doc_type": "solution",
       "include": [
         "topics/*.md"
       ]
     },
-    "wiki": {
-      "context": "Wiki 合成层，适合作为导航与已沉淀结论层",
+    "solution_wiki": {
+      "context": "方案文档的 Wiki 合成层，适合作为导航与沉淀结论层",
+      "doc_type": "solution",
       "include": [
         "wiki/*.md"
       ]
     },
-    "raw": {
-      "context": "原始 Markdown 资料，适合作为补充召回与版本文档入口",
+    "release_notes": {
+      "context": "更新说明文档，按整节或功能块粗粒度召回，适合查版本与型号更新",
+      "doc_type": "release_note",
       "include": [
         "raw/*.md"
       ]

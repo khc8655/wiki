@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+const { execFileSync } = require('child_process');
+const path = require('path');
 const { runQuery, parseQuery } = require('./query_v2_core');
 
 function printUsage() {
@@ -54,11 +56,32 @@ function logColdQuery(query, results, satisfied) {
   fs.appendFileSync(logFile, JSON.stringify(entry) + '\n');
 }
 
+function isReleaseNoteQuery(query) {
+  const q = query.toLowerCase();
+  const modelHit = /\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?|tp\d{3}-[a-z]|me\d{2}[a-z]?|nc\d{2}|np\d{2}v?2?)\b/i.test(q);
+  const releaseTerms = ['迭代', '新功能', '升级', '优化', '修复', '支持', '版本', '新增', '变更'];
+  return releaseTerms.some(term => q.includes(term)) || (modelHit && (q.includes('功能') || q.includes('支持') || q.includes('升级')));
+}
+
+function runReleaseBridge(query, brief) {
+  const script = path.join(__dirname, 'query_qmd_bridge.py');
+  const args = [script, query, '-c', 'release_notes'];
+  if (brief) args.push('--brief');
+  else args.push('--json');
+  return execFileSync('python3', args, { encoding: 'utf8' });
+}
+
 function main() {
   const opts = parseArgs(process.argv.slice(2));
   if (!opts.query) {
     printUsage();
     process.exit(1);
+  }
+
+  if (isReleaseNoteQuery(opts.query)) {
+    const output = runReleaseBridge(opts.query, opts.brief || !opts.json);
+    process.stdout.write(output);
+    return;
   }
 
   const plan = parseQuery(opts.query);

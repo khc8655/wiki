@@ -9,10 +9,15 @@ ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT / 'index_store' / 'qmd_bridge.db'
 
 COLLECTION_BOOST = {
-    'cards': -1.4,
-    'topics': -0.9,
-    'wiki': -0.6,
-    'raw': -0.2,
+    'solution_cards': -1.6,
+    'solution_topics': -1.0,
+    'solution_wiki': -0.6,
+    'release_notes': -1.1,
+}
+
+DOC_TYPE_BOOST = {
+    'solution': -0.3,
+    'release_note': -0.2,
 }
 
 
@@ -56,7 +61,7 @@ def build_snippet(text: str, query: str, width: int = 180) -> str:
 
 def fallback_search(conn, query: str, collections=None, limit: int = 100):
     terms = [t for t in re.split(r'[\s/\-]+', query) if t]
-    sql = '''SELECT docid, collection, source_path, title, display_path, body, context, source_ref, anchor, rank_hint
+    sql = '''SELECT docid, collection, doc_type, source_path, title, display_path, body, context, source_ref, anchor, rank_hint
              FROM docs'''
     params = []
     if collections:
@@ -91,9 +96,9 @@ def run_query(db_path: Path, query: str, top_k: int = 8, collections=None):
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
 
-    sql = '''SELECT d.docid, d.collection, d.source_path, d.title, d.display_path, d.body, d.context,
+    sql = '''SELECT d.docid, d.collection, d.doc_type, d.source_path, d.title, d.display_path, d.body, d.context,
                     d.source_ref, d.anchor, d.rank_hint,
-                    bm25(docs_fts, 1.5, 8.0, 5.0, 1.0, 1.0, 1.0) AS score
+                    bm25(docs_fts, 1.5, 1.0, 8.0, 5.0, 1.0, 1.0, 1.0) AS score
              FROM docs_fts
              JOIN docs d ON d.docid = docs_fts.docid
              WHERE docs_fts MATCH ?'''
@@ -110,9 +115,10 @@ def run_query(db_path: Path, query: str, top_k: int = 8, collections=None):
 
     ranked = []
     for row in rows:
-        bonus = COLLECTION_BOOST.get(row['collection'], 0.0) - float(row.get('rank_hint') or 0) * 0.08
-        final_score = float(row['score']) + bonus
-        row['score'] = final_score
+        bonus = COLLECTION_BOOST.get(row['collection'], 0.0)
+        bonus += DOC_TYPE_BOOST.get(row.get('doc_type'), 0.0)
+        bonus -= float(row.get('rank_hint') or 0) * 0.08
+        row['score'] = float(row['score']) + bonus
         row['snippet'] = build_snippet(row.get('body') or '', query)
         ranked.append(row)
 

@@ -1,0 +1,31 @@
+{
+  "defaults": {
+    "solution": {
+      "chunk_strategy": "fine",
+      "query_use_case": "方案写作、架构能力说明、材料复用"
+    },
+    "release_note": {
+      "chunk_strategy": "coarse",
+      "query_use_case": "功能更新查询、版本变化确认、型号更新说明"
+    }
+  },
+  "docs": {
+    "01-云视频技术架构优势V1.0-20211120.bin": { "doc_type": "solution" },
+    "02-小鱼易连安全稳定白皮书V1-20240829.bin": { "doc_type": "solution" },
+    "03-小鱼易连融合云视频会控技术白皮书V1.6.bin": { "doc_type": "solution" },
+    "04-小鱼易连融合云视频平台技术白皮书V1.1.bin": { "doc_type": "solution" },
+    "05-llm-wiki-reference.md": { "doc_type": "solution" },
+    "06-新一代视频会议系统建设方案模板.bin": { "doc_type": "solution" },
+    "07-2026年私有云3月迭代功能概要.md": { "doc_type": "release_note" },
+    "08-2026年私有云3月迭代功能概要文档.md": { "doc_type": "release_note" },
+    "09-2026年私有云3月迭代版本新功能培训文档-云平台.md": { "doc_type": "release_note" },
+    "10-2026年私有云3月迭代版本新功能培训文档-终端.md": { "doc_type": "release_note" },
+    "11-AVC_SVC双引擎云视频技术白皮书.md": { "doc_type": "solution" },
+    "12-软件定义架构与专用硬件架构的发展与区别.md": { "doc_type": "solution" },
+    "13-视频会议的技术发展简述V8.md": { "doc_type": "solution" },
+    "14-视频会议技术路线选型及对比说明.md": { "doc_type": "solution" },
+    "15-视频会议抗丢包算法的简介.md": { "doc_type": "solution" },
+    "16-小鱼安全白皮书_V2.2.md": { "doc_type": "solution" },
+    "17-小鱼易连风铃系统1月迭代新功能培训文档.md": { "doc_type": "release_note" }
+  }
+}
