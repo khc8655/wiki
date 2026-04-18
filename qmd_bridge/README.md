@@ -79,17 +79,72 @@ python3 scripts/query_qmd_bridge.py "风铃 迭代" -c release_notes --brief
 python3 scripts/query_qmd_bridge.py "AE700 新功能" -c release_notes --brief
 ```
 
+## 查询流程中具体用什么工具
+
+### A. 先用默认入口判断问题类型
+```bash
+node scripts/query_default.js --brief "<query>"
+```
+
+用途：
+- 先判断问题更像方案类还是更新类
+- 更新类问题会优先路由到 `release_notes`
+- 方案类问题继续走现有 V2 结构化检索
+
+### B. 方案文档查询时用什么
+1. 默认入口
+   ```bash
+   node scripts/query_default.js --brief "跨云互通"
+   ```
+2. 需要显式限制到方案层时
+   ```bash
+   python3 scripts/query_qmd_bridge.py "跨云互通" -c solution_cards -c solution_topics --brief
+   ```
+3. 需要更稳定结构化召回时
+   ```bash
+   node scripts/query_v2.js --json "跨云互通"
+   ```
+4. 最后回读
+   - `cards/sections/*.json`
+
+### C. 更新说明查询时用什么
+1. 默认入口
+   ```bash
+   node scripts/query_default.js --brief "AE700 新功能"
+   ```
+2. 需要显式限制到更新说明层时
+   ```bash
+   python3 scripts/query_qmd_bridge.py "AE700 新功能" -c release_notes --brief
+   ```
+3. 最后回读
+   - 对应 `raw/*.md` 的整节或整功能块
+
+### D. 默认命中不足时补什么
+```bash
+python3 scripts/query_fts5.py "<query>" --brief
+```
+
+用途：
+- 做宽召回
+- 补关键词、别名、模糊表达的硬召回
+
 ## 当前定位
 
-这不是要替代现有 `query_default.js / query_v2.js / query_fts5.py`，而是新增一个实验入口：
+`query_qmd_bridge.py` 现在的定位很明确：
 
-- 适合先判断问题更像方案查询还是更新查询
-- 适合给 Agent 做 collection-aware 召回
-- 适合后续接 BCE embedding / reranker / doc body retrieval
+- 不是唯一入口
+- 是**按文档类型分流的显式检索入口**
+- 适合人工指定查询范围，也适合后续给 agent 做 collection-aware 召回
+
+## 当前状态
+
+当前已经完成：
+1. 默认查询入口可区分 `solution / release_note`
+2. `release_note` 走粗粒度召回
+3. 文档类型声明、collection 映射、索引构建脚本都已落地
 
 ## 下一步可继续补
 
-1. 在默认查询入口里加入 solution / release_note 自动路由
-2. 给 release note 增加版本号、型号、功能类型等字段
-3. 在此索引上增加 embedding 召回
-4. 加入 reranker 做最终精排
+1. 给 release note 增加版本号、型号、功能类型等字段
+2. 在此索引上增加 embedding 召回
+3. 加入 reranker 做最终精排

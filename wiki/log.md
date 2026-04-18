@@ -16,3 +16,9 @@
 - Generated section cards and document indexes for iteration, architecture, stability, security, and product-line materials.
 - Added new topic pages for private cloud iteration and technology route comparison.
 - Added source summary page for the newly imported batch.
+
+## [2026-04-18] retrieval | version cleanup and workflow docs
+- Unified the repository version label to `v2.5`.
+- Added `docs/query-workflow.md` to document the actual query flow, required tools, and command-level examples.
+- Reworked `README.md` and `qmd_bridge/README.md` so they describe current scripts and usage order instead of only abstract principles.
+- Kept the split between `solution` and `release_note` retrieval paths, with `release_note` using coarse-grained recall.

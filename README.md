@@ -6,7 +6,7 @@
 
 ## 版本信息
 
-**当前版本**: v2.0-beta
+**当前版本**: v2.5
 
 ---
 
@@ -81,18 +81,29 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ## 更新日志
 
-### v2.0-beta (2026-04-18)
+### v2.5 (2026-04-18)
 
-**方案 A: QMD 风格集合检索实验层 + 文档双轨规则**
+**文档与查询流程整理**
+
+- 统一当前版本号为 `v2.5`，收口此前混用的 `v2.0-beta / V2.4` 等表述
+- 新增: `docs/query-workflow.md`，明确当前查询流程、所需工具、调用顺序与命令示例
+- 更新: `README.md`，改为以“当前状态 + 工具流程”为主，不再只写抽象原则
+- 更新: `qmd_bridge/README.md`，写清楚方案文档 / 更新说明文档分别该用什么工具
+- 更新: `CHANGELOG.md` 与 `wiki/log.md`，统一版本记录口径
+
+### v2.4 (2026-04-18)
+
+**QMD 风格集合检索实验层 + 文档双轨规则**
 
 - 新增: `qmd_bridge/doc_profiles.json`，声明 `solution / release_note` 两类文档
 - 更新: `qmd_bridge/collections.json`，改为 `solution_cards / solution_topics / solution_wiki / release_notes`
 - 更新: `qmd_bridge/README.md`，记录两类文档的切分与查询定位
 - 新增: `scripts/build_qmd_bridge_index.py`，构建跨层 SQLite FTS5 集合索引，并按文档类型分流
+- 更新: `scripts/query_default.js`，让默认查询入口可自动区分方案类与更新类问题
 - 新增: `scripts/query_qmd_bridge.py`，提供 collection-aware 检索入口
 - 新增: `index_store/qmd_bridge.db` 作为实验索引输出路径（本地生成）
 
-### v1.9 (2026-04-15)
+### v2.3 (2026-04-15)
 
 **SQLite FTS5 本地检索底座**
 
@@ -207,34 +218,52 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ### 查询知识
 
-知识库内部现在按两类文档建模：
+知识库当前按两类文档建模：
 
-- **方案文档（solution）**: 适合方案写作、架构能力说明、材料复用，采用细粒度切分
-- **更新说明文档（release_note）**: 适合查询具体功能、型号、版本变化，采用粗粒度切分
+- **方案文档（solution）**: 用于日常写方案、架构能力说明、材料复用，采用细粒度切分
+- **更新说明文档（release_note）**: 用于查询具体功能、型号、版本变化，采用粗粒度切分
 
-所有查询统一遵循同一条固定链路，不再按问题类型临时发挥：
+完整说明见：`docs/query-workflow.md`
 
-1. **先做 Query 理解**: 明确对象、意图、约束、排除项，以及用户要原文、摘录还是综合结论
-2. **再选检索入口**:
-   - 型号 / 产品类问题 → 先查产品或型号索引、topic hint
-   - 能力 / 架构 / 场景类问题 → 先查 topic 和 V2 索引
-   - 不明确的问题 → 先走 `node scripts/query_default.js --brief <query>`
-   - 宽搜索 / 模糊关键词 / 多词组合问题 → 可补充 `python3 scripts/query_fts5.py "<query>" --brief` 做硬召回
-3. **做结构化召回**: 记录命中的 topic / route / index / FTS5 / cards，必要时补召回同路径 sibling cards
-4. **回读原文证据**: 以 `cards/sections/*.json` 或 source-aligned page 为准，不凭记忆直接作答
-5. **最后再输出**:
-   - 查找类问题 → 先给命中原文
-   - 介绍 / 总结 / 话术类问题 → 在证据基础上再综合
+#### 查询时使用什么工具
 
-常用入口：
-- **按主题浏览**: 查看 `topics/` 目录下的主题页
-- **默认查询入口**: 使用 `node scripts/query_default.js --brief <query>`
-- **FTS5 宽召回入口**: 使用 `python3 scripts/query_fts5.py "<query>" --brief`
-- **V2 精确检索**: 使用 `node scripts/query_v2.js --json <query>`
-- **QMD 风格集合检索**: 使用 `python3 scripts/query_qmd_bridge.py "<query>" --brief`
-  - 方案类问题优先加 `-c solution_cards -c solution_topics`
-  - 更新类问题优先加 `-c release_notes`
-- **阅读原文**: 查看 `raw/` 目录下的原始文档
+1. **默认入口**: `node scripts/query_default.js --brief <query>`
+   - 用途：先判断该问题更像方案类还是更新类
+   - 适合：绝大多数日常查询先从这里进
+
+2. **方案类精确检索**: `node scripts/query_v2.js --json <query>`
+   - 用途：走 intent / concept / high-priority cards 结构化召回
+   - 适合：架构、能力、场景类问题
+
+3. **宽召回入口**: `python3 scripts/query_fts5.py "<query>" --brief`
+   - 用途：关键词散、别名多、默认命中不足时补召回
+
+4. **按文档类型显式查询**: `python3 scripts/query_qmd_bridge.py "<query>" ...`
+   - 方案类问题优先：`-c solution_cards -c solution_topics`
+   - 更新类问题优先：`-c release_notes`
+
+#### 推荐流程
+
+1. 先用默认入口：
+   ```bash
+   node scripts/query_default.js --brief "<query>"
+   ```
+2. 若是方案类问题，再视需要补：
+   ```bash
+   node scripts/query_v2.js --json "<query>"
+   python3 scripts/query_qmd_bridge.py "<query>" -c solution_cards -c solution_topics --brief
+   ```
+3. 若是更新类问题，再视需要补：
+   ```bash
+   python3 scripts/query_qmd_bridge.py "<query>" -c release_notes --brief
+   ```
+4. 若命中仍不足，再补 FTS5：
+   ```bash
+   python3 scripts/query_fts5.py "<query>" --brief
+   ```
+5. 最后必须回读原文再输出：
+   - `solution` 问题优先回读 `cards/sections/*.json`
+   - `release_note` 问题优先回读对应 `raw/*.md` 的整节或整功能块
 
 ### 检索与优化常用命令
 
