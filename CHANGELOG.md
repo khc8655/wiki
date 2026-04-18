@@ -7,6 +7,7 @@
 - 统一当前版本号为 `v2.5`，收口此前 README / CHANGELOG / bridge 文档中的混用表述
 - 删除说明文档中不必要的 skills 相关描述，改为围绕当前仓库内实际脚本与命令说明
 - 新增 `docs/query-workflow.md`，明确查询流程中每一步该使用什么工具、何时使用、如何串联
+- 新增 `docs/release-note-schema.md`，定义更新说明文档的推荐字段与最小可用字段集
 - 更新 `README.md` 与 `qmd_bridge/README.md`，补齐命令级示例与工具定位说明
 - 更新 `wiki/log.md`，同步当前版本状态与说明文档整理结果
 

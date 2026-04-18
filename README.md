@@ -221,9 +221,11 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 知识库当前按两类文档建模：
 
 - **方案文档（solution）**: 用于日常写方案、架构能力说明、材料复用，采用细粒度切分
-- **更新说明文档（release_note）**: 用于查询具体功能、型号、版本变化，采用粗粒度切分
+- **更新说明文档（release_note）**: 用于查询具体功能、型号、版本变化，采用粗粒度切分，并建议补版本 / 型号 / change_type 等字段
 
-完整说明见：`docs/query-workflow.md`
+完整说明见：
+- `docs/query-workflow.md`
+- `docs/release-note-schema.md`
 
 #### 查询时使用什么工具
 
