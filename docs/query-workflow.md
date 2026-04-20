@@ -24,6 +24,7 @@
 
 **作用**：
 - 先判断问题更像 `solution` 还是 `release_note`
+- 显式给出回答模式：默认 `evidence`，只有明确出现“总结 / 归纳 / 对比 / 话术 / 汇报 / 提炼 / 润色”等意图时才切到 `synthesis`
 - 更新类问题优先转给 `query_qmd_bridge.py`
 - 方案类问题继续走 `query_v2_core.js`
 
@@ -94,7 +95,7 @@
    python3 scripts/query_qmd_bridge.py "跨云互通" -c solution_cards -c solution_topics --brief
    ```
 3. 回读命中的 `cards/sections/*.json` 原文
-4. 最后输出结论
+4. 默认输出检索入口、命中路径、原文证据和必要的轻量定位说明；只有用户明确要求时再做总结/归纳
 
 ### B. 更新说明类问题
 示例：
@@ -112,7 +113,7 @@
    python3 scripts/query_qmd_bridge.py "AE700 新功能" -c release_notes --brief
    ```
 3. 需要更完整上下文时，直接回读对应 `raw/*.md`
-4. 输出时优先保留版本、型号、功能块信息
+4. 默认输出版本、型号、功能块和对应原文块；不要默认把功能块再总结成一层结论，只有用户明确要求时再做总结/归纳
 
 ### C. 命中不足时补宽召回
 ```bash
@@ -125,3 +126,6 @@ python3 scripts/query_fts5.py "AE700 串口绑定" --brief
 - `release_note` 问题，优先回读对应 `raw/*.md` 的整节或整功能块
 - 不直接凭检索标题作答
 - 不把召回列表当最终答案
+- 不默认把原文证据再交给模型做总结；默认输出应以原文块、证据和检索入口为主
+- 默认回答模式为 `evidence`
+- 只有用户明确提出“总结 / 归纳 / 对比 / 话术 / 润色成文”时，才允许切到 `synthesis` 做综合整理

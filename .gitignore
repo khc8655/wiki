@@ -1,12 +1,37 @@
-# GitHub Token - 不要提交到仓库
+# Secrets
 .github_token
 
-# 其他忽略项
+# OS / runtime
 *.log
 .DS_Store
 node_modules/
 __pycache__/
-scripts/__pycache__/
-updates/retrieval_feedback/query_log.jsonl
-index_store/fts5_cards.db
-index_store/qmd_bridge.db
+*.pyc
+
+# Local generated / cache
+backups/
+media/
+
+# Knowledge source data, do not sync to GitHub
+raw/
+
+# Derived cards and metadata, rebuild locally from WebDAV
+cards/sections/
+cards/manifest.json
+cards/card_metadata.v1.json
+cards/card_metadata.v2.json
+
+# Local indexes and import state
+index_store/
+
+# Derived trees / relations / synthesized outputs
+tree/
+relations/
+topics/
+wiki/sources/
+wiki/heading-index.md
+wiki/index.md
+wiki/log.md
+wiki/retrieval-policy.md
+
+# Keep docs, scripts, routing rules, and bridge configs versioned

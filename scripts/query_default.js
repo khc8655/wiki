@@ -4,7 +4,7 @@ const path = require('path');
 const { runQuery, parseQuery } = require('./query_v2_core');
 
 function printUsage() {
-  console.error('Usage: node scripts/query_default.js [--brief] [--json] [--top N] <query>');
+  console.error('Usage: node scripts/query_default.js [--brief] [--json] [--top N] [--mode auto|evidence|synthesis] <query>');
 }
 
 function parseArgs(argv) {
@@ -13,6 +13,7 @@ function parseArgs(argv) {
     brief: false,
     json: false,
     topK: 8,
+    mode: 'auto',
     query: '',
   };
 
@@ -31,6 +32,11 @@ function parseArgs(argv) {
     if (cur === '--top') {
       args.shift();
       opts.topK = Number(args.shift() || 8);
+      continue;
+    }
+    if (cur === '--mode') {
+      args.shift();
+      opts.mode = (args.shift() || 'auto').trim();
       continue;
     }
     break;
@@ -63,9 +69,22 @@ function isReleaseNoteQuery(query) {
   return releaseTerms.some(term => q.includes(term)) || (modelHit && (q.includes('功能') || q.includes('支持') || q.includes('升级')));
 }
 
-function runReleaseBridge(query, brief) {
+function detectResponseMode(query, preferredMode = 'auto') {
+  const normalized = (preferredMode || 'auto').toLowerCase();
+  if (normalized === 'evidence' || normalized === 'synthesis') {
+    return normalized;
+  }
+
+  const q = query.toLowerCase();
+  const synthesisTerms = [
+    '总结', '归纳', '对比', '话术', '汇报', '提炼', '润色', '整理成文', '客户版', '汇报版', 'polish', 'summary', 'compare'
+  ];
+  return synthesisTerms.some(term => q.includes(term)) ? 'synthesis' : 'evidence';
+}
+
+function runReleaseBridge(query, brief, mode) {
   const script = path.join(__dirname, 'query_qmd_bridge.py');
-  const args = [script, query, '-c', 'release_notes'];
+  const args = [script, query, '-c', 'release_notes', '--mode', mode];
   if (brief) args.push('--brief');
   else args.push('--json');
   return execFileSync('python3', args, { encoding: 'utf8' });
@@ -78,8 +97,10 @@ function main() {
     process.exit(1);
   }
 
+  const responseMode = detectResponseMode(opts.query, opts.mode);
+
   if (isReleaseNoteQuery(opts.query)) {
-    const output = runReleaseBridge(opts.query, opts.brief || !opts.json);
+    const output = runReleaseBridge(opts.query, opts.brief || !opts.json, responseMode);
     process.stdout.write(output);
     return;
   }
@@ -107,6 +128,7 @@ function main() {
       // Output as merged chapter
       const lines = [];
       lines.push(`engine: ${useV2 ? 'v2' : 'v2-fallback'}`);
+      lines.push(`mode: ${responseMode}`);
       lines.push(`query: ${payload.query}`);
       lines.push(`intent: ${payload.plan.intent || 'none'}`);
       lines.push(`summary: strong=${payload.summary.strong_hits}, weak=${payload.summary.weak_hits}, excluded=${payload.summary.excluded_hits}`);
@@ -129,6 +151,7 @@ function main() {
     // Default brief output
     const lines = [];
     lines.push(`engine: ${useV2 ? 'v2' : 'v2-fallback'}`);
+    lines.push(`mode: ${responseMode}`);
     lines.push(`query: ${payload.query}`);
     lines.push(`intent: ${payload.plan.intent || 'none'}`);
     lines.push(`summary: strong=${payload.summary.strong_hits}, weak=${payload.summary.weak_hits}, excluded=${payload.summary.excluded_hits}`);
@@ -153,6 +176,7 @@ function main() {
 
   const output = {
     engine: useV2 ? 'v2' : 'v2-fallback',
+    mode: responseMode,
     ...payload,
   };
   console.log(JSON.stringify(output, null, opts.json ? 2 : 2));

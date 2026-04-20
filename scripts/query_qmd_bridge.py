@@ -136,8 +136,9 @@ def run_query(db_path: Path, query: str, top_k: int = 8, collections=None):
     return deduped
 
 
-def print_brief(query: str, results):
+def print_brief(query: str, results, mode: str):
     print('engine: qmd-bridge')
+    print(f'mode: {mode}')
     print(f'query: {query}')
     print(f'hits: {len(results)}')
     for idx, row in enumerate(results, 1):
@@ -157,6 +158,7 @@ def main():
     parser.add_argument('--db', default=str(DB_PATH), help='sqlite db path')
     parser.add_argument('-c', '--collection', action='append', dest='collections', help='limit to collection, repeatable')
     parser.add_argument('--top', type=int, default=8, help='top k results')
+    parser.add_argument('--mode', choices=['evidence', 'synthesis'], default='evidence', help='response mode hint')
     parser.add_argument('--brief', action='store_true', help='print concise output')
     parser.add_argument('--files', action='store_true', help='print file-oriented output')
     parser.add_argument('--json', action='store_true', help='print JSON output')
@@ -168,10 +170,11 @@ def main():
         print_files(results)
         return
     if args.brief:
-        print_brief(args.query, results)
+        print_brief(args.query, results, args.mode)
         return
     print(json.dumps({
         'engine': 'qmd-bridge',
+        'mode': args.mode,
         'query': args.query,
         'collections': args.collections or [],
         'hits': len(results),

@@ -116,6 +116,8 @@ def main():
         para2['l2'] = l2
         para2['l3'] = l3
         para2['match_percent'] = adjust_percent(para2, l2)
+        new_tree.setdefault(l1, {})
+        new_tree[l1].setdefault(l2, {})
         new_tree[l1][l2].setdefault(l3, {'title': l3, 'cards': [], 'paragraphs': []})
         new_tree[l1][l2][l3]['paragraphs'].append(para2)
         new_paragraphs.append(para2)

@@ -163,24 +163,54 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 
 ---
 
+## GitHub 同步边界
+
+GitHub 仓库现在默认只同步“程序本身 + 检索/入库规则 + 说明文档”，用于把这个 Agent/知识库框架迁移到别处复用。
+
+**会同步到 GitHub 的内容：**
+- `scripts/`（入库、检索、刷新脚本）
+- `docs/`（架构、流程、schema 说明）
+- `qmd_bridge/`、`query_router/`（规则配置）
+- `README.md`、`CHANGELOG.md`、`AGENTS.md`
+- `cards/README.md`
+- `.gitignore`、`push_to_github.sh`
+
+**不会同步到 GitHub 的内容：**
+- `raw/` 原始文档
+- `cards/sections/`、`cards/manifest.json`、`cards/card_metadata*.json`
+- `index_store/` 本地索引
+- `relations/`、`tree/`、`topics/`、`wiki/` 等派生知识结果
+- `backups/` 等本地运行产物
+
+也就是说，GitHub 保留的是“框架和规则”，数据本身继续留在 WebDAV / 本地重建链路里。
+
 ## 后续更新规范
 
 ### 更新流程
 
 1. **准备更新内容**
-   - 新增/修改原始文档 → 放入 `raw/` 目录
-   - 生成新的 section cards → 放入 `cards/sections/`
-   - 更新 `cards/manifest.json` 和 `cards/card_metadata.v1.json`
+   - 新增原始文档优先放到 WebDAV `wiki_raw/` 下的 `方案文档` / `产品更新文档`
+   - 本地 `raw/`、`cards/sections/`、`cards/manifest.json`、`cards/card_metadata.v2.json` 由刷新脚本自动重建
 
-2. **更新主题页**
+2. **执行刷新**
+   - 日常轻量刷新，只更新原始文档与检索规则：
+     ```bash
+     ./scripts/refresh_from_webdav.sh
+     ```
+   - 需要补跑知识树时，再执行完整重建：
+     ```bash
+     ./scripts/rebuild_from_webdav.sh
+     ```
+
+3. **更新主题页**
    - 修改相关的 `topics/*.md` 文件
    - 更新 `wiki/sources/*.md` 源文档总结页
 
-3. **记录变更**
+4. **记录变更**
    - 在本文档「更新日志」部分添加新版本说明
    - 更新 `wiki/log.md` 文件
 
-4. **提交推送**
+5. **提交推送**
    ```bash
    ./push_to_github.sh "v1.x: 更新说明"
    ```
@@ -266,6 +296,8 @@ Layer 1: Raw 原始资料层 (Source of Truth)
 5. 最后必须回读原文再输出：
    - `solution` 问题优先回读 `cards/sections/*.json`
    - `release_note` 问题优先回读对应 `raw/*.md` 的整节或整功能块
+   - 默认输出检索入口、命中路径、原文证据和必要的轻量定位说明
+   - 只有用户明确要求“总结 / 归纳 / 对比 / 话术 / 润色成文”时，才做综合整理
 
 ### 检索与优化常用命令
 

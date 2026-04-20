@@ -29,7 +29,8 @@ When answering a question, always use the same fixed retrieval chain. Do not ski
 
 1. **Query understanding**
    - Normalize the user's query into: object / intent / required constraints / optional preferences / exclusions.
-   - Decide whether the user wants **raw evidence**, **brief extraction**, or **final synthesis**.
+   - Default to **raw evidence** or **brief extraction**.
+   - Only choose **final synthesis** when the user explicitly asks for summary / comparison / talk track / polished writeup.
 
 2. **Route selection**
    - Product or model queries: first check product/model indexes or topic hints.
@@ -51,7 +52,8 @@ When answering a question, always use the same fixed retrieval chain. Do not ski
 5. **Answer generation**
    - Default output should explicitly show: **query understanding → recall basis → evidence → answer**.
    - If the user asked to “find / query / locate”, return the matched original content first.
-   - If the user asked for “介绍 / 总结 / 话术 / 对比”, synthesize only after evidence is confirmed.
+   - Do **not** synthesize by default for requests like “介绍 / 详细介绍 / 看看更新了什么 / 有哪些功能”; these still default to evidence-first output unless the user explicitly asks for summary / comparison / talk track / polished writeup.
+   - Synthesize only after evidence is confirmed and only when the user explicitly asks for it.
 
 6. **No shortcut rule**
    - Do not jump directly from a filename hit or a remembered section to a final answer.

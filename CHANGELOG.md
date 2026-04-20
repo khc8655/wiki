@@ -1,5 +1,13 @@
 # Changelog
 
+## V2.6 - 2026-04-20
+
+### GitHub 同步边界重构
+
+- 更新: `.gitignore`，默认忽略原始文档、cards、索引、relations、tree、topics、wiki 等数据与派生结果
+- 更新: `push_to_github.sh`，改为仅提交程序、规则配置和说明文档
+- 更新: `README.md`，明确 GitHub 只作为可复用框架仓库，不承载原始资料与本地生成结果
+
 ## V2.5 - 2026-04-18
 
 ### 文档与版本整理

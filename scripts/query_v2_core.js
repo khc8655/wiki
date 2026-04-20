@@ -183,12 +183,17 @@ function parseQuery(query) {
 }
 
 function readCard(id) {
-  return JSON.parse(fs.readFileSync(path.join(cardsDir, `${id}.json`), 'utf8'));
+  const file = path.join(cardsDir, `${id}.json`);
+  if (!fs.existsSync(file)) return null;
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
 function scoreCard(queryPlan, id) {
   const m = meta[id] || {};
   const card = readCard(id);
+  if (!card) {
+    return { score: 1, reasons: ['card缺失'], bucket: '排除项' };
+  }
   let score = 35;
   const reasons = [];
   const titleBlob = `${card.title || ''} ${card.path || ''}`;
@@ -503,12 +508,13 @@ function dedupeEvidence(results, queryPlan) {
   if (queryPlan.intent === 'cross-cloud-interconnect') {
     const enriched = results.map(result => {
       const card = readCard(result.card_id);
+      if (!card) return null;
       return {
         ...result,
         doc_file: card.doc_file,
         body: card.body,
       };
-    });
+    }).filter(Boolean);
     return dedupeByDocTitle(enriched.filter(isCrossCloudEvidence))
       .sort((a, b) => b.match_percent - a.match_percent);
   }
@@ -518,6 +524,7 @@ function dedupeEvidence(results, queryPlan) {
 
   for (const result of results) {
     const card = readCard(result.card_id);
+    if (!card) continue;
     const cluster = inferEvidenceCluster(card);
     const docKey = `${card.doc_file}::${cluster}`;
     const item = {
@@ -610,6 +617,7 @@ function runQuery(query, options = {}) {
 
   let results = [...ids].map(id => {
     const card = readCard(id);
+    if (!card) return null;
     const scored = scoreCard(plan, id);
     return {
       card_id: id,
@@ -621,7 +629,7 @@ function runQuery(query, options = {}) {
       bucket: scored.bucket,
       reasons: scored.reasons,
     };
-  });
+  }).filter(Boolean);
 
   if (!includeExcluded) {
     results = results.filter(item => item.match_percent >= minScore);
