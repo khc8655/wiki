@@ -35,6 +35,7 @@ KEEP_PATHS=(
   query_router
   cards/README.md
   push_to_github.sh
+  excel_store/docs
 )
 
 DROP_FROM_INDEX=(

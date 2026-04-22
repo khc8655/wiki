@@ -1,4 +1,4 @@
-# wiki_test v1.0
+# wiki_test v1.1
 
 一个可迁移的知识库框架仓库。
 
@@ -288,7 +288,27 @@ cd /workspace/wiki_test
 
 ---
 
-## 8. 当前版本
+## 8. 版本历史
 
-- 版本：`v1.0`
-- 当前 README 定位：只保留使用说明
+### v1.1 (2026-04-22)
+新增三类Excel数据源查询：
+- **pricing** (价格查询)：支持产品报价、停产信息、替代型号查询
+- **comparison** (产品对比)：支持终端功能对比矩阵查询
+- **proposal** (招标参数)：支持三阶段描述（询价/方案/招投标）查询
+
+数据来源：
+- 2026年小鱼易连产品报价体系.xlsx
+- 风铃项目报价清单2026-0306.xlsx
+- 项目各阶段报价描述清单2026.xlsx
+- 小鱼易连视频终端对比及功能介绍.xlsx
+
+实现脚本：
+- `scripts/build_excel_knowledge.py` - Excel解析与索引构建
+- `scripts/query_excel_knowledge.py` - 三类查询接口
+- `excel_store/docs/` - 查询指南与分类策略文档
+
+### v1.0 (2026-04-20)
+初始版本，支持：
+- solution (方案文档) 细粒度切片与检索
+- release_notes (更新文档) 查询链路
+- 语义检索与路由系统
