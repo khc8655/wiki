@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+/**
+ * Query Router v3 - 语义意图+智能多源
+ * 
+ * 核心原则：宁多勿少，模糊查询自动多源，明确查询精准单源
+ */
+
 const { execFileSync } = require('child_process');
 const path = require('path');
 const { runQuery, parseQuery } = require('./query_v2_core');
@@ -47,76 +53,105 @@ function parseArgs(argv) {
   return opts;
 }
 
-function isReleaseNoteQuery(query) {
+/**
+ * 语义意图识别 + 智能多源路由
+ * 
+ * 核心逻辑：
+ * 1. 提取实体（产品型号、关键词）
+ * 2. 识别用户意图
+ * 3. 根据意图决定查询哪些数据源
+ * 4. 模糊查询自动多源，明确查询精准单源
+ */
+function detectSemanticIntent(query) {
   const q = query.toLowerCase();
-  const modelHit = /\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?|tp\d{3}-[a-z]|me\d{2}[a-z]?|nc\d{2}|np\d{2}v?2?)\b/i.test(q);
-  const releaseTerms = ['迭代', '新功能', '升级', '优化', '修复', '支持', '版本', '新增', '变更'];
-  return releaseTerms.some(term => q.includes(term)) || (modelHit && (q.includes('功能') || q.includes('支持') || q.includes('升级')));
-}
-
-function isPricingQuery(query) {
-  const q = query.toLowerCase();
-  const priceTerms = ['价格', '报价', '多少钱', '费用', '成本', '停产', '替代', '型号', '会议室', '类别', 'ai', '配件'];
-  const modelPattern = /\b(ae\d{3}|xe\d{3}|ge\d{3}|pe\d{4}|tp\d{3}|ai)\b/i;
-  return priceTerms.some(term => q.includes(term)) || modelPattern.test(q);
-}
-
-function isComparisonQuery(query) {
-  const q = query.toLowerCase();
-  const compareTerms = ['对比', '比较', '区别', '差异', 'vs', 'versus'];
-  const modelPattern = /\b(ae\d{3}|xe\d{3}|ge\d{3})\b.*\b(ae\d{3}|xe\d{3}|ge\d{3})\b/i;
-  return compareTerms.some(term => q.includes(term)) || modelPattern.test(q);
-}
-
-function isProposalQuery(query) {
-  const q = query.toLowerCase();
-  const proposalTerms = ['招标', '投标', '参数', '方案', '描述', '询价', '阶段'];
-  const modelPattern = /\b(ae\d{3}|xe\d{3}|ge\d{3})\b/i;
-  return (proposalTerms.some(term => q.includes(term)) && modelPattern.test(q));
-}
-
-function detectQueryType(query) {
-  const types = [];
   
-  // Check comparison first (most specific)
-  if (isComparisonQuery(query)) {
-    types.push('comparison');
+  // 提取产品型号
+  const models = query.match(/\b(AE\d{3}|XE\d{3}|GE\d{3}|PE\d{4}|TP\d{3}|AI|会议室)\b/gi) || [];
+  const uniqueModels = [...new Set(models.map(m => m.toUpperCase()))];
+  
+  // 关键词检测
+  const hasPriceKw = ['价格', '多少钱', '费用', '钱', '元', '贵', '便宜', '折扣', '报价'].some(k => q.includes(k));
+  const hasCompareKw = ['对比', '比较', '区别', '差异', 'vs', '和', '与', '哪个', '差别'].some(k => q.includes(k));
+  const hasSpecKw = ['参数', '规格', '配置', '性能', '指标', '能力', '怎么样', '什么配置'].some(k => q.includes(k));
+  const hasProcurementKw = ['招标', '投标', '询价', '采购', '方案'].some(k => q.includes(k));
+  const hasFeatureKw = ['功能', '支持', '迭代', '新功能', '升级', '更新'].some(k => q.includes(k));
+  const hasEolKw = ['停产', '替代', '退市', '下架'].some(k => q.includes(k));
+  
+  // 意图识别 + 数据源选择
+  let intent = 'unknown';
+  let sources = [];
+  let confidence = 0;
+  
+  // 意图1: 对比决策（两个及以上型号 + 对比词）
+  if (uniqueModels.length >= 2 && hasCompareKw) {
+    intent = 'compare';
+    sources = ['comparison'];
+    confidence = 95;
   }
-  // Check proposal before pricing (招标参数 queries)
-  else if (isProposalQuery(query)) {
-    types.push('proposal');
+  // 意图2: 购买决策（型号 + 价格词）
+  else if (uniqueModels.length >= 1 && hasPriceKw) {
+    intent = 'purchase';
+    sources = ['pricing'];
+    // 停产信息也在pricing备注里
+    if (hasEolKw) {
+      confidence = 90;
+    } else {
+      confidence = 85;
+    }
   }
-  // Then pricing
-  else if (isPricingQuery(query)) {
-    types.push('pricing');
+  // 意图3: 技术选型（型号 + 参数/规格词）
+  else if (uniqueModels.length >= 1 && hasSpecKw) {
+    intent = 'technical_spec';
+    // 参数查询需要规格+招标参数+价格（综合决策）
+    sources = ['comparison', 'proposal', 'pricing'];
+    confidence = 80;
+  }
+  // 意图4: 招标准备（型号 + 招标词）
+  else if (uniqueModels.length >= 1 && hasProcurementKw) {
+    intent = 'procurement';
+    sources = ['proposal', 'comparison'];
+    confidence = 90;
+  }
+  // 意图5: 功能了解（型号 + 功能词）
+  else if (uniqueModels.length >= 1 && hasFeatureKw) {
+    intent = 'feature';
+    sources = ['comparison', 'release_note'];
+    confidence = 75;
+  }
+  // 意图6: 单产品全面了解（仅型号，最模糊但最常见）
+  else if (uniqueModels.length === 1) {
+    intent = 'product_overview';
+    // 宁多勿少：查价格+规格+招标
+    sources = ['pricing', 'comparison', 'proposal'];
+    confidence = 60; // 低置信度，多源补偿
+  }
+  // 意图7: 类别查询（AI/会议室等）
+  else if (uniqueModels.length > 0) {
+    intent = 'category';
+    sources = ['pricing'];
+    confidence = 70;
+  }
+  // 兜底：语义搜索
+  else {
+    intent = 'semantic';
+    sources = ['semantic'];
+    confidence = 30;
   }
   
-  if (isReleaseNoteQuery(query)) {
-    types.push('release_note');
-  }
-  
-  return types.length > 0 ? types : ['semantic'];
+  return {
+    intent,
+    sources,
+    confidence,
+    models: uniqueModels,
+    isAmbiguous: confidence < 70
+  };
 }
 
-function detectResponseMode(query, preferredMode = 'auto') {
-  const normalized = (preferredMode || 'auto').toLowerCase();
-  if (normalized === 'evidence' || normalized === 'synthesis') {
-    return normalized;
-  }
-
-  const q = query.toLowerCase();
-  const synthesisTerms = [
-    '总结', '归纳', '对比', '话术', '汇报', '提炼', '润色', '整理成文', '客户版', '汇报版', 'polish', 'summary', 'compare'
-  ];
-  return synthesisTerms.some(term => q.includes(term)) ? 'synthesis' : 'evidence';
-}
-
-function runExcelQuery(query, type, topK, opts) {
+function runExcelQuery(query, type, topK, models) {
   const script = path.join(__dirname, 'query_excel_knowledge.py');
-  const args = [script, query, '-t', type, '-k', String(topK)];
-  if (type === 'comparison' && opts && opts.compare) {
-    args.push('--compare', ...opts.compare);
-  }
+  // 如果有型号，优先用型号查询，否则用原查询
+  const searchQuery = models && models.length > 0 ? models[0] : query;
+  const args = [script, searchQuery, '-t', type, '-k', String(topK)];
   try {
     return execFileSync('python3', args, { encoding: 'utf8', timeout: 30000 });
   } catch (e) {
@@ -124,16 +159,21 @@ function runExcelQuery(query, type, topK, opts) {
   }
 }
 
-function runReleaseBridge(query, brief, mode) {
-  const script = path.join(__dirname, 'query_qmd_bridge.py');
-  const args = [script, query, '-c', 'release_notes', '--mode', mode];
-  if (brief) args.push('--brief');
-  else args.push('--json');
-  try {
-    return execFileSync('python3', args, { encoding: 'utf8' });
-  } catch (e) {
-    return `Release query error: ${e.message}`;
+function runSemanticQuery(query, brief, topK) {
+  const payload = runQuery(query, { topK, minScore: 20, includeExcluded: false });
+  
+  if (brief) {
+    const lines = [];
+    lines.push(`engine: v2`);
+    lines.push(`query: ${payload.query}`);
+    lines.push(`results: ${payload.results.length}`);
+    payload.results.forEach((r, i) => {
+      lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${r.title}`);
+    });
+    return lines.join('\n');
   }
+  
+  return JSON.stringify(payload, null, 2);
 }
 
 function main() {
@@ -143,83 +183,43 @@ function main() {
     process.exit(1);
   }
 
-  const responseMode = detectResponseMode(opts.query, opts.mode);
-  const queryTypes = detectQueryType(opts.query);
-
-  // Prioritize Excel queries
-  if (queryTypes.includes('pricing')) {
-    // Extract model/product name or key terms from query
-    const modelMatch = opts.query.match(/\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?|pe\d{4}|tp\d{3}|ai|会议室|人脸识别|语音转写)\b/i);
-    const searchQuery = modelMatch ? modelMatch[0] : opts.query;
-    const output = runExcelQuery(searchQuery, 'pricing', opts.topK);
-    process.stdout.write(output);
-    return;
+  // 语义意图识别
+  const intentInfo = detectSemanticIntent(opts.query);
+  const sources = intentInfo.sources;
+  
+  // 输出调试信息（非JSON模式）
+  if (!opts.json) {
+    console.log(`=== 查询意图分析 ===`);
+    console.log(`查询: ${opts.query}`);
+    console.log(`意图: ${intentInfo.intent} (置信度: ${intentInfo.confidence}%)`);
+    console.log(`数据源: ${sources.join(', ')}`);
+    if (intentInfo.models.length > 0) {
+      console.log(`识别型号: ${intentInfo.models.join(', ')}`);
+    }
+    console.log(`是否模糊: ${intentInfo.isAmbiguous ? '是' : '否'}`);
+    console.log('');
   }
-
-  if (queryTypes.includes('comparison')) {
-    const modelMatch = opts.query.match(/\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?)\b/gi);
-    if (modelMatch && modelMatch.length >= 2) {
-      const output = runExcelQuery(modelMatch[0], 'comparison', opts.topK, { compare: modelMatch.slice(0, 2) });
-      process.stdout.write(output);
+  
+  // 执行查询
+  const allResults = [];
+  
+  for (const source of sources) {
+    if (source === 'semantic') {
+      const output = runSemanticQuery(opts.query, opts.brief, opts.topK);
+      if (opts.brief) {
+        console.log(output);
+      } else {
+        console.log(output);
+      }
     } else {
-      const searchQuery = modelMatch ? modelMatch[0] : opts.query;
-      const output = runExcelQuery(searchQuery, 'comparison', opts.topK);
-      process.stdout.write(output);
+      // Excel数据源 - 传入型号列表用于精确查询
+      const output = runExcelQuery(opts.query, source, opts.topK, intentInfo.models);
+      if (!opts.json) {
+        console.log(`--- ${source.toUpperCase()} ---`);
+      }
+      console.log(output);
     }
-    return;
   }
-
-  if (queryTypes.includes('proposal')) {
-    const modelMatch = opts.query.match(/\b(ae\d{3}[a-z]?|xe\d{3}[a-z]?|ge\d{3}[a-z]?)\b/i);
-    const searchQuery = modelMatch ? modelMatch[0] : opts.query;
-    const output = runExcelQuery(searchQuery, 'proposal', opts.topK);
-    process.stdout.write(output);
-    return;
-  }
-
-  if (queryTypes.includes('release_note')) {
-    const output = runReleaseBridge(opts.query, opts.brief || !opts.json, responseMode);
-    process.stdout.write(output);
-    return;
-  }
-
-  // Default semantic search
-  const plan = parseQuery(opts.query);
-  const isColdQuery = !plan.intent;
-  const useV2 = Boolean(plan.intent);
-  const payload = runQuery(opts.query, { topK: opts.topK, minScore: 20, includeExcluded: false });
-
-  if (opts.brief) {
-    const lines = [];
-    lines.push(`engine: ${useV2 ? 'v2' : 'v2-fallback'}`);
-    lines.push(`mode: ${responseMode}`);
-    lines.push(`query: ${payload.query}`);
-    lines.push(`intent: ${payload.plan.intent || 'none'}`);
-    lines.push(`summary: strong=${payload.summary.strong_hits}, weak=${payload.summary.weak_hits}, excluded=${payload.summary.excluded_hits}`);
-    payload.results.forEach((r, i) => {
-      const label = r.doc_file ? `${r.title} (${r.doc_file})` : r.title;
-      const similar = (r.similar_sources || []).length ? ` (相似来源:${(r.similar_sources || []).length})` : '';
-      lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${label}${similar}`);
-    });
-    
-    if (isColdQuery && payload.results.length > 0) {
-      lines.push('');
-      lines.push('=== 冷查询反馈 ===');
-      lines.push('未命中特定路由规则，以上是基于语义召回的最佳结果。');
-      lines.push('如果答案满意，请回复"满意"，系统将学习此路由。');
-      lines.push('如果不满意，请回复"不满意"，系统将记录为负样本。');
-    }
-    
-    console.log(lines.join('\n'));
-    return;
-  }
-
-  const output = {
-    engine: useV2 ? 'v2' : 'v2-fallback',
-    mode: responseMode,
-    ...payload,
-  };
-  console.log(JSON.stringify(output, null, 2));
 }
 
 main();
