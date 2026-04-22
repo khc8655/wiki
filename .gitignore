@@ -18,8 +18,7 @@ raw/
 # Derived cards and metadata, rebuild locally from WebDAV
 cards/sections/
 cards/manifest.json
-cards/card_metadata.v1.json
-cards/card_metadata.v2.json
+cards/card_metadata.v*.json
 
 # Local indexes and import state
 index_store/
@@ -28,10 +27,27 @@ index_store/
 tree/
 relations/
 topics/
+wiki/
 wiki/sources/
 wiki/heading-index.md
 wiki/index.md
 wiki/log.md
 wiki/retrieval-policy.md
+wiki/operations/
+wiki/systems/
+wiki/topics/
+wiki/capabilities/
+
+# Updates and feedback data
+updates/
+
+# Excel store generated data (keep raw/ and docs/)
+excel_store/manifest.json
+excel_store/pricing/records.json
+excel_store/comparison/records.json
+excel_store/proposal/records.json
+
+# Local config
+.gitconfig
 
 # Keep docs, scripts, routing rules, and bridge configs versioned

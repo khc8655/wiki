@@ -1,7 +1,0 @@
-{
-  "db_path": "/workspace/wiki_test/index_store/knowledge_v1.db",
-  "titles": 1006,
-  "paragraphs": 1214,
-  "relations": 730,
-  "sqlite_version": "3.45.1"
-}
