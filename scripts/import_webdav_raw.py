@@ -112,32 +112,71 @@ def infer_tags(blob: str):
     return sorted(tags)
 
 
-def sectionize(doc_code: str, doc_file: str, title: str, text: str):
+def split_large_body(body: str, max_chars: int = 1200):
+    body = body.strip()
+    if len(body) <= max_chars:
+        return [body] if body else []
+
+    blocks = [b.strip() for b in re.split(r'\n\s*\n+', body) if b.strip()]
+    if len(blocks) <= 1:
+        blocks = [ln.strip() for ln in body.splitlines() if ln.strip()]
+
+    chunks = []
+    cur = []
+    cur_len = 0
+    for block in blocks:
+        hard_parts = re.split(r'(?=^\s*(?:[-*•]|\d+[\.、\)])\s+)', block, flags=re.M)
+        parts = [p.strip() for p in hard_parts if p.strip()]
+        if len(parts) == 1 and len(parts[0]) > max_chars:
+            parts = re.split(r'(?<=。)|(?<=；)', parts[0])
+            parts = [p.strip() for p in parts if p.strip()]
+        for part in parts:
+            extra = len(part) + (2 if cur else 0)
+            if cur and cur_len + extra > max_chars:
+                chunks.append('\n\n'.join(cur))
+                cur = [part]
+                cur_len = len(part)
+            else:
+                cur.append(part)
+                cur_len += extra
+    if cur:
+        chunks.append('\n\n'.join(cur))
+    return chunks
+
+
+def sectionize(doc_code: str, doc_file: str, title: str, text: str, doc_type: str = 'solution'):
     lines = text.splitlines()
     sections = []
     stack = [(1, title)]
     current = None
     sec_num = 1
+    fine_grained = doc_type == 'solution'
 
     def flush(cur):
         nonlocal sec_num
         if not cur:
             return
         body = '\n'.join(cur['body']).strip()
+        if not body:
+            return
         path = ' > '.join([x[1] for x in stack[:-1]] + [cur['title']]) if len(stack) > 1 else cur['title']
-        blob = f"{path}\n{body}"
-        sections.append({
-            'id': f"{doc_code}-{Path(doc_file).stem}-sec-{sec_num:03d}",
-            'doc_file': doc_file,
-            'title': cur['title'],
-            'level': cur['level'],
-            'path': path,
-            'line_start': cur['line_start'],
-            'char_count': len(body),
-            'body': body,
-            'tags': infer_tags(blob),
-        })
-        sec_num += 1
+        bodies = split_large_body(body, 1200) if fine_grained else [body]
+        for idx, part in enumerate(bodies, start=1):
+            part_title = cur['title'] if len(bodies) == 1 else f"{cur['title']}（{idx}）"
+            part_path = path if len(bodies) == 1 else f"{path} > 分段{idx}"
+            blob = f"{part_path}\n{part}"
+            sections.append({
+                'id': f"{doc_code}-{Path(doc_file).stem}-sec-{sec_num:03d}",
+                'doc_file': doc_file,
+                'title': part_title,
+                'level': cur['level'],
+                'path': part_path,
+                'line_start': cur['line_start'],
+                'char_count': len(part),
+                'body': part,
+                'tags': infer_tags(blob),
+            })
+            sec_num += 1
 
     for i, line in enumerate(lines, start=1):
         h = is_heading(line)
@@ -155,18 +194,19 @@ def sectionize(doc_code: str, doc_file: str, title: str, text: str):
             current = {'title': title, 'level': 1, 'line_start': 1, 'body': []}
         current['body'].append(line)
     flush(current)
-    if not sections:
+    if not sections and text.strip():
+        bodies = split_large_body(text.strip(), 1200) if fine_grained else [text.strip()]
         sections = [{
-            'id': f"{doc_code}-{Path(doc_file).stem}-sec-001",
+            'id': f"{doc_code}-{Path(doc_file).stem}-sec-{idx:03d}",
             'doc_file': doc_file,
-            'title': title,
+            'title': title if len(bodies) == 1 else f"{title}（{idx}）",
             'level': 1,
-            'path': title,
+            'path': title if len(bodies) == 1 else f"{title} > 分段{idx}",
             'line_start': 1,
-            'char_count': len(text.strip()),
-            'body': text.strip(),
-            'tags': infer_tags(text),
-        }]
+            'char_count': len(body),
+            'body': body,
+            'tags': infer_tags(body),
+        } for idx, body in enumerate(bodies, start=1)]
     return sections
 
 
@@ -307,7 +347,7 @@ def import_all(base_url: str, remote_root: str, user: str, password: str):
         title = infer_title(text, Path(remote['name']).stem)
         raw_path = RAW_DIR / local_name
         raw_path.write_text(text, encoding='utf-8')
-        sections = sectionize(doc_code, local_name, title, text)
+        sections = sectionize(doc_code, local_name, title, text, remote['doc_type'])
         write_json(DOCS_DIR / f"{doc_code}-{Path(remote['name']).stem}.json", sections)
         for sec in sections:
             card = {

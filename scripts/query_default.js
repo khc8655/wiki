@@ -7,8 +7,15 @@
 
 const { execFileSync } = require('child_process');
 const path = require('path');
-const { runQuery, parseQuery } = require('./query_v2_core');
 const fs = require('fs');
+let runQuery = null;
+let parseQuery = null;
+let v2Available = true;
+try {
+  ({ runQuery, parseQuery } = require('./query_v2_core'));
+} catch (err) {
+  v2Available = false;
+}
 
 function printUsage() {
   console.error('Usage: node scripts/query_default.js [--brief] [--json] [--top N] [--mode auto|evidence|synthesis] <query>');
@@ -160,20 +167,30 @@ function runExcelQuery(query, type, topK, models) {
 }
 
 function runSemanticQuery(query, brief, topK) {
-  const payload = runQuery(query, { topK, minScore: 20, includeExcluded: false });
-  
-  if (brief) {
-    const lines = [];
-    lines.push(`engine: v2`);
-    lines.push(`query: ${payload.query}`);
-    lines.push(`results: ${payload.results.length}`);
-    payload.results.forEach((r, i) => {
-      lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${r.title}`);
-    });
-    return lines.join('\n');
+  if (v2Available && runQuery) {
+    const payload = runQuery(query, { topK, minScore: 20, includeExcluded: false });
+    if (brief) {
+      const lines = [];
+      lines.push(`engine: v2`);
+      lines.push(`query: ${payload.query}`);
+      lines.push(`results: ${payload.results.length}`);
+      payload.results.forEach((r, i) => {
+        lines.push(`${i + 1}. [${r.bucket}] ${r.match_percent}% ${r.title}`);
+      });
+      return lines.join('\n');
+    }
+    return JSON.stringify(payload, null, 2);
   }
-  
-  return JSON.stringify(payload, null, 2);
+
+  try {
+    return execFileSync('node', [path.join(__dirname, 'retrieve_v1.js'), query], { encoding: 'utf8', timeout: 30000 });
+  } catch (e) {
+    try {
+      return execFileSync('python3', [path.join(__dirname, 'query_fts5.py'), query, '--brief', '--top', String(topK)], { encoding: 'utf8', timeout: 30000 });
+    } catch (inner) {
+      return `Semantic query error: ${inner.message}`;
+    }
+  }
 }
 
 function main() {

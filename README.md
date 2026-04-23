@@ -155,6 +155,12 @@ cd /workspace/wiki_test
 2. 重建本地 `raw/`
 3. 重建 `cards/sections/`
 4. 重建索引文件
+5. 自动执行一次方案类卡片质量巡检
+
+说明：
+- `solution / 方案类` 文档采用“先按标题，再对超长 section 二次细拆”的建卡策略
+- `release_note / 更新类` 文档保持“按标题建卡”，不做过细拆分
+- 巡检报告默认输出到 `index_store/solution_card_audit.json`
 
 ### 5.2 完整重建
 
@@ -167,7 +173,33 @@ cd /workspace/wiki_test
 - `tree/knowledge_tree.v*.json`
 - title / paragraph / stats 文件
 
-### 5.3 卡片关联刷新
+### 5.3 方案类卡片巡检
+
+用于检查方案类卡片是否还存在过粗、过空、弱标题或疑似可继续拆分的问题：
+
+```bash
+cd /workspace/wiki_test
+python3 scripts/audit_solution_cards.py
+```
+
+如需输出完整 JSON：
+
+```bash
+python3 scripts/audit_solution_cards.py --json
+```
+
+当前巡检会标记以下问题：
+- `too_long` / `long`
+- `too_short`
+- `weak_title`
+- `split_candidate`
+- `image_heavy_low_text`
+
+巡检目标：
+- 方案类尽量细，便于后续按命中率展示
+- 更新类只保留标题级卡片，不追求过细拆分
+
+### 5.4 卡片关联刷新
 
 如需刷新卡片间关联关系：
 

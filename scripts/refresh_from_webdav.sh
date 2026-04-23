@@ -7,3 +7,4 @@ node scripts/build_path_index.js
 node scripts/build_model_index.js
 python3 scripts/build_fts5_index.py
 python3 scripts/build_qmd_bridge_index.py
+python3 scripts/audit_solution_cards.py
