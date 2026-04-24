@@ -127,7 +127,14 @@ def enrich_excel_hits(records: List[Dict], max_score: int = None) -> List[Dict]:
     out = []
     for r in records:
         rr = dict(r)
-        rr['source'] = f"{r.get('source_file', '')} | {r.get('source_sheet', '')} | row {r.get('source_row', '')}"
+        # Build source with file name included
+        source_file = r.get('source_file', '')
+        source_sheet = r.get('source_sheet', '')
+        source_row = r.get('source_row', '')
+        if source_file:
+            rr['source'] = f"{source_file} | {source_sheet} | row {source_row}"
+        else:
+            rr['source'] = f"{source_sheet} | row {source_row}"
         score = r.get('_score', local_max) if isinstance(r.get('_score', 0), (int, float)) else local_max
         rr['hit_rate'] = round(score / local_max, 3)
         out.append(rr)
