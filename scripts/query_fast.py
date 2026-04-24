@@ -358,20 +358,28 @@ def make_card_hit(card: Dict, score: int) -> Dict:
 
 
 def police_scene_lookup(limit: int = 20) -> Dict:
+    """
+    Police scene lookup with dual-path: text + semantic tags.
+    """
     cards = load_card_records()
     primary = []
     secondary = []
     tertiary = []
+    
     for card in cards:
         doc = card.get('doc_file', '')
         path = card.get('path', '')
         title = card.get('title', '')
         body = card.get('body', '')
         blob = f"{title}\n{path}\n{body}\n{doc}"
+        
         if '公安' not in blob:
             continue
+        
         score = 0
         has_scene_terms = any(k in body for k in ['巡查督导', '会议会商', '业务培训'])
+        
+        # Original text scoring
         if doc == POLICE_DOC:
             score += 100
         if '应用场景' in body or '应用场景' in path:
@@ -382,18 +390,32 @@ def police_scene_lookup(limit: int = 20) -> Dict:
             score += 160
         if '应用场景实例' in path:
             score += 70
+        
+        # Semantic tag scoring (deep integration)
+        semantic_tags = get_card_semantic_tags(card)
+        for tag in semantic_tags:
+            if '公安' in tag or 'police' in tag:
+                score += 50
+            if any(x in tag for x in ['指挥', '调度', '会商']):
+                score += 40
+        
         if score <= 0:
             continue
+        
         hit = make_card_hit(card, score)
+        hit['semantic_tags'] = semantic_tags[:10]
+        
         if doc == POLICE_DOC and has_scene_terms:
             primary.append(hit)
         elif doc == POLICE_DOC:
             secondary.append(hit)
         else:
             tertiary.append(hit)
+    
     primary.sort(key=lambda x: (-x['_score'], x['id']))
     secondary.sort(key=lambda x: (-x['_score'], x['id']))
     tertiary.sort(key=lambda x: (-x['_score'], x['doc_file'], x['id']))
+    
     ordered = []
     seen = set()
     for group in [primary, secondary, tertiary]:
@@ -402,13 +424,18 @@ def police_scene_lookup(limit: int = 20) -> Dict:
                 continue
             seen.add(hit['id'])
             ordered.append(hit)
+    
     return {'engine': 'police_scene', 'hits': ordered[:limit]}
 
 
 def software_hardware_lookup(limit: int = 20) -> Dict:
+    """
+    Software vs hardware lookup with dual-path: text + semantic tags.
+    """
     cards = load_card_records()
     primary = []
     secondary = []
+    
     for card in cards:
         doc = card.get('doc_file', '')
         path = card.get('path', '')
@@ -416,21 +443,37 @@ def software_hardware_lookup(limit: int = 20) -> Dict:
         body = card.get('body', '')
         blob = f"{title}\n{path}\n{body}\n{doc}"
         score = 0
+        
+        # Original text scoring
         if doc == SOFT_HARD_DOC:
             score += 160
         if any(k in blob for k in ['软件客户端', '软件端', '硬件终端', '硬件端']):
             score += 80
         if any(k in blob for k in ['稳定性对比', '音视频接口对比', '音视频质量对比', '功能对比', '运维对比', '选型建议']):
             score += 100
+        
+        # Semantic tag scoring (deep integration)
+        semantic_tags = get_card_semantic_tags(card)
+        for tag in semantic_tags:
+            if any(x in tag for x in ['software', '硬件', '终端', 'client']):
+                score += 40
+            if any(x in tag for x in ['对比', 'compare', 'difference']):
+                score += 35
+        
         if score <= 0:
             continue
+        
         hit = make_card_hit(card, score)
+        hit['semantic_tags'] = semantic_tags[:10]
+        
         if doc == SOFT_HARD_DOC:
             primary.append(hit)
         else:
             secondary.append(hit)
+    
     primary.sort(key=lambda x: (-x['_score'], x['id']))
     secondary.sort(key=lambda x: (-x['_score'], x['doc_file'], x['id']))
+    
     ordered = []
     seen = set()
     for group in [primary, secondary]:
@@ -439,42 +482,88 @@ def software_hardware_lookup(limit: int = 20) -> Dict:
                 continue
             seen.add(hit['id'])
             ordered.append(hit)
+    
     return {'engine': 'software_hardware', 'hits': ordered[:limit]}
 
 
+def get_card_semantic_tags(card: Dict) -> List[str]:
+    """Extract semantic tags from card metadata (deep integration)."""
+    semantic = card.get('semantic', {})
+    tags = []
+    for key in ['intent_tags', 'feature_tags', 'concept_tags', 'scenario_tags', 'doc_types', 'boost_terms']:
+        tags.extend(semantic.get(key, []))
+    return tags
+
+
+def score_card_dual_path(card: Dict, query: str, terms: List[str], required: List[str]) -> int:
+    """
+    Dual-path scoring: text match + semantic tag match.
+    """
+    blob = f"{card.get('title','')}\n{card.get('path','')}\n{card.get('body','')}\n{card.get('doc_file','')}"
+    score = 0
+    
+    # Required terms filter
+    if required and not all(r in blob for r in required):
+        return 0
+    
+    # Path 1: Original text matching
+    for term in terms:
+        if term in blob:
+            score += 15
+    
+    # Path 2: Semantic tag matching (deep integration)
+    semantic_tags = get_card_semantic_tags(card)
+    for term in terms:
+        term_norm = normalize(term)
+        # Match against normalized semantic tags
+        for tag in semantic_tags:
+            if term_norm in tag or tag in term_norm:
+                score += 25  # Higher weight for semantic match
+    
+    # Boost for semantic tags that directly contain query terms
+    for tag in semantic_tags:
+        for term in terms:
+            if term.lower() in tag.lower():
+                score += 20
+    
+    return score
+
+
 def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
+    """
+    Dual-path retrieval: search both original text AND semantic tags.
+    """
     q = query
     required = []
-    ann_index = load_annotation_index()
     if '公安' in q:
         required = ['公安']
     elif '软件端' in q and '硬件端' in q:
         required = ['软件', '硬件']
+    
+    # Extract query terms (both English model codes and Chinese terms)
     terms = [t for t in re.findall(r'[A-Za-z0-9\-\+\.]+|[\u4e00-\u9fff]{2,}', q) if len(t) >= 2]
+    
     results = []
     for card in load_card_records():
-        blob = f"{card.get('title','')}\n{card.get('path','')}\n{card.get('body','')}\n{card.get('doc_file','')}"
-        score = 0
-        if required and not all(r in blob for r in required):
-            continue
-        for term in terms:
-            if term in blob:
-                score += 15
-        ann = ann_index.get(card.get('doc_file', ''), {})
-        ann_terms = ann.get('boost_terms', [])
-        for term in terms:
-            if term in ann_terms:
-                score += 10
+        # Dual-path scoring
+        score = score_card_dual_path(card, q, terms, required)
+        
+        # Legacy boosts for specific scenarios
         if '公安' in q and card.get('doc_file', '') == POLICE_DOC:
             score += 80
         if '公安' in q and '应用场景' in card.get('path', ''):
             score += 60
-        if '软件端' in q and any(x in blob for x in ['软件客户端', 'PC客户端', '手机客户端']):
+        if '软件端' in q and any(x in card.get('body','') for x in ['软件客户端', 'PC客户端', '手机客户端']):
             score += 50
-        if '硬件端' in q and any(x in blob for x in ['硬件终端', '会议室终端', '一体化终端']):
+        if '硬件端' in q and any(x in card.get('body','') for x in ['硬件终端', '会议室终端', '一体化终端']):
             score += 50
+        
         if score > 0:
-            results.append(make_card_hit(card, score))
+            hit = make_card_hit(card, score)
+            # Include semantic info in hit
+            hit['semantic_tags'] = get_card_semantic_tags(card)[:10]
+            results.append(hit)
+    
     results.sort(key=lambda x: (-x['_score'], x.get('doc_file', ''), x.get('title', '')))
     return results[:limit]
 
