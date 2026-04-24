@@ -148,10 +148,20 @@ def proposal_lookup(model: str) -> List[Dict]:
 def comparison_lookup(model: str) -> List[Dict]:
     idx = load_indexes('comparison')
     rows = idx.get('by_model', {}).get(model.upper(), [])
+    source_file = '硬件终端产品对比表.xlsx'  # Known source file for comparison data
+    
     if rows:
+        # Add source_file to each row
+        for r in rows:
+            r['source_file'] = source_file
         return rows
+    
     recs = load_records('comparison')
-    return [r for r in recs if normalize(r.get('model', '')) == normalize(model)]
+    filtered = [r for r in recs if normalize(r.get('model', '')) == normalize(model)]
+    # Add source_file to each record
+    for r in filtered:
+        r['source_file'] = source_file
+    return filtered
 
 
 def search_pricing_text(query: str, top_k: int = 20) -> List[Dict]:
