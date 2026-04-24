@@ -52,6 +52,17 @@ def load_indexes(dtype: str) -> Dict:
     return json.loads((EXCEL_STORE / dtype / 'indexes.json').read_text(encoding='utf-8'))
 
 
+@lru_cache(maxsize=1)
+def load_annotation_index() -> Dict:
+    path = ROOT / 'index_store' / 'annotation_doc_index.json'
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding='utf-8')).get('docs', {})
+    except Exception:
+        return {}
+
+
 def score_model_record(record: Dict, model: str) -> int:
     score = 0
     blob = normalize(json.dumps(record, ensure_ascii=False))
@@ -332,6 +343,7 @@ def score_to_hit_rate(score: int, max_score: int = 600) -> float:
 
 def make_card_hit(card: Dict, score: int) -> Dict:
     body = card.get('body', '')
+    ann = load_annotation_index().get(card.get('doc_file', ''), {})
     return {
         'id': card.get('id'),
         'title': card.get('title'),
@@ -340,6 +352,7 @@ def make_card_hit(card: Dict, score: int) -> Dict:
         'source': f"{card.get('doc_file')} | {card.get('path')}",
         'hit_rate': score_to_hit_rate(score),
         'body_preview': (body[:240] + '...') if len(body) > 240 else body,
+        'annotation_terms': ann.get('boost_terms', [])[:10] if ann else [],
         '_score': score,
     }
 
@@ -432,6 +445,7 @@ def software_hardware_lookup(limit: int = 20) -> Dict:
 def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
     q = query
     required = []
+    ann_index = load_annotation_index()
     if '公安' in q:
         required = ['公安']
     elif '软件端' in q and '硬件端' in q:
@@ -446,6 +460,11 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
         for term in terms:
             if term in blob:
                 score += 15
+        ann = ann_index.get(card.get('doc_file', ''), {})
+        ann_terms = ann.get('boost_terms', [])
+        for term in terms:
+            if term in ann_terms:
+                score += 10
         if '公安' in q and card.get('doc_file', '') == POLICE_DOC:
             score += 80
         if '公安' in q and '应用场景' in card.get('path', ''):
