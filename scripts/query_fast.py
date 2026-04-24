@@ -20,10 +20,14 @@ EXCEL_STORE = ROOT / 'excel_store'
 MODEL_RE = re.compile(r'(AE\d{3}[A-Z]?|XE\d{3}[A-Z]?|GE\d{3}[A-Z]?|PE\d{4}|TP\d{3}(?:-[A-Z])?|MX\d{2}|AC\d{2}|NC\d{2}|NP\d{2}(?:V?\d+)?)', re.I)
 
 PRICE_KWS = ['价格', '报价', '多少钱', '费用']
-PROPOSAL_KWS = ['招标', '投标', '参数', '规格', '配置']
+PROPOSAL_KWS = ['招标', '投标', '参数', '配置']
+SPEC_KWS = ['规格', '接口', '编解码', '输入', '输出']
 COMPARE_KWS = ['对比', '比较', '区别', '差异', 'vs', '接口对比']
 ACCESSORY_KWS = ['配件', '附件', '可用配件', '可使用的配件']
 EOL_KWS = ['停产', '替代', '退市']
+
+POLICE_DOC = '24-行业应用口袋书-公安20220520.md'
+SOFT_HARD_DOC = '18-指挥中心采用软件客户端和硬件终端方案对比.md'
 
 
 def normalize(text: str) -> str:
@@ -100,6 +104,23 @@ def pricing_price_lookup(model: str) -> List[Dict]:
         if model_n in name or model_n in category:
             strict.append(r)
     return strict or recs[:3]
+
+
+def enrich_excel_hits(records: List[Dict], max_score: int = None) -> List[Dict]:
+    if not records:
+        return records
+    score_values = [r.get('_score', 0) for r in records if isinstance(r.get('_score', 0), (int, float))]
+    local_max = max_score or max(score_values, default=1)
+    if not local_max or local_max <= 0:
+        local_max = 1
+    out = []
+    for r in records:
+        rr = dict(r)
+        rr['source'] = f"{r.get('source_file', '')} | {r.get('source_sheet', '')} | row {r.get('source_row', '')}"
+        score = r.get('_score', local_max) if isinstance(r.get('_score', 0), (int, float)) else local_max
+        rr['hit_rate'] = round(score / local_max, 3)
+        out.append(rr)
+    return out
 
 
 def proposal_lookup(model: str) -> List[Dict]:
@@ -231,17 +252,26 @@ def accessory_lookup(model: str) -> List[Dict]:
     mn = model.upper()
     for r in recs:
         blob = f"{r.get('product_name','')}\n{r.get('category','')}\n{r.get('description','')}\n{r.get('note','')}"
+        name = r.get('product_name') or ''
+        is_accessory = (r.get('source_sheet') == '配件') or any(x in blob for x in ['摄像头', '麦克风', '传屏', '触控屏', '遥控器', '支架', '投屏器'])
         score = 0
         if mn in blob.upper():
-            score += 80
-        if any(x in blob for x in ['摄像头', '麦克风', '传屏', '触控屏', '遥控器', '支架', '投屏器']):
-            score += 30
-        if score > 0 and (r.get('product_name') not in [model, f'小鱼易连{model}套装']):
+            score += 100
+        if is_accessory:
+            score += 60
+        if '适用型号' in blob or '支持型号' in blob:
+            score += 40
+        if any(x in name for x in ['延保', '服务费', '授权', '软件', '套装', '终端']) and not is_accessory:
+            score -= 120
+        if any(x in name for x in ['套装', '终端主机', '一体化终端', '视频会议终端']):
+            continue
+        if mn not in blob.upper() and '适用型号' not in blob and '支持型号' not in blob:
+            continue
+        if score > 0 and is_accessory and name not in [model, f'小鱼易连{model}套装']:
             rr = dict(r)
             rr['_score'] = score
             out.append(rr)
     out.sort(key=lambda x: (-x['_score'], x.get('source_row', 0)))
-    # de-dup
     seen = set()
     result = []
     for r in out:
@@ -250,7 +280,7 @@ def accessory_lookup(model: str) -> List[Dict]:
             continue
         seen.add(name)
         result.append(r)
-    return result[:15]
+    return result[:12]
 
 
 def route_query(query: str) -> Tuple[str, Dict]:
@@ -269,17 +299,137 @@ def route_query(query: str) -> Tuple[str, Dict]:
         return 'accessory', info
     if len(models) >= 2 and any(k in q for k in COMPARE_KWS):
         return 'compare', info
+    if len(models) == 1 and any(k in q for k in SPEC_KWS):
+        return 'spec', info
     if models and any(k in q for k in PROPOSAL_KWS):
         return 'proposal', info
     if models and ('简单参数' in q or '招标参数' in q):
         return 'proposal', info
-    if '公安' in query or ('软件端' in query and '硬件端' in query):
-        return 'knowledge', info
+    if '公安' in query:
+        return 'police_scene', info
+    if '软件端' in query and '硬件端' in query:
+        return 'software_hardware', info
     return 'generic', info
 
 
-def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
+@lru_cache(maxsize=1)
+def load_card_records() -> List[Dict]:
     cards_dir = ROOT / 'cards' / 'sections'
+    items = []
+    for path in cards_dir.glob('*.json'):
+        try:
+            card = json.loads(path.read_text(encoding='utf-8'))
+            items.append(card)
+        except Exception:
+            continue
+    return items
+
+
+def score_to_hit_rate(score: int, max_score: int = 600) -> float:
+    score = max(0, min(score, max_score))
+    return round(score / max_score, 3)
+
+
+def make_card_hit(card: Dict, score: int) -> Dict:
+    body = card.get('body', '')
+    return {
+        'id': card.get('id'),
+        'title': card.get('title'),
+        'path': card.get('path'),
+        'doc_file': card.get('doc_file'),
+        'source': f"{card.get('doc_file')} | {card.get('path')}",
+        'hit_rate': score_to_hit_rate(score),
+        'body_preview': (body[:240] + '...') if len(body) > 240 else body,
+        '_score': score,
+    }
+
+
+def police_scene_lookup(limit: int = 20) -> Dict:
+    cards = load_card_records()
+    primary = []
+    secondary = []
+    tertiary = []
+    for card in cards:
+        doc = card.get('doc_file', '')
+        path = card.get('path', '')
+        title = card.get('title', '')
+        body = card.get('body', '')
+        blob = f"{title}\n{path}\n{body}\n{doc}"
+        if '公安' not in blob:
+            continue
+        score = 0
+        has_scene_terms = any(k in body for k in ['巡查督导', '会议会商', '业务培训'])
+        if doc == POLICE_DOC:
+            score += 100
+        if '应用场景' in body or '应用场景' in path:
+            score += 80
+        if has_scene_terms:
+            score += 120
+        if all(k in body for k in ['巡查督导', '会议会商', '业务培训']):
+            score += 160
+        if '应用场景实例' in path:
+            score += 70
+        if score <= 0:
+            continue
+        hit = make_card_hit(card, score)
+        if doc == POLICE_DOC and has_scene_terms:
+            primary.append(hit)
+        elif doc == POLICE_DOC:
+            secondary.append(hit)
+        else:
+            tertiary.append(hit)
+    primary.sort(key=lambda x: (-x['_score'], x['id']))
+    secondary.sort(key=lambda x: (-x['_score'], x['id']))
+    tertiary.sort(key=lambda x: (-x['_score'], x['doc_file'], x['id']))
+    ordered = []
+    seen = set()
+    for group in [primary, secondary, tertiary]:
+        for hit in group:
+            if hit['id'] in seen:
+                continue
+            seen.add(hit['id'])
+            ordered.append(hit)
+    return {'engine': 'police_scene', 'hits': ordered[:limit]}
+
+
+def software_hardware_lookup(limit: int = 20) -> Dict:
+    cards = load_card_records()
+    primary = []
+    secondary = []
+    for card in cards:
+        doc = card.get('doc_file', '')
+        path = card.get('path', '')
+        title = card.get('title', '')
+        body = card.get('body', '')
+        blob = f"{title}\n{path}\n{body}\n{doc}"
+        score = 0
+        if doc == SOFT_HARD_DOC:
+            score += 160
+        if any(k in blob for k in ['软件客户端', '软件端', '硬件终端', '硬件端']):
+            score += 80
+        if any(k in blob for k in ['稳定性对比', '音视频接口对比', '音视频质量对比', '功能对比', '运维对比', '选型建议']):
+            score += 100
+        if score <= 0:
+            continue
+        hit = make_card_hit(card, score)
+        if doc == SOFT_HARD_DOC:
+            primary.append(hit)
+        else:
+            secondary.append(hit)
+    primary.sort(key=lambda x: (-x['_score'], x['id']))
+    secondary.sort(key=lambda x: (-x['_score'], x['doc_file'], x['id']))
+    ordered = []
+    seen = set()
+    for group in [primary, secondary]:
+        for hit in group:
+            if hit['id'] in seen:
+                continue
+            seen.add(hit['id'])
+            ordered.append(hit)
+    return {'engine': 'software_hardware', 'hits': ordered[:limit]}
+
+
+def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
     q = query
     required = []
     if '公安' in q:
@@ -288,11 +438,7 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
         required = ['软件', '硬件']
     terms = [t for t in re.findall(r'[A-Za-z0-9\-\+\.]+|[\u4e00-\u9fff]{2,}', q) if len(t) >= 2]
     results = []
-    for path in cards_dir.glob('*.json'):
-        try:
-            card = json.loads(path.read_text(encoding='utf-8'))
-        except Exception:
-            continue
+    for card in load_card_records():
         blob = f"{card.get('title','')}\n{card.get('path','')}\n{card.get('body','')}\n{card.get('doc_file','')}"
         score = 0
         if required and not all(r in blob for r in required):
@@ -300,7 +446,7 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
         for term in terms:
             if term in blob:
                 score += 15
-        if '公安' in q and '公安' in card.get('doc_file', ''):
+        if '公安' in q and card.get('doc_file', '') == POLICE_DOC:
             score += 80
         if '公安' in q and '应用场景' in card.get('path', ''):
             score += 60
@@ -309,19 +455,20 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
         if '硬件端' in q and any(x in blob for x in ['硬件终端', '会议室终端', '一体化终端']):
             score += 50
         if score > 0:
-            results.append({
-                'id': card.get('id'),
-                'title': card.get('title'),
-                'path': card.get('path'),
-                'doc_file': card.get('doc_file'),
-                'body_preview': (card.get('body', '')[:240] + '...') if len(card.get('body', '')) > 240 else card.get('body', ''),
-                '_score': score,
-            })
+            results.append(make_card_hit(card, score))
     results.sort(key=lambda x: (-x['_score'], x.get('doc_file', ''), x.get('title', '')))
     return results[:limit]
 
 
 def run_knowledge_fallback(query: str) -> Dict:
+    if '公安' in query:
+        special = police_scene_lookup()
+        if special.get('hits'):
+            return special
+    if '软件端' in query and '硬件端' in query:
+        special = software_hardware_lookup()
+        if special.get('hits'):
+            return special
     keyword_hits = search_cards_keywords(query)
     if keyword_hits:
         return {'engine': 'card_scan', 'hits': keyword_hits}
@@ -352,25 +499,35 @@ def main():
 
     if intent == 'price' and models:
         recs = pricing_price_lookup(models[0])
-        result['results'] = recs[:5]
+        result['results'] = enrich_excel_hits(recs[:5])
     elif intent == 'eol' and models:
-        result['results'] = pricing_price_lookup(models[0])[:5]
+        result['results'] = enrich_excel_hits(pricing_price_lookup(models[0])[:5])
     elif intent == 'proposal' and models:
-        result['results'] = proposal_lookup(models[0])[:5]
+        result['results'] = enrich_excel_hits(proposal_lookup(models[0])[:5])
     elif intent == 'compare' and len(models) >= 2:
-        result['results'] = {m: comparison_lookup(m) for m in models}
-        # Optional proposal comparison supplement
-        result['proposal_supplement'] = {m: proposal_lookup(m)[:2] for m in models}
+        result['results'] = {m: enrich_excel_hits(comparison_lookup(m)) for m in models}
+        result['proposal_supplement'] = {m: enrich_excel_hits(proposal_lookup(m)[:2]) for m in models}
+    elif intent == 'spec' and models:
+        model = models[0]
+        result['results'] = {
+            'comparison': enrich_excel_hits(comparison_lookup(model)),
+            'proposal_supplement': enrich_excel_hits(proposal_lookup(model)[:2]),
+            'pricing_supplement': enrich_excel_hits(pricing_price_lookup(model)[:1]),
+        }
     elif intent == 'accessory' and models:
-        result['results'] = accessory_lookup(models[0])
+        result['results'] = enrich_excel_hits(accessory_lookup(models[0]))
     elif intent == 'ai_pricing':
-        result['results'] = ai_pricing_lookup()
+        result['results'] = enrich_excel_hits(ai_pricing_lookup())
     elif intent == 'yearly_room':
-        result['results'] = yearly_room_lookup()
+        result['results'] = enrich_excel_hits(yearly_room_lookup())
+    elif intent == 'police_scene':
+        result['results'] = police_scene_lookup()
+    elif intent == 'software_hardware':
+        result['results'] = software_hardware_lookup()
     elif intent == 'knowledge':
         result['results'] = run_knowledge_fallback(query)
     else:
-        result['results'] = search_pricing_text(query)
+        result['results'] = enrich_excel_hits(search_pricing_text(query))
 
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
