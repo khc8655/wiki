@@ -1,0 +1,4561 @@
+{
+  "by_id": {},
+  "by_model": {
+    "AE90": [
+      {
+        "feature": "场景定位",
+        "model": "AE90",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE90",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE90",
+        "value": "7路高清视频输入、3路高清视频输出，可连接3个显示屏显示不同内容",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE90",
+        "value": "7路输入：USB3.0*4，DVI-I*1，HDMI*1,SDI*1\n可同时使用，任意指定为图像或双流",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE90",
+        "value": "3路输出：HDMI*3",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE90",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE90",
+        "value": "HDMI*3，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE90",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE90",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE90",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE90",
+        "value": "3屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE90",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE90",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE90",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE90",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE90",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "XE800": [
+      {
+        "feature": "场景定位",
+        "model": "XE800",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "XE800",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "XE800",
+        "value": "10路高清视频输入、4路高清视频输出，可连接4个显示屏显示不同内容，双网口，支持wifi。",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "XE800",
+        "value": "10路输入：HDMI*3，SDI*1，VGA*1，RJ45*4，Type-C*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "XE800",
+        "value": "4路输出：HDMI*4",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "XE800",
+        "value": "XLR*2,6.35*2，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "XE800",
+        "value": "RCA*4，HDMI*4",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "XE800",
+        "value": "4K60fps",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "XE800",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "XE800",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "XE800",
+        "value": "4屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "XE800",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "XE800",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "XE800",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "XE800",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "XE800",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE800": [
+      {
+        "feature": "场景定位",
+        "model": "AE800",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE800",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE800",
+        "value": "10路高清视频输入、3路高清视频输出，可连接3个显示屏显示不同内容，双网口，两个网络之间构成热备，可自由切换",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE800",
+        "value": "10路输入：USB3.0*2,HDMI*3,RJ45*4,SDI*1\n可同时使用，任意指定为图像或双流",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE800",
+        "value": "3路输出：HDMI*3",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE800",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE800",
+        "value": "HDMI*3，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE800",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE800",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE800",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE800",
+        "value": "3屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE800",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE800",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE800",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE800",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE800",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE700": [
+      {
+        "feature": "场景定位",
+        "model": "AE700",
+        "value": "大中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE700",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE700",
+        "value": "4路高清视频输入、2路高清视频输出，可连接2个显示屏现有不同内容",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE700",
+        "value": "4路输入：HDMI*2、RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE700",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE700",
+        "value": "XLR*2，6.35mm*2，RCA*1,DMIC*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE700",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE700",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE700",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE700",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE700",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE700",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE700",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE700",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE700",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE700",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE650": [
+      {
+        "feature": "场景定位",
+        "model": "AE650",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE650",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE650",
+        "value": "3路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE650",
+        "value": "3路输入：RJ45*2、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE650",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE650",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE650",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE650",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE650",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE650",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE650",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE650",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE650",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE650",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE650",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE650",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE600": [
+      {
+        "feature": "场景定位",
+        "model": "AE600",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE600",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE600",
+        "value": "2路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE600",
+        "value": "2路输入：RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE600",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE600",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE600",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE600",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE600",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE600",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE600",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE600",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE600",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE600",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE600",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE600",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE40": [
+      {
+        "feature": "场景定位",
+        "model": "AE40",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE40",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE40",
+        "value": "1路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE40",
+        "value": "1路输入：HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE40",
+        "value": "HMDI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE40",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE40",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE40",
+        "value": "1080",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE40",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE40",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE40",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE40",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE40",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE40",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE40",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE40",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "GE600": [
+      {
+        "feature": "场景定位",
+        "model": "GE600",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "GE600",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "GE600",
+        "value": "主机、摄像头、麦克风、Wi-Fi、蓝牙模块于一体，可外接可外接显示屏，可外接摄像头及数字麦克风扩展作为中型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "GE600",
+        "value": "3路输入：HDMI*1、RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "GE600",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "GE600",
+        "value": "内置全向麦克风阵列\nMINI-XLR*2，3.5mm*1、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "GE600",
+        "value": "HDMI*2，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "GE600",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "GE600",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "GE600",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "GE600",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "GE600",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "GE600",
+        "value": "内置智能摄像机和云台摄像机\n发言人跟踪,智能全景",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "GE600",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "GE600",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "GE600",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "GE300": [
+      {
+        "feature": "场景定位",
+        "model": "GE300",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "GE300",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "GE300",
+        "value": "主机、摄像头、麦克风、Wi-Fi、蓝牙模块于一体，可外接可外接显示屏，可连接摄像头及数字麦克风扩展作为中小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "GE300",
+        "value": "2路输入：内置4K摄像头、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "GE300",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "GE300",
+        "value": "内置全向麦克风阵列\nMINI-XLR*2，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "GE300",
+        "value": "HDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "GE300",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "GE300",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "GE300",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "GE300",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "GE300",
+        "value": "3倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "GE300",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "GE300",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "GE300",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "GE300",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE20": [
+      {
+        "feature": "场景定位",
+        "model": "AE20",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE20",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE20",
+        "value": "主机、摄像头、麦克风、Wi-Fi模块于一体，安装便捷",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE20",
+        "value": "1路输入：内置高清摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE20",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE20",
+        "value": "内置全向麦克风阵列\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE20",
+        "value": "HDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE20",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE20",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE20",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE20",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE20",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE20",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE20",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE20",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE20",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "TP860": [
+      {
+        "feature": "场景定位",
+        "model": "TP860",
+        "value": "智能会议平板",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "TP860",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "TP860",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕86寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "TP860",
+        "value": "1路输入：内置高清摄像头\nHDMI输入口只可作为显示器输入信号源",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "TP860",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "TP860",
+        "value": "内置全向麦克风阵列\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "TP860",
+        "value": "内置扬声器\n3.5mm*1、HDMI*1、同轴*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "TP860",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "TP860",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "TP860",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "TP860",
+        "value": "自带显示器可扩展单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "TP860",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "TP860",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "TP860",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "TP860",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "TP860",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "TP860",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "TP650": [
+      {
+        "feature": "场景定位",
+        "model": "TP650",
+        "value": "智能会议平板",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "TP650",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "TP650",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕65寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "TP650",
+        "value": "1路输入：内置高清摄像头\nHDMI输入口只可作为显示器输入信号源",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "TP650",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "TP650",
+        "value": "内置全向麦克风阵列",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "TP650",
+        "value": "内置扬声器\n3.5mm*1、HDMI*1、同轴*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "TP650",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "TP650",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "TP650",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "TP650",
+        "value": "自带显示器可扩展单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "TP650",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "TP650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "TP650",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "TP650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "TP650",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "TP650",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE380": [
+      {
+        "feature": "场景定位",
+        "model": "AE380",
+        "value": "办公桌面或小型会议室",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE380",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE380",
+        "value": "摄像头、麦克风、扬声器、电池、4G插槽、触控显示屏高度集成，屏幕11.6寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE380",
+        "value": "集成摄像头\n可扩展RJ45网络摄像头接入",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE380",
+        "value": "集成显示屏\n带HDMI接口，可直接连显示屏",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE380",
+        "value": "内置全向麦克风\nRJ45数字麦克风，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE380",
+        "value": "内置扬声器\nHDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE380",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE380",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE380",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE380",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE380",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE380",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE380",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE380",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE380",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE350": [
+      {
+        "feature": "场景定位",
+        "model": "AE350",
+        "value": "办公桌面或小型会议室",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE350",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE350",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕11.6寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE350",
+        "value": "集成摄像头\n可扩展RJ45网络摄像头接入",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE350",
+        "value": "集成显示屏\n带HDMI接口，可直接连显示屏",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE350",
+        "value": "内置全向麦克风\nRJ45数字麦克风，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE350",
+        "value": "内置扬声器\nHDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE350",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE350",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE350",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE350",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE350",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE350",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE350",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE350",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE350",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE2080": [
+      {
+        "feature": "场景定位",
+        "model": "AE2080",
+        "value": "移动便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE2080",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE2080",
+        "value": "摄像头、麦克风、扬声器、触控显示屏、锂电池、4G插槽、云台电机高度集成，屏幕9.6寸，便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE2080",
+        "value": "集成摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE2080",
+        "value": "集成屏幕\n扩展大屏投放器（HDMI*1）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE2080",
+        "value": "内置全向麦克风\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE2080",
+        "value": "内置扬声器\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE2080",
+        "value": "720P30",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE2080",
+        "value": "H.264HP SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE2080",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE2080",
+        "value": "扩展大屏投放器，支持双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE2080",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE2080",
+        "value": "支持电动\n水平：±170°\n垂直：摄像机，﹢27°，-13°\n屏幕，+40°，-10°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE2080",
+        "value": "终端独立1+4\n大屏投放6",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE2080",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE2080",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ],
+    "AE2060": [
+      {
+        "feature": "场景定位",
+        "model": "AE2060",
+        "value": "移动便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE2060",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE2060",
+        "value": "摄像头、麦克风、扬声器、触控显示屏、锂电池、云台电机高度集成，屏幕9.6寸，便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE2060",
+        "value": "集成摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE2060",
+        "value": "集成屏幕\n扩展大屏投放器（HDMI*1）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE2060",
+        "value": "内置全向麦克风\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE2060",
+        "value": "内置扬声器\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE2060",
+        "value": "720P30",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE2060",
+        "value": "H.264HP SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE2060",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE2060",
+        "value": "扩展大屏投放器，支持双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE2060",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE2060",
+        "value": "支持电动\n水平：±170°\n垂直：摄像机，﹢27°，-13°\n屏幕，+40°，-10°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "通信录",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE2060",
+        "value": "终端独立1+4\n大屏投放6",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE2060",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE2060",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ]
+  },
+  "by_name": {},
+  "by_category": {},
+  "by_feature": {
+    "场景定位": [
+      {
+        "feature": "场景定位",
+        "model": "AE90",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "XE800",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE800",
+        "value": "大型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE700",
+        "value": "大中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE650",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE600",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE40",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "GE600",
+        "value": "中型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "GE300",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE20",
+        "value": "中小型会议室终端",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "TP860",
+        "value": "智能会议平板",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "TP650",
+        "value": "智能会议平板",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE380",
+        "value": "办公桌面或小型会议室",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE350",
+        "value": "办公桌面或小型会议室",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE2080",
+        "value": "移动便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      },
+      {
+        "feature": "场景定位",
+        "model": "AE2060",
+        "value": "移动便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 2
+      }
+    ],
+    "硬件架构": [
+      {
+        "feature": "硬件架构",
+        "model": "AE90",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "XE800",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE800",
+        "value": "专业分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE700",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE650",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE600",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE40",
+        "value": "分体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "GE600",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "GE300",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE20",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "TP860",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "TP650",
+        "value": "一体式",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE380",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE350",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE2080",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      },
+      {
+        "feature": "硬件架构",
+        "model": "AE2060",
+        "value": "全集成，一体化",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 3
+      }
+    ],
+    "终端特性总体描述": [
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE90",
+        "value": "7路高清视频输入、3路高清视频输出，可连接3个显示屏显示不同内容",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "XE800",
+        "value": "10路高清视频输入、4路高清视频输出，可连接4个显示屏显示不同内容，双网口，支持wifi。",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE800",
+        "value": "10路高清视频输入、3路高清视频输出，可连接3个显示屏显示不同内容，双网口，两个网络之间构成热备，可自由切换",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE700",
+        "value": "4路高清视频输入、2路高清视频输出，可连接2个显示屏现有不同内容",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE650",
+        "value": "3路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE600",
+        "value": "2路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE40",
+        "value": "1路高清视频输入、1路高清视频输出，连接单块显示屏进行多画面展示",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "GE600",
+        "value": "主机、摄像头、麦克风、Wi-Fi、蓝牙模块于一体，可外接可外接显示屏，可外接摄像头及数字麦克风扩展作为中型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "GE300",
+        "value": "主机、摄像头、麦克风、Wi-Fi、蓝牙模块于一体，可外接可外接显示屏，可连接摄像头及数字麦克风扩展作为中小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE20",
+        "value": "主机、摄像头、麦克风、Wi-Fi模块于一体，安装便捷",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "TP860",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕86寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "TP650",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕65寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE380",
+        "value": "摄像头、麦克风、扬声器、电池、4G插槽、触控显示屏高度集成，屏幕11.6寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE350",
+        "value": "摄像头、麦克风、扬声器、触控显示屏高度集成，屏幕11.6寸，可外接显示屏，可连接摄像头及数字麦克风扩展作为小型会议室使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE2080",
+        "value": "摄像头、麦克风、扬声器、触控显示屏、锂电池、4G插槽、云台电机高度集成，屏幕9.6寸，便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      },
+      {
+        "feature": "终端特性总体描述",
+        "model": "AE2060",
+        "value": "摄像头、麦克风、扬声器、触控显示屏、锂电池、云台电机高度集成，屏幕9.6寸，便携使用",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 5
+      }
+    ],
+    "高清视频输入": [
+      {
+        "feature": "高清视频输入",
+        "model": "AE90",
+        "value": "7路输入：USB3.0*4，DVI-I*1，HDMI*1,SDI*1\n可同时使用，任意指定为图像或双流",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "XE800",
+        "value": "10路输入：HDMI*3，SDI*1，VGA*1，RJ45*4，Type-C*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE800",
+        "value": "10路输入：USB3.0*2,HDMI*3,RJ45*4,SDI*1\n可同时使用，任意指定为图像或双流",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE700",
+        "value": "4路输入：HDMI*2、RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE650",
+        "value": "3路输入：RJ45*2、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE600",
+        "value": "2路输入：RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE40",
+        "value": "1路输入：HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "GE600",
+        "value": "3路输入：HDMI*1、RJ45*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "GE300",
+        "value": "2路输入：内置4K摄像头、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE20",
+        "value": "1路输入：内置高清摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "TP860",
+        "value": "1路输入：内置高清摄像头\nHDMI输入口只可作为显示器输入信号源",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "TP650",
+        "value": "1路输入：内置高清摄像头\nHDMI输入口只可作为显示器输入信号源",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE380",
+        "value": "集成摄像头\n可扩展RJ45网络摄像头接入",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE350",
+        "value": "集成摄像头\n可扩展RJ45网络摄像头接入",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE2080",
+        "value": "集成摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      },
+      {
+        "feature": "高清视频输入",
+        "model": "AE2060",
+        "value": "集成摄像头",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 6
+      }
+    ],
+    "高清视频输出": [
+      {
+        "feature": "高清视频输出",
+        "model": "AE90",
+        "value": "3路输出：HDMI*3",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "XE800",
+        "value": "4路输出：HDMI*4",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE800",
+        "value": "3路输出：HDMI*3",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE700",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE650",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE600",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE40",
+        "value": "HMDI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "GE600",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "GE300",
+        "value": "HDMI*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE20",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "TP860",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "TP650",
+        "value": "HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE380",
+        "value": "集成显示屏\n带HDMI接口，可直接连显示屏",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE350",
+        "value": "集成显示屏\n带HDMI接口，可直接连显示屏",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE2080",
+        "value": "集成屏幕\n扩展大屏投放器（HDMI*1）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      },
+      {
+        "feature": "高清视频输出",
+        "model": "AE2060",
+        "value": "集成屏幕\n扩展大屏投放器（HDMI*1）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 7
+      }
+    ],
+    "音频输入接口": [
+      {
+        "feature": "音频输入接口",
+        "model": "AE90",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "XE800",
+        "value": "XLR*2,6.35*2，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE800",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE700",
+        "value": "XLR*2，6.35mm*2，RCA*1,DMIC*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE650",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE600",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE40",
+        "value": "XLR*2，6.35mm*2，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "GE600",
+        "value": "内置全向麦克风阵列\nMINI-XLR*2，3.5mm*1、HDMI*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "GE300",
+        "value": "内置全向麦克风阵列\nMINI-XLR*2，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE20",
+        "value": "内置全向麦克风阵列\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "TP860",
+        "value": "内置全向麦克风阵列\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "TP650",
+        "value": "内置全向麦克风阵列",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE380",
+        "value": "内置全向麦克风\nRJ45数字麦克风，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE350",
+        "value": "内置全向麦克风\nRJ45数字麦克风，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE2080",
+        "value": "内置全向麦克风\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      },
+      {
+        "feature": "音频输入接口",
+        "model": "AE2060",
+        "value": "内置全向麦克风\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 8
+      }
+    ],
+    "音频输出接口": [
+      {
+        "feature": "音频输出接口",
+        "model": "AE90",
+        "value": "HDMI*3，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "XE800",
+        "value": "RCA*4，HDMI*4",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE800",
+        "value": "HDMI*3，RCA*2",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE700",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE650",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE600",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE40",
+        "value": "HDMI*1，RCA*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "GE600",
+        "value": "HDMI*2，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "GE300",
+        "value": "HDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE20",
+        "value": "HDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "TP860",
+        "value": "内置扬声器\n3.5mm*1、HDMI*1、同轴*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "TP650",
+        "value": "内置扬声器\n3.5mm*1、HDMI*1、同轴*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE380",
+        "value": "内置扬声器\nHDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE350",
+        "value": "内置扬声器\nHDMI*1，3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE2080",
+        "value": "内置扬声器\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      },
+      {
+        "feature": "音频输出接口",
+        "model": "AE2060",
+        "value": "内置扬声器\n3.5mm*1",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 9
+      }
+    ],
+    "最大处理能力": [
+      {
+        "feature": "最大处理能力",
+        "model": "AE90",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "XE800",
+        "value": "4K60fps",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE800",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE700",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE650",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE600",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE40",
+        "value": "1080",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "GE600",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "GE300",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE20",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "TP860",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "TP650",
+        "value": "1080P",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE380",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE350",
+        "value": "4K",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE2080",
+        "value": "720P30",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      },
+      {
+        "feature": "最大处理能力",
+        "model": "AE2060",
+        "value": "720P30",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 10
+      }
+    ],
+    "视频编解码算法": [
+      {
+        "feature": "视频编解码算法",
+        "model": "AE90",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "XE800",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE800",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE700",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE650",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE600",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE40",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "GE600",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "GE300",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE20",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "TP860",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "TP650",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE380",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE350",
+        "value": "H.264HP SVC/H.265 SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE2080",
+        "value": "H.264HP SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      },
+      {
+        "feature": "视频编解码算法",
+        "model": "AE2060",
+        "value": "H.264HP SVC",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 11
+      }
+    ],
+    "20KHZ以上宽频语音": [
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE90",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "XE800",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE800",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE700",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE650",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE600",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE40",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "GE600",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "GE300",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE20",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "TP860",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "TP650",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE380",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE350",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE2080",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      },
+      {
+        "feature": "20KHZ以上宽频语音",
+        "model": "AE2060",
+        "value": "支持，OPUS",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 12
+      }
+    ],
+    "外接屏幕数量显示": [
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE90",
+        "value": "3屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "XE800",
+        "value": "4屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE800",
+        "value": "3屏输出\n（远端多分屏、远端发言会场/共享内容、本地）",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE700",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE650",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE600",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE40",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "GE600",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "GE300",
+        "value": "双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE20",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "TP860",
+        "value": "自带显示器可扩展单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "TP650",
+        "value": "自带显示器可扩展单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE380",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE350",
+        "value": "单屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE2080",
+        "value": "扩展大屏投放器，支持双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      },
+      {
+        "feature": "外接屏幕数量显示",
+        "model": "AE2060",
+        "value": "扩展大屏投放器，支持双屏输出",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 13
+      }
+    ],
+    "摄像头变焦能力": [
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE90",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "XE800",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE800",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE700",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE650",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE600",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE40",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "GE600",
+        "value": "12倍光学*16倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "GE300",
+        "value": "3倍数字",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE20",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "TP860",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "TP650",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE380",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE350",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE2080",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      },
+      {
+        "feature": "摄像头变焦能力",
+        "model": "AE2060",
+        "value": "无变焦能力",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 14
+      }
+    ],
+    "摄像机旋转能力": [
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE90",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "XE800",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE800",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE700",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE650",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE600",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE40",
+        "value": "支持电动\n水平±170°，垂直±30°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "GE600",
+        "value": "内置智能摄像机和云台摄像机\n发言人跟踪,智能全景",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "GE300",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE20",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE380",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE350",
+        "value": "自带集成的不支持旋转能力\n可扩展接入云台摄像机",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE2080",
+        "value": "支持电动\n水平：±170°\n垂直：摄像机，﹢27°，-13°\n屏幕，+40°，-10°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      },
+      {
+        "feature": "摄像机旋转能力",
+        "model": "AE2060",
+        "value": "支持电动\n水平：±170°\n垂直：摄像机，﹢27°，-13°\n屏幕，+40°，-10°",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 15
+      }
+    ],
+    "发起直播": [
+      {
+        "feature": "发起直播",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      },
+      {
+        "feature": "发起直播",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 16
+      }
+    ],
+    "通信录": [
+      {
+        "feature": "通信录",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "TP860",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "TP650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      },
+      {
+        "feature": "通信录",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 17
+      }
+    ],
+    "签到答题": [
+      {
+        "feature": "签到答题",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "TP860",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "TP650",
+        "value": "不支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      },
+      {
+        "feature": "签到答题",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 18
+      }
+    ],
+    "显示画面最大数量": [
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE90",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "XE800",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE800",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE700",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE650",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE600",
+        "value": "16\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE40",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "GE600",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "GE300",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE20",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "TP860",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "TP650",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE380",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE350",
+        "value": "9\n可无限翻页查看所有参会人员",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE2080",
+        "value": "终端独立1+4\n大屏投放6",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      },
+      {
+        "feature": "显示画面最大数量",
+        "model": "AE2060",
+        "value": "终端独立1+4\n大屏投放6",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 19
+      }
+    ],
+    "画面轮询": [
+      {
+        "feature": "画面轮询",
+        "model": "AE90",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "XE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE800",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE700",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE40",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "GE600",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "GE300",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE20",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "TP860",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "TP650",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE380",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE350",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE2080",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      },
+      {
+        "feature": "画面轮询",
+        "model": "AE2060",
+        "value": "支持",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 20
+      }
+    ],
+    "抗丢包能力": [
+      {
+        "feature": "抗丢包能力",
+        "model": "AE90",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "XE800",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE800",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE700",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE650",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE600",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE40",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "GE600",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "GE300",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE20",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "TP860",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "TP650",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE380",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE350",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE2080",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      },
+      {
+        "feature": "抗丢包能力",
+        "model": "AE2060",
+        "value": "50%丢包音视频流畅不花屏，80%丢包音频清晰连贯",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 21
+      }
+    ],
+    "全向麦克拾音能力": [
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE90",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "XE800",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE800",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE700",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE650",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE600",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE40",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "GE600",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "GE300",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE20",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "TP860",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "TP650",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE380",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE350",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE2080",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      },
+      {
+        "feature": "全向麦克拾音能力",
+        "model": "AE2060",
+        "value": "8米",
+        "source_sheet": "硬件终端产品对比",
+        "source_row": 22
+      }
+    ]
+  }
+}
