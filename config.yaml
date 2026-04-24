@@ -1,0 +1,85 @@
+# wiki_test 知识库配置
+# 所有路径支持绝对路径或相对于本文件的路径
+
+# 基础路径设置
+workspace:
+  # 知识库根目录（默认自动检测）
+  root: "${WIKI_ROOT:-auto}"
+  # 数据存储目录（建议放在持久化存储）
+  data_dir: "${WIKI_DATA_DIR:-./data}"
+
+# WebDAV 配置（用于拉取原始文档）
+webdav:
+  base_url: "${WEBDAV_URL:-https://dav.jjb115799.fnos.net}"
+  username: "${WEBDAV_USER:-}"
+  password: "${WEBDAV_PASS:-}"
+  # 原始文档路径
+  raw_path: "/下载/temp/wiki_raw/"
+  # 标注结果路径
+  annotation_path: "/下载/temp/gemma_results/"
+  # 备份路径
+  backup_path: "/下载/temp/"
+
+# 数据源配置
+sources:
+  # 原始文档目录（从 WebDAV 同步）
+  raw:
+    path: "./raw"
+  
+  # 卡片生成目录
+  cards:
+    path: "./cards/sections"
+    manifest: "./cards/manifest.json"
+  
+  # Excel 数据目录
+  excel:
+    root: "./excel_store"
+    pricing: "./excel_store/pricing"
+    comparison: "./excel_store/comparison"
+    proposal: "./excel_store/proposal"
+  
+  # 索引存储目录
+  indexes:
+    root: "./index_store"
+    annotation: "./index_store/annotation_doc_index.json"
+    fts5: "./index_store/wiki_fts5.db"
+
+# 查询配置
+query:
+  # 默认返回结果数
+  default_limit: 20
+  # 价格类查询优先级
+  price_keywords: ["价格", "报价", "多少钱", "费用"]
+  # 对比类查询关键词
+  compare_keywords: ["对比", "比较", "区别", "差异", "vs"]
+  # 规格类查询关键词
+  spec_keywords: ["规格", "接口", "编解码", "输入", "输出"]
+  # 配件类查询关键词
+  accessory_keywords: ["配件", "附件", "可用配件"]
+  # 停产类查询关键词
+  eol_keywords: ["停产", "替代", "退市"]
+  
+# 模型匹配正则
+models:
+  pattern: "(AE\\d{3}[A-Z]?|XE\\d{3}[A-Z]?|GE\\d{3}[A-Z]?|PE\\d{4}|TP\\d{3}(?:-[A-Z])?|MX\\d{2}|AC\\d{2}|NC\\d{2}|NP\\d{2}(?:V?\\d+)?)"
+
+# 优先文档配置
+priority_docs:
+  police: "24-行业应用口袋书-公安20220520.md"
+  software_hardware: "18-指挥中心采用软件客户端和硬件终端方案对比.md"
+
+# GitHub 配置
+github:
+  # 是否自动同步
+  auto_sync: false
+  # 远程仓库
+  remote: "origin"
+  # 分支
+  branch: "main"
+
+# 日志配置
+logging:
+  level: "${LOG_LEVEL:-INFO}"
+  file: "./logs/wiki.log"
+  max_size: "10MB"
+  backup_count: 5
