@@ -8,18 +8,6 @@ workspace:
   # 数据存储目录（建议放在持久化存储）
   data_dir: "${WIKI_DATA_DIR:-./data}"
 
-# WebDAV 配置（用于拉取原始文档）
-webdav:
-  base_url: "${WEBDAV_URL:-https://dav.jjb115799.fnos.net}"
-  username: "${WEBDAV_USER:-}"
-  password: "${WEBDAV_PASS:-}"
-  # 原始文档路径
-  raw_path: "/下载/temp/wiki_raw/"
-  # 标注结果路径
-  annotation_path: "/下载/temp/gemma_results/"
-  # 备份路径
-  backup_path: "/下载/temp/"
-
 # 数据源配置
 sources:
   # 原始文档目录（从 WebDAV 同步）

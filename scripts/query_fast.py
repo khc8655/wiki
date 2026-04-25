@@ -17,6 +17,14 @@ from typing import Dict, List, Tuple
 ROOT = Path(__file__).resolve().parents[1]
 EXCEL_STORE = ROOT / 'excel_store'
 
+# Import BM25 retriever
+try:
+    sys.path.insert(0, str(ROOT / 'lib'))
+    from retrieval_bm25 import get_retriever, search_cards_bm25
+    HAS_BM25 = True
+except ImportError:
+    HAS_BM25 = False
+
 MODEL_RE = re.compile(r'(AE\d{3}[A-Z]?|XE\d{3}[A-Z]?|GE\d{3}[A-Z]?|PE\d{4}|TP\d{3}(?:-[A-Z])?|MX\d{2}|AC\d{2}|NC\d{2}|NP\d{2}(?:V?\d+)?)', re.I)
 
 PRICE_KWS = ['价格', '报价', '多少钱', '费用']
@@ -548,8 +556,27 @@ def score_card_dual_path(card: Dict, query: str, terms: List[str], required: Lis
 
 def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
     """
-    Dual-path retrieval: search both original text AND semantic tags.
+    BM25-based retrieval with semantic tag boosting.
+    Falls back to legacy scoring if BM25 not available.
     """
+    # Try BM25 first
+    if HAS_BM25:
+        try:
+            retriever = get_retriever(ROOT / 'cards' / 'sections')
+            bm25_results = retriever.search(query, top_k=limit, semantic_boost=0.3)
+            
+            results = []
+            for card_id, score, card in bm25_results:
+                hit = make_card_hit(card, int(score * 100))
+                hit['semantic_tags'] = get_card_semantic_tags(card)[:10]
+                hit['match_type'] = 'bm25'
+                results.append(hit)
+            
+            return results
+        except Exception:
+            pass  # Fall back to legacy
+    
+    # Legacy dual-path scoring (fallback)
     q = query
     required = []
     if '公安' in q:
@@ -557,15 +584,12 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
     elif '软件端' in q and '硬件端' in q:
         required = ['软件', '硬件']
     
-    # Extract query terms (both English model codes and Chinese terms)
     terms = [t for t in re.findall(r'[A-Za-z0-9\-\+\.]+|[\u4e00-\u9fff]{2,}', q) if len(t) >= 2]
     
     results = []
     for card in load_card_records():
-        # Dual-path scoring
         score = score_card_dual_path(card, q, terms, required)
         
-        # Legacy boosts for specific scenarios
         if '公安' in q and card.get('doc_file', '') == POLICE_DOC:
             score += 80
         if '公安' in q and '应用场景' in card.get('path', ''):
@@ -577,8 +601,8 @@ def search_cards_keywords(query: str, limit: int = 12) -> List[Dict]:
         
         if score > 0:
             hit = make_card_hit(card, score)
-            # Include semantic info in hit
             hit['semantic_tags'] = get_card_semantic_tags(card)[:10]
+            hit['match_type'] = 'legacy'
             results.append(hit)
     
     results.sort(key=lambda x: (-x['_score'], x.get('doc_file', ''), x.get('title', '')))
@@ -654,6 +678,18 @@ def main():
     else:
         result['results'] = enrich_excel_hits(search_pricing_text(query))
 
+    # Check for empty results and provide guidance
+    results = result.get('results', {})
+    hits = results.get('hits', []) if isinstance(results, dict) else results
+    
+    if not hits or (isinstance(hits, list) and len(hits) == 0):
+        result['hit_count'] = 0
+        result['message'] = "未找到相关内容。建议：1) 检查关键词拼写 2) 查看 AGENTS.md 了解知识库范围 3) 联系管理员更新知识库"
+        result['empty'] = True
+    else:
+        result['hit_count'] = len(hits) if isinstance(hits, list) else 'N/A'
+        result['empty'] = False
+
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
@@ -661,7 +697,11 @@ def main():
     print(f"intent: {intent}")
     if models:
         print(f"models: {', '.join(models)}")
-    print(json.dumps(result.get('results'), ensure_ascii=False, indent=2))
+    
+    if result.get('empty'):
+        print(f"\n[提示] {result['message']}")
+    else:
+        print(json.dumps(result.get('results'), ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

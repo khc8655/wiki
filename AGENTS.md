@@ -47,6 +47,31 @@ grep -ri "关键词" ./raw --include="*.md" --include="*.txt"
 - 不标来源
 - 先总结再给原文
 
+## 新增功能（v1.3+）
+
+### 1. BM25 检索引擎
+- 替换原有的简单打分（score += 15/25）
+- 支持 TF-IDF + 长度归一化
+- 自动融合语义标签（semantic tags）
+
+### 2. Content Hash 一致性检查
+```bash
+# 检查哪些卡片需要重新标注
+python3 scripts/check_stale_cards.py
+
+# 更新所有卡片的 hash
+python3 scripts/check_stale_cards.py --update
+```
+
+### 3. 空结果提示
+查询无结果时，系统会提示：
+```
+未找到相关内容。建议：
+1) 检查关键词拼写
+2) 查看 AGENTS.md 了解知识库范围
+3) 联系管理员更新知识库
+```
+
 ---
 
 **任何 agent 处理本知识库前，必须先读此文件。**

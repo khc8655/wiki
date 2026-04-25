@@ -2,6 +2,7 @@
 
 > 面向 Agent 的专业知识库框架：可配置、可扩展、零门槛上手。
 
+[![Version](https://img.shields.io/badge/version-v3.0-blue.svg)]()
 [![Setup](https://img.shields.io/badge/setup-python3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
@@ -9,19 +10,21 @@
 
 ## 快速开始（5分钟）
 
+> **Agent 用户请先阅读**：[AGENTS.md](AGENTS.md) - 查询规则、检索入口、原文引用规范
+
 ```bash
-# 1. 检查环境
+# 1. 克隆仓库
+git clone https://github.com/khc8655/wiki.git
+cd wiki
+
+# 2. 检查环境
 python3 setup.py --check
 
-# 2. 初始化目录
-python3 setup.py --init
-
-# 3. 配置 WebDAV（如需同步）
-export WEBDAV_USER="jjb"
-export WEBDAV_PASS="jjb@115799"
-
-# 4. 运行测试
+# 3. 运行测试
 python3 scripts/run_fast_tests.py
+
+# 4. 开始查询
+python3 scripts/query_fast.py "你的查询" --json
 ```
 
 **查看详细指南**：[QUICKSTART.md](QUICKSTART.md)
@@ -165,25 +168,16 @@ python scripts/benchmark_fast_queries.py
 ```yaml
 workspace:
   root: "${WIKI_ROOT:-auto}"
-  
-webdav:
-  base_url: "${WEBDAV_URL:-https://dav.jjb115799.fnos.net}"
-  username: "${WEBDAV_USER:-}"
-  password: "${WEBDAV_PASS:-}"
 
 query:
   default_limit: 20
   price_keywords: ["价格", "报价", "多少钱"]
 ```
 
-### 环境变量
+### 环境变量（可选）
 
 ```bash
-# WebDAV 配置
-export WEBDAV_USER="jjb"
-export WEBDAV_PASS="jjb@115799"
-
-# 工作目录
+# 工作目录（自动检测，一般无需设置）
 export WIKI_ROOT="/path/to/wiki"
 
 # 调试
@@ -247,15 +241,21 @@ python setup.py --check
 
 | 文档 | 内容 |
 |------|------|
+| [AGENTS.md](AGENTS.md) | **Agent 必读**：工作流规范、查询规则、快速入口 |
 | [QUICKSTART.md](QUICKSTART.md) | 5分钟快速上手 |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构设计 |
 | [API.md](API.md) | 脚本/API 参考 |
-| [AGENTS.md](AGENTS.md) | Agent 工作流规范 |
 | [CHANGELOG.md](CHANGELOG.md) | 版本更新日志 |
 
 ---
 
 ## 版本历史
+
+### v3.0（检索引擎升级）
+- ✅ BM25 检索引擎（TF-IDF + 长度归一化）
+- ✅ Content Hash 一致性检查
+- ✅ 空结果智能提示
+- ✅ 仓库结构清理（可移植到任意环境）
 
 ### v1.2（深度融合）
 - ✅ GLM-4-9B 标注层深度融合

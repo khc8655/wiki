@@ -125,17 +125,11 @@ def check_card_data():
 
 
 def check_webdav_config():
-    """Check WebDAV configuration."""
+    """Check WebDAV configuration (legacy, no longer required)."""
     print_header("WebDAV Configuration Check")
-    
-    base_url = config.path('webdav', 'base_url')
-    username, password = config.get_webdav_credentials()
-    
-    print_check("Base URL", True, base_url)
-    print_check("Username", bool(username), username or "(not set)")
-    print_check("Password", bool(password), "***" if password else "(not set)")
-    
-    return bool(username and password)
+    print("  [INFO] WebDAV integration removed in v3.0")
+    print("  Data should be placed directly in ./raw/ and ./excel_store/")
+    return True
 
 
 def check_scripts():
@@ -147,9 +141,7 @@ def check_scripts():
         'query_fast.py',
         'run_fast_tests.py',
         'benchmark_fast_queries.py',
-        'import_webdav_raw.py',
-        'merge_annotations_to_cards.py',
-        'refresh_from_webdav.sh',
+        'check_stale_cards.py',
     ]
     
     all_exist = True
@@ -170,21 +162,13 @@ def print_environment_help():
     print("""
 The following environment variables can override config.yaml:
 
-  WEBDAV_USER        WebDAV username
-  WEBDAV_PASS        WebDAV password
-  WEBDAV_URL         WebDAV base URL (default: https://dav.jjb115799.fnos.net)
-  
   WIKI_ROOT          Knowledge base root directory (default: auto-detect)
   WIKI_DATA_DIR      Data storage directory (default: ./data)
-  
   LOG_LEVEL          Logging level (default: INFO)
 
 Examples:
-  export WEBDAV_USER="your_username"
-  export WEBDAV_PASS="your_password"
-  
-  # Or one-time
-  WEBDAV_USER="user" WEBDAV_PASS="pass" python scripts/query_fast.py "query"
+  export WIKI_ROOT="/path/to/wiki"
+  python scripts/query_fast.py "AE800多少钱"
 """)
 
 
@@ -215,22 +199,15 @@ def print_quickstart():
     print_header("Quick Start Guide")
     
     print("""
-1. Set WebDAV credentials (if syncing from WebDAV):
-   export WEBDAV_USER="your_username"
-   export WEBDAV_PASS="your_password"
-
-2. Import data from WebDAV:
-   ./scripts/refresh_from_webdav.sh
-   
-   Or manually place files:
+1. Place data files:
    - Raw docs: ./raw/
    - Excel data: ./excel_store/{pricing,comparison,proposal}/
 
 3. Build Excel indexes:
    python scripts/build_excel_knowledge.py
 
-4. Merge annotations (if available):
-   python scripts/merge_annotations_to_cards.py
+4. Check card consistency (optional):
+   python scripts/check_stale_cards.py
 
 5. Test queries:
    python scripts/run_fast_tests.py

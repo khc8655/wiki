@@ -23,14 +23,6 @@ DEFAULT_CONFIG = {
         'root': 'auto',
         'data_dir': './data'
     },
-    'webdav': {
-        'base_url': 'https://dav.jjb115799.fnos.net',
-        'username': '',
-        'password': '',
-        'raw_path': '/下载/temp/wiki_raw/',
-        'annotation_path': '/下载/temp/gemma_results/',
-        'backup_path': '/下载/temp/'
-    },
     'sources': {
         'raw': {'path': './raw'},
         'cards': {'path': './cards/sections', 'manifest': './cards/manifest.json'},
@@ -202,19 +194,6 @@ class Config:
         """Allow dict-like access: config['key']."""
         return self._config[key]
     
-    def get_webdav_credentials(self) -> tuple:
-        """Get WebDAV credentials from config or environment."""
-        username = self.get('webdav', 'username', default='')
-        password = self.get('webdav', 'password', default='')
-        
-        # Fallback to environment variables
-        if not username:
-            username = os.environ.get('WEBDAV_USER', '')
-        if not password:
-            password = os.environ.get('WEBDAV_PASS', '')
-        
-        return username, password
-    
     def list_models(self) -> list:
         """Get list of configured model patterns."""
         return self.get('query', 'model_keywords', default=[])
@@ -240,4 +219,3 @@ if __name__ == '__main__':
     print(f"Root: {cfg.root}")
     print(f"Raw path: {cfg.path('sources', 'raw', 'path')}")
     print(f"Cards path: {cfg.path('sources', 'cards', 'path')}")
-    print(f"WebDAV URL: {cfg.path('webdav', 'base_url')}")
