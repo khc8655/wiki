@@ -89,7 +89,7 @@ class Config:
             possible_paths = [
                 Path(__file__).resolve().parents[1] / 'config.yaml',
                 Path.cwd() / 'config.yaml',
-                Path('/workspace/wiki_test/config.yaml')
+                Path.cwd().parent / 'config.yaml'
             ]
             for path in possible_paths:
                 if path.exists():
@@ -150,7 +150,7 @@ class Config:
                 if (parent / 'config.yaml').exists():
                     return parent
             # Fallback to standard paths
-            for path in [Path('/workspace/wiki_test'), Path.home() / 'wiki_test']:
+            for path in [Path.cwd(), Path.cwd().parent, Path.home() / 'wiki_test']:
                 if path.exists():
                     return path
         else:

@@ -34,7 +34,8 @@
 
 ### 直接调用Node查询
 ```bash
-cd /workspace/wiki_test
+# 进入项目目录（根据实际情况调整路径）
+cd <project_root>
 
 # 价格查询
 node scripts/query_default.js "AE800的价格"

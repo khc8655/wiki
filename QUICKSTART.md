@@ -7,7 +7,8 @@
 ## 1. 环境检查（30秒）
 
 ```bash
-cd /workspace/wiki_test
+# 进入项目目录（根据实际情况调整路径）
+cd <project_root>
 python3 setup.py --check
 ```
 

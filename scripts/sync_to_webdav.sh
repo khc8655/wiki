@@ -3,7 +3,10 @@
 
 set -euo pipefail
 
-SOURCE_DIR="/workspace/wiki_test"
+# 自动检测脚本所在目录的父目录（即项目根目录）
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+SOURCE_DIR="$PROJECT_ROOT"
 BACKUP_NAME="wiki_test_backup_$(date +%Y%m%d_%H%M%S)"
 REMOTE_DIR="/下载/temp/${BACKUP_NAME}"
 WEBDAV_URL="https://dav.jjb115799.fnos.net"
@@ -18,7 +21,7 @@ echo ""
 
 # 创建临时压缩包
 echo "[1/4] 正在压缩数据..."
-TAR_FILE="/tmp/${BACKUP_NAME}.tar.gz"
+TAR_FILE="${TMPDIR:-/tmp}/${BACKUP_NAME}.tar.gz"
 cd "$(dirname "$SOURCE_DIR")"
 tar --exclude='.git' -czf "$TAR_FILE" "$(basename "$SOURCE_DIR")"
 TAR_SIZE=$(du -h "$TAR_FILE" | cut -f1)
@@ -39,7 +42,7 @@ echo ""
 
 # 生成目录清单
 echo "[4/4] 生成目录清单..."
-MANIFEST_FILE="/tmp/${BACKUP_NAME}_manifest.txt"
+MANIFEST_FILE="${TMPDIR:-/tmp}/${BACKUP_NAME}_manifest.txt"
 cat > "$MANIFEST_FILE" << MANIFEST
 知识库备份信息
 ================

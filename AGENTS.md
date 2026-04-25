@@ -21,7 +21,8 @@ wiki_test/
 
 ### 按关键词搜索
 ```bash
-grep -ri "关键词" /workspace/wiki_test/raw --include="*.md" --include="*.txt"
+# 在项目根目录下执行
+grep -ri "关键词" ./raw --include="*.md" --include="*.txt"
 ```
 
 ### 直接读取场景文档
