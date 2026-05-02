@@ -1,237 +1,109 @@
-# wiki_test 快速上手指南
+# wiki_test 快速上手指南 v3.1
 
-> **目标**：让任何 agent 在 5 分钟内跑通知识库查询。
+> 5 分钟跑通知识库查询。
 
 ---
 
 ## 1. 环境检查（30秒）
 
 ```bash
-# 进入项目目录（根据实际情况调整路径）
-cd <project_root>
+cd wiki_test
 python3 setup.py --check
+python3 -c "import numpy, requests; print('deps OK')"
 ```
 
-预期输出：
-```
-============================================================
-  Directory Structure Check
-============================================================
-  [✓] Raw source                             ./raw
-  [✓] Cards                                  ./cards/sections
-  [✓] Excel pricing                          ./excel_store/pricing
-  ...
-
-============================================================
-  Summary
-============================================================
-  [✓] Directory Structure                    OK
-  [✓] Excel Data                             OK
-  ...
-```
-
-如果有 ❌，运行修复：
-```bash
-python3 setup.py --init        # 创建缺失的目录
-```
-
----
-
-## 2. 配置 WebDAV（如果需要同步数据）
+## 2. 设置 API Key（30秒）
 
 ```bash
-export WEBDAV_USER="jjb"
-export WEBDAV_PASS="jjb@115799"
+export SILICONFLOW_API_KEY="sk-obkmzlzcqcrczvjmnwvxcioyxlcsrrhvqaqzzofltdvupaip"
 ```
 
-验证连接：
+## 3. 查询（1分钟）
+
 ```bash
-python3 setup.py --check
-# 应该显示:
-#   [✓] Username                               jjb
-#   [✓] Password                               ***
+# 表格类 - 型号查询
+python3 query_unified.py "AE700的接口参数"
+python3 query_unified.py "PE8800参数"
+python3 query_unified.py "GE600招标参数"
+
+# 方案类 - 概念场景
+python3 query_unified.py "视频会议安全加密方案"
+python3 query_unified.py "公安行业解决方案"
+python3 query_unified.py "多活热备容灾"
+
+# 更新类 - 版本迭代
+python3 query_unified.py "3月迭代新功能"
+
+# JSON 格式
+python3 query_unified.py "AE700的接口参数" --json
+
+# 反馈 + 诊断
+python3 query_unified.py "查询内容" --feedback good
+python3 query_unified.py "查询内容" --verbose
 ```
 
----
+## 4. 离线任务
 
-## 3. 快速测试查询（1分钟）
-
-### 3.1 运行全部测试用例
 ```bash
-python3 scripts/run_fast_tests.py
-```
-
-### 3.2 单个查询测试
-```bash
-# 价格查询
-python3 scripts/query_fast.py "AE800多少钱"
-
-# JSON 格式输出
-python3 scripts/query_fast.py "AE800多少钱" --json
-
-# 对比查询
-python3 scripts/query_fast.py "XE800与AE800对比" --json
-
-# 行业应用
-python3 scripts/query_fast.py "公安行业应用" --json
-```
-
----
-
-## 4. 数据源说明
-
-### Excel 数据（本地）
-位置：`excel_store/`
-
-| 目录 | 用途 | 典型查询 |
-|------|------|----------|
-| `pricing/` | 价格表 | "AE800多少钱" |
-| `comparison/` | 产品对比 | "XE800 vs AE800" |
-| `proposal/` | 招标参数 | "AE800招标参数" |
-
-### 卡片数据（原始文档切片）
-位置：`cards/sections/*.json`
-
-每张卡片包含：
-- `title`: 标题
-- `body`: 正文内容
-- `semantic`: 语义标签（标注层深度融合）
-
-### 原始文档
-位置：`raw/`
-
-从 WebDAV 同步的原始 Markdown 文件。
-
----
-
-## 5. 常见任务
-
-### 从 WebDAV 拉取最新文档
-```bash
+# 入库新文档
 ./scripts/refresh_from_webdav.sh
+
+# 全量标注 + 向量化（每次入库后运行）
+python3 scripts/annotate_cards.py --doc-type solution
+python3 scripts/build_embeddings.py
+
+# 卡片自组织分析
+python3 scripts/organize_cards.py --dry-run --cluster 10
+python3 scripts/organize_cards.py --merge --related --topics --all
+
+# 反馈分析 + 权重优化
+python3 query_unified.py --optimize
+python3 query_unified.py --optimize --optimize-apply
 ```
 
-### 重建 Excel 索引
-```bash
-python3 scripts/build_excel_knowledge.py
-```
+## 5. 数据源
 
-### 融合标注数据
-```bash
-python3 scripts/merge_annotations_to_cards.py
-```
+| 类型 | 位置 | 检索 |
+|------|------|------|
+| 表格类 (Excel) | `excel_store/` → `db/excel_store.db` | SQLite |
+| 方案类 (MD) | `cards/sections/*.json` | BM25+Vector |
+| 更新类 (MD) | `cards/sections/*.json` | BM25 粗粒度 |
+| PPT类 | `ppt_analysis/` | 图片理解 |
 
-### 性能测试
-```bash
-python3 scripts/benchmark_fast_queries.py
-```
-
----
-
-## 6. 查询类型与路由
-
-系统会自动识别查询意图：
-
-| 查询词 | 意图 | 数据源 |
-|--------|------|--------|
-| "价格" "多少钱" | price | excel_store/pricing |
-| "对比" "vs" | compare | excel_store/comparison |
-| "招标" "参数" | proposal | excel_store/proposal |
-| "公安" | police_scene | cards/sections |
-| "软件端" "硬件端" | software_hardware | cards/sections |
-
----
-
-## 7. 输出格式
-
-### 标准输出
-```json
-{
-  "query": "AE800多少钱",
-  "intent": "price",
-  "models": ["AE800"],
-  "results": [
-    {
-      "product_name": "小鱼易连AE800套装",
-      "price_raw": "¥38,000",
-      "source": "产品价格表2026.xlsx | 硬件终端 | row 15",
-      "hit_rate": 1.0
-    }
-  ]
-}
-```
-
-### 关键字段
-- `source`: 文档出处（文件名 | 工作表 | 行号）
-- `hit_rate`: 匹配度（0.0-1.0）
-- `intent`: 识别到的查询意图
-
----
-
-## 8. 故障排查
-
-### 问题：查询返回空结果
-```bash
-# 检查 Excel 索引是否存在
-ls excel_store/pricing/records.json
-
-# 检查卡片是否存在
-ls cards/sections/*.json | wc -l
-```
-
-### 问题：WebDAV 同步失败
-```bash
-# 检查凭据
-export WEBDAV_USER="jjb"
-export WEBDAV_PASS="jjb@115799"
-
-# 重新运行
-python3 setup.py --check
-```
-
-### 问题：查询速度慢
-```bash
-# 运行性能测试
-python3 scripts/benchmark_fast_queries.py
-```
-
----
-
-## 9. 项目结构速览
+## 6. 项目结构
 
 ```
 wiki_test/
-├── config.yaml              # 配置文件
-├── setup.py                 # 环境检查/初始化
-├── QUICKSTART.md            # 本文档
-│
-├── scripts/                 # 查询脚本
-│   ├── query_fast.py        # 主查询入口
-│   ├── run_fast_tests.py    # 测试用例
+├── query_unified.py          # 四源路由引擎（主入口）
+├── lib/                      # 12 个核心模块
+│   ├── llm_client.py         # API 封装
+│   ├── hybrid_retriever.py   # 混合检索
+│   ├── card_organizer.py     # 卡片自组织
 │   └── ...
-│
-├── excel_store/             # Excel 数据
-│   ├── pricing/
-│   ├── comparison/
-│   └── proposal/
-│
-├── cards/                   # 文档卡片
-│   └── sections/
-│
-├── raw/                     # 原始文档
-├── index_store/             # 索引文件
-└── lib/                     # 配置模块
-    └── config.py
+├── scripts/                  # 离线脚本
+│   ├── annotate_cards.py     # 标注
+│   ├── build_embeddings.py   # 向量化
+│   ├── organize_cards.py     # 聚类/主题
+│   └── run_fast_tests.py     # 9项测试
+├── cards/sections/           # 1885张卡片
+├── index_store/              # embeddings + feedback log
+└── raw/                      # 原始文档
+```
+
+## 7. 故障排查
+
+```bash
+# 缺少依赖
+pip install numpy requests --break-system-packages
+
+# 向量检索失败（首次使用先跑）
+python3 scripts/build_embeddings.py
+
+# 查询为空（检查索引）
+ls index_store/embeddings/card_embeddings.npy
+ls db/excel_store.db
 ```
 
 ---
 
-## 10. 下一步
-
-- 查看完整文档：`README.md`
-- 了解查询策略：`docs/`
-- 查看 agent 工作流：`AGENTS.md`
-
----
-
-**需要帮助？** 运行 `python3 setup.py --quickstart` 查看完整指南。
+完整文档: `README.md` | `API.md` | `ARCHITECTURE.md` | `AGENTS.md`

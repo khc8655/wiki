@@ -1,104 +1,96 @@
 # Changelog
 
+## V3.1 - 2026-05-02
+
+### Karpathy-style 自组织知识系统
+
+**新增：**
+- **反馈闭环** (`lib/feedback.py`, `lib/query_refiner.py`)
+  - 每次查询自动记录到 `query_feedback.jsonl`
+  - 低质量查询触发 LLM 驱动的对话式优化
+  - 支持 `--verbose`, `--feedback`, `--ref-query-id`
+- **权重优化** (`lib/weight_optimizer.py`)
+  - 基于反馈数据自动调整 BM25/Vector 权重
+  - Trust Region: 每次变更上限 ±0.15
+  - 渐进优化: 每 50 条新反馈触发重新分析
+- **卡片自组织** (`lib/card_organizer.py`, `scripts/organize_cards.py`)
+  - embedding 余弦相似度发现相似卡片对
+  - 高度相似建议合并 (≥0.92), 相关建议关联 (0.85-0.92)
+  - 纯 numpy KMeans 聚类成主题
+  - 过滤锅炉板壳卡片噪声
+
+### 标注+检索链路重构
+
+**重写：**
+- `query_unified.py` — 四源路由引擎 (表格类/方案类/更新类/PPT类)
+- `lib/annotator.py` — 段落级中文语义标注 (Qwen2.5-7B-Instruct)
+- `lib/embedder.py` — 向量化构建 (bge-large-zh-v1.5)
+- `lib/vector_search.py` — 余弦相似度向量检索
+- `lib/hybrid_retriever.py` — BM25+Vector 融合 (0.4/0.6)
+- `lib/llm_client.py` — SiliconFlow API 封装
+
+**改造：**
+- `lib/retrieval_bm25.py` — 索引含 semantic tags, boost 读新标注字段
+- `lib/excel_db.py` — Excel → SQLite 多阶段查询
+
+**数据：**
+- 1773 张方案卡片全量段落级标注 + 1024维向量化
+- 去除 WebDAV 中转和零碎索引
+
+**性能：**
+- "视频会议安全加密方案" 命中率 90-95%, 跨 6 份文档召回
+- 9 项历史测试全部通过
+
+---
+
 ## V3.0 - 2026-04-25
 
-### 检索引擎升级与一致性保障
+### 检索引擎升级
 
 - **新增 BM25 检索引擎** (`lib/retrieval_bm25.py`)
-  - 替换简单累加打分（score += 15/25）
-  - 支持 TF-IDF + 长度归一化
-  - 自动融合语义标签（semantic tags）
-  - 纯 Python 实现，无外部依赖
-
 - **新增 Content Hash 一致性检查** (`scripts/check_stale_cards.py`)
-  - 检测文档更新后卡片是否过期
-  - 支持 `--dry-run` 和 `--update` 两种模式
-  - 记录标注时间戳和版本，便于追溯
-
-- **新增空结果提示机制** (`scripts/query_fast.py`)
-  - 查询无结果时给出明确提示
-  - 不回退到宽泛匹配，保证结果准确性
-
-- **仓库结构清理**
-  - 删除冗余文档和过时目录
-  - 修复所有硬编码路径
-  - 确保仓库可移植到任意环境
+- **新增空结果提示机制**
+- **仓库结构清理**（可移植到任意环境）
 
 ## V2.6 - 2026-04-20
 
 ### GitHub 同步边界重构
 
-- 更新: `.gitignore`，默认忽略原始文档、cards、索引、relations、tree、topics、wiki 等数据与派生结果
-- 更新: `push_to_github.sh`，改为仅提交程序、规则配置和说明文档
-- 更新: `README.md`，明确 GitHub 只作为可复用框架仓库，不承载原始资料与本地生成结果
+- 更新 `.gitignore` 和 `push_to_github.sh`，仅提交程序/规则/说明
 
 ## V2.5 - 2026-04-18
 
 ### 文档与版本整理
 
-- 统一当前版本号为 `v2.5`，收口此前 README / CHANGELOG / bridge 文档中的混用表述
-- 删除说明文档中不必要的 skills 相关描述，改为围绕当前仓库内实际脚本与命令说明
-- 新增 `docs/query-workflow.md`，明确查询流程中每一步该使用什么工具、何时使用、如何串联
-- 新增 `docs/release-note-schema.md`，定义更新说明文档的推荐字段与最小可用字段集
-- 更新 `README.md` 与 `qmd_bridge/README.md`，补齐命令级示例与工具定位说明
-- 更新 `wiki/log.md`，同步当前版本状态与说明文档整理结果
-
----
+- 统一版本号为 `v2.5`，新增 `docs/query-workflow.md`, `docs/release-note-schema.md`
 
 ## V2.4 - 2026-04-18
 
-### QMD 风格集合检索实验层 + 文档双轨规则
+### QMD 风格集合检索实验层
 
-- 新增 `qmd_bridge/doc_profiles.json`，声明 `solution / release_note` 两类文档
-- 更新 `qmd_bridge/collections.json`，改为 `solution_cards / solution_topics / solution_wiki / release_notes`
-- 新增 `scripts/build_qmd_bridge_index.py`，构建跨层 SQLite FTS5 集合索引，并按文档类型分流
-- 更新 `scripts/query_default.js`，让默认查询入口可自动区分方案类与更新类问题
-- 新增 `scripts/query_qmd_bridge.py`，提供按 collection 的显式检索入口
-- `index_store/qmd_bridge.db` 作为本地生成索引产物，加入实验链路
-
----
+- 新增 `qmd_bridge/`, `build_qmd_bridge_index.py`, `query_qmd_bridge.py`
 
 ## V2.3 - 2026-04-15
 
 ### SQLite FTS5 本地检索底座
 
-- 新增 `scripts/build_fts5_index.py`，从 cards 和 metadata 构建本地 SQLite FTS5 索引
-- 新增 `scripts/query_fts5.py`，提供本地全文检索入口
-- 新增 `index_store/FTS5_USAGE.md`，说明 FTS5 的定位与使用方法
-- `index_store/fts5_cards.db` 作为本地生成产物，加入 `.gitignore`
-- 完成最小实验，确认 FTS5 可在当前环境中直接运行
-- 补充产品/功能型查询的轻量规则优先级，改善 `AE700 产品介绍` 与 `AE700 支持串口绑定` 的区分召回
-
----
+- 新增 `build_fts5_index.py`, `query_fts5.py`
 
 ## V2.2 - 2026-04-15
 
 ### 查询流程固化
 
-- 固化统一查询链路：Query 理解 → 检索入口 → 结构化召回 → 原文回读 → 最终输出
-- 在 `AGENTS.md`、`README.md`、`docs/retrieval-v2-design.md` 中补充固定输出骨架与禁止快捷路径规则
-- 新增查询日志、反馈 CLI、分析脚本：`query_logger.js`、`feedback_cli.js`、`analyze_feedback.js`
-- `scripts/query_v2.js` 接入静默查询日志记录
-- `updates/retrieval_feedback/README.md` 补充反馈与分析使用说明
-
----
+- 固化统一查询链路，新增查询日志和反馈 CLI
 
 ## V2.1 - 2026-04-14
 
 ### 层级索引与反向召回
 
-- 新增 `index_store/path_siblings_index.v2.json`
-- 新增 `index_store/model_path_index.v2.json`
-- 新增 `scripts/build_path_index.js` 与 `scripts/build_model_index.js`
-- 查询硬件型号时支持走反向索引召回
-- 命中卡片后自动补召回同父目录兄弟卡片
-
----
+- 新增 `path_siblings_index`, `model_path_index`
 
 ## V2.0 - 2026-04-12
 
 ### 初始版本
 
 - 四层架构：Raw → Cards → Topics → Wiki
-- 意图路由：跨云互通、安全、稳定性、双引擎等
-- 匹配度输出：强命中 / 弱相关 / 排除项 + match_percent
+- 意图路由 + 匹配度输出
