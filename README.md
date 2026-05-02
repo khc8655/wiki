@@ -1,239 +1,187 @@
 # wiki_test 知识库系统
 
-> 面向 Agent 的专业知识库框架：可配置、可扩展、零门槛上手。
+> Karpathy-style 自组织知识库：四源路由 · 混合检索 · 反馈闭环 · 卡片进化
 
-[![Version](https://img.shields.io/badge/version-v3.0-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-v3.1-blue.svg)]()
 [![Setup](https://img.shields.io/badge/setup-python3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
 ---
 
-## 快速开始（5分钟）
+## 快速开始
 
 > **Agent 用户请先阅读**：[AGENTS.md](AGENTS.md) - 查询规则、检索入口、原文引用规范
 
 ```bash
-# 1. 克隆仓库
 git clone https://github.com/khc8655/wiki.git
 cd wiki
 
-# 2. 检查环境
+# 环境检查
 python3 setup.py --check
 
-# 3. 运行测试
+# 运行测试
 python3 scripts/run_fast_tests.py
 
-# 4. 开始查询
-python3 scripts/query_fast.py "你的查询" --json
+# 查询
+python3 query_unified.py "视频会议安全加密方案"
+python3 query_unified.py "AE700的接口参数" --json
 ```
-
-**查看详细指南**：[QUICKSTART.md](QUICKSTART.md)
 
 ---
 
-## 核心特性
+## 四源路由 + 三环自组织
 
-### 🔍 智能查询路由
-- 自动识别查询意图（价格、对比、参数、行业应用等）
-- 双路召回：结构化数据（Excel）+ 非结构化文档（Cards）
-- 深度融合语义标签，提升召回精准度
-
-### ⚙️ 全配置化设计
-- 单文件配置：`config.yaml`
-- 环境变量支持：`WEBDAV_USER`, `WIKI_ROOT`, etc.
-- 路径自动解析：支持绝对/相对路径
-
-### 📦 模块化架构
 ```
-┌─────────────┐  ┌─────────────┐  ┌─────────────┐
-│   Config    │  │   Query     │  │   Data      │
-│   Layer     │  │   Router    │  │   Store     │
-└─────────────┘  └─────────────┘  └─────────────┘
-       │                 │                │
-       └─────────────────┴────────────────┘
-                         │
-              ┌──────────┴──────────┐
-              │   Dual-Path         │
-              │   Retrieval         │
-              └─────────────────────┘
+用户查询
+    │
+    ▼
+┌──────────────────────────────────────────────────────┐
+│  查询理解 (Qwen2.5-7B)                                │
+│  ├─ 意图分类 → 四源路由                               │
+│  └─ 关键词扩展                                        │
+└──────────────────────────────────────────────────────┘
+    │
+    ├──→ 📊 表格类 (SQLite, 列语义映射)
+    │     产品价格/参数/规格/对比
+    │
+    ├──→ 📝 方案类 (BM25 + Vector 混合, 1773卡全量标注)
+    │     跨文档语义检索, 段落级原文召回
+    │
+    ├──→ 🔄 更新类 (BM25 粗粒度整段)
+    │     版本迭代/新功能完整段落
+    │
+    └──→ 🎞️ PPT类  (图片理解, 页码定位)
+          文件+页码+描述
+    │
+    ▼
+┌──────────────────────────────────────────────────────┐
+│  三环自组织回路 (Karpathy-style)                      │
+│  🔄 反馈闭环:  每次查询自动记录, 低质量触发优化建议    │
+│  🔄 权重优化:  积累反馈 → 自动调权 (Trust Region)     │
+│  🔄 卡片聚类:  embedding → 发现相似/合并/主题提炼      │
+└──────────────────────────────────────────────────────┘
+    │
+    ▼
+输出: 原文 + 出处 + 命中率 (不总结, 数据严谨)
 ```
-
-### 🧪 完整测试覆盖
-- 9个核心测试用例
-- 性能基准测试（~0.05s）
-- 环境自动验证
 
 ---
 
-## 架构概览
+## 模型使用
 
-```
-wiki_test/
-├── config.yaml              # 主配置文件
-├── setup.py                 # 环境检查/初始化
-├── QUICKSTART.md            # 快速上手指南
-├── ARCHITECTURE.md          # 架构设计文档
-├── API.md                   # API 文档
-│
-├── lib/                     # 核心库
-│   ├── __init__.py
-│   └── config.py           # 配置管理
-│
-├── scripts/                 # 查询/处理脚本
-│   ├── query_fast.py       # 主查询入口
-│   ├── run_fast_tests.py   # 测试套件
-│   └── ...
-│
-├── excel_store/            # Excel 数据源
-│   ├── pricing/            # 价格表
-│   ├── comparison/         # 产品对比
-│   └── proposal/           # 招标参数
-│
-├── cards/                  # 文档切片
-│   └── sections/           # 结构化卡片
-│
-├── raw/                    # 原始文档
-├── index_store/            # 索引文件
-└── logs/                   # 日志
-```
-
-**详细架构**：[ARCHITECTURE.md](ARCHITECTURE.md)
+| 模型 | 角色 | 频次 |
+|------|------|------|
+| Qwen/Qwen2.5-7B-Instruct | 段落标注 + 查询理解 + 对话优化 | 入库/查询 |
+| BAAI/bge-large-zh-v1.5 | 向量化 (1024维) | 入库/查询 |
+| SiliconFlow API | 免费模型托管 | - |
 
 ---
 
 ## 查询示例
 
-```python
-# Python API
-from lib.config import config
-import subprocess
-
-# 运行查询
-result = subprocess.run(
-    ['python3', config.root / 'scripts' / 'query_fast.py', 
-     'AE800多少钱', '--json'],
-    capture_output=True, text=True
-)
-data = json.loads(result.stdout)
-
-# 使用配置
-raw_path = config.path('sources', 'raw', 'path')
-username, password = config.get_webdav_credentials()
-```
-
 ```bash
-# CLI
-python scripts/query_fast.py "AE800多少钱" --json
-python scripts/run_fast_tests.py
-python scripts/benchmark_fast_queries.py
+# 表格类 - 型号+意图
+python3 query_unified.py "AE700的接口参数"
+python3 query_unified.py "GE600招标参数"
+python3 query_unified.py "XE800与AE800对比"
+
+# 方案类 - 概念/场景
+python3 query_unified.py "视频会议安全加密方案"
+python3 query_unified.py "公安行业解决方案"
+
+# 更新类 - 版本/迭代
+python3 query_unified.py "3月迭代新功能"
+python3 query_unified.py "终端功能更新"
+
+# 反馈 + 优化
+python3 query_unified.py "查询内容" --feedback good
+python3 query_unified.py "查询内容" --verbose    # 显示诊断信息
+python3 query_unified.py --optimize              # 分析反馈, 建议权重
+
+# 卡片组织
+python3 scripts/organize_cards.py --dry-run --cluster 10
+python3 scripts/organize_cards.py --merge --related --topics --all
 ```
 
-**完整 API 文档**：[API.md](API.md)
+---
+
+## 目录结构
+
+```
+wiki_test/
+├── query_unified.py          # 统一查询入口 (四源路由)
+├── config.yaml               # 主配置
+├── setup.py                  # 环境检查
+├── QUICKSTART.md             # 快速上手
+├── ARCHITECTURE.md           # 架构文档
+├── API.md                    # API 参考
+│
+├── lib/                      # 核心库
+│   ├── llm_client.py        # SiliconFlow API 封装
+│   ├── annotator.py         # 段落级语义标注
+│   ├── embedder.py          # 向量化构建
+│   ├── retrieval_bm25.py    # BM25 关键词检索
+│   ├── vector_search.py     # 余弦相似度向量检索
+│   ├── hybrid_retriever.py  # BM25+Vector 融合
+│   ├── feedback.py          # 查询日志 + 反馈记录
+│   ├── query_refiner.py     # 低质量查询对话优化
+│   ├── weight_optimizer.py  # 基于反馈的自动权重调优
+│   ├── card_organizer.py    # 卡片自组织 (相似/聚类/合并)
+│   ├── excel_db.py          # Excel → SQLite 查询
+│   └── config.py            # 配置管理
+│
+├── scripts/                  # 离线脚本
+│   ├── annotate_cards.py    # 全量卡片标注
+│   ├── build_embeddings.py  # 向量化构建
+│   ├── organize_cards.py    # 卡片聚类 + 主题生成
+│   ├── run_fast_tests.py    # 9项测试用例
+│   └── ...
+│
+├── cards/sections/           # 1885张结构化卡片 (含 semantic 标注)
+├── cards/manifest.json       # 卡片清单
+├── excel_store/              # Excel 数据源
+├── index_store/              # 索引 + embeddings + feedback log
+├── raw/                      # 原始 Markdown 文档
+└── topics/                   # 主题聚合页
+```
 
 ---
 
 ## 数据源
 
-| 类型 | 位置 | 典型查询 |
-|------|------|----------|
-| **Excel Store** | `excel_store/` | 价格、对比、参数 |
-| **Cards** | `cards/sections/` | 行业应用、场景说明 |
-| **Raw** | `raw/` | 原始文档 |
-
-### 深度融合的语义标签
-
-每张卡片包含自动化生成的语义标签：
-
-```json
-{
-  "id": "24-24-行业应用口袋书-公安20220520-sec-005",
-  "title": "公安部监管局（十三局）原有系统改造升级",
-  "semantic": {
-    "intent_tags": ["operation_maintenance", "integration"],
-    "feature_tags": ["兼容现有视频会议系统", "视频会议"],
-    "concept_tags": ["视频会议系统", "云视频平台"],
-    "scenario_tags": ["police", "指挥调度"],
-    "doc_types": ["solution"]
-  }
-}
-```
+| 类型 | 存储 | 检索方式 | 粒度 |
+|------|------|----------|------|
+| 表格类 | `excel_store/` → `db/excel_store.db` | SQLite + 列语义映射 | 行列 |
+| 方案类 | `cards/sections/*.json` | BM25 + Vector (1024维) | 段落级 |
+| 更新类 | `cards/sections/*.json` | BM25 粗粒度 | 整标题段 |
+| PPT类 | `ppt_analysis/` | 图片理解卡片 | 页级 |
 
 ---
 
-## 配置管理
+## 版本历史
 
-### 配置文件
+### v3.1 — Karpathy-style 自组织知识系统
+- 🔄 反馈闭环：查询自动记录, 低质量触发对话式优化
+- ⚖️ 权重优化：基于反馈自动调权 (Trust Region, 渐进式)
+- 🧩 卡片聚类：embedding 相似性 → 合并/关联/主题提炼
+- 📝 query_unified.py 重写：统一四源路由入口
 
-`config.yaml`：
-```yaml
-workspace:
-  root: "${WIKI_ROOT:-auto}"
+### v3.0 — 标注+检索链路重构
+- ✅ Qwen2.5-7B 段落级中文语义标注
+- ✅ bge-large-zh-v1.5 向量化 (1773卡全量)
+- ✅ BM25 + Vector 混合检索取代残缺 semantic boost
+- ✅ 去除 WebDAV 中转和零碎索引
 
-query:
-  default_limit: 20
-  price_keywords: ["价格", "报价", "多少钱"]
-```
+### v1.2 — 深度融合
+- ✅ GLM-4-9B 标注层深度融合
+- ✅ 双路召回（原文 + 语义标签）
 
-### 环境变量（可选）
+### v1.1 — 语义路由
+- ✅ 意图识别路由
+- ✅ Excel 数据源支持
 
-```bash
-# 工作目录（自动检测，一般无需设置）
-export WIKI_ROOT="/path/to/wiki"
-
-# 调试
-export LOG_LEVEL="DEBUG"
-```
-
----
-
-## 开发与扩展
-
-### 添加新查询意图
-
-```python
-# 1. 在 query_fast.py:route_query() 添加识别规则
-def route_query(query: str):
-    if '新关键词' in query.lower():
-        return 'new_intent', info
-    
-# 2. 实现查询函数
-def new_intent_lookup(query: str) -> List[Dict]:
-    # 实现查询逻辑
-    pass
-
-# 3. 在 main() 中添加路由
-elif intent == 'new_intent':
-    result['results'] = new_intent_lookup(query)
-```
-
-### 添加新数据源
-
-```yaml
-# config.yaml
-sources:
-  excel:
-    new_source: "./excel_store/new_source"
-```
-
-```bash
-# 生成索引
-python scripts/build_excel_knowledge.py
-```
-
----
-
-## 测试与验证
-
-```bash
-# 运行全部测试
-python scripts/run_fast_tests.py
-
-# 性能基准
-python scripts/benchmark_fast_queries.py
-
-# 环境检查
-python setup.py --check
-```
+### v1.0 — 基础检索
+- ✅ 文档切片 + FTS5 全文检索
 
 ---
 
@@ -241,7 +189,7 @@ python setup.py --check
 
 | 文档 | 内容 |
 |------|------|
-| [AGENTS.md](AGENTS.md) | **Agent 必读**：工作流规范、查询规则、快速入口 |
+| [AGENTS.md](AGENTS.md) | **Agent 必读**：工作流规范、查询规则 |
 | [QUICKSTART.md](QUICKSTART.md) | 5分钟快速上手 |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构设计 |
 | [API.md](API.md) | 脚本/API 参考 |
@@ -249,45 +197,6 @@ python setup.py --check
 
 ---
 
-## 版本历史
-
-### v3.0（检索引擎升级）
-- ✅ BM25 检索引擎（TF-IDF + 长度归一化）
-- ✅ Content Hash 一致性检查
-- ✅ 空结果智能提示
-- ✅ 仓库结构清理（可移植到任意环境）
-
-### v1.2（深度融合）
-- ✅ GLM-4-9B 标注层深度融合
-- ✅ 双路召回（原文 + 语义标签）
-- ✅ 配置化架构
-- ✅ 完整测试覆盖
-
-### v1.1（语义路由）
-- ✅ 意图识别路由
-- ✅ Excel 数据源支持
-- ✅ 三类数据查询
-
-### v1.0（基础检索）
-- ✅ 文档切片（Cards）
-- ✅ FTS5 全文检索
-- ✅ 基础查询链路
-
----
-
-## 贡献指南
-
-1. 代码风格：PEP 8
-2. 测试：添加新功能需配套测试用例
-3. 文档：更新 API.md 和 ARCHITECTURE.md
-4. 配置：新路径需加入 config.yaml
-
----
-
 ## License
 
 MIT License
-
----
-
-> 任何问题？运行 `python setup.py --quickstart` 查看帮助。

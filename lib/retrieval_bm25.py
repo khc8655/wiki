@@ -30,8 +30,16 @@ class BM25Retriever:
         """Tokenize Chinese text using character-based + bigram approach."""
         if not text:
             return []
-        # Clean text
-        text = re.sub(r'[^\u4e00-\u9fa5a-zA-Z0-9]', ' ', text)
+        # 保护特殊术语: H.264, H.265, H.323 等
+        # 先替换点为占位符
+        text = re.sub(r'([A-Za-z])\.(\d)', r'\1DOT\2', text)
+        # Clean text: 先在中英文/数字交界处插入空格
+        text = re.sub(r'([a-zA-Z0-9])([\u4e00-\u9fff])', r'\1 \2', text)
+        text = re.sub(r'([\u4e00-\u9fff])([a-zA-Z0-9])', r'\1 \2', text)
+        # 然后清理其他特殊字符（保留DOT占位符）
+        text = re.sub(r'[^\u4e00-\u9fa5a-zA-Z0-9DOT]', ' ', text)
+        # 恢复点
+        text = text.replace('DOT', '.')
         
         # Stopwords
         stopwords = {'的', '了', '在', '是', '我', '有', '和', '就', '不', '人', '都', '一', '一个', '上', '也', '很', '到', '说', '要', '去', '你', '会', '着', '没有', '看', '好', '自己', '这'}
@@ -61,11 +69,14 @@ class BM25Retriever:
                     if len(word) <= 6:
                         tokens.append(word.lower())
                 else:
-                    # Alphanumeric: split by camelCase or underscore
+                    # Alphanumeric (型号如 AE650, XE800): 保留完整词 + 拆分
+                    # 先保留完整型号
+                    tokens.append(word.lower())
+                    # 再尝试拆分驼峰（如 VideoCodec -> video, codec）
                     parts = re.split(r'(?=[A-Z])|[_\-]', word)
                     for part in parts:
                         part = part.strip()
-                        if len(part) >= 2:
+                        if len(part) >= 2 and part.lower() != word.lower():
                             tokens.append(part.lower())
         
         return [t for t in tokens if t and t not in stopwords and len(t) >= 2]
@@ -82,8 +93,15 @@ class BM25Retriever:
                 card = json.loads(card_file.read_text(encoding='utf-8'))
                 card_id = card.get('id', card_file.stem)
                 
-                # Combine all text fields
-                text = f"{card.get('title', '')} {card.get('body', '')} {card.get('path', '')}"
+                # Combine all text fields including semantic tags for better recall
+                semantic = card.get('semantic', {})
+                tag_text = ' '.join(
+                    semantic.get('intent_tags', []) +
+                    semantic.get('concept_tags', []) +
+                    semantic.get('keywords', []) +
+                    semantic.get('models', [])
+                )
+                text = f"{card.get('title', '')} {card.get('body', '')} {tag_text} {card.get('path', '')}"
                 tokens = self._tokenize(text)
                 
                 self._corpus.append((card_id, tokens, card))
@@ -163,12 +181,12 @@ class BM25Retriever:
             doc_length = len(doc_tokens)
             bm25_score = self._bm25_score(doc_tokens, query_tokens, doc_length)
             
-            # Semantic tag boost (optional integration)
+            # Semantic tag boost - uses new annotation fields (all Chinese)
             semantic_score = 0
             if semantic_boost > 0:
                 semantic = card.get('semantic', {})
                 all_tags = []
-                for key in ['intent_tags', 'feature_tags', 'concept_tags', 'scenario_tags']:
+                for key in ['intent_tags', 'concept_tags', 'keywords', 'scenario_tags', 'models']:
                     all_tags.extend(semantic.get(key, []))
                 
                 for tag in all_tags:

@@ -30,7 +30,9 @@ KEEP_PATHS=(
   README.md
   CHANGELOG.md
   docs
+  lib
   scripts
+  query_unified.py
   qmd_bridge
   query_router
   cards/README.md
