@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# update.sh — 知识库增量更新入口
-# 文档更新后一键刷新卡片、标注、索引、embeddings
+# update.sh — 知识库更新入口
 #
 # Usage:
-#   bash scripts/update.sh              # 增量：只处理变化的部分
-#   bash scripts/update.sh --full       # 全量：从头重建所有
+#   bash scripts/update.sh              # --auto: 检测变更，有则更新
+#   bash scripts/update.sh --auto       # 同上（默认模式）
+#   bash scripts/update.sh --full       # 全量：强制从头重建
 #   bash scripts/update.sh --check      # 仅检测变更，不执行
-#   bash scripts/update.sh --annotate-only  # 只重新标注 + 重建embeddings
+#   bash scripts/update.sh --annotate-only  # 仅标注+embeddings
 #
-# 架构：
-#   文档变更 → 卡片重生成 → 标注(新增/变更卡片) → embedding重建 → 索引刷新 → 审计
+# --auto 流程（默认）:
+#   WebDAV拉取 → 检测变更 → 无变更则退出 → 有变更则跑完整流水线
 
 set -euo pipefail
 
@@ -17,175 +17,158 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_ROOT"
 
-MODE="${1:-incremental}"
+MODE="${1:---auto}"
 FULL=false
 CHECK_ONLY=false
 ANNOTATE_ONLY=false
+AUTO=true   # default
 
 case "$MODE" in
-  --full)    FULL=true ;;
-  --check)   CHECK_ONLY=true ;;
-  --annotate-only) ANNOTATE_ONLY=true ;;
-  incremental) ;;
-  *) echo "Usage: bash scripts/update.sh [--full|--check|--annotate-only]" >&2; exit 1 ;;
+  --full)    FULL=true; AUTO=false ;;
+  --check)   CHECK_ONLY=true; AUTO=false ;;
+  --annotate-only) ANNOTATE_ONLY=true; AUTO=false ;;
+  --auto|incremental) ;;
+  *) echo "Usage: bash scripts/update.sh [--auto|--full|--check|--annotate-only]" >&2; exit 1 ;;
 esac
 
-# ── Pre-flight ─────────────────────────────────────────────────────────────
 echo "========================================="
-echo "  wiki_test 知识库更新"
+echo "  wiki_test 知识库管理"
 echo "  $(date '+%Y-%m-%d %H:%M:%S')"
 if $FULL; then
   echo "  模式: 全量重建"
 elif $CHECK_ONLY; then
   echo "  模式: 仅检测变更"
 elif $ANNOTATE_ONLY; then
-  echo "  模式: 仅标注 + embeddings"
+  echo "  模式: 仅标注+embeddings"
 else
-  echo "  模式: 增量更新"
+  echo "  模式: 自动检测更新"
 fi
 echo "========================================="
 
 # ── Step 1: Pull from WebDAV ───────────────────────────────────────────────
 if ! $ANNOTATE_ONLY; then
   echo ""
-  echo "[1/5] 从 WebDAV 同步文档..."
+  echo "[1/6] 从 WebDAV 同步文档..."
   python3 scripts/import_webdav_raw.py --user jjb --password 'jjb@115799'
 
-  if $CHECK_ONLY; then
-    # Check what changed by comparing webdav_import_state
-    STATE_FILE="index_store/webdav_import_state.json"
-    if [ -f "$STATE_FILE" ]; then
-      CHANGED=$(python3 -c "
-import json
+  # ── Check for changes ────────────────────────────────────────────────────
+  STATE_FILE="index_store/webdav_import_state.json"
+  HAS_CHANGES=false
+  CHANGED_FILES=""
+
+  if [ -f "$STATE_FILE" ]; then
+    CHANGED_FILES=$(python3 -c "
+import json, sys
 with open('$STATE_FILE') as f:
     s = json.load(f)
-changed = s.get('changed_files', s.get('new_files', []))
-if changed:
-    print(f'变更文件: {len(changed)}')
-    for f in changed[:5]:
-        print(f'  - {f}')
-    if len(changed) > 5:
-        print(f'  ... 及其他 {len(changed)-5} 个')
-else:
-    print('无变更')
-")
-      echo "$CHANGED"
+changed = s.get('changed_files', [])
+newf = s.get('new_files', [])
+all_changes = list(set(changed + newf))
+if all_changes:
+    for f in all_changes[:10]:
+        print(f'    - {f}')
+    if len(all_changes) > 10:
+        print(f'    ... 及其他 {len(all_changes)-10} 个文件')
+    sys.exit(1)
+" 2>&1) && HAS_CHANGES=false || HAS_CHANGES=true
+  fi
+
+  if $CHECK_ONLY; then
+    if $HAS_CHANGES; then
+      echo ""
+      echo "📋 检测到变更："
+      echo "$CHANGED_FILES"
+    else
+      echo ""
+      echo "✅ 无变更，知识库已是最新"
     fi
-    echo ""
-    echo "✅ 检测完成"
     exit 0
   fi
 
-  # ── Step 2: Import Excel into SQLite ──────────────────────────────────────
+  if $AUTO; then
+    if ! $HAS_CHANGES; then
+      echo ""
+      echo "✅ 无变更，知识库已是最新，无需更新"
+      exit 0
+    fi
+    echo ""
+    echo "📋 检测到以下文件变更："
+    echo "$CHANGED_FILES"
+    echo ""
+    echo "开始增量更新..."
+  fi
+
+  # ── Step 2: Import Excel into SQLite ────────────────────────────────────
   echo ""
   echo "[2/6] 导入 Excel 数据到 SQLite..."
   if [ -f scripts/build_excel_knowledge.py ]; then
-    python3 scripts/build_excel_knowledge.py 2>/dev/null && echo "  OK" || echo "  [WARN] Excel 导入部分失败"
+    python3 scripts/build_excel_knowledge.py 2>/dev/null && echo "  ✓" || echo "  ⚠️ 部分失败"
   fi
 
-  # ── Step 3: Rebuild card metadata ──────────────────────────────────────────
+  # ── Step 3: Card metadata ───────────────────────────────────────────────
   echo ""
   echo "[3/6] 重建卡片元数据..."
-  python3 scripts/build_v2_semantic_metadata.py
+  python3 scripts/build_v2_semantic_metadata.py && echo "  ✓"
 
-  # ── Step 4: Rebuild indexes ────────────────────────────────────────────────
+  # ── Step 4: Indexes ─────────────────────────────────────────────────────
   echo ""
   echo "[4/6] 重建索引..."
-
-  # Path index (JS)
-  if [ -f scripts/build_path_index.js ]; then
-    node scripts/build_path_index.js 2>/dev/null || echo "  [SKIP] path_index"
-  fi
-
-  # Model index (JS)
-  if [ -f scripts/build_model_index.js ]; then
-    node scripts/build_model_index.js 2>/dev/null || echo "  [SKIP] model_index"
-  fi
-
-  # FTS5 index
-  if [ -f scripts/build_fts5_index.py ]; then
-    python3 scripts/build_fts5_index.py 2>/dev/null || echo "  [SKIP] fts5_index"
-  fi
-
-  # QMD bridge
-  if [ -f scripts/build_qmd_bridge_index.py ]; then
-    python3 scripts/build_qmd_bridge_index.py 2>/dev/null || echo "  [SKIP] qmd_bridge"
-  fi
+  [ -f scripts/build_path_index.js ] && node scripts/build_path_index.js 2>/dev/null && echo "  path_index ✓"
+  [ -f scripts/build_model_index.js ] && node scripts/build_model_index.js 2>/dev/null && echo "  model_index ✓"
+  [ -f scripts/build_fts5_index.py ] && python3 scripts/build_fts5_index.py 2>/dev/null && echo "  fts5 ✓"
+  [ -f scripts/build_qmd_bridge_index.py ] && python3 scripts/build_qmd_bridge_index.py 2>/dev/null && echo "  qmd_bridge ✓"
 fi
 
-# ── Step 4: Annotate cards (only unannotated) ───────────────────────────────
+# ── Step 5: Annotate (incremental only) ────────────────────────────────────
 echo ""
-echo "[5/6] 标注卡片..."
+echo "[5/6] 卡片标注..."
 
-# Detect how many cards need annotation
 UNANNOTATED=$(python3 -c "
 import json, os
-cards_dir = 'cards/sections'
-if not os.path.isdir(cards_dir):
+d='cards/sections'
+if not os.path.isdir(d):
     print(0)
     exit()
-count = 0
-for f in os.listdir(cards_dir):
-    if not f.endswith('.json'): continue
-    c = json.loads(open(os.path.join(cards_dir, f)).read())
-    sem = c.get('semantic', {})
-    if not sem.get('intent_tags'):
-        count += 1
-print(count)
+c=sum(1 for f in os.listdir(d) if f.endswith('.json') and not
+      json.loads(open(os.path.join(d,f)).read()).get('semantic',{}).get('intent_tags'))
+print(c)
 ")
 
 if [ "$UNANNOTATED" -gt 0 ]; then
-  echo "  发现 $UNANNOTATED 张卡片未标注，开始标注..."
-  python3 scripts/annotate_cards.py --doc-type solution
+  echo "  ${UNANNOTATED} 张卡片待标注..."
+  python3 scripts/annotate_cards.py --doc-type solution && echo "  ✓"
 else
-  echo "  所有卡片已标注，跳过"
+  echo "  全部已标注 ✓"
 fi
 
-# ── Step 5: Rebuild embeddings ──────────────────────────────────────────────
+# ── Step 6: Embeddings ────────────────────────────────────────────────────
 echo ""
-echo "[6/6] 重建向量索引..."
-python3 scripts/build_embeddings.py
+echo "[6/6] 向量索引..."
+python3 scripts/build_embeddings.py && echo "  ✓"
 
-# ── Audit (optional) ────────────────────────────────────────────────────────
-if [ -f scripts/audit_solution_cards.py ]; then
-  python3 scripts/audit_solution_cards.py 2>/dev/null || echo "  [SKIP] audit"
-fi
+# ── Audit ─────────────────────────────────────────────────────────────────
+[ -f scripts/audit_solution_cards.py ] && python3 scripts/audit_solution_cards.py 2>/dev/null
 
-# ── Summary ─────────────────────────────────────────────────────────────────
+# ── Summary ────────────────────────────────────────────────────────────────
 echo ""
 echo "========================================="
-echo "  ✅ 更新完成"
-echo "  $(date '+%Y-%m-%d %H:%M:%S')"
+echo "  ✅ 更新完成  $(date '+%Y-%m-%d %H:%M:%S')"
 echo "========================================="
-
-# Stats
 python3 -c "
 import json, os
-cards_dir = 'cards/sections'
-total = 0
-annotated = 0
-if os.path.isdir(cards_dir):
-    for f in os.listdir(cards_dir):
-        if f.endswith('.json'):
-            total += 1
-            c = json.loads(open(os.path.join(cards_dir, f)).read())
-            if c.get('semantic', {}).get('intent_tags'):
-                annotated += 1
-print(f'卡片总数: {total}')
-print(f'已标注:   {annotated} ({annotated/total*100:.0f}%)' if total else '卡片总数: 0')
-# Show intent distribution
 from collections import Counter
-ic = Counter()
-if os.path.isdir(cards_dir):
-    for f in os.listdir(cards_dir):
+d='cards/sections'
+total=0; annotated=0
+ic=Counter()
+if os.path.isdir(d):
+    for f in os.listdir(d):
         if not f.endswith('.json'): continue
-        c = json.loads(open(os.path.join(cards_dir, f)).read())
-        for tag in c.get('semantic', {}).get('intent_tags', []):
-            ic[tag] += 1
-print('标注分布:')
-for tag, cnt in ic.most_common(5):
-    print(f'  {tag}: {cnt}')
-" 2>/dev/null || true
-
+        total+=1
+        c=json.loads(open(os.path.join(d,f)).read())
+        tags=c.get('semantic',{}).get('intent_tags',[])
+        if tags: annotated+=1
+        for t in tags: ic[t]+=1
+print(f'卡片: {total}  |  已标注: {annotated}')
+print('标注分布:', ', '.join(f'{t}({c})' for t,c in ic.most_common(5)))
+"
 echo ""
-echo "下次文档更新时，直接运行: bash scripts/update.sh"
