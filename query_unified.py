@@ -708,6 +708,17 @@ def main():
         for hit in display:
             print(format_output(hit))
 
+        # ── Follow-up prompts ────────────────────────────────────────────
+        q_lower = result['query'].lower()
+        # Price query: after showing price, ask if user wants full params
+        if any(k in q_lower for k in PRICE_KWS):
+            model_list = result.get('models', [])
+            if model_list:
+                m = model_list[0]
+                print(f"\n需要查看 {m} 的详细参数或功能介绍吗？")
+            else:
+                print(f"\n需要查看详细参数或功能介绍吗？")
+
         # Prompt for low-quality results
         if low_quality and not args.all and not args.all_low:
             print(f"\n还有 {len(low_quality)} 条低相关结果（命中率<50%），需要显示请回复\"全部\"")
