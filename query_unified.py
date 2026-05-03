@@ -39,6 +39,9 @@ from query_refiner import refine_query
 # ── Constants ──────────────────────────────────────────────────────────────
 
 LOW_QUALITY_THRESHOLD = 0.5   # Below this = low quality, hidden by default
+TOO_MANY_RESULTS = 15          # Trigger smart disambiguation when > this
+TOO_FEW_RESULTS = 5            # Trigger search expansion hint when < this
+LOW_QUALITY_AVG = 0.3          # Avg hit_rate below this = low quality signal
 
 # Model extraction regex
 MODEL_RE = re.compile(
@@ -98,11 +101,12 @@ def classify_query(query: str) -> Tuple[str, List[str]]:
 
 def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
     """
-    Detect if query is too broad (model + generic word only) and needs disambiguation.
-    Checks ALL sources (Excel + knowledge base) and returns all available content categories.
+    Smart ambiguity detection: checks if query is too broad AND results are too many,
+    then uses annotated intent_tags to generate meaningful disambiguation categories.
 
-    Example: "AE800 参数" → shows: 报价, 简单清单参数, 可研使用参数, 招标参数, 配置清单, 功能更新...
-             "AE800 招标参数" → specific (no ambiguity)
+    Thresholds:
+      - Too many results (>TOO_MANY_RESULTS) + broad query → disambiguate
+      - Otherwise → let results flow through with quality filtering
     """
     if not models:
         return None
@@ -110,118 +114,112 @@ def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
     q = query.lower()
     model = models[0]
 
-    # Remove model number from query
-    remaining = q
-    for m in models:
-        remaining = remaining.replace(m.lower(), '')
-
-    # Tokenize remaining
-    words = [w for w in re.findall(r'[\u4e00-\u9fff]+|[a-z0-9]+', remaining) if len(w) >= 2]
-
-    # Has specific keywords → no ambiguity
+    # Check if query has specific keywords → not ambiguous
     has_specific = any(k in q for k in SPECIFIC_KWS)
     if has_specific:
         return None
 
-    # Remaining words must all be broad keywords (or empty) → ambiguous
+    # Check if remaining words are all broad
+    remaining = q
+    for m in models:
+        remaining = remaining.replace(m.lower(), '')
+    words = [w for w in re.findall(r'[\u4e00-\u9fff]+|[a-z0-9]+', remaining) if len(w) >= 2]
     all_broad = all(w in BROAD_KWS for w in words) if words else True
     if not all_broad:
         return None
 
-    available_types = []
+    # Collect all categories for this model across all sources
+    categories = _collect_model_categories(model)
 
-    # ── 1. Check Excel DB ──────────────────────────────────────────────
-    # Pricing
+    # Only disambiguate if there are actually multiple categories
+    if len(categories) <= 1:
+        return None
+
+    return {
+        'model': model,
+        'available_types': categories,
+    }
+
+
+def _collect_model_categories(model: str) -> List[Dict]:
+    """
+    Scan ALL sources for this model and return content categories.
+    Returns list of {label, key, source, count} dicts sorted by relevance.
+    """
+    categories = {}
+
+    # ── 1. Excel DB ────────────────────────────────────────────────────
+    db = get_excel_db()
     price_rows = db.search_pricing_by_model(model)
     if price_rows:
-        available_types.append({'label': '报价/价格', 'key': '价格'})
+        categories['报价/价格'] = {'label': '报价/价格', 'key': '价格', 'source': 'excel', 'count': len(price_rows)}
 
-    # Proposal (3-phase params)
-    rows = db.search_proposal_by_model(model)
-    for r in rows:
-        p_model = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
-        if model not in p_model:
-            continue
-        if r.get('phase_channel', '').strip():
-            available_types.append({'label': '简单清单参数（简版）', 'key': '渠道'})
-        if r.get('phase_proposal', '').strip():
-            available_types.append({'label': '可研使用参数（最完整）', 'key': '可研'})
-        if r.get('phase_tender', '').strip():
-            available_types.append({'label': '招标参数', 'key': '招标'})
-
-    # Comparison table
     comp_rows = db.search_comparison_by_model(model)
     if comp_rows:
-        available_types.append({'label': '产品对比参数', 'key': '对比'})
+        categories['产品对比'] = {'label': '产品对比参数', 'key': '对比', 'source': 'excel', 'count': len(comp_rows)}
 
-    # ── 2. Check knowledge base cards ───────────────────────────────────
+    prop_rows = db.search_proposal_by_model(model)
+    for r in prop_rows:
+        pm = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
+        if model not in pm:
+            continue
+        if r.get('phase_channel', '').strip():
+            categories['简单清单参数'] = {'label': '简单清单参数（简版）', 'key': '渠道', 'source': 'excel', 'count': 1}
+        if r.get('phase_proposal', '').strip():
+            categories['可研使用参数'] = {'label': '可研使用参数（完整）', 'key': '可研', 'source': 'excel', 'count': 1}
+        if r.get('phase_tender', '').strip():
+            categories['招标参数'] = {'label': '招标参数（含▲标记）', 'key': '招标', 'source': 'excel', 'count': 1}
+
+    # ── 2. Knowledge base: aggregate by annotated intent_tags ───────────
     try:
         import json, os
         from collections import Counter
         cards_dir = ROOT / 'cards' / 'sections'
-        doc_types = []
+        intent_counts = Counter()
+        title_hints = {}
         for f in os.listdir(cards_dir):
             if not f.endswith('.json'):
                 continue
             card = json.loads(open(os.path.join(cards_dir, f)).read())
             title = card.get('title', '')
             body = card.get('body', '')
-            tags = card.get('tags', [])
-            doc = card.get('doc_file', '')
+            tags_raw = card.get('tags', [])
+            sem = card.get('semantic', {})
+            intent = sem.get('intent_tags', [])
+
             if model.upper() not in (title + body).upper():
                 continue
-            # Classify by source document type
-            if 'release-note' in tags or '培训文档' in doc or '迭代' in doc:
-                if not any(t.get('label') == '功能更新/迭代' for t in available_types):
-                    available_types.append({'label': '功能更新/迭代', 'key': '更新'})
-            elif '方案' in doc or '模板' in doc:
-                if '配置清单' in title:
-                    if not any(t.get('label') == '套装配置清单' for t in available_types):
-                        available_types.append({'label': '套装配置清单', 'key': '配置'})
-                elif '简介' in title:
-                    if not any(t.get('label') == '终端简介' for t in available_types):
-                        available_types.append({'label': '终端简介', 'key': '简介'})
+
+            # Use annotated intent_tags as primary category names
+            for tag in intent:
+                if tag not in ('feature_update', 'operation_maintenance', 'training_enablement', 'scenario'):
+                    intent_counts[tag] += 1
+
+            # Fallback: use document-level tags for cards without annotations
+            if not intent:
+                if 'release-note' in tags_raw:
+                    intent_counts['功能更新'] += 1
+                elif 'solution' in (tags_raw or []) or '方案' in title or '模板' in card.get('doc_file', ''):
+                    if '配置' in title:
+                        intent_counts['配置清单'] += 1
+                    elif '简介' in title:
+                        intent_counts['终端简介'] += 1
+
+        # Add top intent categories (only if significant count)
+        for intent_name, cnt in intent_counts.most_common(8):
+            if cnt >= 1 and intent_name not in categories:
+                # Skip English tags as category labels
+                if '_' not in intent_name:
+                    categories[intent_name] = {
+                        'label': intent_name,
+                        'key': None,
+                        'source': 'knowledge',
+                        'count': cnt,
+                    }
     except Exception:
         pass
 
-    if len(available_types) > 1:
-        return {
-            'model': model,
-            'available_types': available_types,
-        }
-
-    return None
-
-
-def _get_card_param_types(model: str) -> List[str]:
-    """Extract parameter type labels from card annotations for a given model."""
-    try:
-        import json
-        meta_path = ROOT / 'cards' / 'card_metadata.v2.json'
-        if not meta_path.exists():
-            return []
-        with open(meta_path) as f:
-            meta = json.load(f)
-        types = set()
-        for card_id, card in meta.items():
-            title = card.get('title', '')
-            tags = card.get('tags', [])
-            keywords = card.get('keywords', [])
-            all_text = f"{title} {' '.join(tags)} {' '.join(keywords)}".upper()
-            if model.upper() in all_text:
-                if '招标' in all_text or 'TENDER' in all_text.upper():
-                    types.add('招标参数')
-                if '方案' in all_text or 'PROPOSAL' in all_text.upper():
-                    types.add('方案参数')
-                if '渠道' in all_text or '简单' in all_text or 'CHANNEL' in all_text.upper():
-                    types.add('渠道参数')
-                if '价格' in all_text or '报价' in all_text:
-                    types.add('价格')
-                if '简介' in title or '概述' in title:
-                    types.add('终端简介')
-        return sorted(types)
-    except Exception:
-        return []
+    return list(categories.values())
 
 
 # ── Search functions ───────────────────────────────────────────────────────
@@ -448,10 +446,42 @@ def _compute_avg_hit_rate(results: List[Dict]) -> float:
     return sum(rates) / len(rates)
 
 
+def _collect_expansion_hints(results: List[Dict]) -> Optional[str]:
+    """
+    When results are too few, suggest broader search angles from annotated tags.
+    """
+    if len(results) >= TOO_FEW_RESULTS:
+        return None
+    all_intents = set()
+    for r in results:
+        raw = r.get('raw', {})
+        if isinstance(raw, dict):
+            sem = raw.get('semantic', {})
+            for tag in sem.get('intent_tags', []):
+                if '_' not in str(tag):
+                    all_intents.add(str(tag))
+    if all_intents:
+        topics = list(all_intents)[:3]
+        hint = ' / '.join(topics)
+        return f'结果偏少，可尝试扩大范围查询，或指定关键词如：{hint}'
+    return None
+
+
 def unified_search(query: str) -> Dict:
     """Main entry point: classify, detect ambiguity, route, search."""
     source_type, models = classify_query(query)
     all_results = []
+
+    # Detect if query is broad (for post-search disambiguation trigger)
+    q = query.lower()
+    is_broad = False
+    if models:
+        remaining = q
+        for m in models:
+            remaining = remaining.replace(m.lower(), '')
+        words = [w for w in re.findall(r'[\u4e00-\u9fff]+|[a-z0-9]+', remaining) if len(w) >= 2]
+        has_specific = any(k in q for k in SPECIFIC_KWS)
+        is_broad = (all(w in BROAD_KWS for w in words) if words else True) and not has_specific
 
     if source_type == 'excel':
         all_results = search_excel(query, models)
@@ -495,6 +525,7 @@ def unified_search(query: str) -> Dict:
         'results': unique,
         'avg_hit_rate': round(avg_rate, 3),
         'low_quality': (avg_rate < 0.3) or (len(unique) < 3),
+        '_query_broad': is_broad,
     }
 
 
@@ -576,9 +607,33 @@ def main():
     # ── Step 2: Search ─────────────────────────────────────────────────────
     result = unified_search(args.query)
 
-    # ── Step 3: Split by quality ───────────────────────────────────────────
+    # ── Step 3: Smart disambiguation (post-search) ────────────────────────
+    # If high-quality results are too many and query was broad → suggest categories
     high_quality = [r for r in result['results'] if r['hit_rate'] >= LOW_QUALITY_THRESHOLD]
     low_quality = [r for r in result['results'] if r['hit_rate'] < LOW_QUALITY_THRESHOLD]
+    expansion_hint = _collect_expansion_hints(high_quality)
+
+    # Detect if results are too many → suggest category narrowing
+    # Only trigger when query was broad (pre-search ambiguity was detected but bypassed)
+    models_found = result.get('models', [])
+    query_broad = result.get('_query_broad', False)
+    if len(high_quality) > TOO_MANY_RESULTS and query_broad and not args.all and not args.all_low:
+        models_found = result.get('models', [])
+        if models_found:
+            categories = _collect_model_categories(models_found[0])
+            if len(categories) > 1:
+                print(f"查询: {result['query']}")
+                print(f"路由: {result['source_type']}")
+                print(f"共召回 {result['result_count']} 条，高相关 {len(high_quality)} 条")
+                print()
+                print(f"结果较多，建议缩小范围。{models_found[0]} 包含以下分类：")
+                print()
+                for i, cat in enumerate(categories):
+                    count_str = f"({cat.get('count', '?')}条)" if cat.get('count') else ''
+                    print(f"  {i+1}. {cat['label']} {count_str}")
+                print()
+                print(f"请指定分类重新查询，例如：{models_found[0]} {categories[0]['label']}")
+                return
 
     if args.all:
         # Show everything
@@ -650,7 +705,11 @@ def main():
 
         # Prompt for low-quality results
         if low_quality and not args.all and not args.all_low:
-            print(f"\n还有 {len(low_quality)} 条低相关结果（命中率<50%），需要显示请回复\"全部\"\n")
+            print(f"\n还有 {len(low_quality)} 条低相关结果（命中率<50%），需要显示请回复\"全部\"")
+
+        # Low-result hint: suggest expansion
+        if expansion_hint:
+            print(f"\n💡 {expansion_hint}")
 
 
 if __name__ == '__main__':
