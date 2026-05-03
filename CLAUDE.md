@@ -10,32 +10,23 @@
                           你绝不触碰
 ```
 
-## 唯一操作
+## 查询
 
 ```bash
 python3 query_unified.py "用户原始问题"
-# 若用户要求看低相关结果:
-python3 query_unified.py "用户原始问题" --all-low
 ```
 
 把 stdout 直接转发。不加前置语、不加后置语、不改内容。
 
-## 何时必须追问用户（歧义检测）
+## 何时追问用户
 
-查询**同时满足以下条件**时必须先追问，**不要直接跑引擎**：
+查询含型号 + 仅有宽泛词（参数/配置/规格/信息）时，先追问再查询。
 
-1. 包含型号 + 只有一个宽泛词（参数、配置、规格、信息、详情、介绍、资料）
-2. 没有指定子类型（如"招标参数"、"接口"、"价格"、"对比"等）
-
-**追问示例：**
-用户问"AE800 参数" → 你应该回复：AE800 有 3 种参数类型：1) 渠道参数/简单清单 2) 可研/方案参数 3) 招标参数，请问要哪种？而不是直接跑引擎。
-
-> 引擎内置了 `detect_ambiguity()` 也会拦截，但 LLM 层先做判断效率更高。
-
-## 初始化（首次克隆后）
+## 文档更新
 
 ```bash
-bash scripts/refresh_from_webdav.sh
-python3 scripts/annotate_cards.py --doc-type solution
-python3 scripts/build_embeddings.py
+bash scripts/update.sh          # 增量更新（推荐）
+bash scripts/update.sh --full   # 全量重建
 ```
+
+源码文档在 WebDAV，更新后运行此脚本自动完成：卡片重生成 → 标注 → 索引 → embeddings。只处理变更部分。
