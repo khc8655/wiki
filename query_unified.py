@@ -485,7 +485,12 @@ def unified_search(query: str) -> Dict:
 
     if source_type == 'excel':
         all_results = search_excel(query, models)
-        if len(all_results) < 5:
+        # For specific intent queries (价格/接口/招标), don't dilute with knowledge base
+        query_specific = any(k in q for k in SPECIFIC_KWS)
+        if len(all_results) < 5 and not query_specific:
+            all_results.extend(search_knowledge(query, models))
+        elif query_specific and len(all_results) == 0:
+            # Only fall back to KB if Excel has literally nothing
             all_results.extend(search_knowledge(query, models))
 
     elif source_type == 'update':
