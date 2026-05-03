@@ -99,9 +99,9 @@ def classify_query(query: str) -> Tuple[str, List[str]]:
 def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
     """
     Detect if query is too broad (model + generic word only) and needs disambiguation.
-    Returns None if query is specific enough, or ambiguity info dict.
+    Checks ALL sources (Excel + knowledge base) and returns all available content categories.
 
-    Example: "AE800 参数" → ambiguous (multiple parameter types exist)
+    Example: "AE800 参数" → shows: 报价, 简单清单参数, 可研使用参数, 招标参数, 配置清单, 功能更新...
              "AE800 招标参数" → specific (no ambiguity)
     """
     if not models:
@@ -110,27 +110,34 @@ def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
     q = query.lower()
     model = models[0]
 
-    # Remove model number from query, see what remains
+    # Remove model number from query
     remaining = q
     for m in models:
         remaining = remaining.replace(m.lower(), '')
 
-    # Tokenize remaining: keep only meaningful words (>=2 chars)
+    # Tokenize remaining
     words = [w for w in re.findall(r'[\u4e00-\u9fff]+|[a-z0-9]+', remaining) if len(w) >= 2]
 
-    # Check if there are any specific keywords → query is fine, no ambiguity
+    # Has specific keywords → no ambiguity
     has_specific = any(k in q for k in SPECIFIC_KWS)
     if has_specific:
         return None
 
-    # Check if remaining words are all broad keywords → ambiguous
+    # Remaining words must all be broad keywords (or empty) → ambiguous
     all_broad = all(w in BROAD_KWS for w in words) if words else True
     if not all_broad:
         return None
 
-    # Now check: does this model have multiple parameter types in Excel?
-    rows = db.search_proposal_by_model(model)
     available_types = []
+
+    # ── 1. Check Excel DB ──────────────────────────────────────────────
+    # Pricing
+    price_rows = db.search_pricing_by_model(model)
+    if price_rows:
+        available_types.append({'label': '报价/价格', 'key': '价格'})
+
+    # Proposal (3-phase params)
+    rows = db.search_proposal_by_model(model)
     for r in rows:
         p_model = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
         if model not in p_model:
@@ -142,27 +149,45 @@ def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
         if r.get('phase_tender', '').strip():
             available_types.append({'label': '招标参数', 'key': '招标'})
 
-    # Also check card-level type labels from knowledge base
-    card_types = _get_card_param_types(model)
+    # Comparison table
+    comp_rows = db.search_comparison_by_model(model)
+    if comp_rows:
+        available_types.append({'label': '产品对比参数', 'key': '对比'})
 
-    # Merge and deduplicate
-    seen_labels = set()
-    merged = []
-    for t in available_types:
-        if t['label'] not in seen_labels:
-            seen_labels.add(t['label'])
-            merged.append(t)
+    # ── 2. Check knowledge base cards ───────────────────────────────────
+    try:
+        import json, os
+        from collections import Counter
+        cards_dir = ROOT / 'cards' / 'sections'
+        doc_types = []
+        for f in os.listdir(cards_dir):
+            if not f.endswith('.json'):
+                continue
+            card = json.loads(open(os.path.join(cards_dir, f)).read())
+            title = card.get('title', '')
+            body = card.get('body', '')
+            tags = card.get('tags', [])
+            doc = card.get('doc_file', '')
+            if model.upper() not in (title + body).upper():
+                continue
+            # Classify by source document type
+            if 'release-note' in tags or '培训文档' in doc or '迭代' in doc:
+                if not any(t.get('label') == '功能更新/迭代' for t in available_types):
+                    available_types.append({'label': '功能更新/迭代', 'key': '更新'})
+            elif '方案' in doc or '模板' in doc:
+                if '配置清单' in title:
+                    if not any(t.get('label') == '套装配置清单' for t in available_types):
+                        available_types.append({'label': '套装配置清单', 'key': '配置'})
+                elif '简介' in title:
+                    if not any(t.get('label') == '终端简介' for t in available_types):
+                        available_types.append({'label': '终端简介', 'key': '简介'})
+    except Exception:
+        pass
 
-    if card_types:
-        for ct in card_types:
-            if ct not in seen_labels:
-                seen_labels.add(ct)
-                merged.append({'label': ct, 'key': None})
-
-    if len(merged) > 1:
+    if len(available_types) > 1:
         return {
             'model': model,
-            'available_types': merged,
+            'available_types': available_types,
         }
 
     return None
