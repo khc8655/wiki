@@ -25,7 +25,11 @@ DEFAULT_REMOTE_ROOT = '/下载/temp/wiki_raw/'
 FOLDER_DOC_TYPE = {
     '方案文档': 'solution',
     '产品更新文档': 'release_note',
+    'excel': 'excel',
+    'PPT': 'ppt',
 }
+
+BINARY_EXTENSIONS = {'.xlsx', '.pptx', '.xls'}
 
 
 def auth_header(user: str, password: str) -> str:
@@ -258,8 +262,12 @@ def list_remote_files(base_url: str, remote_root: str, user: str, password: str)
             if is_dir:
                 continue
             name = display.text if display is not None else Path(href).name
-            if not name.lower().endswith('.md'):
+            ext = Path(name).suffix.lower()
+            # Accept .md (text docs) and .xlsx/.pptx/.xls (binary source files)
+            if ext not in ('.md', '.xlsx', '.pptx', '.xls'):
                 continue
+            if name.startswith('._'):
+                continue  # macOS resource forks
             files.append({
                 'folder_name': folder_name,
                 'doc_type': FOLDER_DOC_TYPE.get(folder_name, 'solution'),
@@ -276,6 +284,15 @@ def download_text(base_url: str, remote_path: str, user: str, password: str) -> 
     with urllib.request.urlopen(req, context=ctx, timeout=120) as r:
         raw = r.read()
     return raw.decode('utf-8', errors='ignore')
+
+
+def download_binary(base_url: str, remote_path: str, user: str, password: str) -> bytes:
+    """Download binary file (Excel, PPT) as raw bytes."""
+    auth = auth_header(user, password)
+    ctx = ssl._create_unverified_context()
+    req = request(base_url + quote(remote_path, safe='/'), auth=auth)
+    with urllib.request.urlopen(req, context=ctx, timeout=300) as r:
+        return r.read()
 
 
 def backup_existing_state():
@@ -305,7 +322,12 @@ def clear_dir(path: Path):
 
 
 def reset_workspace():
-    clear_dir(RAW_DIR)
+    """Clear generated files but preserve binary source files (.xlsx/.pptx) in raw/."""
+    # Only remove .md files from raw/ (keep Excel/PPT)
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    for item in RAW_DIR.iterdir():
+        if item.is_file() and item.suffix.lower() == '.md':
+            item.unlink()
     clear_dir(CARDS_DIR)
     clear_dir(DOCS_DIR)
     write_json(MANIFEST_PATH, [])
@@ -333,14 +355,20 @@ def build_doc_profiles(entries):
 def import_all(base_url: str, remote_root: str, user: str, password: str):
     files = list_remote_files(base_url, remote_root, user, password)
     if not files:
-        raise SystemExit('No markdown files found under remote root')
+        raise SystemExit('No files found under remote root')
 
     backup_root = backup_existing_state()
     reset_workspace()
 
     manifest = []
     imported = []
-    for idx, remote in enumerate(files, start=1):
+    
+    # Separate text docs (.md) from binary source files (.xlsx/.pptx)
+    text_files = [f for f in files if Path(f['name']).suffix.lower() == '.md']
+    binary_files = [f for f in files if Path(f['name']).suffix.lower() in BINARY_EXTENSIONS]
+
+    # ── Process text documents (.md) ──────────────────────────────────────
+    for idx, remote in enumerate(text_files, start=1):
         doc_code = f'{idx:02d}'
         local_name = f"{doc_code}-{remote['name']}"
         text = normalize_text(download_text(base_url, remote['remote_path'], user, password))
@@ -376,9 +404,34 @@ def import_all(base_url: str, remote_root: str, user: str, password: str):
         })
         print(f"imported {local_name}: {len(sections)} sections [{remote['doc_type']}]")
 
+    # ── Process binary source files (.xlsx, .pptx) ────────────────────────
+    for remote in binary_files:
+        import hashlib
+        data = download_binary(base_url, remote['remote_path'], user, password)
+        raw_path = RAW_DIR / remote['name']
+        raw_path.write_bytes(data)
+        file_hash = hashlib.sha256(data).hexdigest()
+        imported.append({
+            **remote,
+            'doc_code': None,
+            'local_name': remote['name'],
+            'title': remote['name'],
+            'section_count': 0,
+            'char_count': len(data),
+            'sha256': file_hash,
+        })
+        print(f"imported {remote['name']}: {len(data):,} bytes [{remote['doc_type']}]")
+
     manifest.sort(key=lambda x: x['id'])
     write_json(MANIFEST_PATH, manifest)
     write_json(DOC_PROFILES_PATH, build_doc_profiles(imported))
+
+    # Load previous state for change detection
+    prev_docs = []
+    if IMPORT_STATE_PATH.exists():
+        prev_state = json.loads(IMPORT_STATE_PATH.read_text(encoding='utf-8'))
+        prev_docs = prev_state.get('docs', [])
+
     write_json(IMPORT_STATE_PATH, {
         'imported_at': datetime.now().isoformat(timespec='seconds'),
         'remote_root': remote_root,
@@ -386,6 +439,7 @@ def import_all(base_url: str, remote_root: str, user: str, password: str):
         'doc_count': len(imported),
         'section_count': sum(x['section_count'] for x in imported),
         'docs': imported,
+        '_previous_docs': prev_docs,  # for change detection
     })
     print(json.dumps({
         'doc_count': len(imported),

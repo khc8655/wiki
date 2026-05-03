@@ -56,21 +56,42 @@ if ! $ANNOTATE_ONLY; then
   HAS_CHANGES=false
   CHANGED_FILES=""
 
+  # Compare new import state with previous to detect changes
   if [ -f "$STATE_FILE" ]; then
     CHANGED_FILES=$(python3 -c "
 import json, sys
 with open('$STATE_FILE') as f:
     s = json.load(f)
-changed = s.get('changed_files', [])
-newf = s.get('new_files', [])
-all_changes = list(set(changed + newf))
-if all_changes:
-    for f in all_changes[:10]:
-        print(f'    - {f}')
-    if len(all_changes) > 10:
-        print(f'    ... 及其他 {len(all_changes)-10} 个文件')
+
+# Check for new/changed binary files (excel/ppt)
+prev = s.get('_previous_docs', [])
+curr = s.get('docs', [])
+
+changes = []
+prev_names = {d.get('local_name',''): d for d in prev}
+curr_names = {d.get('local_name',''): d for d in curr}
+
+for name, doc in curr.items():
+    if name not in prev_names:
+        changes.append(f'新增: {name}')
+    elif doc.get('sha256') and doc['sha256'] != prev_names[name].get('sha256',''):
+        changes.append(f'更新: {name}')
+
+for name in prev_names:
+    if name not in curr_names:
+        changes.append(f'删除: {name}')
+
+if changes:
+    for c in changes[:15]:
+        print(f'    - {c}')
+    if len(changes) > 15:
+        print(f'    ... 及其他 {len(changes)-15} 项变更')
     sys.exit(1)
 " 2>&1) && HAS_CHANGES=false || HAS_CHANGES=true
+  else
+    # First run — state file doesn't exist yet
+    HAS_CHANGES=true
+    CHANGED_FILES='    (首次导入)'
   fi
 
   if $CHECK_ONLY; then
