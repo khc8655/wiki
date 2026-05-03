@@ -8,6 +8,7 @@ groups to manage throughput. All tags kept in Chinese.
 """
 
 import json
+import re
 import time
 from typing import List, Dict, Optional
 
@@ -100,6 +101,67 @@ def _empty_annotation() -> Dict:
     }
 
 
+# ── Rule-based annotation enrichment (no LLM, 100% deterministic) ──────────
+
+# Patterns that indicate parameter-type content
+_PARAM_PATTERNS = [
+    (re.compile(r'\d+[路个]\S*(?:视频|音频)(?:输入|输出)'), '接口硬件'),
+    (re.compile(r'\d+K\d*[fF][pP][sS]|4K|1080[Pp]|720[Pp]'), '性能参数'),
+    (re.compile(r'H\.\d+'), '性能参数'),
+    (re.compile(r'G\.\d+'), '性能参数'),
+    (re.compile(r'AES\d*|SM[2-4]|国密'), '安全保障'),
+    (re.compile(r'Opus'), '性能参数'),
+    (re.compile(r'\d+万有效像素'), '性能参数'),
+    (re.compile(r'\d+倍光学变焦'), '性能参数'),
+    (re.compile(r'\d+米\S*拾音'), '性能参数'),
+    (re.compile(r'\d+dB|信噪比|频率响应'), '性能参数'),
+    (re.compile(r'\d+[Ww]|功耗|电源'), '性能参数'),
+    (re.compile(r'\d+\.?\d*\s*[GgMmKk][Hh][Zz]'), '性能参数'),
+    (re.compile(r'丢包率|\d+%\s*(?:丢包|恢复)'), '性能参数'),
+    (re.compile(r'延迟|时延|<\s*\d+\s*ms'), '性能参数'),
+    (re.compile(r'并发|\d+方|\d+路并发'), '性能参数'),
+    (re.compile(r'▲'), '报价价格'),  # tender marker → pricing category
+]
+
+# Patterns that indicate solution/case content (NOT parameters)
+_NON_PARAM_PATTERNS = [
+    re.compile(r'案例|应用场景|部署方案|建设方案|解决方案'),
+]
+
+
+def enrich_annotation(card: dict, annotation: dict) -> dict:
+    """
+    Post-process LLM annotation: add missing intent tags based on
+    deterministic pattern matching in the card body.
+    No API calls, runs in microseconds.
+    """
+    body = card.get('body', '')
+    intent = list(annotation.get('intent_tags', []))
+
+    # Check if body contains param-like content
+    is_param_body = False
+    for pattern, tag in _PARAM_PATTERNS:
+        if pattern.search(body):
+            if tag not in intent:
+                intent.append(tag)
+            is_param_body = True
+
+    # If body looks like parameter content but has no param tags → add '性能参数'
+    if is_param_body and '性能参数' not in intent:
+        intent.append('性能参数')
+
+    # If body is clearly narrative/descriptive, don't add param tags
+    is_narrative = any(p.search(body) for p in _NON_PARAM_PATTERNS)
+    
+    # Tender-specific: if multiple ▲ markers found, boost to tender
+    tender_count = body.count('▲')
+    if tender_count >= 3 and '报价价格' not in intent:
+        intent.append('报价价格')
+
+    annotation['intent_tags'] = intent
+    return annotation
+
+
 def annotate_all(cards: List[Dict], batch_size: int = 20, delay: float = 0.3) -> List[Dict]:
     """
     Annotate all cards. One API call per card, with progress.
@@ -116,6 +178,8 @@ def annotate_all(cards: List[Dict], batch_size: int = 20, delay: float = 0.3) ->
             path=card.get("path", ""),
             body=card.get("body", ""),
         )
+        # Enrich with rule-based tags (no LLM, deterministic)
+        ann = enrich_annotation(card, ann)
         all_annotations.append(ann)
         time.sleep(delay)
 

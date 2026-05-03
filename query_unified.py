@@ -21,7 +21,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'lib'))
@@ -36,6 +36,10 @@ from weight_optimizer import (
 from feedback import log_query, record_feedback, get_last_query_id, record_follow_up, get_stats
 from query_refiner import refine_query
 
+# ── Constants ──────────────────────────────────────────────────────────────
+
+LOW_QUALITY_THRESHOLD = 0.5   # Below this = low quality, hidden by default
+
 # Model extraction regex
 MODEL_RE = re.compile(
     r'(AE\d{3}[A-Z]?|XE\d{3}[A-Z]?|GE\d{3}[A-Z]?|PE\d{4}|TP\d{3}(?:-[A-Z])?|'
@@ -45,48 +49,157 @@ MODEL_RE = re.compile(
 
 # Intent classification keywords
 PRICE_KWS = ['价格', '报价', '多少钱', '费用', '成本']
-TENDER_KWS = ['招标', '投标', '参数', '配置', '可研']
+TENDER_KWS = ['招标', '投标', '可研']
 SPEC_KWS = ['规格', '接口', '编解码', '输入', '输出', '分辨率', '像素']
 COMPARE_KWS = ['对比', '比较', '区别', '差异', 'vs']
 ACCESSORY_KWS = ['配件', '附件', '可用配件']
 EOL_KWS = ['停产', '替代', '退市']
 UPDATE_KWS = ['迭代', '新功能', '版本更新', '发版', '培训文档', '更新说明', '功能更新']
 
+# Ambiguous broad keywords — when alone with model number, query IS ambiguous
+BROAD_KWS = ['参数', '配置', '规格', '信息', '详情', '介绍', '资料']
+# Specific keywords that resolve ambiguity
+SPECIFIC_KWS = TENDER_KWS + SPEC_KWS + PRICE_KWS + COMPARE_KWS + ACCESSORY_KWS + EOL_KWS
+
+# Knowledge-base card tags → query keyword mapping (for semantic boost)
+TAG_BOOST_MAP = {
+    '招标参数': 1.5, '方案参数': 1.3, '渠道参数': 1.2,
+    '安全': 1.4, '加密': 1.5, '国密': 1.5, '鉴权': 1.3, '认证': 1.3,
+    '部署': 1.2, '运维': 1.2, '架构': 1.2, '集成': 1.2, '对接': 1.2,
+    'release-note': 0.5,  # downgrade release notes when user wants params
+}
+
+
+# ── Query understanding ────────────────────────────────────────────────────
 
 def extract_models(query: str) -> List[str]:
     return sorted({m.upper() for m in MODEL_RE.findall(query)})
 
 
 def classify_query(query: str) -> Tuple[str, List[str]]:
-    """
-    Classify query intent and extract models.
-    
-    Returns:
-        (source_type, models)
-        source_type: 'excel' | 'knowledge' | 'update' | 'ppt'
-    """
+    """Classify query intent and extract models."""
     models = extract_models(query)
     q = query.lower()
 
-    # 表格类: 有型号 + 明确的数据查询意图
-    excel_keywords = PRICE_KWS + TENDER_KWS + SPEC_KWS + COMPARE_KWS + ACCESSORY_KWS + EOL_KWS
+    excel_keywords = SPECIFIC_KWS
     if models:
         if any(k in q for k in excel_keywords):
             return 'excel', models
-        # 只有型号,默认查表格(参数最权威)
         return 'excel', models
 
-    # 更新类: 版本/迭代/新功能相关
     if any(k in q for k in UPDATE_KWS):
         return 'update', models
 
-    # PPT类 (预留)
     if 'ppt' in q or '幻灯片' in q:
         return 'ppt', models
 
-    # 方案类: 概念性/场景性问题
     return 'knowledge', models
 
+
+def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
+    """
+    Detect if query is too broad (model + generic word only) and needs disambiguation.
+    Returns None if query is specific enough, or ambiguity info dict.
+
+    Example: "AE800 参数" → ambiguous (multiple parameter types exist)
+             "AE800 招标参数" → specific (no ambiguity)
+    """
+    if not models:
+        return None
+
+    q = query.lower()
+    model = models[0]
+
+    # Remove model number from query, see what remains
+    remaining = q
+    for m in models:
+        remaining = remaining.replace(m.lower(), '')
+
+    # Tokenize remaining: keep only meaningful words (>=2 chars)
+    words = [w for w in re.findall(r'[\u4e00-\u9fff]+|[a-z0-9]+', remaining) if len(w) >= 2]
+
+    # Check if there are any specific keywords → query is fine, no ambiguity
+    has_specific = any(k in q for k in SPECIFIC_KWS)
+    if has_specific:
+        return None
+
+    # Check if remaining words are all broad keywords → ambiguous
+    all_broad = all(w in BROAD_KWS for w in words) if words else True
+    if not all_broad:
+        return None
+
+    # Now check: does this model have multiple parameter types in Excel?
+    rows = db.search_proposal_by_model(model)
+    available_types = []
+    for r in rows:
+        p_model = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
+        if model not in p_model:
+            continue
+        if r.get('phase_channel', '').strip():
+            available_types.append({'label': '简单清单参数（简版）', 'key': '渠道'})
+        if r.get('phase_proposal', '').strip():
+            available_types.append({'label': '可研使用参数（最完整）', 'key': '可研'})
+        if r.get('phase_tender', '').strip():
+            available_types.append({'label': '招标参数', 'key': '招标'})
+
+    # Also check card-level type labels from knowledge base
+    card_types = _get_card_param_types(model)
+
+    # Merge and deduplicate
+    seen_labels = set()
+    merged = []
+    for t in available_types:
+        if t['label'] not in seen_labels:
+            seen_labels.add(t['label'])
+            merged.append(t)
+
+    if card_types:
+        for ct in card_types:
+            if ct not in seen_labels:
+                seen_labels.add(ct)
+                merged.append({'label': ct, 'key': None})
+
+    if len(merged) > 1:
+        return {
+            'model': model,
+            'available_types': merged,
+        }
+
+    return None
+
+
+def _get_card_param_types(model: str) -> List[str]:
+    """Extract parameter type labels from card annotations for a given model."""
+    try:
+        import json
+        meta_path = ROOT / 'cards' / 'card_metadata.v2.json'
+        if not meta_path.exists():
+            return []
+        with open(meta_path) as f:
+            meta = json.load(f)
+        types = set()
+        for card_id, card in meta.items():
+            title = card.get('title', '')
+            tags = card.get('tags', [])
+            keywords = card.get('keywords', [])
+            all_text = f"{title} {' '.join(tags)} {' '.join(keywords)}".upper()
+            if model.upper() in all_text:
+                if '招标' in all_text or 'TENDER' in all_text.upper():
+                    types.add('招标参数')
+                if '方案' in all_text or 'PROPOSAL' in all_text.upper():
+                    types.add('方案参数')
+                if '渠道' in all_text or '简单' in all_text or 'CHANNEL' in all_text.upper():
+                    types.add('渠道参数')
+                if '价格' in all_text or '报价' in all_text:
+                    types.add('价格')
+                if '简介' in title or '概述' in title:
+                    types.add('终端简介')
+        return sorted(types)
+    except Exception:
+        return []
+
+
+# ── Search functions ───────────────────────────────────────────────────────
 
 def search_excel(query: str, models: List[str]) -> List[Dict]:
     """Search structured Excel data: pricing, specs, comparison."""
@@ -94,15 +207,14 @@ def search_excel(query: str, models: List[str]) -> List[Dict]:
     results = []
     q = query.lower()
 
-    want_tender = '招标' in q or '投标' in q or '可研' in q
+    want_tender = any(k in q for k in TENDER_KWS)
     want_channel = '渠道' in q or '通路' in q or '简单' in q
     want_spec = any(k in q for k in SPEC_KWS)
     want_price = any(k in q for k in PRICE_KWS)
     want_compare = any(k in q for k in COMPARE_KWS)
-    
-    # If no specific type specified, give all
+
     want_all = not (want_tender or want_channel or want_spec or want_price or want_compare)
-    
+
     for model in models:
         # 1. Proposal table (multi-phase params)
         rows = db.search_proposal_by_model(model)
@@ -120,36 +232,37 @@ def search_excel(query: str, models: List[str]) -> List[Dict]:
                 body = r.get('phase_tender', '').strip()
                 if body:
                     results.append(_make_excel_hit(
-                        r, '招标参数', body, hit_rate * 0.9))
+                        r, '招标参数', body, round(hit_rate * 0.95, 3)))
 
-            # 方案参数(最完整)
-            if not want_spec and not want_price:
+            # 方案/可研参数 (most complete)
+            if want_all:
                 body = r.get('phase_proposal', '').strip()
                 if body:
                     results.append(_make_excel_hit(
-                        r, '方案参数', body, hit_rate))
+                        r, '方案参数', body, round(hit_rate, 3)))
 
             # 渠道/简单参数
             if want_channel or want_all:
                 body = r.get('phase_channel', '').strip()
                 if body:
                     results.append(_make_excel_hit(
-                        r, '渠道参数', body, hit_rate * 0.85))
+                        r, '渠道参数', body, round(hit_rate * 0.85, 3)))
 
         # 2. Comparison table (spec details)
-        comp_rows = db.search_comparison_by_model(model)
-        for r in comp_rows:
-            spec_name = r.get('spec_name', '')
-            spec_val = r.get('spec_value', '')
-            body = f"{spec_name}: {spec_val}"
-            results.append({
-                'type': '表格类-产品对比',
-                'hit_rate': 0.9,
-                'source': f"{r.get('source_file')}:{r.get('source_sheet')}:row{r.get('source_row')}",
-                'title': f"{r.get('model')} - {spec_name}",
-                'body': body,
-                'raw': r,
-            })
+        if want_spec or want_all:
+            comp_rows = db.search_comparison_by_model(model)
+            for r in comp_rows:
+                spec_name = r.get('spec_name', '')
+                spec_val = r.get('spec_value', '')
+                body = f"{spec_name}: {spec_val}"
+                results.append({
+                    'type': '表格类-产品对比',
+                    'hit_rate': 0.9,
+                    'source': f"{r.get('source_file')}:{r.get('source_sheet')}:row{r.get('source_row')}",
+                    'title': f"{r.get('model')} - {spec_name}",
+                    'body': body,
+                    'raw': r,
+                })
 
         # 3. Pricing
         if want_price or want_all:
@@ -179,33 +292,65 @@ def _make_excel_hit(row: Dict, param_type: str, body: str, hit_rate: float) -> D
     }
 
 
+def _compute_tag_boost(card: Dict, query: str) -> float:
+    """Compute tag-based relevance boost from card annotations."""
+    boost = 1.0
+    q = query.lower()
+
+    # Check card tags
+    tags = card.get('tags', [])
+    keywords = card.get('keywords', [])
+
+    for tag in tags:
+        tag_lower = tag.lower()
+        for kw, multiplier in TAG_BOOST_MAP.items():
+            if kw in tag_lower:
+                boost = max(boost, multiplier)
+
+    # Check if query words match card keywords
+    for kw in keywords:
+        if kw.lower() in q:
+            boost = max(boost, 1.3)
+
+    # Downgrade: if user is asking for params but result is a release-note
+    if any(k in q for k in SPECIFIC_KWS) and 'release-note' in tags:
+        boost = min(boost, 0.6)
+
+    return boost
+
+
 def search_knowledge(query: str, models: List[str] = None) -> List[Dict]:
-    """Search solution-type documents with hybrid BM25+Vector."""
+    """Search solution-type documents with hybrid BM25+Vector + tag boost."""
     models = models or []
     try:
         hybrid = get_hybrid(ROOT / 'cards' / 'sections',
                            ROOT / 'index_store' / 'embeddings')
-        raw_results = hybrid.search(query, top_k=30)
+        raw_results = hybrid.search(query, top_k=40)
 
         results = []
         for r in raw_results:
             body = r.get('body', '')
             title = r.get('title', '')
             hit_rate = r['hit_rate']
+            card = r.get('raw', r)
+
+            # Apply tag-based relevance boost/downgrade
+            tag_boost = _compute_tag_boost(card, query)
+            hit_rate = round(min(hit_rate * tag_boost, 1.0), 3)
 
             # Model filter if specified
             if models:
                 body_upper = body.upper()
                 title_upper = title.upper()
                 if not any(m in body_upper or m in title_upper for m in models):
-                    hit_rate *= 0.3  # Penalize but don't exclude
-            
+                    hit_rate *= 0.3
+
             if hit_rate < 0.08:
                 continue
 
             results.append({
                 'type': '方案类-段落',
-                'hit_rate': round(hit_rate, 3),
+                'hit_rate': hit_rate,
                 'source': r['source'],
                 'title': title,
                 'body': body[:2000],
@@ -216,17 +361,18 @@ def search_knowledge(query: str, models: List[str] = None) -> List[Dict]:
 
     except Exception as e:
         print(f"[Knowledge] Hybrid search failed: {e}, falling back to BM25", file=sys.stderr)
-        # Fallback: pure BM25
         retriever = get_retriever(ROOT / 'cards' / 'sections')
-        bm25_results = retriever.search(query, top_k=30)
+        bm25_results = retriever.search(query, top_k=40)
 
         results = []
         for cid, score, card in bm25_results:
             if score < 0.5:
                 continue
+            tag_boost = _compute_tag_boost(card, query)
+            hit_rate = round(min(score / 10.0 * tag_boost, 1.0), 3)
             results.append({
                 'type': '方案类-段落',
-                'hit_rate': round(min(score / 10.0, 1.0), 3),
+                'hit_rate': hit_rate,
                 'source': f"{card.get('doc_file')} | {card.get('path')}",
                 'title': card.get('title', ''),
                 'body': card.get('body', '')[:2000],
@@ -245,8 +391,7 @@ def search_updates(query: str) -> List[Dict]:
         for cid, score, card in bm25_results:
             tags = card.get('tags', [])
             if 'release-note' not in tags:
-                continue  # Only update-type docs
-            
+                continue
             if score < 0.3:
                 continue
 
@@ -255,25 +400,23 @@ def search_updates(query: str) -> List[Dict]:
                 'hit_rate': round(min(score / 5.0, 1.0), 3),
                 'source': f"{card.get('doc_file')} | {card.get('path')}",
                 'title': card.get('title', ''),
-                'body': card.get('body', '')[:3000],  # Coarse: keep full paragraph
+                'body': card.get('body', '')[:3000],
                 'raw': card,
             })
 
         return results
-
     except Exception as e:
         print(f"[Update] Search failed: {e}", file=sys.stderr)
         return []
 
 
 def search_ppt(query: str) -> List[Dict]:
-    """Search PPT cards (future integration)."""
-    # TODO: integrate PPT image understanding cards
     return []
 
 
+# ── Core engine ────────────────────────────────────────────────────────────
+
 def _compute_avg_hit_rate(results: List[Dict]) -> float:
-    """Compute average hit_rate across results."""
     if not results:
         return 0.0
     rates = [r.get('hit_rate', 0) for r in results]
@@ -281,31 +424,27 @@ def _compute_avg_hit_rate(results: List[Dict]) -> float:
 
 
 def unified_search(query: str) -> Dict:
-    """Main entry point: classify and route query."""
+    """Main entry point: classify, detect ambiguity, route, search."""
     source_type, models = classify_query(query)
     all_results = []
 
-    # Route to appropriate data source(s)
     if source_type == 'excel':
         all_results = search_excel(query, models)
-        # Also search knowledge base for supplementary info
         if len(all_results) < 5:
-            knowledge = search_knowledge(query, models)
-            all_results.extend(knowledge)
+            all_results.extend(search_knowledge(query, models))
 
     elif source_type == 'update':
         all_results = search_updates(query)
-        # Also check knowledge base
         if len(all_results) < 3:
             all_results.extend(search_knowledge(query, models))
 
     elif source_type == 'ppt':
         all_results = search_ppt(query)
 
-    else:  # knowledge
+    else:
         all_results = search_knowledge(query, models)
 
-    # Deduplicate (by source + title)
+    # Deduplicate
     seen = set()
     unique = []
     for r in all_results:
@@ -314,14 +453,13 @@ def unified_search(query: str) -> Dict:
             seen.add(key)
             unique.append(r)
 
-    # Sort: excel first (authoritative), then by hit_rate
+    # Sort: excel first, then by hit_rate descending
     def sort_key(x):
         is_excel = '表格类' in x.get('type', '')
         return (is_excel, x['hit_rate'])
 
     unique.sort(key=sort_key, reverse=True)
 
-    # Compute quality metrics
     avg_rate = _compute_avg_hit_rate(unique)
 
     return {
@@ -336,55 +474,42 @@ def unified_search(query: str) -> Dict:
 
 
 def format_output(hit: Dict) -> str:
-    """Format a single result for display."""
-    lines = []
     title = hit.get('title', '').replace('\n', ' ').strip()
     hit_rate = hit.get('hit_rate', 0)
     source = hit.get('source', 'unknown')
     body = hit.get('body', '').strip()
 
-    lines.append(title)
-    lines.append("")
-    lines.append(body)
-    lines.append("")
-    lines.append("出处")
-    lines.append(source)
-    lines.append("")
-    lines.append("命中率")
-    lines.append("")
-    lines.append(f"{hit_rate:.0%}")
-    lines.append("")
-    lines.append("---")
-    return '\n'.join(lines)
+    return (
+        f"{title}\n\n"
+        f"{body}\n\n"
+        f"出处\n{source}\n\n"
+        f"命中率\n\n{hit_rate:.0%}\n\n---"
+    )
 
+
+# ── Main ───────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description='Unified wiki query engine')
     parser.add_argument('query', help='Query text')
     parser.add_argument('--json', action='store_true', help='JSON output')
-    parser.add_argument('--limit', type=int, default=200, help='Max results (default 200, show all)')
-    parser.add_argument('--all', action='store_true', help='Show ALL results (no limit)')
+    parser.add_argument('--limit', type=int, default=200, help='Max high-quality results (default 200)')
+    parser.add_argument('--all', action='store_true', help='Show ALL results including low-quality')
+    parser.add_argument('--all-low', action='store_true', help='Also show results below 50% hit rate')
     parser.add_argument('--no-vector', action='store_true', help='Disable vector search')
-    parser.add_argument('--verbose', '-v', action='store_true',
-                        help='Show feedback/logging diagnostics')
-    parser.add_argument('--feedback', choices=['good', 'bad', 'skip'],
-                        help='Mark quality of this query result')
-    parser.add_argument('--feedback-query-id', type=str,
-                        help='Query ID to attach feedback to (defaults to current query)')
-    parser.add_argument('--ref-query-id', type=str,
-                        help='Referenced query ID for follow-up chain')
-    parser.add_argument('--optimize', action='store_true',
-                        help='Analyze feedback and optimize retrieval weights')
-    parser.add_argument('--optimize-apply', action='store_true',
-                        help='Apply optimized weights (requires --optimize)')
-    parser.add_argument('--no-optimize-weights', action='store_true',
-                        help='Skip loading optimized weights (use defaults)')
+    parser.add_argument('--verbose', '-v', action='store_true', help='Show diagnostics')
+    parser.add_argument('--feedback', choices=['good', 'bad', 'skip'], help='Mark quality')
+    parser.add_argument('--feedback-query-id', type=str, help='Query ID for feedback')
+    parser.add_argument('--ref-query-id', type=str, help='Referenced query ID')
+    parser.add_argument('--optimize', action='store_true', help='Analyze feedback and optimize')
+    parser.add_argument('--optimize-apply', action='store_true', help='Apply optimized weights')
+    parser.add_argument('--no-optimize-weights', action='store_true', help='Skip optimized weights')
     args = parser.parse_args()
 
     if args.all:
         args.limit = 9999
 
-    # --- Optimization mode ---
+    # ── Optimization mode ──────────────────────────────────────────────────
     if args.optimize:
         opt = WeightOptimizer()
         stats = opt.analyze_feedback()
@@ -399,21 +524,46 @@ def main():
             if args.optimize_apply:
                 suggestion = opt.apply_weights()
                 if suggestion:
-                    print(f"\n✅ 已应用: bm25={suggestion['bm25_weight']}, "
-                          f"vector={suggestion['vector_weight']}, "
-                          f"semantic_boost={suggestion['semantic_boost']}")
+                    print(f"\n✅ 已应用")
         else:
             print(f"\n⚠️ 仅 {stats.get('total_queries', 0)} 条反馈, 至少需要 20 条")
         return
 
-    # --- Load optimized weights (unless disabled) ---
     if not args.no_optimize_weights:
         apply_weights_to_retrievers()
 
-    result = unified_search(args.query)
-    results = result['results'][:args.limit]
+    # ── Step 1: Check ambiguity BEFORE searching ───────────────────────────
+    models = extract_models(args.query)
+    if models:
+        db = get_excel_db()
+        ambiguity = detect_ambiguity(args.query, models, db)
+        if ambiguity:
+            # Output disambiguation prompt in structured format
+            types_list = '\n'.join(
+                f"  {i+1}. {t['label']}"
+                for i, t in enumerate(ambiguity['available_types'])
+            )
+            print(f"⚠️ 歧义检测: 查询过于宽泛\n")
+            print(f"型号 {ambiguity['model']} 有以下参数类型，请指定后重新查询：\n{types_list}\n")
+            print(f"示例: AE800 招标参数 | AE800 渠道参数 | AE800 方案参数\n")
+            return
 
-    # ── Auto-log query ─────────────────────────────────────────────────────
+    # ── Step 2: Search ─────────────────────────────────────────────────────
+    result = unified_search(args.query)
+
+    # ── Step 3: Split by quality ───────────────────────────────────────────
+    high_quality = [r for r in result['results'] if r['hit_rate'] >= LOW_QUALITY_THRESHOLD]
+    low_quality = [r for r in result['results'] if r['hit_rate'] < LOW_QUALITY_THRESHOLD]
+
+    if args.all:
+        # Show everything
+        display = result['results'][:args.limit]
+    elif args.all_low:
+        display = (high_quality + low_quality)[:args.limit]
+    else:
+        display = high_quality[:args.limit]
+
+    # ── Logging ────────────────────────────────────────────────────────────
     last_qid = get_last_query_id()
     ref_qid = args.ref_query_id or last_qid
 
@@ -427,23 +577,12 @@ def main():
         referenced_query_id=ref_qid if ref_qid and ref_qid != get_last_query_id() else None,
     )
 
-    # Link follow-up chain if applicable
     if last_qid and not args.ref_query_id:
         record_follow_up(last_qid, log_qid)
 
-    # ── Feedback from CLI ───────────────────────────────────────────────────
     if args.feedback:
         target_qid = args.feedback_query_id or log_qid
         record_feedback(target_qid, args.feedback)
-
-    # ── Refinement if low quality ──────────────────────────────────────────
-    refinement = None
-    if result.get('low_quality'):
-        refinement = refine_query(
-            query=args.query,
-            results=result['results'],
-            cards=[],
-        )
 
     # ── Output ─────────────────────────────────────────────────────────────
     if args.json:
@@ -453,13 +592,13 @@ def main():
             'source_type': result['source_type'],
             'models': result['models'],
             'total': result['result_count'],
-            'shown': len(results),
+            'high_quality': len(high_quality),
+            'low_quality': len(low_quality),
+            'shown': len(display),
             'avg_hit_rate': result.get('avg_hit_rate', 0),
-            'low_quality': result.get('low_quality', False),
-            'results': results,
+            'low_quality_flag': result.get('low_quality', False),
+            'results': display,
         }
-        if refinement:
-            out['refinement'] = refinement
         if args.verbose:
             out['feedback_stats'] = get_stats()
         print(json.dumps(out, ensure_ascii=False, indent=2))
@@ -469,47 +608,24 @@ def main():
         if result['models']:
             print(f"型号: {', '.join(result['models'])}")
         print(f"共召回 {result['result_count']} 条, 平均命中率 {result.get('avg_hit_rate', 0):.3f}")
+        print(f"高相关 (≥50%): {len(high_quality)} 条  |  低相关 (<50%): {len(low_quality)} 条")
 
         if args.verbose:
             print(f"[反馈] query_id={log_qid}")
-            print(f"[反馈] low_quality={result.get('low_quality', False)}")
-            stats = get_stats()
-            print(f"[反馈] 累计统计: total={stats['total_queries']}, "
-                  f"good={stats['good']}, bad={stats['bad']}")
 
-        if len(results) < result['result_count']:
-            print(f"显示前 {len(results)} 条 (共 {result['result_count']} 条)")
+        if len(display) < len(result['results']) and not args.all:
+            shown_label = "高相关" if not args.all_low else "全部"
+            print(f"显示 {shown_label} {len(display)} 条")
         else:
-            print(f"显示全部 {len(results)} 条")
+            print(f"显示全部 {len(display)} 条")
         print()
-        for hit in results:
+
+        for hit in display:
             print(format_output(hit))
 
-        # Show refinement suggestions only in verbose mode (raw recall by default)
-        if args.verbose and refinement and refinement.get('needs_refinement'):
-            print('\n' + '=' * 60)
-            print('🔍 查询优化建议')
-            print('=' * 60)
-
-            sug = refinement.get('suggestions', [])
-            if sug:
-                print('\n💡 建议改写：')
-                for s in sug:
-                    print(f'   • {s}')
-
-            terms = refinement.get('expanded_terms', [])
-            if terms:
-                print(f'\n📝 扩展关键词：{" / ".join(terms)}')
-
-            topics = refinement.get('related_topics', [])
-            if topics:
-                print(f'\n📂 可能相关主题：{" / ".join(topics)}')
-
-            cq = refinement.get('clarifying_question')
-            if cq:
-                print(f'\n❓ {cq}')
-
-            print()
+        # Prompt for low-quality results
+        if low_quality and not args.all and not args.all_low:
+            print(f"\n还有 {len(low_quality)} 条低相关结果（命中率<50%），需要显示请回复\"全部\"\n")
 
 
 if __name__ == '__main__':
