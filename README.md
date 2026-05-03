@@ -10,7 +10,8 @@
 
 ## 快速开始
 
-> **Agent 用户请先阅读**：[AGENTS.md](AGENTS.md) - 查询规则、检索入口、原文引用规范
+> ⛔ **Agent / AI 用户必读：先看 [CLAUDE.md](CLAUDE.md)** — 定义了本知识库的查询行为规范，违反即错误。  
+> 人类用户请直接看下方示例。
 
 ```bash
 git clone https://github.com/khc8655/wiki.git

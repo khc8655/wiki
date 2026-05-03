@@ -362,8 +362,8 @@ def main():
     parser = argparse.ArgumentParser(description='Unified wiki query engine')
     parser.add_argument('query', help='Query text')
     parser.add_argument('--json', action='store_true', help='JSON output')
-    parser.add_argument('--limit', type=int, default=5, help='Max results (default 5)')
-    parser.add_argument('--all', action='store_true', help='Show all results')
+    parser.add_argument('--limit', type=int, default=200, help='Max results (default 200, show all)')
+    parser.add_argument('--all', action='store_true', help='Show ALL results (no limit)')
     parser.add_argument('--no-vector', action='store_true', help='Disable vector search')
     parser.add_argument('--verbose', '-v', action='store_true',
                         help='Show feedback/logging diagnostics')
@@ -382,7 +382,7 @@ def main():
     args = parser.parse_args()
 
     if args.all:
-        args.limit = 100
+        args.limit = 9999
 
     # --- Optimization mode ---
     if args.optimize:
@@ -477,13 +477,16 @@ def main():
             print(f"[反馈] 累计统计: total={stats['total_queries']}, "
                   f"good={stats['good']}, bad={stats['bad']}")
 
-        print(f"显示前 {len(results)} 条")
+        if len(results) < result['result_count']:
+            print(f"显示前 {len(results)} 条 (共 {result['result_count']} 条)")
+        else:
+            print(f"显示全部 {len(results)} 条")
         print()
         for hit in results:
             print(format_output(hit))
 
-        # Show refinement suggestions if low quality
-        if refinement and refinement.get('needs_refinement'):
+        # Show refinement suggestions only in verbose mode (raw recall by default)
+        if args.verbose and refinement and refinement.get('needs_refinement'):
             print('\n' + '=' * 60)
             print('🔍 查询优化建议')
             print('=' * 60)
