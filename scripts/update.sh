@@ -76,16 +76,21 @@ else:
     exit 0
   fi
 
-  # ── Step 2: Rebuild card metadata ──────────────────────────────────────────
+  # ── Step 2: Import Excel into SQLite ──────────────────────────────────────
   echo ""
-  echo "[2/5] 重建卡片元数据..."
+  echo "[2/6] 导入 Excel 数据到 SQLite..."
+  if [ -f scripts/build_excel_knowledge.py ]; then
+    python3 scripts/build_excel_knowledge.py 2>/dev/null && echo "  OK" || echo "  [WARN] Excel 导入部分失败"
+  fi
 
-  # Detect which document types changed to route card rebuild
+  # ── Step 3: Rebuild card metadata ──────────────────────────────────────────
+  echo ""
+  echo "[3/6] 重建卡片元数据..."
   python3 scripts/build_v2_semantic_metadata.py
 
-  # ── Step 3: Rebuild indexes ────────────────────────────────────────────────
+  # ── Step 4: Rebuild indexes ────────────────────────────────────────────────
   echo ""
-  echo "[3/5] 重建索引..."
+  echo "[4/6] 重建索引..."
 
   # Path index (JS)
   if [ -f scripts/build_path_index.js ]; then
@@ -110,7 +115,7 @@ fi
 
 # ── Step 4: Annotate cards (only unannotated) ───────────────────────────────
 echo ""
-echo "[4/5] 标注卡片..."
+echo "[5/6] 标注卡片..."
 
 # Detect how many cards need annotation
 UNANNOTATED=$(python3 -c "
@@ -138,7 +143,7 @@ fi
 
 # ── Step 5: Rebuild embeddings ──────────────────────────────────────────────
 echo ""
-echo "[5/5] 重建向量索引..."
+echo "[6/6] 重建向量索引..."
 python3 scripts/build_embeddings.py
 
 # ── Audit (optional) ────────────────────────────────────────────────────────
