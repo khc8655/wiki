@@ -224,8 +224,12 @@ def _collect_model_categories(model: str) -> List[Dict]:
 
 # ── Search functions ───────────────────────────────────────────────────────
 
-def search_excel(query: str, models: List[str]) -> List[Dict]:
-    """Search structured Excel data: pricing, specs, comparison."""
+def search_excel(query: str, models: List[str], facet_filter: str = None) -> List[Dict]:
+    """Search structured Excel data: pricing, specs, comparison.
+    facet_filter: 'tender'/'proposal'/'channel' for proposal;
+                  pricing_type value for pricing;
+                  comparison_type value for comparison.
+    """
     db = get_excel_db()
     results = []
     q = query.lower()
@@ -240,7 +244,8 @@ def search_excel(query: str, models: List[str]) -> List[Dict]:
 
     for model in models:
         # 1. Proposal table (multi-phase params)
-        rows = db.search_proposal_by_model(model)
+        phase_filter = facet_filter if facet_filter in ('tender', 'proposal', 'channel') else None
+        rows = db.search_proposal_by_model(model, phase_filter=phase_filter)
         for r in rows:
             product_model = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
             if model == product_model:
@@ -251,29 +256,30 @@ def search_excel(query: str, models: List[str]) -> List[Dict]:
                 hit_rate = 0.5
 
             # 招标参数
-            if want_tender or want_all:
+            if want_tender or (want_all and not phase_filter):
                 body = r.get('phase_tender', '').strip()
-                if body:
+                if body and (not phase_filter or phase_filter == 'tender'):
                     results.append(_make_excel_hit(
                         r, '招标参数', body, round(hit_rate * 0.95, 3)))
 
             # 方案/可研参数 (most complete)
-            if want_all:
+            if want_all and not phase_filter:
                 body = r.get('phase_proposal', '').strip()
                 if body:
                     results.append(_make_excel_hit(
                         r, '方案参数', body, round(hit_rate, 3)))
 
             # 渠道/简单参数
-            if want_channel or want_all:
+            if want_channel or (want_all and not phase_filter):
                 body = r.get('phase_channel', '').strip()
-                if body:
+                if body and (not phase_filter or phase_filter == 'channel'):
                     results.append(_make_excel_hit(
                         r, '渠道参数', body, round(hit_rate * 0.85, 3)))
 
         # 2. Comparison table (spec details)
+        comp_filter = facet_filter if facet_filter and facet_filter not in ('tender', 'proposal', 'channel') else None
         if want_spec or want_all:
-            comp_rows = db.search_comparison_by_model(model)
+            comp_rows = db.search_comparison_by_model(model, comparison_type_filter=comp_filter)
             for r in comp_rows:
                 spec_name = r.get('spec_name', '')
                 spec_val = r.get('spec_value', '')
@@ -288,8 +294,9 @@ def search_excel(query: str, models: List[str]) -> List[Dict]:
                 })
 
         # 3. Pricing
+        price_filter = facet_filter if facet_filter and facet_filter not in ('tender', 'proposal', 'channel') else None
         if want_price or want_all:
-            price_rows = db.search_pricing_by_model(model)
+            price_rows = db.search_pricing_by_model(model, pricing_type_filter=price_filter)
             for r in price_rows:
                 hit = 1.0 if r.get('is_pricing_record') else 0.5
                 results.append({
@@ -467,7 +474,7 @@ def _collect_expansion_hints(results: List[Dict]) -> Optional[str]:
     return None
 
 
-def unified_search(query: str) -> Dict:
+def unified_search(query: str, facet_filter: str = None) -> Dict:
     """Main entry point: classify, detect ambiguity, route, search."""
     source_type, models = classify_query(query)
     all_results = []
@@ -484,7 +491,7 @@ def unified_search(query: str) -> Dict:
         is_broad = (all(w in BROAD_KWS for w in words) if words else True) and not has_specific
 
     if source_type == 'excel':
-        all_results = search_excel(query, models)
+        all_results = search_excel(query, models, facet_filter=facet_filter)
         # For specific intent queries (价格/接口/招标), don't dilute with knowledge base
         query_specific = any(k in q for k in SPECIFIC_KWS)
         if len(all_results) < 5 and not query_specific:
@@ -565,6 +572,7 @@ def main():
     parser.add_argument('--optimize', action='store_true', help='Analyze feedback and optimize')
     parser.add_argument('--optimize-apply', action='store_true', help='Apply optimized weights')
     parser.add_argument('--no-optimize-weights', action='store_true', help='Skip optimized weights')
+    parser.add_argument('--facet', type=str, default=None, help='Filter by facet: tender/proposal/channel for proposal; pricing_type/comparison_type value')
     args = parser.parse_args()
 
     if args.all:
@@ -608,9 +616,35 @@ def main():
             return
 
     # ── Step 2: Search ─────────────────────────────────────────────────────
-    result = unified_search(args.query)
+    result = unified_search(args.query, facet_filter=args.facet)
 
-    # ── Step 3: Smart disambiguation (post-search) ────────────────────────
+    # ── Step 3: Facets summary (when no facet filter is active and results are many) ──
+    if not args.facet and len(result['models']) == 1 and result['result_count'] > 5:
+        model = result['models'][0]
+        db = get_excel_db()
+        pf = db.get_proposal_facets(model)
+        ppf = db.get_pricing_facets(model)
+        cf = db.get_comparison_facets(model)
+        # Build summary line
+        parts = []
+        total = pf.get('tender', 0) + pf.get('proposal', 0) + pf.get('channel', 0)
+        if pf.get('tender'):
+            parts.append(f"招标参数(phase_tender):{pf['tender']}")
+        if pf.get('proposal'):
+            parts.append(f"方案参数(phase_proposal):{pf['proposal']}")
+        if pf.get('channel'):
+            parts.append(f"渠道参数(phase_channel):{pf['channel']}")
+        if ppf:
+            for k, v in ppf.items():
+                parts.append(f"{k}(pricing):{v}")
+        if cf:
+            for k, v in cf.items():
+                parts.append(f"{k}(comparison):{v}")
+        if parts:
+            facet_summary = " | ".join(parts)
+            print(f"[分面] {model}: {facet_summary}\n")
+
+    # ── Step 4: Smart disambiguation (post-search) ────────────────────────
     # If high-quality results are too many and query was broad → suggest categories
     high_quality = [r for r in result['results'] if r['hit_rate'] >= LOW_QUALITY_THRESHOLD]
     low_quality = [r for r in result['results'] if r['hit_rate'] < LOW_QUALITY_THRESHOLD]

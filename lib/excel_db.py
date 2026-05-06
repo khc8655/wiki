@@ -31,6 +31,7 @@ def init_db():
             product_name TEXT,
             product_model TEXT,
             category TEXT,
+            pricing_type TEXT,
             price_raw TEXT,
             is_pricing_record INTEGER,
             description TEXT,
@@ -38,6 +39,10 @@ def init_db():
             raw_data TEXT
         )
     ''')
+    cursor.execute('PRAGMA table_info(pricing)')
+    existing_pricing_cols = [row[1] for row in cursor.fetchall()]
+    if 'pricing_type' not in existing_pricing_cols:
+        cursor.execute('ALTER TABLE pricing ADD COLUMN pricing_type TEXT DEFAULT ""')
     
     # proposal 表（招标参数）
     cursor.execute('''
@@ -52,10 +57,15 @@ def init_db():
             phase_channel TEXT,
             phase_proposal TEXT,
             phase_tender TEXT,
+            phase_types TEXT,
             note TEXT,
             raw_data TEXT
         )
     ''')
+    cursor.execute('PRAGMA table_info(proposal)')
+    existing_proposal_cols = [row[1] for row in cursor.fetchall()]
+    if 'phase_types' not in existing_proposal_cols:
+        cursor.execute('ALTER TABLE proposal ADD COLUMN phase_types TEXT DEFAULT "[]"')
     
     # comparison 表（产品对比）
     cursor.execute('''
@@ -67,16 +77,24 @@ def init_db():
             model TEXT,
             spec_name TEXT,
             spec_value TEXT,
+            comparison_type TEXT,
             raw_data TEXT
         )
     ''')
+    cursor.execute('PRAGMA table_info(comparison)')
+    existing_comp_cols = [row[1] for row in cursor.fetchall()]
+    if 'comparison_type' not in existing_comp_cols:
+        cursor.execute('ALTER TABLE comparison ADD COLUMN comparison_type TEXT DEFAULT ""')
     
-    # 创建索引
+    # 创建/重建索引
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_pricing_model ON pricing(product_model)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_pricing_name ON pricing(product_name)')
+    cursor.execute('CREATE INDEX IF NOT EXISTS idx_pricing_type ON pricing(pricing_type)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_proposal_model ON proposal(product_model)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_proposal_name ON proposal(product_name)')
+    cursor.execute('CREATE INDEX IF NOT EXISTS idx_proposal_phase_types ON proposal(phase_types)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_comparison_model ON comparison(model)')
+    cursor.execute('CREATE INDEX IF NOT EXISTS idx_comparison_type ON comparison(comparison_type)')
     
     conn.commit()
     conn.close()
@@ -106,21 +124,29 @@ def migrate_json_to_sqlite():
             if not rid or rid in seen_ids:
                 rid = f"pricing_{len(seen_ids)}"
             seen_ids.add(rid)
+            # Reconstruct record from fields (not from 'row')
+            rec = {
+                'id': rid,
+                'source_file': r.get('source_file', ''),
+                'source_sheet': r.get('source_sheet', ''),
+                'source_row': r.get('source_row', 0),
+                'product_name': r.get('product_name', ''),
+                'product_model': r.get('product_model', ''),
+                'category': r.get('category', ''),
+                'pricing_type': r.get('pricing_type', ''),
+                'price_raw': r.get('price_raw', ''),
+                'is_pricing_record': 1 if r.get('is_pricing_record') else 0,
+                'description': r.get('description', ''),
+                'note': r.get('note', ''),
+            }
+            raw_data_val = json.dumps(r, ensure_ascii=False)
             cursor.execute('''
-                INSERT OR REPLACE INTO pricing VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+                INSERT OR REPLACE INTO pricing VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
             ''', (
-                r.get('id', ''),
-                r.get('source_file', ''),
-                r.get('source_sheet', ''),
-                r.get('source_row', 0),
-                r.get('product_name', ''),
-                r.get('product_model', ''),
-                r.get('category', ''),
-                r.get('price_raw', ''),
-                1 if r.get('is_pricing_record') else 0,
-                r.get('description', ''),
-                r.get('note', ''),
-                json.dumps(r, ensure_ascii=False)
+                rec['id'], rec['source_file'], rec['source_sheet'], rec['source_row'],
+                rec['product_name'], rec['product_model'], rec['category'],
+                rec['pricing_type'], rec['price_raw'], rec['is_pricing_record'],
+                rec['description'], rec['note'], raw_data_val
             ))
         print(f"[ExcelDB] 迁移 pricing: {len(records)} 条")
     
@@ -134,21 +160,28 @@ def migrate_json_to_sqlite():
             if not rid or rid in seen_ids:
                 rid = f"proposal_{len(seen_ids)}"
             seen_ids.add(rid)
+            rec = {
+                'id': rid,
+                'source_file': r.get('source_file', ''),
+                'source_sheet': r.get('source_sheet', ''),
+                'source_row': r.get('source_row', 0),
+                'seq': r.get('seq', ''),
+                'product_name': r.get('product_name', ''),
+                'product_model': r.get('product_model', ''),
+                'phase_channel': r.get('phase_channel', ''),
+                'phase_proposal': r.get('phase_proposal', ''),
+                'phase_tender': r.get('phase_tender', ''),
+                'phase_types': json.dumps(r.get('phase_types', []), ensure_ascii=False),
+                'note': r.get('note', ''),
+            }
+            raw_data_val = json.dumps(r, ensure_ascii=False)
             cursor.execute('''
-                INSERT OR REPLACE INTO proposal VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+                INSERT OR REPLACE INTO proposal VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
             ''', (
-                r.get('id', ''),
-                r.get('source_file', ''),
-                r.get('source_sheet', ''),
-                r.get('source_row', 0),
-                r.get('seq', ''),
-                r.get('product_name', ''),
-                r.get('product_model', ''),
-                r.get('phase_channel', ''),
-                r.get('phase_proposal', ''),
-                r.get('phase_tender', ''),
-                r.get('note', ''),
-                json.dumps(r, ensure_ascii=False)
+                rec['id'], rec['source_file'], rec['source_sheet'], rec['source_row'],
+                rec['seq'], rec['product_name'], rec['product_model'],
+                rec['phase_channel'], rec['phase_proposal'], rec['phase_tender'],
+                rec['phase_types'], rec['note'], raw_data_val
             ))
         print(f"[ExcelDB] 迁移 proposal: {len(records)} 条")
     
@@ -162,17 +195,23 @@ def migrate_json_to_sqlite():
             if not rid or rid in seen_ids:
                 rid = f"comparison_{len(seen_ids)}"
             seen_ids.add(rid)
+            rec = {
+                'id': rid,
+                'source_file': r.get('source_file', ''),
+                'source_sheet': r.get('source_sheet', ''),
+                'source_row': r.get('source_row', 0),
+                'model': r.get('model', ''),
+                'spec_name': r.get('feature', ''),
+                'spec_value': r.get('value', ''),
+                'comparison_type': r.get('comparison_type', ''),
+            }
+            raw_data_val = json.dumps(r, ensure_ascii=False)
             cursor.execute('''
-                INSERT OR REPLACE INTO comparison VALUES (?,?,?,?,?,?,?,?)
+                INSERT OR REPLACE INTO comparison VALUES (?,?,?,?,?,?,?,?,?)
             ''', (
-                r.get('id', ''),
-                r.get('source_file', ''),
-                r.get('source_sheet', ''),
-                r.get('source_row', 0),
-                r.get('model', ''),
-                r.get('spec_name', ''),
-                r.get('spec_value', ''),
-                json.dumps(r, ensure_ascii=False)
+                rec['id'], rec['source_file'], rec['source_sheet'], rec['source_row'],
+                rec['model'], rec['spec_name'], rec['spec_value'],
+                rec['comparison_type'], raw_data_val
             ))
         print(f"[ExcelDB] 迁移 comparison: {len(records)} 条")
     
@@ -190,22 +229,29 @@ class ExcelDB:
     def _get_conn(self):
         return sqlite3.connect(self.db_path)
     
-    def search_proposal_by_model(self, model: str) -> List[Dict]:
-        """按型号查招标参数"""
+    def search_proposal_by_model(self, model: str, phase_filter: str = None) -> List[Dict]:
+        """按型号查 proposal，可选 phase_filter 过滤（如 'tender'/'proposal'/'channel'）"""
         conn = self._get_conn()
         cursor = conn.cursor()
         
-        # 精确匹配
-        cursor.execute('''
-            SELECT * FROM proposal 
-            WHERE product_model LIKE ? OR product_model LIKE ?
-        ''', (f'%{model}%', f'%\n{model}%'))
+        if phase_filter:
+            cursor.execute('''
+                SELECT * FROM proposal
+                WHERE (product_model LIKE ? OR product_model LIKE ?)
+                AND phase_types LIKE ?
+            ''', (f'%{model}%', f'%\n{model}%', f'%"{phase_filter}"%'))
+        else:
+            cursor.execute('''
+                SELECT * FROM proposal 
+                WHERE product_model LIKE ? OR product_model LIKE ?
+            ''', (f'%{model}%', f'%\n{model}%'))
         
         rows = cursor.fetchall()
         conn.close()
         
         results = []
         for row in rows:
+            phase_types = json.loads(row[10]) if row[10] else []
             results.append({
                 'id': row[0],
                 'source_file': row[1],
@@ -217,22 +263,31 @@ class ExcelDB:
                 'phase_channel': row[7],
                 'phase_proposal': row[8],
                 'phase_tender': row[9],
-                'note': row[10],
-                'raw_data': json.loads(row[11]) if row[11] else {}
+                'phase_types': phase_types,
+                'note': row[11],
+                'raw_data': json.loads(row[12]) if row[12] else {}
             })
         
         return results
     
-    def search_pricing_by_model(self, model: str) -> List[Dict]:
-        """按型号查价格"""
+    def search_pricing_by_model(self, model: str, pricing_type_filter: str = None) -> List[Dict]:
+        """按型号查价格，可选 pricing_type 过滤"""
         conn = self._get_conn()
         cursor = conn.cursor()
         
-        cursor.execute('''
-            SELECT * FROM pricing 
-            WHERE product_model LIKE ? OR product_name LIKE ?
-            ORDER BY is_pricing_record DESC
-        ''', (f'%{model}%', f'%{model}%'))
+        if pricing_type_filter:
+            cursor.execute('''
+                SELECT * FROM pricing 
+                WHERE (product_model LIKE ? OR product_name LIKE ?)
+                AND pricing_type = ?
+                ORDER BY is_pricing_record DESC
+            ''', (f'%{model}%', f'%{model}%', pricing_type_filter))
+        else:
+            cursor.execute('''
+                SELECT * FROM pricing 
+                WHERE product_model LIKE ? OR product_name LIKE ?
+                ORDER BY is_pricing_record DESC
+            ''', (f'%{model}%', f'%{model}%'))
         
         rows = cursor.fetchall()
         conn.close()
@@ -247,24 +302,31 @@ class ExcelDB:
                 'product_name': row[4],
                 'product_model': row[5],
                 'category': row[6],
-                'price_raw': row[7],
-                'is_pricing_record': bool(row[8]),
-                'description': row[9],
-                'note': row[10],
-                'raw_data': json.loads(row[11]) if row[11] else {}
+                'pricing_type': row[7],
+                'price_raw': row[8],
+                'is_pricing_record': bool(row[9]),
+                'description': row[10],
+                'note': row[11],
+                'raw_data': json.loads(row[12]) if row[12] else {}
             })
         
         return results
     
-    def search_comparison_by_model(self, model: str) -> List[Dict]:
-        """按型号查对比参数"""
+    def search_comparison_by_model(self, model: str, comparison_type_filter: str = None) -> List[Dict]:
+        """按型号查对比参数，可选 comparison_type 过滤"""
         conn = self._get_conn()
         cursor = conn.cursor()
         
-        cursor.execute('''
-            SELECT * FROM comparison 
-            WHERE model LIKE ?
-        ''', (f'%{model}%',))
+        if comparison_type_filter:
+            cursor.execute('''
+                SELECT * FROM comparison 
+                WHERE model LIKE ? AND comparison_type = ?
+            ''', (f'%{model}%', comparison_type_filter))
+        else:
+            cursor.execute('''
+                SELECT * FROM comparison 
+                WHERE model LIKE ?
+            ''', (f'%{model}%',))
         
         rows = cursor.fetchall()
         conn.close()
@@ -279,10 +341,64 @@ class ExcelDB:
                 'model': row[4],
                 'spec_name': row[5],
                 'spec_value': row[6],
-                'raw_data': json.loads(row[7]) if row[7] else {}
+                'comparison_type': row[7],
+                'raw_data': json.loads(row[8]) if row[8] else {}
             })
         
         return results
+
+    def get_proposal_facets(self, model: str) -> Dict[str, int]:
+        """返回某型号在各 phase_type 下的记录数"""
+        conn = self._get_conn()
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT phase_types FROM proposal
+            WHERE product_model LIKE ? OR product_model LIKE ?
+        ''', (f'%{model}%', f'%\n{model}%'))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        counts = {'channel': 0, 'proposal': 0, 'tender': 0}
+        for row in rows:
+            pts = json.loads(row[0]) if row[0] else []
+            for pt in pts:
+                if pt in counts:
+                    counts[pt] += 1
+        return counts
+
+    def get_pricing_facets(self, model: str) -> Dict[str, int]:
+        """返回某型号在各 pricing_type 下的记录数"""
+        conn = self._get_conn()
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT pricing_type FROM pricing
+            WHERE product_model LIKE ? OR product_name LIKE ?
+        ''', (f'%{model}%', f'%{model}%'))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        counts = {}
+        for row in rows:
+            pt = row[0] or '其他'
+            counts[pt] = counts.get(pt, 0) + 1
+        return counts
+
+    def get_comparison_facets(self, model: str) -> Dict[str, int]:
+        """返回某型号在各 comparison_type 下的记录数"""
+        conn = self._get_conn()
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT comparison_type FROM comparison
+            WHERE model LIKE ?
+        ''', (f'%{model}%',))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        counts = {}
+        for row in rows:
+            ct = row[0] or '其他'
+            counts[ct] = counts.get(ct, 0) + 1
+        return counts
 
 
 # 全局实例

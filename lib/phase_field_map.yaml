@@ -1,0 +1,41 @@
+# phase_field_map.yaml
+# 行值 → phase_type 映射
+# proposal 表：三个并行字段对应招标/方案/渠道
+# pricing 表：category 值归一化为 facet_type
+# comparison 表：source_sheet 归一化为 facet_type
+
+proposal:
+  # Excel 行值 → 字段名
+  招标参数: phase_tender
+  投标参数: phase_tender
+  招标: phase_tender
+  投标: phase_tender
+  可研参数: phase_proposal
+  方案参数: phase_proposal
+  方案: phase_proposal
+  设计参数: phase_proposal
+  渠道参数: phase_channel
+  询价参数: phase_channel
+  渠道: phase_channel
+  简单参数: phase_channel
+  清单参数: phase_channel
+
+pricing:
+  # category 值 → facet_type
+  必选: 规格参数
+  可选: 规格参数
+  增值服务: 报价参数
+  基础服务: 报价参数
+  选配: 规格参数
+  维保服务: 维保参数
+  实施服务: 实施参数
+  # 通用：保留原始 category 不变
+  _default: category
+
+comparison:
+  # source_sheet → facet_type（直接复用 sheet 名）
+  硬件终端: 硬件终端
+  平台: 平台
+  软件客户端: 软件客户端
+  软件: 软件客户端
+  _default: source_sheet

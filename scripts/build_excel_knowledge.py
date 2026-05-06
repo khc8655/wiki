@@ -17,6 +17,7 @@ from urllib.parse import quote, unquote
 from pathlib import Path
 from datetime import datetime
 from zipfile import ZipFile
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCEL_STORE = ROOT / 'excel_store'
@@ -30,6 +31,15 @@ NS = {
     'rel': 'http://schemas.openxmlformats.org/package/2006/relationships',
     'docrel': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
 }
+
+# Load phase field mapping
+def _load_phase_map():
+    map_path = Path(__file__).resolve().parents[1] / 'lib' / 'phase_field_map.yaml'
+    if map_path.exists():
+        return yaml.safe_load(map_path.read_text(encoding='utf-8'))
+    return {}
+
+PHASE_MAP = _load_phase_map()
 
 def col_to_num(col):
     n = 0
@@ -255,7 +265,31 @@ def parse_pricing_sheets(sheets, source_file):
                 continue
             
             price_info = normalize_price(price_text)
-            
+
+            # Map category to pricing_type facet
+            # Normalize "必选"/"可选"/"增值" into coarse facets
+            pricing_type = None
+            category_stripped = category.strip()
+            # First try YAML map (exact match on the stripped key)
+            if category_stripped in PHASE_MAP.get('pricing', {}):
+                pricing_type = PHASE_MAP['pricing'][category_stripped]
+            else:
+                # Fallback: infer from keywords in original category string
+                if '必选' in category:
+                    pricing_type = '规格参数'
+                elif '可选' in category:
+                    pricing_type = '规格参数'
+                elif '增值' in category or '增值服务' in category:
+                    pricing_type = '报价参数'
+                elif '维保' in category or '质保' in category:
+                    pricing_type = '维保参数'
+                elif '实施' in category or '部署' in category or '安装' in category:
+                    pricing_type = '实施参数'
+                elif '服务' in category and ('年' in category or '月' in category):
+                    pricing_type = '服务参数'
+                else:
+                    pricing_type = category_stripped or '其他'
+
             record = {
                 'id': f'pricing_{record_id:06d}',
                 'source_file': source_file,
@@ -264,6 +298,7 @@ def parse_pricing_sheets(sheets, source_file):
                 'section': current_section,
                 'seq': seq,
                 'category': category,
+                'pricing_type': pricing_type,  # facets 标记
                 'product_name': name,
                 'product_code': code,
                 'description': desc,
@@ -333,7 +368,16 @@ def parse_proposal_sheets(sheets, source_file):
             
             if not product and not model:
                 continue
-            
+
+            # Build phase_types list based on which phase fields are non-empty
+            phase_types = []
+            if channel.strip():
+                phase_types.append('channel')
+            if proposal.strip():
+                phase_types.append('proposal')
+            if tender.strip():
+                phase_types.append('tender')
+
             record = {
                 'id': f'proposal_{record_id:06d}',
                 'source_file': source_file,
@@ -345,6 +389,7 @@ def parse_proposal_sheets(sheets, source_file):
                 'phase_channel': channel,
                 'phase_proposal': proposal,
                 'phase_tender': tender,
+                'phase_types': phase_types,  # facets 标记
                 'note': note
             }
             
@@ -385,11 +430,24 @@ def parse_comparison_sheets(sheets, source_file):
             for model_info in models:
                 value = vals.get(model_info['col'], '').strip()
                 if value:
+                    # Map source_sheet to comparison_type facet
+                    # Use substring matching against YAML map keys
+                    sheet_stripped = sheet_name.strip()
+                    comp_map = PHASE_MAP.get('comparison', {})
+                    comparison_type = None
+                    for key, val in comp_map.items():
+                        if key != '_default' and key in sheet_stripped:
+                            comparison_type = val
+                            break
+                    if comparison_type is None:
+                        comparison_type = comp_map.get('_default', sheet_stripped or '其他')
+
                     record = {
                         'feature': feature,
                         'model': model_info['name'],
                         'value': value,
                         'source_sheet': sheet_name,
+                        'comparison_type': comparison_type,  # facets 标记
                         'source_row': row_num
                     }
                     records.append(record)
@@ -405,43 +463,73 @@ def build_indexes(records, data_type):
         'by_category': {},
         'by_feature': {} if data_type == 'comparison' else None
     }
-    
+
+    # Facet indexes
+    if data_type == 'proposal':
+        indexes['by_phase_type'] = {}
+    elif data_type == 'pricing':
+        indexes['by_pricing_type'] = {}
+    elif data_type == 'comparison':
+        indexes['by_comparison_type'] = {}
+
     for record in records:
         rid = record.get('id', '')
         if rid:
             indexes['by_id'][rid] = record
-        
+
         if data_type == 'comparison':
             model = record.get('model', '')
             if model:
                 if model not in indexes['by_model']:
                     indexes['by_model'][model] = []
                 indexes['by_model'][model].append(record)
-            
+
             feature = record.get('feature', '')
             if feature:
                 if feature not in indexes['by_feature']:
                     indexes['by_feature'][feature] = []
                 indexes['by_feature'][feature].append(record)
+
+            # Index by comparison_type facet
+            ct = record.get('comparison_type', '')
+            if ct:
+                if ct not in indexes['by_comparison_type']:
+                    indexes['by_comparison_type'][ct] = []
+                indexes['by_comparison_type'][ct].append(record)
         else:
             name = record.get('product_name', '')
             if name:
                 if name not in indexes['by_name']:
                     indexes['by_name'][name] = []
                 indexes['by_name'][name].append(record)
-            
+
             category = record.get('category', '')
             if category:
                 if category not in indexes['by_category']:
                     indexes['by_category'][category] = []
                 indexes['by_category'][category].append(record)
-            
+
             model = record.get('product_model', '')
             if model:
                 if model not in indexes['by_model']:
                     indexes['by_model'][model] = []
                 indexes['by_model'][model].append(record)
-    
+
+            # Index proposal by phase_type facet
+            if data_type == 'proposal':
+                for pt in record.get('phase_types', []):
+                    if pt not in indexes['by_phase_type']:
+                        indexes['by_phase_type'][pt] = []
+                    indexes['by_phase_type'][pt].append(record)
+
+            # Index pricing by pricing_type facet
+            if data_type == 'pricing':
+                pt_val = record.get('pricing_type', '')
+                if pt_val:
+                    if pt_val not in indexes['by_pricing_type']:
+                        indexes['by_pricing_type'][pt_val] = []
+                    indexes['by_pricing_type'][pt_val].append(record)
+
     # Remove None values
     return {k: v for k, v in indexes.items() if v is not None}
 
