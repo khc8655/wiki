@@ -50,13 +50,25 @@ MODEL_RE = re.compile(
     re.I
 )
 
-# Intent classification keywords
+# Intent classification keywords — also defines display order in disambiguation
+# Lower number = higher priority (shown first)
 PRICE_KWS = ['价格', '报价', '多少钱', '费用', '成本']
 TENDER_KWS = ['招标', '投标', '可研']
 SPEC_KWS = ['规格', '接口', '编解码', '输入', '输出', '分辨率', '像素']
 COMPARE_KWS = ['对比', '比较', '区别', '差异', 'vs']
 ACCESSORY_KWS = ['配件', '附件', '可用配件']
 EOL_KWS = ['停产', '替代', '退市']
+
+# Disambiguation category sort priority (lower = higher priority)
+CATEGORY_PRIORITY = {
+    '招标参数（含▲标记）': 1,
+    '可研使用参数（完整）': 2,
+    '简单清单参数（简版）': 3,
+    '方案参数': 4,
+    '渠道参数': 5,
+    '报价/价格': 6,
+    '产品对比参数': 7,
+}
 UPDATE_KWS = ['迭代', '新功能', '版本更新', '发版', '培训文档', '更新说明', '功能更新']
 
 # Ambiguous broad keywords — when alone with model number, query IS ambiguous
@@ -219,7 +231,12 @@ def _collect_model_categories(model: str) -> List[Dict]:
     except Exception:
         pass
 
-    return list(categories.values())
+    # Sort by CATEGORY_PRIORITY, then by count descending
+    def sort_key(c):
+        p = CATEGORY_PRIORITY.get(c['label'], 99)
+        return (p, -(c.get('count') or 0))
+
+    return sorted(list(categories.values()), key=sort_key)
 
 
 # ── Search functions ───────────────────────────────────────────────────────
