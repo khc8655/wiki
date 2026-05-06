@@ -20,7 +20,7 @@ from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCEL_STORE = ROOT / 'excel_store'
-RAW_DIR = EXCEL_STORE / 'raw'
+RAW_DIR = ROOT / 'raw'
 
 BASE_URL = 'https://dav.jjb115799.fnos.net'
 EXCEL_REMOTE_ROOT = '/下载/temp/wiki_raw/excel/'

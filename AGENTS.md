@@ -89,7 +89,7 @@ python3 scripts/run_fast_tests.py           # 9项测试
 
 | 模型 | 角色 |
 |------|------|
-| Qwen/Qwen2.5-7B-Instruct | 段落标注 + 查询理解 + 对话优化 |
+| Qwen/Qwen3-8B（关闭思考） | 段落标注 + 查询理解 + 对话优化 |
 | BAAI/bge-large-zh-v1.5 | 1024维语义向量化 |
 | API: SiliconFlow | 免费模型托管 |
 

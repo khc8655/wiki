@@ -590,11 +590,9 @@ def main():
             print(f"\n⚠️ 仅 {stats.get('total_queries', 0)} 条反馈, 至少需要 20 条")
         return
 
-    if not args.no_optimize_weights:
-        apply_weights_to_retrievers()
-
     # ── Step 1: Check ambiguity BEFORE searching ───────────────────────────
     models = extract_models(args.query)
+    ambiguity = None
     if models:
         db = get_excel_db()
         ambiguity = detect_ambiguity(args.query, models, db)
@@ -726,6 +724,19 @@ def main():
         # Low-result hint: suggest expansion
         if expansion_hint:
             print(f"\n💡 {expansion_hint}")
+
+        # ── Query refinement: LLM-powered search optimization ─────────────────
+        avg_rate = result.get('avg_hit_rate', 0)
+        if (avg_rate < LOW_QUALITY_AVG and result['result_count'] > 0
+                and not args.json and not args.all and not args.all_low):
+            refine = refine_query(result['query'], result['results'])
+            if refine.get('needs_refinement'):
+                print(f"\n💡 查询优化建议（命中率偏低，LLM分析中）:")
+                for s in refine.get('suggestions', []):
+                    print(f"   • {s}")
+                cq = refine.get('clarifying_question')
+                if cq:
+                    print(f"\n  {cq}")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,122 @@
+{
+  "defaults": {
+    "solution": {
+      "chunk_strategy": "fine",
+      "query_use_case": "方案写作、架构能力说明、材料复用"
+    },
+    "release_note": {
+      "chunk_strategy": "coarse",
+      "query_use_case": "功能更新查询、版本变化确认"
+    }
+  },
+  "docs": {
+    "01-2025年分区云9月迭代版本新功能培训文档（final）.md": {
+      "doc_type": "release_note"
+    },
+    "02-2025年私有云12月迭代版本新功能培训文档-全.md": {
+      "doc_type": "release_note"
+    },
+    "03-2026年私有云3月迭代版本新功能培训文档-云平台.md": {
+      "doc_type": "release_note"
+    },
+    "04-2026年私有云3月迭代版本新功能培训文档-终端.md": {
+      "doc_type": "release_note"
+    },
+    "05-公有云迭代版本新功能培训文档（24H2-25H1）.md": {
+      "doc_type": "release_note"
+    },
+    "06-小鱼易连风铃系统1月迭代新功能培训文档.md": {
+      "doc_type": "release_note"
+    },
+    "07-小鱼易连风铃系统2025年8月迭代新功能培训文档.md": {
+      "doc_type": "release_note"
+    },
+    "08-08 视频系统建设技术问题答复V3-20220527.md": {
+      "doc_type": "solution"
+    },
+    "09-AI智能体小鱼talk交流相关问题汇总.md": {
+      "doc_type": "solution"
+    },
+    "10-一体化视频会议系统建设方案模版-硬件XMS私有化方案202604.md": {
+      "doc_type": "solution"
+    },
+    "11-医疗类方案.md": {
+      "doc_type": "solution"
+    },
+    "12-医疗类方案全场景.md": {
+      "doc_type": "solution"
+    },
+    "13-对接集成和售后服务方案.md": {
+      "doc_type": "solution"
+    },
+    "14-小鱼易连AI智能体建设方案-V1.0-260315.md": {
+      "doc_type": "solution"
+    },
+    "15-小鱼易连公司简介-202404.md": {
+      "doc_type": "solution"
+    },
+    "16-小鱼易连跨网通信安全说明V1.0-20260201.md": {
+      "doc_type": "solution"
+    },
+    "17-小鱼易连音视频能力与金融业务集成介绍(APISDK开发底座).md": {
+      "doc_type": "solution"
+    },
+    "18-指挥中心采用软件客户端和硬件终端方案对比.md": {
+      "doc_type": "solution"
+    },
+    "19-新一代视频会议系统建设方案模板-20250223.md": {
+      "doc_type": "solution"
+    },
+    "20-气象方案.md": {
+      "doc_type": "solution"
+    },
+    "21-水利建设方案.md": {
+      "doc_type": "solution"
+    },
+    "22-融合通讯平台.md": {
+      "doc_type": "solution"
+    },
+    "23-行业应用口袋书-人大-202209.md": {
+      "doc_type": "solution"
+    },
+    "24-行业应用口袋书-公安20220520.md": {
+      "doc_type": "solution"
+    },
+    "25-行业应用口袋书-司法-202205.md": {
+      "doc_type": "solution"
+    },
+    "26-行业应用口袋书-应急管理V3.0-20230608.md": {
+      "doc_type": "solution"
+    },
+    "27-行业应用口袋书-政法委-202206.md": {
+      "doc_type": "solution"
+    },
+    "28-行业应用口袋书-检察院-20220516.md": {
+      "doc_type": "solution"
+    },
+    "29-行业应用口袋书-水利V3.0-20220509.md": {
+      "doc_type": "solution"
+    },
+    "30-行业应用口袋书-法院20220608.md": {
+      "doc_type": "solution"
+    },
+    "31-视频会议行业技术发展和趋势精简版.md": {
+      "doc_type": "solution"
+    },
+    "2026年小鱼易连产品报价体系.xlsx": {
+      "doc_type": "excel"
+    },
+    "小鱼易连视频终端对比及功能介绍.xlsx": {
+      "doc_type": "excel"
+    },
+    "项目各阶段报价描述清单2026.xlsx": {
+      "doc_type": "excel"
+    },
+    "风铃项目报价清单2026-0306.xlsx": {
+      "doc_type": "excel"
+    },
+    "小鱼易连视频会议方案介绍--湖北.pptx": {
+      "doc_type": "ppt"
+    }
+  }
+}

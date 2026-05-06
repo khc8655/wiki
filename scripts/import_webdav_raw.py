@@ -375,6 +375,8 @@ def import_all(base_url: str, remote_root: str, user: str, password: str):
         title = infer_title(text, Path(remote['name']).stem)
         raw_path = RAW_DIR / local_name
         raw_path.write_text(text, encoding='utf-8')
+        import hashlib
+        text_hash = hashlib.sha256(text.encode('utf-8')).hexdigest()
         sections = sectionize(doc_code, local_name, title, text, remote['doc_type'])
         write_json(DOCS_DIR / f"{doc_code}-{Path(remote['name']).stem}.json", sections)
         for sec in sections:
@@ -401,6 +403,7 @@ def import_all(base_url: str, remote_root: str, user: str, password: str):
             'title': title,
             'section_count': len(sections),
             'char_count': len(text),
+            'sha256': text_hash,
         })
         print(f"imported {local_name}: {len(sections)} sections [{remote['doc_type']}]")
 

@@ -13,22 +13,22 @@ from functools import lru_cache
 
 
 BASE_URL = "https://api.siliconflow.cn/v1"
-DEFAULT_CHAT_MODEL = "Qwen/Qwen2.5-7B-Instruct"
+DEFAULT_CHAT_MODEL = "Qwen/Qwen3-8B"
 DEFAULT_EMBED_MODEL = "BAAI/bge-large-zh-v1.5"
 
 # Models by role
 MODELS = {
-    "annotator":      "Qwen/Qwen2.5-7B-Instruct",
-    "query_expander":  "Qwen/Qwen2.5-7B-Instruct",
-    "reranker":        "Qwen/Qwen2.5-7B-Instruct",
+    "annotator":      "Qwen/Qwen3-8B",
+    "query_expander":  "Qwen/Qwen3-8B",
+    "reranker":        "Qwen/Qwen3-8B",
     "embedding":       "BAAI/bge-large-zh-v1.5",
-    "column_mapper":   "Qwen/Qwen2.5-7B-Instruct",
-    "fallback_heavy":  "THUDM/GLM-Z1-9B-0414",
+    "column_mapper":   "Qwen/Qwen3-8B",
+    "fallback_heavy":  "Qwen/Qwen3-32B",
 }
 
 
 def _get_api_key() -> str:
-    return os.getenv("SILICONFLOW_API_KEY", "sk-obkmzlzcqcrczvjmnwvxcioyxlcsrrhvqaqzzofltdvupaip")
+    return os.getenv("SILICONFLOW_API_KEY", "sk-yztqpmvzbqqjmmyrybugcbdyhoufiscvhqqphtpedkgadenf")
 
 
 def _api_headers() -> dict:
@@ -60,6 +60,7 @@ def chat(
                     "messages": messages,
                     "temperature": temperature,
                     "max_tokens": max_tokens,
+                    "enable_thinking": False,
                 },
                 timeout=timeout,
             )
