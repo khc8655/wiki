@@ -1,5 +1,26 @@
 # Changelog
 
+## V3.2 - 2026-05-06
+
+### Excel 分面 metadata 提取
+
+**新增：**
+- `lib/phase_field_map.yaml` — Excel 行值→facet 映射表（proposal/pricing/comparison 三表）
+- `scripts/build_excel_knowledge.py` — 入库时自动打 facet 字段
+  - proposal: `phase_types: ["channel", "proposal", "tender"]`
+  - pricing: `pricing_type` 归一化为「规格参数/报价参数/维保参数/实施参数」
+  - comparison: `comparison_type` 子串匹配为「硬件终端/平台/软件客户端」
+- `lib/excel_db.py` — facet 列 + 索引，`get_*_facets()` 统计方法，`*_filter` 参数
+- `query_unified.py` — `--facet` 参数支持分面过滤，结果 >5 条时自动输出分面摘要
+
+**目录结构更新：**
+- 新增 `db/excel_store.db`、`lib/phase_field_map.yaml`、`scripts/build_excel_knowledge.py`
+
+**文档脱敏：**
+- `QUICKSTART.md`、`API.md` 中的真实 API Key / 密码替换为占位符
+
+---
+
 ## V3.1 - 2026-05-02
 
 ### Karpathy-style 自组织知识系统

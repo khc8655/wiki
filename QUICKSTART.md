@@ -1,4 +1,4 @@
-# wiki_test 快速上手指南 v3.1
+# wiki 快速上手指南 v3.2
 
 > 5 分钟跑通知识库查询。
 
@@ -7,7 +7,7 @@
 ## 1. 环境检查（30秒）
 
 ```bash
-cd wiki_test
+cd wiki
 python3 setup.py --check
 python3 -c "import numpy, requests; print('deps OK')"
 ```
@@ -15,7 +15,7 @@ python3 -c "import numpy, requests; print('deps OK')"
 ## 2. 设置 API Key（30秒）
 
 ```bash
-export SILICONFLOW_API_KEY="sk-obkmzlzcqcrczvjmnwvxcioyxlcsrrhvqaqzzofltdvupaip"
+export SILICONFLOW_API_KEY="your-siliconflow-api-key"
 ```
 
 ## 3. 查询（1分钟）
@@ -25,6 +25,10 @@ export SILICONFLOW_API_KEY="sk-obkmzlzcqcrczvjmnwvxcioyxlcsrrhvqaqzzofltdvupaip"
 python3 query_unified.py "AE700的接口参数"
 python3 query_unified.py "PE8800参数"
 python3 query_unified.py "GE600招标参数"
+
+# 分面过滤
+python3 query_unified.py "小鱼易连"              # 自动输出分面摘要
+python3 query_unified.py "小鱼易连" --facet tender   # 只查招标参数
 
 # 方案类 - 概念场景
 python3 query_unified.py "视频会议安全加密方案"
@@ -52,6 +56,9 @@ python3 query_unified.py "查询内容" --verbose
 python3 scripts/annotate_cards.py --doc-type solution
 python3 scripts/build_embeddings.py
 
+# Excel 入库（含分面提取）
+python3 scripts/build_excel_knowledge.py
+
 # 卡片自组织分析
 python3 scripts/organize_cards.py --dry-run --cluster 10
 python3 scripts/organize_cards.py --merge --related --topics --all
@@ -65,7 +72,7 @@ python3 query_unified.py --optimize --optimize-apply
 
 | 类型 | 位置 | 检索 |
 |------|------|------|
-| 表格类 (Excel) | `excel_store/` → `db/excel_store.db` | SQLite |
+| 表格类 (Excel) | `excel_store/` → `db/excel_store.db` | SQLite + facet 分面 |
 | 方案类 (MD) | `cards/sections/*.json` | BM25+Vector |
 | 更新类 (MD) | `cards/sections/*.json` | BM25 粗粒度 |
 | PPT类 | `ppt_analysis/` | 图片理解 |
@@ -73,16 +80,17 @@ python3 query_unified.py --optimize --optimize-apply
 ## 6. 项目结构
 
 ```
-wiki_test/
+wiki/
 ├── query_unified.py          # 四源路由引擎（主入口）
-├── lib/                      # 12 个核心模块
-│   ├── llm_client.py         # API 封装
-│   ├── hybrid_retriever.py   # 混合检索
-│   ├── card_organizer.py     # 卡片自组织
-│   └── ...
-├── scripts/                  # 离线脚本
+├── db/excel_store.db         # SQLite 数据库（含分面 facet 字段）
+├── lib/
+│   ├── phase_field_map.yaml  # Excel 行值→facet 映射表
+│   ├── excel_db.py           # Excel SQLite 查询引擎
+│   └── ...                   # 其他核心模块
+├── scripts/
 │   ├── annotate_cards.py     # 标注
 │   ├── build_embeddings.py   # 向量化
+│   ├── build_excel_knowledge.py  # Excel 入库
 │   ├── organize_cards.py     # 聚类/主题
 │   └── run_fast_tests.py     # 9项测试
 ├── cards/sections/           # 1885张卡片

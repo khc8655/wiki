@@ -15,6 +15,7 @@ python3 query_unified.py "查询内容" [--json] [--limit N] [--all]
 - `--json` (optional): JSON 格式输出
 - `--limit N` (optional): 最多返回 N 条 (默认 5)
 - `--all` (optional): 返回全部结果
+- `--facet <name>` (optional): 分面过滤，只返回指定分面的结果
 - `--verbose` / `-v`: 显示反馈诊断信息
 - `--feedback good|bad|skip`: 标记查询质量
 - `--ref-query-id ID`: 关联上一轮查询（追问链）
@@ -104,7 +105,7 @@ python3 scripts/run_fast_tests.py
 
 ```bash
 ./scripts/refresh_from_webdav.sh
-# 凭据环境变量: WEBDAV_USER=jjb WEBDAV_PASS=jjb@115799
+# 凭据环境变量: WEBDAV_USER=<user> WEBDAV_PASS=<password>
 ```
 
 ### import_webdav_raw.py

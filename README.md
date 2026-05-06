@@ -70,7 +70,7 @@ python3 query_unified.py "AE700的接口参数" --json
 
 ## 模型使用
 
-| 模型 | 角色 | 频次 |
+|| 模型 | 角色 | 频次 |
 |------|------|------|
 | Qwen/Qwen2.5-7B-Instruct | 段落标注 + 查询理解 + 对话优化 | 入库/查询 |
 | BAAI/bge-large-zh-v1.5 | 向量化 (1024维) | 入库/查询 |
@@ -85,6 +85,11 @@ python3 query_unified.py "AE700的接口参数" --json
 python3 query_unified.py "AE700的接口参数"
 python3 query_unified.py "GE600招标参数"
 python3 query_unified.py "XE800与AE800对比"
+
+# 分面过滤（结果 >5 条时自动输出分面摘要）
+python3 query_unified.py "小鱼易连"            # 输出: 招标参数(phase_tender):N | 方案参数(phase_proposal):N
+python3 query_unified.py "小鱼易连" --facet tender   # 只查招标参数
+python3 query_unified.py "小鱼易连" --facet 规格参数  # 只查规格参数
 
 # 方案类 - 概念/场景
 python3 query_unified.py "视频会议安全加密方案"
@@ -109,15 +114,14 @@ python3 scripts/organize_cards.py --merge --related --topics --all
 ## 目录结构
 
 ```
-wiki_test/
+wiki/
 ├── query_unified.py          # 统一查询入口 (四源路由)
+├── db/excel_store.db         # SQLite 数据库（含分面 facet 字段）
 ├── config.yaml               # 主配置
 ├── setup.py                  # 环境检查
-├── QUICKSTART.md             # 快速上手
-├── ARCHITECTURE.md           # 架构文档
-├── API.md                    # API 参考
-│
-├── lib/                      # 核心库
+├── lib/
+│   ├── phase_field_map.yaml  # Excel 行值→facet 映射表
+│   ├── excel_db.py          # Excel → SQLite 查询引擎
 │   ├── llm_client.py        # SiliconFlow API 封装
 │   ├── annotator.py         # 段落级语义标注
 │   ├── embedder.py          # 向量化构建
@@ -127,16 +131,14 @@ wiki_test/
 │   ├── feedback.py          # 查询日志 + 反馈记录
 │   ├── query_refiner.py     # 低质量查询对话优化
 │   ├── weight_optimizer.py  # 基于反馈的自动权重调优
-│   ├── card_organizer.py    # 卡片自组织 (相似/聚类/合并)
-│   ├── excel_db.py          # Excel → SQLite 查询
-│   └── config.py            # 配置管理
+│   └── card_organizer.py    # 卡片自组织 (相似/聚类/合并)
 │
 ├── scripts/                  # 离线脚本
 │   ├── annotate_cards.py    # 全量卡片标注
 │   ├── build_embeddings.py  # 向量化构建
+│   ├── build_excel_knowledge.py  # Excel 入库（含分面提取）
 │   ├── organize_cards.py    # 卡片聚类 + 主题生成
-│   ├── run_fast_tests.py    # 9项测试用例
-│   └── ...
+│   └── run_fast_tests.py    # 9项测试用例
 │
 ├── cards/sections/           # 1885张结构化卡片 (含 semantic 标注)
 ├── cards/manifest.json       # 卡片清单
@@ -144,6 +146,7 @@ wiki_test/
 ├── index_store/              # 索引 + embeddings + feedback log
 ├── raw/                      # 原始 Markdown 文档
 └── topics/                   # 主题聚合页
+```
 ```
 
 ---

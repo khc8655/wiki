@@ -34,14 +34,17 @@ python3 query_unified.py "用户原始问题" --all
 ## 知识库结构
 
 ```
-wiki_test/
+wiki/
 ├── query_unified.py      # 统一查询入口（四源路由）
+├── db/excel_store.db     # SQLite 数据库（含分面 facet 字段）
+├── lib/
+│   ├── phase_field_map.yaml  # Excel 行值→facet 映射表
+│   └── excel_db.py           # Excel SQLite 查询引擎
 ├── raw/                  # 原始文档
 ├── cards/sections/       # 结构化卡片（1885张, 含 semantic 标注）
 ├── topics/               # 主题聚合页
-├── excel_store/          # Excel 表格数据
-├── index_store/          # 索引 + embeddings + feedback log
-└── lib/                  # 核心库模块
+├── excel_store/          # Excel 表格数据（入库源）
+└── index_store/          # 索引 + embeddings + feedback log
 ```
 
 ## 查询入口
@@ -60,6 +63,11 @@ python3 query_unified.py "视频会议安全加密方案"
 
 # 更新类 - 版本迭代/新功能
 python3 query_unified.py "3月迭代新功能"
+
+# 分面过滤（结果 >5 条时自动输出分面摘要）
+python3 query_unified.py "小鱼易连"          # 输出: 招标参数(phase_tender):N | 方案参数(phase_proposal):N | 渠道参数(phase_channel):N
+python3 query_unified.py "小鱼易连" --facet tender    # 只查招标参数
+python3 query_unified.py "小鱼易连" --facet 规格参数  # 只查规格参数（pricing）
 
 # JSON 输出 + 反馈
 python3 query_unified.py "查询" --json
@@ -80,7 +88,7 @@ python3 scripts/run_fast_tests.py           # 9项测试
 
 | 意图 | 路由 | 检索方式 | 输出 |
 |------|------|----------|------|
-| 型号+价格/参数/对比 | 表格类 | SQLite 列语义映射 | 价格/参数原文 + 行号 |
+| 型号+价格/参数/对比 | 表格类 | SQLite 列语义映射 + facet 分面过滤 | 价格/参数原文 + 行号 |
 | 概念/场景/架构 | 方案类 | BM25+Vector 混合 | 段落原文 + doc:path |
 | 版本/迭代/更新 | 更新类 | BM25 粗粒度 | 完整段落原文 |
 | PPT内容 | PPT类 | 图片理解卡片 | doc + 页码 |
