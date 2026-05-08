@@ -1,8 +1,8 @@
 # wiki_test 知识库系统
 
-> Karpathy-style 自组织知识库：四源路由 · 混合检索 · 反馈闭环 · 卡片进化
+> Karpathy-style 自组织知识库：意图驱动 · 结构化查询 · 反馈闭环 · 卡片进化
 
-[![Version](https://img.shields.io/badge/version-v3.1-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-v3.3-blue.svg)]()
 [![Setup](https://img.shields.io/badge/setup-python3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
@@ -30,24 +30,40 @@ python3 query_unified.py "AE700的接口参数" --json
 
 ---
 
-## 四源路由 + 三环自组织
+## 意图驱动的结构化查询
 
 ```
 用户查询
     │
     ▼
 ┌──────────────────────────────────────────────────────┐
-│  查询理解 (Qwen2.5-7B)                                │
-│  ├─ 意图分类 → 四源路由                               │
-│  └─ 关键词扩展                                        │
+│  意图识别器                                           │
+│  ├─ price_query: 价格查询 → SQL查pricing表            │
+│  ├─ category_list: 分类列举 → SQL按category分组       │
+│  ├─ compare_table: 对比表格 → SQL聚合comparison表     │
+│  ├─ tender_params: 招标参数 → SQL查proposal表         │
+│  ├─ accessory: 配件查询 → SQL按category匹配          │
+│  ├─ eol_info: 停产信息 → SQL检查note字段             │
+│  └─ solution: 方案描述 → hybrid搜索cards              │
 └──────────────────────────────────────────────────────┘
     │
-    ├──→ 📊 表格类 (SQLite, 列语义映射)
-    │     产品价格/参数/规格/对比
+    ▼
+┌──────────────────────────────────────────────────────┐
+│  SQL查询策略                                          │
+│  ├─ 结构化查询：直接SQL，保留表格关系                  │
+│  ├─ 分组聚合：按category/spec_name分组               │
+│  └─ 精确匹配：用model字段精确匹配                    │
+└──────────────────────────────────────────────────────┘
     │
-    ├──→ 📝 方案类 (BM25 + Vector 混合, 1773卡全量标注)
-    │     跨文档语义检索, 段落级原文召回
-    │
+    ▼
+┌──────────────────────────────────────────────────────┐
+│  结构化输出                                           │
+│  ├─ 价格：直接返回价格+描述                          │
+│  ├─ 分类：按分组返回所有分类                         │
+│  ├─ 对比：聚合为完整对比表格                         │
+│  └─ 招标：返回完整招标参数                           │
+└──────────────────────────────────────────────────────┘
+```
     ├──→ 🔄 更新类 (BM25 粗粒度整段)
     │     版本迭代/新功能完整段落
     │

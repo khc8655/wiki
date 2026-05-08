@@ -87,28 +87,70 @@ TAG_BOOST_MAP = {
 
 # ── Query understanding ────────────────────────────────────────────────────
 
+# Intent types for structured Excel queries
+INTENT_PRICE = 'price_query'        # 价格查询
+INTENT_CATEGORY = 'category_list'   # 分类列举
+INTENT_COMPARE = 'compare_table'    # 对比表格
+INTENT_TENDER = 'tender_params'     # 招标参数
+INTENT_ACCESSORY = 'accessory'      # 配件查询
+INTENT_EOL = 'eol_info'             # 停产信息
+INTENT_SOLUTION = 'solution'        # 方案描述（hybrid搜索）
+
 def extract_models(query: str) -> List[str]:
     return sorted({m.upper() for m in MODEL_RE.findall(query)})
 
 
-def classify_query(query: str) -> Tuple[str, List[str]]:
-    """Classify query intent and extract models."""
+def classify_query(query: str) -> Tuple[str, List[str], str]:
+    """Classify query intent and extract models.
+    Returns: (source_type, models, intent)
+    """
     models = extract_models(query)
     q = query.lower()
 
-    excel_keywords = SPECIFIC_KWS
+    # ── Intent detection (priority order) ──
+
+    # 1. 停产信息
+    if any(k in q for k in EOL_KWS):
+        return 'excel', models, INTENT_EOL
+
+    # 2. 配件查询
+    if any(k in q for k in ACCESSORY_KWS):
+        return 'excel', models, INTENT_ACCESSORY
+
+    # 3. 对比表格（2+模型）
+    if any(k in q for k in COMPARE_KWS) and len(models) >= 2:
+        return 'excel', models, INTENT_COMPARE
+
+    # 4. 招标参数
+    if any(k in q for k in TENDER_KWS):
+        return 'excel', models, INTENT_TENDER
+
+    # 5. 分类列举（无模型，问"有哪些分类/类型"，且是表格类查询）
+    if not models and any(k in q for k in ['分类', '类型', '有哪几种']):
+        return 'excel', models, INTENT_CATEGORY
+
+    # 6. 价格查询（有模型+价格关键词，或无模型+报价分类查询）
+    if any(k in q for k in PRICE_KWS):
+        if models:
+            return 'excel', models, INTENT_PRICE
+        # 无模型+报价分类 → 分类列举
+        if '分类' in q or '类型' in q:
+            return 'excel', models, INTENT_CATEGORY
+
+    # 7. 有模型 → 默认为价格查询（最常见）
     if models:
-        if any(k in q for k in excel_keywords):
-            return 'excel', models
-        return 'excel', models
+        return 'excel', models, INTENT_PRICE
 
+    # 8. 更新类
     if any(k in q for k in UPDATE_KWS):
-        return 'update', models
+        return 'update', models, INTENT_SOLUTION
 
+    # 9. PPT类
     if 'ppt' in q or '幻灯片' in q:
-        return 'ppt', models
+        return 'ppt', models, INTENT_SOLUTION
 
-    return 'knowledge', models
+    # 10. 默认：方案描述
+    return 'knowledge', models, INTENT_SOLUTION
 
 
 def detect_ambiguity(query: str, models: List[str], db) -> Optional[Dict]:
@@ -170,17 +212,18 @@ def _collect_model_categories(model: str) -> List[Dict]:
     if comp_rows:
         categories['产品对比'] = {'label': '产品对比参数', 'key': '对比', 'source': 'excel', 'count': len(comp_rows)}
 
+    # ── proposal表按型号过滤 ───────────────────────────────────────────
+    # 只推荐确实有内容的分类：先查出该型号的所有proposal行，再看各phase字段是否有值
     prop_rows = db.search_proposal_by_model(model)
-    for r in prop_rows:
-        pm = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
-        if model not in pm:
-            continue
-        if r.get('phase_channel', '').strip():
-            categories['简单清单参数'] = {'label': '简单清单参数（简版）', 'key': '渠道', 'source': 'excel', 'count': 1}
-        if r.get('phase_proposal', '').strip():
-            categories['可研使用参数'] = {'label': '可研使用参数（完整）', 'key': '可研', 'source': 'excel', 'count': 1}
-        if r.get('phase_tender', '').strip():
-            categories['招标参数'] = {'label': '招标参数（含▲标记）', 'key': '招标', 'source': 'excel', 'count': 1}
+    has_channel = any(r.get('phase_channel', '').strip() for r in prop_rows)
+    has_proposal = any(r.get('phase_proposal', '').strip() for r in prop_rows)
+    has_tender = any(r.get('phase_tender', '').strip() for r in prop_rows)
+    if has_channel:
+        categories['简单清单参数'] = {'label': '简单清单参数（简版）', 'key': '渠道', 'source': 'excel', 'count': len(prop_rows)}
+    if has_proposal:
+        categories['可研使用参数'] = {'label': '可研使用参数（完整）', 'key': '可研', 'source': 'excel', 'count': len(prop_rows)}
+    if has_tender:
+        categories['招标参数'] = {'label': '招标参数（含▲标记）', 'key': '招标', 'source': 'excel', 'count': len(prop_rows)}
 
     # ── 2. Knowledge base: aggregate by annotated intent_tags ───────────
     try:
@@ -241,90 +284,267 @@ def _collect_model_categories(model: str) -> List[Dict]:
 
 # ── Search functions ───────────────────────────────────────────────────────
 
-def search_excel(query: str, models: List[str], facet_filter: str = None) -> List[Dict]:
-    """Search structured Excel data: pricing, specs, comparison.
-    facet_filter: 'tender'/'proposal'/'channel' for proposal;
-                  pricing_type value for pricing;
-                  comparison_type value for comparison.
+def search_excel(query: str, models: List[str], intent: str = None, facet_filter: str = None) -> List[Dict]:
+    """Search structured Excel data based on intent.
+    
+    Intent-driven SQL strategies:
+    - price_query: 查pricing表，直接返回价格
+    - category_list: 查pricing表，按category分组返回所有分类
+    - compare_table: 查comparison表，按spec_name聚合
+    - tender_params: 查proposal表，用model精确匹配
+    - accessory: 查pricing表，按category字段匹配
+    - eol_info: 查pricing表，检查note字段
     """
     db = get_excel_db()
     results = []
     q = query.lower()
 
-    want_tender = any(k in q for k in TENDER_KWS)
-    want_channel = '渠道' in q or '通路' in q or '简单' in q
-    want_spec = any(k in q for k in SPEC_KWS)
-    want_price = any(k in q for k in PRICE_KWS)
-    want_compare = any(k in q for k in COMPARE_KWS)
+    # ── Intent-driven SQL strategies ──
 
-    want_all = not (want_tender or want_channel or want_spec or want_price or want_compare)
+    if intent == INTENT_CATEGORY:
+        # 分类列举：查pricing表，按category分组
+        return _search_category_list(db, query)
 
+    if intent == INTENT_EOL:
+        # 停产信息：查pricing表，检查note字段
+        return _search_eol_info(db, models)
+
+    if intent == INTENT_ACCESSORY:
+        # 配件查询：查pricing表，按category字段匹配
+        return _search_accessory(db, models)
+
+    if intent == INTENT_COMPARE:
+        # 对比表格：查comparison表，按spec_name聚合
+        return _search_compare_table(db, models)
+
+    if intent == INTENT_TENDER:
+        # 招标参数：查proposal表，用model精确匹配
+        return _search_tender_params(db, models, facet_filter)
+
+    if intent == INTENT_PRICE:
+        # 价格查询：查pricing表，直接返回价格
+        return _search_price(db, models)
+
+    # 默认：返回所有相关数据
+    return _search_all_excel(db, models, q, facet_filter)
+
+
+def _search_category_list(db, query: str) -> List[Dict]:
+    """分类列举：查pricing表，按category分组返回所有分类"""
+    q = query.lower()
+    
+    # 识别查询的分类关键词
+    category_keywords = []
+    if 'AI' in query or 'ai' in query:
+        category_keywords = ['AI', '智能', '语音转写', '人脸识别', '大模型', '接入授权']
+    elif '云会议' in query or '会议室' in query:
+        category_keywords = ['会议室', '云会议']
+    else:
+        # 通用分类查询：返回所有有category的记录
+        category_keywords = []
+    
+    # 查pricing表
+    if category_keywords:
+        # 按关键词过滤
+        conditions = ' OR '.join([f"category LIKE '%{k}%'" for k in category_keywords])
+        rows = db.execute(f"SELECT DISTINCT category, product_name, price_raw FROM pricing WHERE {conditions} AND category != '' ORDER BY category")
+    else:
+        # 返回所有有category的记录
+        rows = db.execute("SELECT DISTINCT category, product_name, price_raw FROM pricing WHERE category != '' ORDER BY category")
+    
+    results = []
+    seen_categories = set()
+    for row in rows:
+        category = row['category']
+        if category not in seen_categories:
+            seen_categories.add(category)
+            results.append({
+                'type': '表格类-分类列举',
+                'hit_rate': 1.0,
+                'source': 'pricing表',
+                'title': category,
+                'body': f"分类：{category}\n产品：{row['product_name']}\n价格：{row['price_raw']}",
+                'raw': dict(row),
+            })
+    
+    return results
+
+
+def _search_eol_info(db, models: List[str]) -> List[Dict]:
+    """停产信息：查pricing表，检查note字段"""
+    results = []
     for model in models:
-        # 1. Proposal table (multi-phase params)
-        phase_filter = facet_filter if facet_filter in ('tender', 'proposal', 'channel') else None
-        rows = db.search_proposal_by_model(model, phase_filter=phase_filter)
-        for r in rows:
-            product_model = r.get('product_model', '').upper().replace('小鱼易连', '').strip()
-            if model == product_model:
-                hit_rate = 1.0
-            elif model in product_model:
-                hit_rate = 0.7
-            else:
-                hit_rate = 0.5
-
-            # 招标参数
-            if want_tender or (want_all and not phase_filter):
-                body = r.get('phase_tender', '').strip()
-                if body and (not phase_filter or phase_filter == 'tender'):
-                    results.append(_make_excel_hit(
-                        r, '招标参数', body, round(hit_rate * 0.95, 3)))
-
-            # 方案/可研参数 (most complete)
-            if want_all and not phase_filter:
-                body = r.get('phase_proposal', '').strip()
-                if body:
-                    results.append(_make_excel_hit(
-                        r, '方案参数', body, round(hit_rate, 3)))
-
-            # 渠道/简单参数
-            if want_channel or (want_all and not phase_filter):
-                body = r.get('phase_channel', '').strip()
-                if body and (not phase_filter or phase_filter == 'channel'):
-                    results.append(_make_excel_hit(
-                        r, '渠道参数', body, round(hit_rate * 0.85, 3)))
-
-        # 2. Comparison table (spec details)
-        comp_filter = facet_filter if facet_filter and facet_filter not in ('tender', 'proposal', 'channel') else None
-        if want_spec or want_all:
-            comp_rows = db.search_comparison_by_model(model, comparison_type_filter=comp_filter)
-            for r in comp_rows:
-                spec_name = r.get('spec_name', '')
-                spec_val = r.get('spec_value', '')
-                body = f"{spec_name}: {spec_val}"
+        rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ?", 
+                         (f'%{model}%', f'%{model}%'))
+        for row in rows:
+            note = row['note'] or ''
+            if '停产' in note or '替代' in note:
                 results.append({
-                    'type': '表格类-产品对比',
-                    'hit_rate': 0.9,
-                    'source': f"{r.get('source_file')}:{r.get('source_sheet')}:row{r.get('source_row')}",
-                    'title': f"{r.get('model')} - {spec_name}",
+                    'type': '表格类-停产信息',
+                    'hit_rate': 1.0,
+                    'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                    'title': f"{row['product_name']} | {row['product_model']}",
+                    'body': f"价格：{row['price_raw']}\n备注：{note}",
+                    'raw': dict(row),
+                })
+    return results
+
+
+def _search_accessory(db, models: List[str]) -> List[Dict]:
+    """配件查询：查pricing表，按category字段匹配"""
+    results = []
+    for model in models:
+        rows = db.execute("SELECT * FROM pricing WHERE category LIKE ?", (f'%{model}%',))
+        for row in rows:
+            results.append({
+                'type': '表格类-配件',
+                'hit_rate': 1.0,
+                'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                'title': f"{row['product_name']} | {row['product_model']}",
+                'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
+                'raw': dict(row),
+            })
+    return results
+
+
+def _search_compare_table(db, models: List[str]) -> List[Dict]:
+    """对比表格：查comparison表，按spec_name聚合"""
+    from collections import defaultdict
+    
+    # 收集所有模型的对比数据
+    model_specs = {}  # model -> {spec_name: spec_value}
+    all_spec_names = []
+    source_info = ""
+    
+    for model in models:
+        rows = db.execute("SELECT * FROM comparison WHERE model = ?", (model,))
+        if not rows:
+            continue
+        specs = {}
+        for row in rows:
+            spec_name = row['spec_name']
+            spec_val = row['spec_value']
+            if spec_name:
+                specs[spec_name] = spec_val
+                if spec_name not in all_spec_names:
+                    all_spec_names.append(spec_name)
+        model_specs[model] = specs
+        if not source_info and rows:
+            row = rows[0]
+            source_info = f"{row['source_file']}:{row['source_sheet']}"
+    
+    if len(model_specs) < 2:
+        return []
+    
+    # 构建对比表格
+    table_models = [m for m in models if m in model_specs]
+    header = "| 对比项 | " + " | ".join(table_models) + " |"
+    separator = "| --- | " + " | ".join(["---"] * len(table_models)) + " |"
+    rows_str = []
+    for spec_name in all_spec_names:
+        vals = []
+        for m in table_models:
+            val = model_specs[m].get(spec_name, '-')
+            if len(val) > 80:
+                val = val[:77] + "..."
+            vals.append(val)
+        rows_str.append(f"| {spec_name} | " + " | ".join(vals) + " |")
+    
+    table_body = "\n".join([header, separator] + rows_str)
+    title = " vs ".join(table_models) + " 产品对比"
+    
+    return [{
+        'type': '表格类-产品对比',
+        'hit_rate': 1.0,
+        'source': source_info,
+        'title': title,
+        'body': table_body,
+        'raw': {},
+    }]
+
+
+def _search_tender_params(db, models: List[str], facet_filter: str = None) -> List[Dict]:
+    """招标参数：查proposal表，用model精确匹配"""
+    results = []
+    for model in models:
+        rows = db.execute("SELECT * FROM proposal WHERE product_model LIKE ?", (f'%{model}%',))
+        for row in rows:
+            body = row['phase_tender'] or ''
+            if body.strip():
+                results.append({
+                    'type': '表格类-招标参数',
+                    'hit_rate': 1.0,
+                    'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                    'title': f"{row['product_name']} {model} 招标参数",
                     'body': body,
-                    'raw': r,
+                    'raw': dict(row),
                 })
+    return results
 
-        # 3. Pricing
-        price_filter = facet_filter if facet_filter and facet_filter not in ('tender', 'proposal', 'channel') else None
-        if want_price or want_all:
-            price_rows = db.search_pricing_by_model(model, pricing_type_filter=price_filter)
-            for r in price_rows:
-                hit = 1.0 if r.get('is_pricing_record') else 0.5
-                results.append({
-                    'type': '表格类-价格',
-                    'hit_rate': hit,
-                    'source': f"{r.get('source_file')}:{r.get('source_sheet')}:row{r.get('source_row')}",
-                    'title': f"{r.get('product_name')} | {r.get('product_model')}",
-                    'body': f"价格: {r.get('price_raw')}\n描述: {r.get('description', '')}",
-                    'raw': r,
-                })
 
+def _search_price(db, models: List[str]) -> List[Dict]:
+    """价格查询：查pricing表，直接返回价格"""
+    results = []
+    for model in models:
+        rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ? OR category LIKE ?", 
+                         (f'%{model}%', f'%{model}%', f'%{model}%'))
+        for row in rows:
+            results.append({
+                'type': '表格类-价格',
+                'hit_rate': 1.0,
+                'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                'title': f"{row['product_name']} | {row['product_model']}",
+                'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
+                'raw': dict(row),
+            })
+    return results
+
+
+def _search_all_excel(db, models: List[str], q: str, facet_filter: str = None) -> List[Dict]:
+    """默认：返回所有相关数据"""
+    results = []
+    
+    for model in models:
+        # 查pricing表
+        rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ? OR category LIKE ?", 
+                         (f'%{model}%', f'%{model}%', f'%{model}%'))
+        for row in rows:
+            results.append({
+                'type': '表格类-价格',
+                'hit_rate': 0.9,
+                'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                'title': f"{row['product_name']} | {row['product_model']}",
+                'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
+                'raw': dict(row),
+            })
+        
+        # 查comparison表
+        rows = db.execute("SELECT * FROM comparison WHERE model = ?", (model,))
+        for row in rows:
+            results.append({
+                'type': '表格类-产品对比',
+                'hit_rate': 0.9,
+                'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                'title': f"{row['model']} - {row['spec_name']}",
+                'body': f"{row['spec_name']}: {row['spec_value']}",
+                'raw': dict(row),
+            })
+        
+        # 查proposal表
+        rows = db.execute("SELECT * FROM proposal WHERE product_model LIKE ?", (f'%{model}%',))
+        for row in rows:
+            for phase_name, phase_key in [('招标参数', 'phase_tender'), ('方案参数', 'phase_proposal'), ('渠道参数', 'phase_channel')]:
+                body = row[phase_key] or ''
+                if body.strip():
+                    results.append({
+                        'type': f'表格类-{phase_name}',
+                        'hit_rate': 0.9,
+                        'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                        'title': f"{row['product_name']} | {row['product_model']}",
+                        'body': body,
+                        'raw': dict(row),
+                    })
+    
     return results
 
 
@@ -336,6 +556,64 @@ def _make_excel_hit(row: Dict, param_type: str, body: str, hit_rate: float) -> D
         'title': f"{row.get('product_name')} | {row.get('product_model')}",
         'body': body,
         'raw': row,
+    }
+
+
+def _build_comparison_table(db, models: List[str]) -> Optional[Dict]:
+    """Build a unified comparison table for 2+ models.
+    Returns a single aggregated result with all specs in a table format."""
+    from collections import defaultdict
+
+    # Collect all comparison rows for all models
+    model_specs = {}  # model -> {spec_name: spec_value}
+    all_spec_names = []
+    source_info = ""
+
+    for model in models:
+        rows = db.search_comparison_by_model(model)
+        if not rows:
+            continue
+        specs = {}
+        for r in rows:
+            spec_name = r.get('spec_name', '')
+            spec_val = r.get('spec_value', '')
+            if spec_name:
+                specs[spec_name] = spec_val
+                if spec_name not in all_spec_names:
+                    all_spec_names.append(spec_name)
+        model_specs[model] = specs
+        if not source_info and rows:
+            r = rows[0]
+            source_info = f"{r.get('source_file', '')}:{r.get('source_sheet', '')}"
+
+    if len(model_specs) < 2:
+        return None
+
+    # Build table
+    table_models = [m for m in models if m in model_specs]
+    header = "| 对比项 | " + " | ".join(table_models) + " |"
+    separator = "| --- | " + " | ".join(["---"] * len(table_models)) + " |"
+    rows_str = []
+    for spec_name in all_spec_names:
+        vals = []
+        for m in table_models:
+            val = model_specs[m].get(spec_name, '-')
+            # Truncate long values for readability
+            if len(val) > 80:
+                val = val[:77] + "..."
+            vals.append(val)
+        rows_str.append(f"| {spec_name} | " + " | ".join(vals) + " |")
+
+    table_body = "\n".join([header, separator] + rows_str)
+    title = " vs ".join(table_models) + " 产品对比"
+
+    return {
+        'type': '表格类-产品对比',
+        'hit_rate': 1.0,
+        'source': source_info,
+        'title': title,
+        'body': table_body,
+        'raw': {},
     }
 
 
@@ -386,10 +664,23 @@ def search_knowledge(query: str, models: List[str] = None) -> List[Dict]:
             hit_rate = round(min(hit_rate * tag_boost, 1.0), 3)
 
             # Model filter if specified
+            # For proposal-type excel cards (tender/proposal/channel), the model name
+            # lives in semantic.models which is stripped by hybrid.search.
+            # Since these cards have high relevance to model-specific queries,
+            # ONLY apply the ×0.3 penalty when the card has NO relevance signal at all
+            # (no model in body/title AND no model in semantic AND no proposal-type structure).
             if models:
                 body_upper = body.upper()
                 title_upper = title.upper()
-                if not any(m in body_upper or m in title_upper for m in models):
+                semantic_models = []
+                is_proposal_type = ('proposal' in r.get('id', '') or
+                                    'proposal' in r.get('raw', {}).get('id', '') or
+                                    'tender' in r.get('id', '') or
+                                    'channel' in r.get('id', ''))
+                if isinstance(card, dict):
+                    semantic_models = card.get('semantic', {}).get('models', []) or []
+                has_model_match = any(m in body_upper or m in title_upper or m in semantic_models for m in models)
+                if not has_model_match and not is_proposal_type:
                     hit_rate *= 0.3
 
             if hit_rate < 0.08:
@@ -457,6 +748,119 @@ def search_updates(query: str) -> List[Dict]:
         return []
 
 
+def _intent_rerank(results: List[Dict], query: str) -> List[Dict]:
+    """Intent-based reranking: boost result types that match explicit query intent.
+
+    When a user explicitly asks for 招标参数/可研参数/渠道参数,
+    the matching proposal-phase cards should outrank generic comparison specs
+    even if their raw hit_rate is lower.
+    """
+    q = query.lower()
+
+    # Detect explicit intent
+    want_tender = any(k in q for k in TENDER_KWS)
+    want_proposal = any(k in q for k in ['可研', '方案参数'])
+    want_channel = any(k in q for k in ['渠道', '通路', '简单清单'])
+    want_compare = any(k in q for k in COMPARE_KWS)
+    want_spec = any(k in q for k in SPEC_KWS)
+    want_accessory = any(k in q for k in ACCESSORY_KWS)
+
+    if not (want_tender or want_proposal or want_channel or
+            want_compare or want_accessory):
+        # No explicit type intent → keep hit_rate ordering
+        results.sort(key=lambda x: x['hit_rate'], reverse=True)
+        return results
+
+    # Compute boost for each result based on type match
+    INTENTS = {
+        '招标参数': want_tender,
+        '可研参数': want_proposal,
+        '方案参数': want_proposal,
+        '渠道参数': want_channel,
+        '产品对比': want_compare,
+        '性能参数': want_spec,
+    }
+
+    def rerank_key(r: Dict) -> tuple:
+        raw_rate = r.get('hit_rate', 0)
+        rtype = r.get('type', '') or ''
+
+        # Determine source type from raw data (more reliable than rtype alone,
+        # since all cards are typed as '方案类-段落' at the result-building layer)
+        raw = r.get('raw', {})
+        raw_src = raw.get('source', '') or raw.get('doc_file', '') or ''
+        raw_id = raw.get('id', '') or ''
+        is_excel = 'excel_proposal' in raw_id or 'excel_pricing' in raw_id or 'excel_comparison' in raw_id
+
+        # Build a rich type identifier from the card's id/path/doc_file
+        extra_types = []
+        if is_excel:
+            # e.g. excel_proposal_tender_proposal_000010 → extract 'proposal' + 'tender'
+            parts = raw_id.replace('excel_proposal_', '').split('_')
+            extra_types.extend([p for p in parts if p and p not in ('excel', 'proposal')])
+        # Also check path for KB cards
+        path = raw.get('path', '') or ''
+        if '招标参数' in path:
+            extra_types.append('招标参数')
+        if '可研参数' in path or '方案参数' in path:
+            extra_types.append('方案参数')
+        if '渠道参数' in path:
+            extra_types.append('渠道参数')
+
+        # Determine type match score
+        type_boost = 0.0
+        matched = False
+        for intent_name, active in INTENTS.items():
+            if active and (intent_name in rtype or intent_name in extra_types or intent_name in path):
+                type_boost = 0.15
+                matched = True
+                break
+            elif not active and intent_name in rtype:
+                type_boost = -0.10  # Demote non-requested types slightly
+
+        # doc_hint from excel cards (check id as fallback for hybrid's stripped raw)
+        doc_hint = raw.get('doc_hint', '')
+        if not doc_hint and 'proposal' in raw_id:
+            doc_hint = 'proposal'
+
+        if want_tender and doc_hint == 'proposal' and ('招标' in path or 'tender' in raw_id):
+            type_boost = 0.20
+            matched = True
+        elif want_proposal and doc_hint == 'proposal' and '可研' in path:
+            type_boost = 0.20
+            matched = True
+        elif want_channel and doc_hint == 'proposal' and '渠道' in path:
+            type_boost = 0.20
+            matched = True
+
+        # Prefer comparison specs when comparing
+        if want_compare and 'comparison' in rtype:
+            type_boost = 0.20
+            matched = True
+
+        # For accessory queries: boost pricing cards (which list bundled items)
+        # and demote comparison spec cards (which list interface specs)
+        if want_accessory:
+            if 'pricing' in raw_id or 'pricing' in rtype.lower():
+                type_boost = 0.20
+                matched = True
+            elif 'comparison' in raw_id or 'comparison' in rtype.lower():
+                type_boost = -0.15  # Demote spec cards for accessory queries
+
+        # title check: if query mentions a specific model, title match matters
+        title_lower = r.get('title', '').lower()
+        models_in_q = extract_models(query)
+        title_model_match = any(m.lower() in title_lower for m in models_in_q)
+
+        # Adjusted score
+        adjusted = raw_rate + type_boost
+        # Tie-breaker: title model match > hit_rate
+        return (adjusted, title_model_match, raw_rate)
+
+    results.sort(key=rerank_key, reverse=True)
+    return results
+
+
 def search_ppt(query: str) -> List[Dict]:
     return []
 
@@ -492,12 +896,17 @@ def _collect_expansion_hints(results: List[Dict]) -> Optional[str]:
 
 
 def unified_search(query: str, facet_filter: str = None) -> Dict:
-    """Main entry point: classify, detect ambiguity, route, search."""
-    source_type, models = classify_query(query)
-    all_results = []
+    """Main entry point: ALL queries go through unified hybrid search.
 
-    # Detect if query is broad (for post-search disambiguation trigger)
+    The excel SQLite path is only used when a facet filter is explicitly
+    specified (--facet tender/proposal/channel/pricing_type/etc).
+    Without a facet filter, every query competes in the same hybrid pool
+    (BM25 + Vector over all cards including excel_*.json cards).
+    """
+    source_type, models, intent = classify_query(query)
     q = query.lower()
+
+    # Broad query detection (for disambiguation UI)
     is_broad = False
     if models:
         remaining = q
@@ -507,24 +916,25 @@ def unified_search(query: str, facet_filter: str = None) -> Dict:
         has_specific = any(k in q for k in SPECIFIC_KWS)
         is_broad = (all(w in BROAD_KWS for w in words) if words else True) and not has_specific
 
-    if source_type == 'excel':
-        all_results = search_excel(query, models, facet_filter=facet_filter)
-        # For specific intent queries (价格/接口/招标), don't dilute with knowledge base
-        query_specific = any(k in q for k in SPECIFIC_KWS)
-        if len(all_results) < 5 and not query_specific:
-            all_results.extend(search_knowledge(query, models))
-        elif query_specific and len(all_results) == 0:
-            # Only fall back to KB if Excel has literally nothing
-            all_results.extend(search_knowledge(query, models))
+    all_results = []
 
+    # ── Intent-driven routing ──
+    
+    # 结构化查询意图：直接走SQL，不走hybrid搜索
+    if intent in [INTENT_PRICE, INTENT_CATEGORY, INTENT_EOL, INTENT_ACCESSORY, INTENT_TENDER]:
+        all_results = search_excel(query, models, intent=intent, facet_filter=facet_filter)
+    
+    # 对比表格：走SQL聚合
+    elif intent == INTENT_COMPARE:
+        all_results = search_excel(query, models, intent=intent, facet_filter=facet_filter)
+    
+    # 方案描述：走hybrid搜索
     elif source_type == 'update':
         all_results = search_updates(query)
         if len(all_results) < 3:
             all_results.extend(search_knowledge(query, models))
-
     elif source_type == 'ppt':
         all_results = search_ppt(query)
-
     else:
         all_results = search_knowledge(query, models)
 
@@ -537,12 +947,10 @@ def unified_search(query: str, facet_filter: str = None) -> Dict:
             seen.add(key)
             unique.append(r)
 
-    # Sort: excel first, then by hit_rate descending
-    def sort_key(x):
-        is_excel = '表格类' in x.get('type', '')
-        return (is_excel, x['hit_rate'])
-
-    unique.sort(key=sort_key, reverse=True)
+    # Sort by hit_rate descending (no more "excel first" bias)
+    # Apply intent-based reranking: if query specifies 招标/可研/渠道,
+    # boost matching proposal card types above general comparison specs
+    unique = _intent_rerank(unique, q)
 
     avg_rate = _compute_avg_hit_rate(unique)
 

@@ -229,6 +229,16 @@ class ExcelDB:
     def _get_conn(self):
         return sqlite3.connect(self.db_path)
     
+    def execute(self, sql: str, params: tuple = ()) -> List[Dict]:
+        """执行SQL查询，返回字典列表"""
+        conn = self._get_conn()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute(sql, params)
+        rows = cursor.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
+    
     def search_proposal_by_model(self, model: str, phase_filter: str = None) -> List[Dict]:
         """按型号查 proposal，可选 phase_filter 过滤（如 'tender'/'proposal'/'channel'）"""
         conn = self._get_conn()
@@ -271,23 +281,24 @@ class ExcelDB:
         return results
     
     def search_pricing_by_model(self, model: str, pricing_type_filter: str = None) -> List[Dict]:
-        """按型号查价格，可选 pricing_type 过滤"""
+        """按型号查价格，可选 pricing_type 过滤
+        同时搜索 product_model、product_name 和 category 字段"""
         conn = self._get_conn()
         cursor = conn.cursor()
         
         if pricing_type_filter:
             cursor.execute('''
                 SELECT * FROM pricing 
-                WHERE (product_model LIKE ? OR product_name LIKE ?)
+                WHERE (product_model LIKE ? OR product_name LIKE ? OR category LIKE ?)
                 AND pricing_type = ?
                 ORDER BY is_pricing_record DESC
-            ''', (f'%{model}%', f'%{model}%', pricing_type_filter))
+            ''', (f'%{model}%', f'%{model}%', f'%{model}%', pricing_type_filter))
         else:
             cursor.execute('''
                 SELECT * FROM pricing 
-                WHERE product_model LIKE ? OR product_name LIKE ?
+                WHERE product_model LIKE ? OR product_name LIKE ? OR category LIKE ?
                 ORDER BY is_pricing_record DESC
-            ''', (f'%{model}%', f'%{model}%'))
+            ''', (f'%{model}%', f'%{model}%', f'%{model}%'))
         
         rows = cursor.fetchall()
         conn.close()
