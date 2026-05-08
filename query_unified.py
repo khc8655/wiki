@@ -54,10 +54,13 @@ MODEL_RE = re.compile(
 # Lower number = higher priority (shown first)
 PRICE_KWS = ['价格', '报价', '多少钱', '费用', '成本']
 TENDER_KWS = ['招标', '投标', '可研']
-SPEC_KWS = ['规格', '接口', '编解码', '输入', '输出', '分辨率', '像素']
+SPEC_KWS = ['规格', '接口', '编解码', '输入', '输出', '分辨率', '像素', '参数', '介绍', '详情', '功能']
 COMPARE_KWS = ['对比', '比较', '区别', '差异', 'vs']
 ACCESSORY_KWS = ['配件', '附件', '可用配件']
 EOL_KWS = ['停产', '替代', '退市']
+CHANNEL_KWS = ['简单', '简版', '清单', '渠道']  # 渠道参数（简版）
+PROPOSAL_KWS = ['方案', '可研']  # 方案参数
+# 通用宽泛关键词（用于歧义检测，定义在 BROAD_KWS 统一处）
 
 # Disambiguation category sort priority (lower = higher priority)
 CATEGORY_PRIORITY = {
@@ -92,7 +95,8 @@ INTENT_PRICE = 'price_query'        # 价格查询
 INTENT_CATEGORY = 'category_list'   # 分类列举
 INTENT_COMPARE = 'compare_table'    # 对比表格
 INTENT_TENDER = 'tender_params'     # 招标参数
-INTENT_ACCESSORY = 'accessory'      # 配件查询
+INTENT_ACCESSORY = 'accessory'      # 配件查询（仅SQL）
+INTENT_ACCESSORY_HYBRID = 'accessory_hybrid'  # 配件查询（SQL+cards）
 INTENT_EOL = 'eol_info'             # 停产信息
 INTENT_SOLUTION = 'solution'        # 方案描述（hybrid搜索）
 
@@ -115,21 +119,33 @@ def classify_query(query: str) -> Tuple[str, List[str], str]:
 
     # 2. 配件查询
     if any(k in q for k in ACCESSORY_KWS):
+        # 如果查询包含"包含"、"配置"、"套装"，同时查cards
+        if any(k in q for k in ['包含', '配置', '套装', '清单']):
+            return 'excel', models, INTENT_ACCESSORY_HYBRID
         return 'excel', models, INTENT_ACCESSORY
 
     # 3. 对比表格（2+模型）
     if any(k in q for k in COMPARE_KWS) and len(models) >= 2:
         return 'excel', models, INTENT_COMPARE
 
-    # 4. 招标参数
+    # 4. 招标参数（但如果同时包含其他参数类型关键词，走spec_query）
     if any(k in q for k in TENDER_KWS):
+        # 检查是否同时包含其他参数类型关键词
+        has_other_param = any(k in q for k in CHANNEL_KWS + PROPOSAL_KWS)
+        if has_other_param:
+            # 同时提到多种参数类型，走spec_query让其内部过滤
+            return 'excel', models, 'spec_query'
         return 'excel', models, INTENT_TENDER
 
     # 5. 分类列举（无模型，问"有哪些分类/类型"，且是表格类查询）
     if not models and any(k in q for k in ['分类', '类型', '有哪几种']):
         return 'excel', models, INTENT_CATEGORY
 
-    # 6. 价格查询（有模型+价格关键词，或无模型+报价分类查询）
+    # 6. 参数/规格/功能/介绍查询（有模型+SPEC关键词，优先于价格）
+    if models and any(k in q for k in SPEC_KWS):
+        return 'excel', models, 'spec_query'
+
+    # 7. 价格查询（有模型+价格关键词）
     if any(k in q for k in PRICE_KWS):
         if models:
             return 'excel', models, INTENT_PRICE
@@ -137,9 +153,9 @@ def classify_query(query: str) -> Tuple[str, List[str], str]:
         if '分类' in q or '类型' in q:
             return 'excel', models, INTENT_CATEGORY
 
-    # 7. 有模型 → 默认为价格查询（最常见）
+    # 8. 有模型 → 默认为方案类搜索
     if models:
-        return 'excel', models, INTENT_PRICE
+        return 'knowledge', models, INTENT_SOLUTION
 
     # 8. 更新类
     if any(k in q for k in UPDATE_KWS):
@@ -324,6 +340,10 @@ def search_excel(query: str, models: List[str], intent: str = None, facet_filter
     if intent == INTENT_PRICE:
         # 价格查询：查pricing表，直接返回价格
         return _search_price(db, models)
+    
+    if intent == 'spec_query':
+        # 参数/规格查询：查comparison表
+        return _search_spec_query(db, models, query)
 
     # 默认：返回所有相关数据
     return _search_all_excel(db, models, q, facet_filter)
@@ -343,14 +363,13 @@ def _search_category_list(db, query: str) -> List[Dict]:
         # 通用分类查询：返回所有有category的记录
         category_keywords = []
     
-    # 查pricing表
+    # 查pricing表（参数化查询，避免SQL注入）
     if category_keywords:
-        # 按关键词过滤
-        conditions = ' OR '.join([f"category LIKE '%{k}%'" for k in category_keywords])
-        rows = db.execute(f"SELECT DISTINCT category, product_name, price_raw FROM pricing WHERE {conditions} AND category != '' ORDER BY category")
+        conditions = ' OR '.join(['category LIKE ?' for _ in category_keywords])
+        params = [f'%{k}%' for k in category_keywords]
+        rows = db.execute(f"SELECT DISTINCT category, product_name, price_raw, source_file, source_sheet, source_row FROM pricing WHERE {conditions} AND category != '' ORDER BY category", params)
     else:
-        # 返回所有有category的记录
-        rows = db.execute("SELECT DISTINCT category, product_name, price_raw FROM pricing WHERE category != '' ORDER BY category")
+        rows = db.execute("SELECT DISTINCT category, product_name, price_raw, source_file, source_sheet, source_row FROM pricing WHERE category != '' ORDER BY category")
     
     results = []
     seen_categories = set()
@@ -360,8 +379,8 @@ def _search_category_list(db, query: str) -> List[Dict]:
             seen_categories.add(category)
             results.append({
                 'type': '表格类-分类列举',
-                'hit_rate': 1.0,
-                'source': 'pricing表',
+                'hit_rate': 0.95,
+                'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
                 'title': category,
                 'body': f"分类：{category}\n产品：{row['product_name']}\n价格：{row['price_raw']}",
                 'raw': dict(row),
@@ -374,16 +393,17 @@ def _search_eol_info(db, models: List[str]) -> List[Dict]:
     """停产信息：查pricing表，检查note字段"""
     results = []
     for model in models:
-        rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ?", 
-                         (f'%{model}%', f'%{model}%'))
+        rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ? OR category LIKE ?", 
+                         (f'%{model}%', f'%{model}%', f'%{model}%'))
         for row in rows:
             note = row['note'] or ''
             if '停产' in note or '替代' in note:
+                pmodel = (row['product_model'] or '').strip()
                 results.append({
                     'type': '表格类-停产信息',
                     'hit_rate': 1.0,
                     'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
-                    'title': f"{row['product_name']} | {row['product_model']}",
+                    'title': f"{row['product_name']} | {pmodel}" if pmodel else row['product_name'],
                     'body': f"价格：{row['price_raw']}\n备注：{note}",
                     'raw': dict(row),
                 })
@@ -391,16 +411,37 @@ def _search_eol_info(db, models: List[str]) -> List[Dict]:
 
 
 def _search_accessory(db, models: List[str]) -> List[Dict]:
-    """配件查询：查pricing表，按category字段匹配"""
+    """配件查询：查pricing表，按category字段匹配，同时搜索product_name/product_model
+    排除主产品本身（命中率1.0），配件给0.8"""
     results = []
+    seen = set()
     for model in models:
-        rows = db.execute("SELECT * FROM pricing WHERE category LIKE ?", (f'%{model}%',))
+        model_upper = model.upper()
+        rows = db.execute("SELECT * FROM pricing WHERE category LIKE ? OR product_name LIKE ? OR product_model LIKE ?", 
+                         (f'%{model}%', f'%{model}%', f'%{model}%'))
         for row in rows:
+            pname = (row['product_name'] or '').strip()
+            pmodel = (row['product_model'] or '').strip()
+            category = (row['category'] or '').strip()
+            
+            # 跳过主产品本身（category只有型号名，不是配件）
+            if category.upper() == model_upper:
+                continue
+            
+            # 去重
+            key = pname
+            if key in seen:
+                continue
+            seen.add(key)
+            
+            # 配件的 hit_rate 低于主产品
+            hit_rate = 0.8
+            
             results.append({
                 'type': '表格类-配件',
-                'hit_rate': 1.0,
+                'hit_rate': hit_rate,
                 'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
-                'title': f"{row['product_name']} | {row['product_model']}",
+                'title': f"{pname} | {pmodel}" if pmodel else pname,
                 'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
                 'raw': dict(row),
             })
@@ -408,7 +449,7 @@ def _search_accessory(db, models: List[str]) -> List[Dict]:
 
 
 def _search_compare_table(db, models: List[str]) -> List[Dict]:
-    """对比表格：查comparison表，按spec_name聚合"""
+    """对比表格：查comparison表，按spec_name聚合，附带差异摘要"""
     from collections import defaultdict
     
     # 收集所有模型的对比数据
@@ -441,24 +482,54 @@ def _search_compare_table(db, models: List[str]) -> List[Dict]:
     header = "| 对比项 | " + " | ".join(table_models) + " |"
     separator = "| --- | " + " | ".join(["---"] * len(table_models)) + " |"
     rows_str = []
+    diff_specs = []  # 有差异的参数
+    same_specs = []  # 相同的参数
+    
     for spec_name in all_spec_names:
         vals = []
+        raw_vals = []
         for m in table_models:
             val = model_specs[m].get(spec_name, '-')
+            raw_vals.append(val)
             if len(val) > 80:
                 val = val[:77] + "..."
             vals.append(val)
         rows_str.append(f"| {spec_name} | " + " | ".join(vals) + " |")
+        
+        # 检测差异
+        unique_vals = set(v.strip() for v in raw_vals if v.strip() != '-')
+        if len(unique_vals) > 1:
+            diff_specs.append(spec_name)
+        elif len(unique_vals) == 1:
+            same_specs.append(spec_name)
     
     table_body = "\n".join([header, separator] + rows_str)
     title = " vs ".join(table_models) + " 产品对比"
+    
+    # 生成差异摘要
+    summary_parts = []
+    if diff_specs:
+        summary_parts.append(f"**主要差异（{len(diff_specs)}项）：**")
+        for spec in diff_specs:
+            diff_detail = []
+            for m in table_models:
+                val = model_specs[m].get(spec, '-')
+                if len(val) > 50:
+                    val = val[:47] + "..."
+                diff_detail.append(f"{m}: {val}")
+            summary_parts.append(f"- {spec} → {' | '.join(diff_detail)}")
+    if same_specs:
+        summary_parts.append(f"\n**相同参数：** {len(same_specs)} 项一致")
+    
+    summary = "\n".join(summary_parts)
+    full_body = f"{table_body}\n\n---\n\n{summary}" if summary else table_body
     
     return [{
         'type': '表格类-产品对比',
         'hit_rate': 1.0,
         'source': source_info,
         'title': title,
-        'body': table_body,
+        'body': full_body,
         'raw': {},
     }]
 
@@ -483,25 +554,58 @@ def _search_tender_params(db, models: List[str], facet_filter: str = None) -> Li
 
 
 def _search_price(db, models: List[str]) -> List[Dict]:
-    """价格查询：查pricing表，直接返回价格"""
+    """价格查询：查pricing表，直接返回价格，包含停产信息
+    动态评分：产品名精确匹配=1.0，产品名包含=0.9，仅category匹配=0.7
+    去重：同产品名合并，保留有价格的行
+    """
     results = []
+    seen_products = {}  # product_name -> best result
     for model in models:
         rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ? OR category LIKE ?", 
                          (f'%{model}%', f'%{model}%', f'%{model}%'))
         for row in rows:
-            results.append({
+            price = (row['price_raw'] or '').strip()
+            # 跳过空价格行
+            if not price:
+                continue
+            pname = (row['product_name'] or '').strip()
+            pmodel = (row['product_model'] or '').strip()
+            category = (row['category'] or '').strip()
+            
+            # 动态 hit_rate
+            model_upper = model.upper()
+            if model_upper == pmodel.upper() or model_upper == pname.upper():
+                hit_rate = 1.0  # 精确匹配
+            elif model_upper in pname.upper():
+                hit_rate = 0.9  # 产品名包含型号
+            elif model_upper in category.upper():
+                hit_rate = 0.7  # 仅 category 匹配（配件等）
+            else:
+                hit_rate = 0.6
+            
+            note = row['note'] or ''
+            body = f"价格：{price}\n描述：{row['description']}"
+            if note and ('停产' in note or '替代' in note):
+                body += f"\n备注：{note}"
+            
+            result = {
                 'type': '表格类-价格',
-                'hit_rate': 1.0,
+                'hit_rate': hit_rate,
                 'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
-                'title': f"{row['product_name']} | {row['product_model']}",
-                'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
+                'title': f"{pname} | {pmodel}" if pmodel else pname,
+                'body': body,
                 'raw': dict(row),
-            })
-    return results
+            }
+            
+            # 去重：同产品名保留 hit_rate 最高的
+            if pname not in seen_products or hit_rate > seen_products[pname]['hit_rate']:
+                seen_products[pname] = result
+    
+    return list(seen_products.values())
 
 
 def _search_all_excel(db, models: List[str], q: str, facet_filter: str = None) -> List[Dict]:
-    """默认：返回所有相关数据"""
+    """默认：返回所有相关数据，包含note字段"""
     results = []
     
     for model in models:
@@ -509,12 +613,16 @@ def _search_all_excel(db, models: List[str], q: str, facet_filter: str = None) -
         rows = db.execute("SELECT * FROM pricing WHERE product_name LIKE ? OR product_model LIKE ? OR category LIKE ?", 
                          (f'%{model}%', f'%{model}%', f'%{model}%'))
         for row in rows:
+            note = row['note'] or ''
+            body = f"价格：{row['price_raw']}\n描述：{row['description']}"
+            if note:
+                body += f"\n备注：{note}"
             results.append({
                 'type': '表格类-价格',
                 'hit_rate': 0.9,
                 'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
                 'title': f"{row['product_name']} | {row['product_model']}",
-                'body': f"价格：{row['price_raw']}\n描述：{row['description']}",
+                'body': body,
                 'raw': dict(row),
             })
         
@@ -541,6 +649,150 @@ def _search_all_excel(db, models: List[str], q: str, facet_filter: str = None) -
                         'hit_rate': 0.9,
                         'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
                         'title': f"{row['product_name']} | {row['product_model']}",
+                        'body': body,
+                        'raw': dict(row),
+                    })
+    
+    return results
+
+
+def _search_spec_query(db, models: List[str], query: str = '') -> List[Dict]:
+    """参数/规格查询：查comparison表 + proposal表，返回结构化表格
+    单模型时输出竖排表格，多模型时输出对比表格
+    根据查询关键词过滤参数类型：简单/渠道→渠道参数，招标→招标参数，方案→方案参数"""
+    from collections import defaultdict
+    
+    results = []
+    q = query.lower() if query else ''
+    
+    # 检测用户想要的参数类型
+    want_tender = any(k in q for k in TENDER_KWS)
+    want_channel = any(k in q for k in CHANNEL_KWS)
+    want_proposal = any(k in q for k in PROPOSAL_KWS)
+    # 如果没有指定具体类型，则返回所有
+    want_all = not (want_tender or want_channel or want_proposal)
+    
+    # 1. 查 comparison 表
+    model_specs = {}  # model -> {spec_name: spec_value}
+    all_spec_names = []
+    source_info = ""
+    
+    for model in models:
+        rows = db.execute("SELECT * FROM comparison WHERE model = ?", (model,))
+        if not rows:
+            continue
+        specs = {}
+        for row in rows:
+            spec_name = row['spec_name']
+            spec_val = row['spec_value']
+            if spec_name and spec_val:
+                specs[spec_name] = spec_val
+                if spec_name not in all_spec_names:
+                    all_spec_names.append(spec_name)
+        model_specs[model] = specs
+        if not source_info and rows:
+            row = rows[0]
+            source_info = f"{row['source_file']}:{row['source_sheet']}"
+    
+    if model_specs:
+        if len(model_specs) >= 2:
+            # 多模型对比表格
+            table_models = [m for m in models if m in model_specs]
+            header = "| 对比项 | " + " | ".join(table_models) + " |"
+            separator = "| --- | " + " | ".join(["---"] * len(table_models)) + " |"
+            rows_str = []
+            for spec_name in all_spec_names:
+                vals = []
+                for m in table_models:
+                    val = model_specs[m].get(spec_name, '-')
+                    if len(val) > 80:
+                        val = val[:77] + "..."
+                    vals.append(val)
+                rows_str.append(f"| {spec_name} | " + " | ".join(vals) + " |")
+            table_body = "\n".join([header, separator] + rows_str)
+            title = " vs ".join(table_models) + " 产品对比"
+            
+            # 生成差异摘要
+            diff_specs = []
+            same_specs = []
+            for spec_name in all_spec_names:
+                unique_vals = set(model_specs[m].get(spec_name, '-').strip() for m in table_models if model_specs[m].get(spec_name, '-').strip() != '-')
+                if len(unique_vals) > 1:
+                    diff_specs.append(spec_name)
+                elif len(unique_vals) == 1:
+                    same_specs.append(spec_name)
+            
+            summary_parts = []
+            if diff_specs:
+                summary_parts.append(f"**主要差异（{len(diff_specs)}项）：**")
+                for spec in diff_specs:
+                    diff_detail = []
+                    for m in table_models:
+                        val = model_specs[m].get(spec, '-')
+                        if len(val) > 50:
+                            val = val[:47] + "..."
+                        diff_detail.append(f"{m}: {val}")
+                    summary_parts.append(f"- {spec} → {' | '.join(diff_detail)}")
+            if same_specs:
+                summary_parts.append(f"\n**相同参数：** {len(same_specs)} 项一致")
+            
+            summary = "\n".join(summary_parts)
+            full_body = f"{table_body}\n\n---\n\n{summary}" if summary else table_body
+            
+            results.append({
+                'type': '表格类-产品对比',
+                'hit_rate': 1.0,
+                'source': source_info,
+                'title': title,
+                'body': full_body,
+                'raw': {},
+            })
+        else:
+            # 单模型参数表格
+            model = models[0]
+            specs = model_specs.get(model, {})
+            if specs:
+                header = "| 参数项 | 参数值 |"
+                separator = "| --- | --- |"
+                rows_str = []
+                for spec_name, spec_val in specs.items():
+                    if len(spec_val) > 100:
+                        spec_val = spec_val[:97] + "..."
+                    rows_str.append(f"| {spec_name} | {spec_val} |")
+                table_body = "\n".join([header, separator] + rows_str)
+                results.append({
+                    'type': '表格类-参数',
+                    'hit_rate': 1.0,
+                    'source': source_info,
+                    'title': f"{model} 产品参数",
+                    'body': table_body,
+                    'raw': {'model': model},
+                })
+    
+    # 2. 查 proposal 表（招标/方案/渠道参数）
+    # 根据查询关键词过滤参数类型
+    phase_filters = []
+    if want_all:
+        phase_filters = [('招标参数', 'phase_tender'), ('方案参数', 'phase_proposal'), ('渠道参数', 'phase_channel')]
+    else:
+        if want_tender:
+            phase_filters.append(('招标参数', 'phase_tender'))
+        if want_proposal:
+            phase_filters.append(('方案参数', 'phase_proposal'))
+        if want_channel:
+            phase_filters.append(('渠道参数', 'phase_channel'))
+    
+    for model in models:
+        rows = db.execute("SELECT * FROM proposal WHERE product_model LIKE ?", (f'%{model}%',))
+        for row in rows:
+            for phase_name, phase_key in phase_filters:
+                body = row[phase_key] or ''
+                if body.strip():
+                    results.append({
+                        'type': f'表格类-{phase_name}',
+                        'hit_rate': 0.95,
+                        'source': f"{row['source_file']}:{row['source_sheet']}:row{row['source_row']}",
+                        'title': f"{row['product_name']} {phase_name}",
                         'body': body,
                         'raw': dict(row),
                     })
@@ -703,11 +955,22 @@ def search_knowledge(query: str, models: List[str] = None) -> List[Dict]:
         bm25_results = retriever.search(query, top_k=40)
 
         results = []
+        if not bm25_results:
+            return results
+        
+        # Min-max normalization for BM25 scores
+        scores = [score for _, score, _ in bm25_results]
+        score_min = min(scores)
+        score_max = max(scores)
+        score_range = score_max - score_min if score_max > score_min else 1.0
+        
         for cid, score, card in bm25_results:
             if score < 0.5:
                 continue
             tag_boost = _compute_tag_boost(card, query)
-            hit_rate = round(min(score / 10.0 * tag_boost, 1.0), 3)
+            # Proper min-max normalization
+            norm_score = (score - score_min) / score_range
+            hit_rate = round(min(norm_score * tag_boost, 1.0), 3)
             results.append({
                 'type': '方案类-段落',
                 'hit_rate': hit_rate,
@@ -921,8 +1184,13 @@ def unified_search(query: str, facet_filter: str = None) -> Dict:
     # ── Intent-driven routing ──
     
     # 结构化查询意图：直接走SQL，不走hybrid搜索
-    if intent in [INTENT_PRICE, INTENT_CATEGORY, INTENT_EOL, INTENT_ACCESSORY, INTENT_TENDER]:
+    if intent in [INTENT_PRICE, INTENT_CATEGORY, INTENT_EOL, INTENT_ACCESSORY, INTENT_TENDER, 'spec_query']:
         all_results = search_excel(query, models, intent=intent, facet_filter=facet_filter)
+    
+    # 配件查询（SQL+cards）
+    elif intent == INTENT_ACCESSORY_HYBRID:
+        all_results = search_excel(query, models, intent=INTENT_ACCESSORY, facet_filter=facet_filter)
+        all_results.extend(search_knowledge(query, models))
     
     # 对比表格：走SQL聚合
     elif intent == INTENT_COMPARE:
@@ -975,9 +1243,67 @@ def format_output(hit: Dict) -> str:
     return (
         f"{title}\n\n"
         f"{body}\n\n"
-        f"出处\n{source}\n\n"
-        f"命中率\n\n{hit_rate:.0%}\n\n---"
+        f"出处: {source}\n"
+        f"命中率: {hit_rate:.0%}\n\n---"
     )
+
+
+def format_summary_table(hits: List[Dict]) -> str:
+    """当结果超过5条时，输出紧凑的汇总表格"""
+    if not hits:
+        return ""
+    
+    # 判断结果类型
+    first_type = hits[0].get('type', '')
+    
+    # 价格类汇总
+    if '价格' in first_type or '分类' in first_type:
+        lines = ["| 序号 | 产品/分类 | 价格 | 命中率 |", "| --- | --- | --- | --- |"]
+        for i, h in enumerate(hits, 1):
+            title = h.get('title', '').replace('\n', ' ').strip()
+            if len(title) > 30:
+                title = title[:27] + "..."
+            body = h.get('body', '')
+            # 提取价格
+            price = '-'
+            for line in body.split('\n'):
+                if line.startswith('价格：') or line.startswith('价格:'):
+                    price = line.split('：', 1)[-1].split(':', 1)[-1].strip()
+                    if len(price) > 20:
+                        price = price[:17] + "..."
+                    break
+            hit_rate = h.get('hit_rate', 0)
+            lines.append(f"| {i} | {title} | {price} | {hit_rate:.0%} |")
+        return "\n".join(lines)
+    
+    # 配件类汇总
+    if '配件' in first_type:
+        lines = ["| 序号 | 配件名称 | 价格 | 命中率 |", "| --- | --- | --- | --- |"]
+        for i, h in enumerate(hits, 1):
+            title = h.get('title', '').replace('\n', ' ').strip()
+            if len(title) > 30:
+                title = title[:27] + "..."
+            body = h.get('body', '')
+            price = '-'
+            for line in body.split('\n'):
+                if line.startswith('价格：') or line.startswith('价格:'):
+                    price = line.split('：', 1)[-1].split(':', 1)[-1].strip()
+                    if len(price) > 15:
+                        price = price[:12] + "..."
+                    break
+            hit_rate = h.get('hit_rate', 0)
+            lines.append(f"| {i} | {title} | {price} | {hit_rate:.0%} |")
+        return "\n".join(lines)
+    
+    # 通用汇总（方案类等）
+    lines = ["| 序号 | 标题 | 命中率 |", "| --- | --- | --- |"]
+    for i, h in enumerate(hits, 1):
+        title = h.get('title', '').replace('\n', ' ').strip()
+        if len(title) > 40:
+            title = title[:37] + "..."
+        hit_rate = h.get('hit_rate', 0)
+        lines.append(f"| {i} | {title} | {hit_rate:.0%} |")
+    return "\n".join(lines)
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
@@ -1162,6 +1488,11 @@ def main():
             print(f"显示全部 {len(display)} 条")
         print()
 
+        # 超过5条结果时，先输出汇总表格，再输出详情
+        if len(display) > 5 and not args.all:
+            print(format_summary_table(display))
+            print(f"\n以上为汇总，共 {len(display)} 条。详细信息如下：\n")
+        
         for hit in display:
             print(format_output(hit))
 

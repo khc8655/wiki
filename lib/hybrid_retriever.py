@@ -47,9 +47,14 @@ class HybridRetriever:
         # 3. Normalize and fuse
         all_ids = set(bm25_scores.keys()) | set(vec_scores.keys())
         
-        # Normalization: min-max within each result set
+        # Normalization: true min-max within each result set
+        bm25_min = min(bm25_scores.values()) if bm25_scores else 0.0
         bm25_max = max(bm25_scores.values()) if bm25_scores else 1.0
+        vec_min = min(vec_scores.values()) if vec_scores else 0.0
         vec_max = max(vec_scores.values()) if vec_scores else 1.0
+        
+        bm25_range = bm25_max - bm25_min if bm25_max > bm25_min else 1.0
+        vec_range = vec_max - vec_min if vec_max > vec_min else 1.0
         
         # Build card lookup: card_id -> card data
         card_map = {cid: card for cid, _, card in bm25_results}
@@ -61,8 +66,8 @@ class HybridRetriever:
         
         combined = []
         for cid in all_ids:
-            bm25_norm = bm25_scores.get(cid, 0) / bm25_max
-            vec_norm = vec_scores.get(cid, 0) / vec_max
+            bm25_norm = (bm25_scores.get(cid, 0) - bm25_min) / bm25_range
+            vec_norm = (vec_scores.get(cid, 0) - vec_min) / vec_range
             
             hit_rate = self.bm25_weight * bm25_norm + self.vector_weight * vec_norm
             
@@ -75,6 +80,9 @@ class HybridRetriever:
                     "hit_rate": round(hit_rate, 3),
                     "id": cid,
                     "doc_file": card.get("doc_file", ""),
+                    "tags": card.get("tags", []),
+                    "keywords": card.get("keywords", []),
+                    "semantic": card.get("semantic", {}),
                     "_bm25": round(bm25_norm, 3),
                     "_vec": round(vec_norm, 3),
                 })

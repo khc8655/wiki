@@ -2,7 +2,7 @@
 
 > Karpathy-style 自组织知识库：意图驱动 · 结构化查询 · 反馈闭环 · 卡片进化
 
-[![Version](https://img.shields.io/badge/version-v3.3-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-v3.4-blue.svg)]()
 [![Setup](https://img.shields.io/badge/setup-python3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
@@ -42,6 +42,7 @@ python3 query_unified.py "AE700的接口参数" --json
 │  ├─ category_list: 分类列举 → SQL按category分组       │
 │  ├─ compare_table: 对比表格 → SQL聚合comparison表     │
 │  ├─ tender_params: 招标参数 → SQL查proposal表         │
+│  ├─ spec_query: 参数查询 → SQL查comparison+proposal   │
 │  ├─ accessory: 配件查询 → SQL按category匹配          │
 │  ├─ eol_info: 停产信息 → SQL检查note字段             │
 │  └─ solution: 方案描述 → hybrid搜索cards              │
@@ -52,45 +53,40 @@ python3 query_unified.py "AE700的接口参数" --json
 │  SQL查询策略                                          │
 │  ├─ 结构化查询：直接SQL，保留表格关系                  │
 │  ├─ 分组聚合：按category/spec_name分组               │
-│  └─ 精确匹配：用model字段精确匹配                    │
+│  ├─ 精确匹配：用model字段精确匹配                    │
+│  └─ 多意图过滤：根据关键词过滤参数类型               │
 └──────────────────────────────────────────────────────┘
     │
     ▼
 ┌──────────────────────────────────────────────────────┐
 │  结构化输出                                           │
-│  ├─ 价格：直接返回价格+描述                          │
-│  ├─ 分类：按分组返回所有分类                         │
-│  ├─ 对比：聚合为完整对比表格                         │
-│  └─ 招标：返回完整招标参数                           │
+│  ├─ 价格：动态评分 + 去重 + 实际出处                  │
+│  ├─ 分类：汇总表格 + 详情                            │
+│  ├─ 对比：聚合表格 + 差异摘要                        │
+│  ├─ 参数：结构化表格（单模型竖排/多模型对比）         │
+│  └─ 招标：完整招标参数                               │
 └──────────────────────────────────────────────────────┘
-```
-    ├──→ 🔄 更新类 (BM25 粗粒度整段)
-    │     版本迭代/新功能完整段落
-    │
-    └──→ 🎞️ PPT类  (图片理解, 页码定位)
-          文件+页码+描述
-    │
-    ▼
-┌──────────────────────────────────────────────────────┐
-│  三环自组织回路 (Karpathy-style)                      │
-│  🔄 反馈闭环:  每次查询自动记录, 低质量触发优化建议    │
-│  🔄 权重优化:  积累反馈 → 自动调权 (Trust Region)     │
-│  🔄 卡片聚类:  embedding → 发现相似/合并/主题提炼      │
-└──────────────────────────────────────────────────────┘
-    │
-    ▼
-输出: 原文 + 出处 + 命中率 (不总结, 数据严谨)
 ```
 
 ---
 
-## 模型使用
+## v3.4 更新内容
 
-|| 模型 | 角色 | 频次 |
-|------|------|------|
-| Qwen/Qwen2.5-7B-Instruct | 段落标注 + 查询理解 + 对话优化 | 入库/查询 |
-| BAAI/bge-large-zh-v1.5 | 向量化 (1024维) | 入库/查询 |
-| SiliconFlow API | 免费模型托管 | - |
+### 🔴 关键修复
+- **spec_query 路由修复**：接口参数查询现在走SQL而非知识库搜索
+- **价格去重**：PE8000等重复行合并，空价格行过滤
+
+### 🟡 体验优化
+- **动态命中率**：精确匹配=1.0，名称包含=0.9，category匹配=0.7
+- **实际出处**：从硬编码"pricing表"改为 `文件:Sheet:行号`
+- **对比摘要**：自动标注差异项和相同项
+- **配件排除**：配件查询不再包含主产品本身
+- **多意图支持**："简单参数和招标参数"同时返回两种类型
+
+### ⚪ 算法改进
+- **BM25归一化**：从max-norm改为true min-max
+- **tag_boost修复**：hybrid检索现在正确传递tags/keywords/semantic
+- **超5条汇总**：大量结果先输出汇总表格再输出详情
 
 ---
 
@@ -101,6 +97,9 @@ python3 query_unified.py "AE700的接口参数" --json
 python3 query_unified.py "AE700的接口参数"
 python3 query_unified.py "GE600招标参数"
 python3 query_unified.py "XE800与AE800对比"
+
+# 多意图查询
+python3 query_unified.py "GE600的简单参数和招标参数"  # 同时返回渠道参数+招标参数
 
 # 分面过滤（结果 >5 条时自动输出分面摘要）
 python3 query_unified.py "小鱼易连"            # 输出: 招标参数(phase_tender):N | 方案参数(phase_proposal):N
@@ -154,7 +153,9 @@ wiki/
 │   ├── build_embeddings.py  # 向量化构建
 │   ├── build_excel_knowledge.py  # Excel 入库（含分面提取）
 │   ├── organize_cards.py    # 卡片聚类 + 主题生成
-│   └── run_fast_tests.py    # 9项测试用例
+│   ├── run_fast_tests.py    # 11项测试用例
+│   ├── import_from_nas.py   # NAS数据导入
+│   └── refresh_from_nas.sh  # NAS数据刷新
 │
 ├── cards/sections/           # 1885张结构化卡片 (含 semantic 标注)
 ├── cards/manifest.json       # 卡片清单
@@ -162,7 +163,6 @@ wiki/
 ├── index_store/              # 索引 + embeddings + feedback log
 ├── raw/                      # 原始 Markdown 文档
 └── topics/                   # 主题聚合页
-```
 ```
 
 ---
@@ -179,6 +179,24 @@ wiki/
 ---
 
 ## 版本历史
+
+### v3.4 — 查询引擎全面优化
+- 🔴 spec_query 路由修复（接口参数走SQL而非知识库）
+- 🔴 价格去重 + 空价格过滤
+- 🟡 动态命中率评分（1.0→0.9→0.7）
+- 🟡 实际出处显示（非硬编码）
+- 🟡 对比查询差异摘要
+- 🟡 配件查询排除主产品
+- 🟡 多意图查询支持
+- ⚪ BM25 min-max 归一化
+- ⚪ tag_boost 数据传递修复
+- ⚪ 超5条结果汇总表格
+- ⚪ SQL注入修复
+
+### v3.3 — 意图驱动架构重构
+- ✅ 7种意图各走SQL策略
+- ✅ pricing表category字段补充AI分类和配件关联
+- ✅ proposal卡片标题自动包含型号
 
 ### v3.1 — Karpathy-style 自组织知识系统
 - 🔄 反馈闭环：查询自动记录, 低质量触发对话式优化
@@ -214,6 +232,7 @@ wiki/
 | [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构设计 |
 | [API.md](API.md) | 脚本/API 参考 |
 | [CHANGELOG.md](CHANGELOG.md) | 版本更新日志 |
+| [docs/nas_import_guide.md](docs/nas_import_guide.md) | NAS数据导入指南 |
 
 ---
 
